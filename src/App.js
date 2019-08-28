@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './logo.svg';
+import logo from './logo.jpg';
 import './App.css';
 
 function App() {
@@ -9,15 +9,8 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           MazzEvents
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        </p>        
+        <button>Log in</button>
       </header>
     </div>
   );
