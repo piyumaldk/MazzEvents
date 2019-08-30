@@ -1,7 +1,6 @@
 import React from 'react';
 import logo from './logo.jpg';
 import './App.css';
-import {Button} from 'react-bootstrap';
 import {Nav} from 'react-bootstrap';
 
 function App() {
@@ -30,7 +29,7 @@ function App() {
 
 
       
-      <p ClassName="Title">MazzEvents</p>   
+      <p ClassName="Title">MazzEvents - Colombo</p>   
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />     
       </header>
