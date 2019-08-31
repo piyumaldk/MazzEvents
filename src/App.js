@@ -11,7 +11,7 @@ class App extends Component {
     return (
       <Router>
         <div className="container">
-          <h2>MazzEvents</h2>
+          <h2>MazzEvents - nipuni</h2>
           <Route path="/" exact component={Home} />
           <Route path="/login" component={LogIn} />
         </div>
