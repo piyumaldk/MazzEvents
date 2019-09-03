@@ -8,6 +8,8 @@ import { Nav, Navbar, Form, FormControl, Button } from 'react-bootstrap';
 import Home from "./Components/Home.component";
 import LogIn from "./Components/LogIn.component";
 import AboutUs from "./Components/AboutUs.component";
+import SignUp from "./Components/SignUp.component";
+
 
 class App extends Component {
   render() {
@@ -19,7 +21,7 @@ class App extends Component {
             <Nav className="mr-auto">
               <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/login">Log in</Nav.Link>
-              <Nav.Link href="/aboutus">About us</Nav.Link>
+              <Nav.Link href="/aboutus">About us</Nav.Link>       
             </Nav>
             <Form inline>
               <FormControl type="text" placeholder="Search" className="mr-sm-2" />
@@ -30,6 +32,8 @@ class App extends Component {
           <Route path="/" exact component={Home} />
           <Route path="/login" component={LogIn} />
           <Route path="/aboutus" component={AboutUs} />
+          <Route path="/signup" component={SignUp} />
+          
         </div>
       </Router>
     );

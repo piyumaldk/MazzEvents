@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Nav, Form, Button} from 'react-bootstrap';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import SignUp from "./SignUp.component";
+
+
 
 export default class LogIn extends Component {
     render() {
         return (
-            <router>
+            <div>
                 <Form>
                     <Form.Group controlId="loginEmail">
                         <Form.Label>Email address</Form.Label>
@@ -26,12 +26,12 @@ export default class LogIn extends Component {
                         Log in
                     </Button>
                     <p>Don't have an account?</p>
-                    <Nav className="mr-auto">
-                        <Nav.Link href="/signup">Create one here!</Nav.Link>
+                    <Nav>
+                    <Nav.Link href="/signup">Create one here!</Nav.Link>
                     </Nav>
                 </Form>
-                <Route path="/signup" component={SignUp} />
-            </router>
+            </div>   
+            
         )
     }
 }

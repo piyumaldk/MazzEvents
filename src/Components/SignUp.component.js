@@ -4,7 +4,7 @@ import {Form, Button} from 'react-bootstrap';
 export default class SignUp extends Component {
     render() {
         return (
-            
+            <div>
                 <Form>
                     <Form.Group controlId="signFirstUpName">
                         <Form.Label>First Name</Form.Label>
@@ -29,7 +29,7 @@ export default class SignUp extends Component {
                         Sign Up
                     </Button>
                 </Form>
-            
+            </div>
         )
     }
 }
