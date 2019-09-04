@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import Upper from "../Components/Upper.component";
 import {Form, Button} from 'react-bootstrap';
 
 export default class SignUp extends Component {
     render() {
         return (
             <div>
+                <Upper/>
                 <Form>
                     <Form.Group controlId="signFirstUpName">
                         <Form.Label>First Name</Form.Label>

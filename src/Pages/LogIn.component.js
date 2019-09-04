@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
+import Upper from "../Components/Upper.component";
 import { Nav, Form, Button} from 'react-bootstrap';
-
-
 
 export default class LogIn extends Component {
     render() {
         return (
             <div>
+                <Upper/>
                 <Form>
                     <Form.Group controlId="loginEmail">
                         <Form.Label>Email address</Form.Label>
