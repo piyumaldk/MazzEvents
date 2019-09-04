@@ -6,6 +6,7 @@ import Home from "./Pages/Home.component";
 import LogIn from "./Pages/LogIn.component";
 import AboutUs from "./Pages/AboutUs.component";
 import SignUp from "./Pages/SignUp.component";
+import StaffDash from "./Pages/StaffDash.component";
 
 class App extends Component {
   render() {
@@ -16,6 +17,7 @@ class App extends Component {
           <Route path="/login" component={LogIn} />
           <Route path="/aboutus" component={AboutUs} />
           <Route path="/signup" component={SignUp} />
+          <Route path="/staffdashboard" component={StaffDash} />
         </div>
       </Router>
     );

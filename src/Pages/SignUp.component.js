@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import Upper from "../Components/Upper.component";
 import {Form, Button} from 'react-bootstrap';
-
+import '../App.css';
 export default class SignUp extends Component {
     render() {
         return (
             <div>
                 <Upper/>
+                <div id="login">
+                    <div class="col-md-5 col-md-offset-5">
                 <Form>
                     <Form.Group controlId="signFirstUpName">
                         <Form.Label>First Name</Form.Label>
@@ -31,6 +33,8 @@ export default class SignUp extends Component {
                         Sign Up
                     </Button>
                 </Form>
+                </div>
+                </div>
             </div>
         )
     }
