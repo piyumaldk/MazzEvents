@@ -6,7 +6,7 @@ import Home from "./Pages/Home.component";
 import LogIn from "./Pages/LogIn.component";
 import AboutUs from "./Pages/AboutUs.component";
 import SignUp from "./Pages/SignUp.component";
-import StaffDash from "./Pages/StaffDash.component";
+import StaffCalendar from "./Pages/Staff/Calendar.component";
 
 class App extends Component {
   render() {
@@ -19,7 +19,7 @@ class App extends Component {
           <Route path="/aboutus" component={AboutUs} />
         {/*login Routes*/}
           <Route path="/signup" component={SignUp} />
-          <Route path="/staffdashboard" component={StaffDash} />
+          <Route path="/staff/calendar" component={StaffCalendar} />
         </div>
       </Router>
     );
