@@ -24,7 +24,7 @@ export default class LogIn extends Component {
                                 <Form.Check type="checkbox" label="Remember me" />
                             </Form.Group>
                             
-                            <Button variant="primary" href="/staff/calendar" type="submit">
+                            <Button variant="primary" href="/customer/dash" type="submit">
                                 Log in
                             </Button>
                             <p>Don't have an account?</p>
