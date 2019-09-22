@@ -1,14 +1,12 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 
 import Home from "./Pages/Home.component";
 import LogIn from "./Pages/LogIn.component";
 import AboutUs from "./Pages/AboutUs.component";
 import SignUp from "./Pages/SignUp.component";
-import StaffCalendar from "./Pages/Staff/Calendar.component";
 import LeftCustomer from "./Components/LeftCustomer.component";
 
 import ServiceProviderAddServices from "./Pages/ServiceProvider/AddServices.component";
@@ -23,6 +21,18 @@ import ServiceProviderReviews from "./Pages/ServiceProvider/Reviews.component";
 import ServiceProviderViewBookings from "./Pages/ServiceProvider/ViewBookings.component";
 import ServiceProviderViewServices from "./Pages/ServiceProvider/ViewServices.component";
 
+import StaffAccount from "./Pages/Staff/Account.component";
+import StaffChat from "./Pages/Staff/Chat.component";
+import StaffMailbox from "./Pages/Staff/Mailbox.component";
+import StaffEventCalendar from "./Pages/Staff/EventCalendar.component";
+import StaffCharts from "./Pages/Staff/Charts.component";
+import StaffSendNotification from "./Pages/Staff/SendNotification.component";
+import StaffServiceProvider from "./Pages/Staff/ServiceProvider.component";
+import StaffCustomer from "./Pages/Staff/Customer.component";
+import StaffCustomerReviews from "./Pages/Staff/CustomerReviews.component";
+import StaffAuthentication from "./Pages/Staff/Authentication.component";
+import StaffMaps from "./Pages/Staff/Maps.component";
+
 class App extends Component {
   render() {
     return (
@@ -34,7 +44,6 @@ class App extends Component {
           <Route path="/aboutus" component={AboutUs} />
         {/*login Routes*/}
           <Route path="/signup" component={SignUp} />
-          <Route path="/staff/calendar" component={StaffCalendar}/>
         {/*Customer Routes*/}
           <Route path="/customer/dash" component={LeftCustomer} />
         {/*Service Provider Routes*/}
@@ -49,10 +58,21 @@ class App extends Component {
           <Route path="/serviceprovider/reviews" component={ServiceProviderReviews}/>
           <Route path="/serviceprovider/viewbookings" component={ServiceProviderViewBookings}/>
           <Route path="/serviceprovider/viewservices" component={ServiceProviderViewServices}/>
+          {/*Staff Routes*/}
+          <Route path="/staff/account" component={StaffAccount}/>
+          <Route path="/staff/chat" component={StaffChat}/>
+          <Route path="/staff/mailbox" component={StaffMailbox}/>
+          <Route path="/staff/eventcalendar" component={StaffEventCalendar}/>
+          <Route path="/staff/charts" component={StaffCharts}/>
+          <Route path="/staff/sendnotification" component={StaffSendNotification}/>
+          <Route path="/staff/serviceprovider" component={StaffServiceProvider}/>
+          <Route path="/staff/customer" component={StaffCustomer}/>
+          <Route path="/staff/customerreviews" component={StaffCustomerReviews}/>
+          <Route path="/staff/authentication" component={StaffAuthentication}/>
+          <Route path="/staff/maps" component={StaffMaps}/>
         </div>
       </Router>
     );
   }
 }
-
 export default App;
