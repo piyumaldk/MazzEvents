@@ -33,6 +33,18 @@ import StaffCustomerReviews from "./Pages/Staff/CustomerReviews.component";
 import StaffAuthentication from "./Pages/Staff/Authentication.component";
 import StaffMaps from "./Pages/Staff/Maps.component";
 
+import AdminChat from "./Pages/Admin/Chat.component";
+import AdminAuthentication from "./Pages/Admin/Authentication.component";
+import AdminCharts from "./Pages/Admin/Charts.component";
+import AdminCustomer from "./Pages/Admin/Customer.component";
+import AdminCustomerReviews from "./Pages/Admin/CustomerReviews.component";
+import AdminEventCalendar from "./Pages/Admin/EventCalendar.component";
+import AdminMailbox from "./Pages/Admin/Mailbox.component";
+import AdminMaps from "./Pages/Admin/Maps.component";
+import AdminSendNotification from "./Pages/Admin/SendNotification.component";
+import AdminServiceProvider from "./Pages/Admin/ServiceProvider.component";
+import AdminStaff from "./Pages/Admin/Staff.component";
+
 class App extends Component {
   render() {
     return (
@@ -70,6 +82,18 @@ class App extends Component {
           <Route path="/staff/customerreviews" component={StaffCustomerReviews}/>
           <Route path="/staff/authentication" component={StaffAuthentication}/>
           <Route path="/staff/maps" component={StaffMaps}/>
+          {/*Admin Routes*/}
+          <Route path="/admin/chat" component={AdminChat}/>
+          <Route path="/admin/authenticaton" component={AdminAuthentication}/>
+          <Route path="/admin/charts" component={AdminCharts}/>
+          <Route path="/admin/customer" component={AdminCustomer}/>
+          <Route path="/admin/customerreviews" component={AdminCustomerReviews}/>
+          <Route path="/admin/eventcalendar" component={AdminEventCalendar}/>
+          <Route path="/admin/mailbox" component={AdminMailbox}/>
+          <Route path="/admin/maps" component={AdminMaps}/>
+          <Route path="/admin/sendnotification" component={AdminSendNotification}/>
+          <Route path="/admin/serviceprovider" component={AdminServiceProvider}/>
+          <Route path="/admin/staff" component={AdminStaff}/>
         </div>
       </Router>
     );
