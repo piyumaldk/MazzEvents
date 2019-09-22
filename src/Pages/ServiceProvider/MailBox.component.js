@@ -6,7 +6,9 @@ export default class ServiceProviderMailBox extends Component {
         return (
             <div>
                 <LeftSeriveProvider/>
+                <div class="right">
                 This is Serivce Proivder - Mail Box
+                </div>
             </div>   
         )
     }

@@ -6,7 +6,9 @@ export default class ServiceProviderViewBookings extends Component {
         return (
             <div>
                 <LeftSeriveProvider/>
+                <div class="right">
                 This is Serivce Proivder -View Bookings
+                </div>
             </div>   
         )
     }

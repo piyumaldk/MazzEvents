@@ -6,7 +6,10 @@ export default class ServiceProviderAccount extends Component {
         return (
             <div>
                 <LeftSeriveProvider/>
-                This is Serivce Proivder - Account
+                <div class="right">
+                    This is Serivce Proivder - Account
+                </div>
+                
             </div>   
         )
     }

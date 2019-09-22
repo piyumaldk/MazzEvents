@@ -6,7 +6,9 @@ export default class ServiceProviderCharts extends Component {
         return (
             <div>
                 <LeftSeriveProvider/>
+                <div class="right">
                 This is Serivce Proivder - Charts
+                </div>
             </div>   
         )
     }

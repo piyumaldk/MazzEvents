@@ -6,7 +6,9 @@ export default class ServiceProviderChat extends Component {
         return (
             <div>
                 <LeftSeriveProvider/>
-                This is Serivce Proivder - Chat
+                <div class="right">
+                    This is Serivce Proivder - Chat
+                </div>
             </div>   
         )
     }
