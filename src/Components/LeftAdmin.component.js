@@ -8,20 +8,20 @@ export default class LeftServiceProvider extends Component {
     render() {
         return (
             <div class="sidenav">
-                <h5>Service Provider</h5>
+                <h5>Admintrator Dashboard</h5>
                 <p>Components</p>
-                <a href="/serviceprovider/addservices">Add Services +</a>
-                <a href="/serviceprovider/chat">Chat</a>
-                <a href="/serviceprovider/mailbox">Mail Box</a>
-                <a href="/serviceprovider/eventcalendar">Event Calendar</a>
-                <a href="/serviceprovider/charts">Charts</a>
-                <a href="/serviceprovider/viewservices">View Services</a>
-                <a href="/serviceprovider/reviews">Reviews and Ratings</a>
-                <a href="/serviceprovider/adddiscountoffers">Add Discount Offers +</a>
-                <a href="/serviceprovider/viewbookings">View Bookings</a>
+                <a href="/admin/staff">Staff +</a>
+                <a href="/admin/chat">Chat</a>
+                <a href="/admin/mailbox">Mail Box</a>
+                <a href="/admin/eventcalendar">Event Calendar</a>
+                <a href="/admin/charts">Charts</a>
+                <a href="/admin/sendnotification">Send Notification</a>
+                <a href="/admin/serviceprovider">Service Provider +</a>
+                <a href="/admin/customer">Customer +</a>
                 <p>More Pages</p>
-                <a href="/serviceprovider/account">Account</a>
-                <a href="/serviceprovider/help">Help</a>
+                <a href="/admin/customerreviews">Customer Reviews</a>
+                <a href="/admin/authenticaton">Authentication</a>
+                <a href="/admin/maps">Maps</a>
             </div>
         )
     }
