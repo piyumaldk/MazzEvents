@@ -9,6 +9,20 @@ import AboutUs from "./Pages/AboutUs.component";
 import SignUp from "./Pages/SignUp.component";
 import LeftCustomer from "./Components/LeftCustomer.component";
 
+import Photographers from "./Pages/Customer/Photographers.component";
+import Dj from "./Pages/Customer/Dj.component";
+import Music from "./Pages/Customer/Music.component";
+import Catering from "./Pages/Customer/Catering.component";
+import ReceptionHalls from "./Pages/Customer/ReceptionHalls.component";
+import Hotels from "./Pages/Customer/Hotels.component";
+import Flowers from "./Pages/Customer/Flowers.component";
+import Vehicles from "./Pages/Customer/Vehicles.component";
+import Cchat from "./Pages/Customer/Cchat.component";
+import CmailBox from "./Pages/Customer/CmailBox.component";
+import CeventsCalendar from "./Pages/Customer/CeventsCalendar.component";
+import CustomerAccount from "./Pages/Customer/CustomerAccount.component";
+import Rating from "./Pages/Customer/Rating.component";
+
 import ServiceProviderAddServices from "./Pages/ServiceProvider/AddServices.component";
 import ServiceProviderAccount from "./Pages/ServiceProvider/Account.component";
 import ServiceProviderAddDiscountOffers from "./Pages/ServiceProvider/AddDiscountOffers.component";
@@ -58,6 +72,19 @@ class App extends Component {
           <Route path="/signup" component={SignUp} />
         {/*Customer Routes*/}
           <Route path="/customer/dash" component={LeftCustomer} />
+          <Route path="/customer/photo" component={Photographers} />
+          <Route path="/customer/dj" component={Dj} />
+          <Route path="/customer/music" component={Music} />
+          <Route path="/customer/catering" component={Catering} />
+          <Route path="/customer/reception" component={ReceptionHalls} />
+          <Route path="/customer/hotels" component={Hotels} />
+          <Route path="/customer/flowers" component={Flowers} />
+          <Route path="/customer/vehicles" component={Vehicles} />
+          <Route path="/customer/chat" component={Cchat} />
+          <Route path="/customer/mail" component={CmailBox} />
+          <Route path="/customer/eventscl" component={CeventsCalendar} />
+          <Route path="/customer/account" component={CustomerAccount} />
+          <Route path="/customer/rating" component={Rating} />
         {/*Service Provider Routes*/}
           <Route path="/serviceprovider/addservices" component={ServiceProviderAddServices}/>
           <Route path="/serviceprovider/account" component={ServiceProviderAccount}/>
