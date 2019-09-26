@@ -1,16 +1,11 @@
 import React, { Component } from 'react';
 import Upper from "../Components/Upper.component";
-import '../Css/Home.css';
 import {Carousel} from 'react-bootstrap';
-import '../Css/Home.css';
 export default class Home extends Component {
     render() {
         return (
-            
                 <div>  
-                
                     <Upper/>   
-                    
                         <Carousel>
                             <Carousel.Item>
                                 <img className="d-block w-100" src="https://cdn.pixabay.com/photo/2015/05/15/14/50/concert-768722_960_720.jpg" alt="First slide"/>
@@ -35,10 +30,8 @@ export default class Home extends Component {
                                     <p>18th December : @AvenraNegombo(5pm onwards)</p>
                                 </Carousel.Caption>
                             </Carousel.Item>
-                        </Carousel>
-                
-                </div> 
-            
+                        </Carousel>   
+                </div>  
         )
     }
 }

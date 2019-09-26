@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import Upper from "../Components/Upper.component";
 import { Nav, Form, Button} from 'react-bootstrap';
-import '../App.css';
 
 export default class LogIn extends Component {
     render() {
         return (
             <div>
                 <Upper/>
-                <div id="login">    
+                <div class="login">    
                     <div class="col-md-5 col-md-offset-5">
                         <Form>
                             <Form.Group controlId="loginEmail">

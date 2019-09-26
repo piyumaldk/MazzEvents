@@ -1,5 +1,3 @@
-import SideNav, {NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
-import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import React, { Component } from 'react';
 import '../Css/Sidenav.css';
 
@@ -7,7 +5,7 @@ export default class LeftServiceProvider extends Component {
     render() {
         return (
             <div> 
-                <nav id="sidenav">
+                <nav class="sidenav">
                     <ul class="list-unstyled components">
                         <h>Administrator Dashboard</h>
                         <p>Components</p>
