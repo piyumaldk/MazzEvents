@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 
 import Home from "./Pages/Home.component";
 import LogIn from "./Pages/LogIn.component";
@@ -127,3 +126,5 @@ class App extends Component {
   }
 }
 export default App;
+
+
