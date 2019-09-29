@@ -6,10 +6,15 @@ import {Card, ListGroup, ListGroupItem} from 'react-bootstrap';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 // import Photographers from "../Customer/P.component";
 
+import LeftCustomer from "../../Components/LeftCustomer.component";
+
 export default class LeftStaff extends Component {
     render() {
         return (
+           
             <div>
+                 <LeftCustomer/>
+                 <div>
                 <Card style={{ width: '18rem' }}>
                     <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
                     <Card.Body>
@@ -29,6 +34,7 @@ export default class LeftStaff extends Component {
                         <Card.Link href="#">Another Link</Card.Link>
                     </Card.Body>
                 </Card>
+                </div>
             </div>
         )
     }

@@ -28,7 +28,7 @@ export default class LogIn extends Component {
                             <Button variant="primary" href="/customer/dash" type="submit">
                                 Log in
                             </Button>
-                            <Button variant="primary" href="/customer/photo" type="submit">
+                            <Button variant="primary" href="/customer/dash" type="submit">
                                 card
                             </Button>
                             <p>Don't have an account?</p>
