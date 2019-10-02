@@ -7,6 +7,7 @@ import LogIn from "./Pages/LogIn.component";
 import AboutUs from "./Pages/AboutUs.component";
 import SignUp from "./Pages/SignUp.component";
 import LeftCustomer from "./Components/LeftCustomer.component";
+import Cards from "./Components/Cads/Cards"
 
 import Photographers from "./Pages/Customer/Photographers.component";
 import Dj from "./Pages/Customer/Dj.component";
@@ -71,7 +72,8 @@ class App extends Component {
           <Route path="/signup" component={SignUp} />
         {/*Customer Routes*/}
           <Route path="/customer/dash" component={LeftCustomer} />
-          <Route path="/customer/photo" component={Photographers} />
+          {/* <Route path="/customer/photo" component={Photographers} /> */}
+          <Route path="/customer/photo" component={Cards} />
           <Route path="/customer/dj" component={Dj} />
           <Route path="/customer/music" component={Music} />
           <Route path="/customer/catering" component={Catering} />
