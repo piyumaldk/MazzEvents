@@ -35,3 +35,18 @@ module.exports.findByEmail = function(email,callback){
         const query = {email:email};
         Customer.findOne(query,callback); 
 };
+
+
+module.exports.passwordCheck = function(plainpassword, hash,callback){
+    bcrypt.compare(plainpassword, hash, function(err, res) {
+        // res === true
+        //console.log(res);
+        if(err) throw err;
+
+        if(res){
+            callback(null,res);
+        }
+    });
+};
+
+

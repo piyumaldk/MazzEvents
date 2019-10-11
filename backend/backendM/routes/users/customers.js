@@ -34,9 +34,19 @@ router.post("/login", (req,res)=>{
 
         if(err) throw err;
 
-        if(customerReg){
-            console.log(customerReg);
+        if(!customerReg){
+            //console.log(customerReg);
+            res.json({state:false, msg:"No user found"});
         }
+
+        Customer.passwordCheck(password,customerReg.password, function(err, match){
+
+            if(err) throw err;
+
+            if(match){
+                console.log("email, password combination worked")
+            }
+        });
 
     });
 
