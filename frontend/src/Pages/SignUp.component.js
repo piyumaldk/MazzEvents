@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Upper from "../Components/Upper.component";
 import {Form, Button} from 'react-bootstrap';
 import '../App.css';
+import axios from 'axios';
+
 export default class SignUp extends Component {
 
     constructor(props){
@@ -75,6 +77,21 @@ export default class SignUp extends Component {
         console.log(`signup Number: ${this.state.signup_number}`);
         console.log(`signup Location: ${this.state.signup_location}`);
         console.log(`signup Completed: ${this.state.signup_completed}`);
+
+        const newSignUp = {
+            signup_firstName: this.state.signup_firstName, 
+            signup_lastName: this.state.signup_lastName,
+            signup_email: this.state.signup_email,
+            signup_password: this.state.signup_password,
+            signup_aPassword: this.state.signup_aPassword,
+            signup_number: this.state.signup_number,
+            signup_location: this.state.signup_location,
+            signup_completed: this.state.signup_completed
+        }
+
+        axios.post('http://localhost:4000/mazzevents/add', newSignUp)
+            .then(res => console.log(res.data));
+
         this.setState({
             signup_firstName: '',
             signup_lastName: '',
