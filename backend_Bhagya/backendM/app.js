@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 
 
 const app = express();
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 4002;
 
 //read the body as jason
 app.use(bodyParser.urlencoded({extended: false}));
