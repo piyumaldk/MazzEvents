@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Upper from "../Components/Upper.component";
-import {Form, Button, Col} from 'react-bootstrap';
+import {Form, Button} from 'react-bootstrap';
 import '../App.css';
 import axios from 'axios';
 
@@ -11,7 +11,6 @@ export default class SignUp extends Component {
 
         this.onChangeSignupFirstName = this.onChangeSignupFirstName.bind(this);
         this.onChangeSignupLastName = this.onChangeSignupLastName.bind(this);
-        this.onChangeSignupOption = this.onChangeSignupOption.bind(this);
         this.onChangeSignupEmail = this.onChangeSignupEmail.bind(this);
         this.onChangeSignupPassword = this.onChangeSignupPassword.bind(this);
         this.onChangeSignupAPassword = this.onChangeSignupAPassword.bind(this);
@@ -22,7 +21,6 @@ export default class SignUp extends Component {
         this.state = {
             signup_firstName: '',
             signup_lastName: '',
-            signup_option: '',
             signup_email: '',
             signup_password: '',
             signup_aPassword: '',
@@ -40,11 +38,6 @@ export default class SignUp extends Component {
     onChangeSignupLastName(e){
         this.setState({
             signup_lastName: e.target.value
-        });
-    }
-    onChangeSignupOption(e){
-        this.setState({
-            signup_option: e.target.value
         });
     }
     onChangeSignupEmail(e){
@@ -78,7 +71,6 @@ export default class SignUp extends Component {
         console.log(`Form submitted:`);
         console.log(`signup First Name: ${this.state.signup_firstName}`);
         console.log(`signup last Name: ${this.state.signup_lastName}`);
-        console.log(`signup option: ${this.state.signup_option}`);
         console.log(`signup Email: ${this.state.signup_email}`);
         console.log(`signup Password: ${this.state.signup_password}`);
         console.log(`signup Password Agian: ${this.state.signup_aPassword}`);
@@ -89,7 +81,6 @@ export default class SignUp extends Component {
         const newSignUp = {
             signup_firstName: this.state.signup_firstName, 
             signup_lastName: this.state.signup_lastName,
-            signup_option: this.state.signup_option,
             signup_email: this.state.signup_email,
             signup_password: this.state.signup_password,
             signup_aPassword: this.state.signup_aPassword,
@@ -104,7 +95,6 @@ export default class SignUp extends Component {
         this.setState({
             signup_firstName: '',
             signup_lastName: '',
-            singup_option: '',
             signup_email: '',
             signup_password: '',
             signup_aPassword: '',
@@ -131,14 +121,6 @@ export default class SignUp extends Component {
                                 <Form.Control type="name" placeholder="LastName" value={this.state.signup_lastName} onChange={this.onChangeSignupLastName}/>
                             </Form.Group>
 
-                            <Form.Group as={Col} controlId="formGridState">
-                                <Form.Label>Are you a Free User or a Service Provider?</Form.Label>
-                                <select name="cars" type="name" value={this.state.signup_option} onChange={this.onChangeSignupOption}>
-                                    <option value="0">Free User</option>
-                                    <option value="1">Service Provider</option>
-                                </select>
-                            </Form.Group>
-
                             <Form.Group controlId="password">
                                 <Form.Label>Password</Form.Label>
                                 <Form.Control type="password" placeholder="Password" value={this.state.signup_password} onChange={this.onChangeSignupPassword}/>
@@ -163,7 +145,7 @@ export default class SignUp extends Component {
                                 <Form.Label>Location</Form.Label>
                                 <Form.Control type="name" placeholder="Location" value={this.state.signup_location} onChange={this.onChangeSignupLocation}/>
                             </Form.Group>
-
+                            
                             <Button variant="primary" type="submit" value="Create Signup" >
                                 Sign Up
                             </Button>
