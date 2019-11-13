@@ -1,5 +1,6 @@
 import React from 'react';
 import "./card-style.css";
+import * as Icon from 'react-feather';
 
 
 
@@ -14,20 +15,33 @@ const Card = props => {
             </div>
             <div className="card-body text-dark">
                 <h4 className="card-title">{props.title} </h4>
-                <p className="card-text text-secondary">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Possimus recusandae placeat, itaque accusamus adipisci exercitationem necessitatibus minima earum aliquid quas?
-              </p>
-                <a href="#" className="btn btn-outline-success">Go Anywhere</a>
                 <div className="container">
                     <div className="row">
                         <div className="col-md-4">
-                            facebook
+                           <h6>EVENTS</h6>
                   </div>
                         <div className="col-md-4">
-                            facebook
+                            <h6>RATINGS</h6>
                   </div>
                         <div className="col-md-4">
-                            facebook
+                            <h6>VIEWS</h6>
+                  </div>
+                    </div>
+
+                </div>
+
+                <br/>
+                {/* <a href="#" className="btn btn-outline-success">Go Anywhere</a> */}
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-4">
+                            <Icon.Facebook color="blue" size={20}/>
+                  </div>
+                        <div className="col-md-4">
+                            <Icon.Instagram/>
+                  </div>
+                        <div className="col-md-4">
+                            <Icon.Twitter/>
                   </div>
                     </div>
 
