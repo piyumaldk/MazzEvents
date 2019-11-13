@@ -24,6 +24,8 @@ import CeventsCalendar from "./Pages/Customer/CeventsCalendar.component";
 import CustomerAccount from "./Pages/Customer/CustomerAccount.component";
 import Rating from "./Pages/Customer/Rating.component";
 
+import CustomerAddServices from "./Pages/Customer/AddServices.component";
+
 import ServiceProviderAddServices from "./Pages/ServiceProvider/AddServices.component";
 import ServiceProviderAccount from "./Pages/ServiceProvider/Account.component";
 import ServiceProviderAddDiscountOffers from "./Pages/ServiceProvider/AddDiscountOffers.component";
@@ -79,7 +81,7 @@ class App extends Component {
           <Route path="/signup" component={SignUp} />
         {/*Customer Routes*/}
           <Route path="/customer/dash" component={LeftCustomer} />
-          {/* <Route path="/customer/photo" component={Photographers} /> */}
+          {/*<Route path="/customer/photo" component={Photographers}/>*/}
           <Route path="/customer/photo" component={Cards} />
           <Route path="/customer/dj" component={Dj} />
           <Route path="/customer/music" component={Music} />
@@ -93,6 +95,8 @@ class App extends Component {
           <Route path="/customer/eventscl" component={CeventsCalendar} />
           <Route path="/customer/account" component={CustomerAccount} />
           <Route path="/customer/rating" component={Rating} />
+
+          <Route path="/customer/addservices" component={CustomerAddServices}/>
         {/*Service Provider Routes*/}
           <Route path="/serviceprovider/addservices" component={ServiceProviderAddServices}/>
           <Route path="/serviceprovider/account" component={ServiceProviderAccount}/>

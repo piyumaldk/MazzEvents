@@ -65,4 +65,3 @@ app.use('/mazzevents', signupRoutes);
 app.listen(PORT, function() {
     console.log("Server is running on Port: " + PORT);
 });
-
