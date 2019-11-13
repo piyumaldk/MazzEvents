@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Home from "../Pages/Home.component";
 
 
-export default class LeftStaff extends Component {
+export default class LeftCustomer extends Component {
     render() {
         return (
             <div class="sidenav">

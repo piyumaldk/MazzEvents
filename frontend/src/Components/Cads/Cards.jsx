@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Card from './CardUI';
-import LeftCustomer from "../../Components/LeftCustomer.component";
+import LeftCustomer from "../LeftCustomer.component";
 
 import img1 from '../../Images/new.jpg'
 
