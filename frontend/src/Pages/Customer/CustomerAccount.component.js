@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import LeftCustomer from "../../Components/LeftCustomer.component";
 
+
 export default class CustomerAccount extends Component {
     render() {
         return (
@@ -9,6 +10,7 @@ export default class CustomerAccount extends Component {
                 <LeftCustomer/>
                 <div class="right">
                 This is LeftCustomer - CustomerAccount
+                    
                 </div>
             </div>   
         )

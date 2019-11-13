@@ -12,7 +12,7 @@ export default class LeftStaff extends Component {
             <div class="sidenav">
                 <h5>Customer</h5>
                 <p>Components</p>
-                <a href="/serviceprovider/addservices">Add Services +</a>
+                {/* <a href="/serviceprovider/addservices">Add Services +</a> */}
                 <a href="/customer/photo">Photographers</a>
                 <a href="/customer/dj">Dj</a>
                 <a href="/customer/music">Music</a>
