@@ -35,6 +35,7 @@ signupRoutes.route('/update/:id').post(function(req, res) {
         else {
             signup.signup_firstName = req.body.signup_firstName;
             signup.signup_lastName = req.body.signup_lastName;
+            signup.signup_option = req.body.signup_option;
             signup.signup_email = req.body.signup_email;
             signup.signup_password = req.body.signup_password;
             signup.signup_aPassword = req.body.signup_aPassword;

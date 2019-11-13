@@ -7,6 +7,9 @@ let SignUp = new Schema({
     signup_lastName: {
         type: String
     },
+    signup_option: {
+        type: String
+    },
     signup_email: {
         type: String
     },
