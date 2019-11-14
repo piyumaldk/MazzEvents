@@ -31,4 +31,5 @@ let SignUpSchema = new Schema({
         type: Boolean
     }
 });
-module.exports = SignUp = mongoose.model('signUp', SignUpSchema);
+
+module.exports = SignUp = mongoose.model('signUpServiceProvider', SignUpSchema);

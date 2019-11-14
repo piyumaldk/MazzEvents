@@ -98,9 +98,15 @@ export default class SignUp extends Component {
             signup_completed: this.state.signup_completed
         }
 
-        axios.post('http://localhost:4000/mazzevents/add', newSignUp)
-            .then(res => console.log(res.data));
-
+        if(this.state.signup_option=="1"){
+            axios.post('http://localhost:4000/mazzevents/addserviceprovider', newSignUp)
+                .then(res => console.log(res.data));
+        }
+        else{
+            axios.post('http://localhost:4000/mazzevents/addcustomer', newSignUp)
+                .then(res => console.log(res.data));
+        }
+        
         this.setState({
             signup_firstName: '',
             signup_lastName: '',

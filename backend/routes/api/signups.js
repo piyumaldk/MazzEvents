@@ -2,7 +2,8 @@ const express = require('express');
 const signupRoutes = express.Router();
 
 //Signup Model
-let SignUp = require('../../models/signup.model');
+let SignUpCustomer = require('../../models/signupcustomer.model');
+let SignUpServiceProvider = require('../../models/signupserviceprovider.model');
 
 //@route    GET api/signups
 //@desc     Get all signups
@@ -58,8 +59,19 @@ signupRoutes.route('/update/:id').post(function(req, res) {
 //@route    POST api/signups
 //@desc     Add a new signup
 //@access   Public
-signupRoutes.route('/add').post(function(req, res) {
-    let signup = new SignUp(req.body);
+signupRoutes.route('/addcustomer').post(function(req, res) {
+    let signup = new SignUpCustomer(req.body);
+    signup.save()
+        .then(signup => {
+            res.status(200).json({'signup': 'signup added successfully'});
+        })
+        .catch(err => {
+            res.status(400).send('adding new signup failed');
+        });
+});
+
+signupRoutes.route('/addserviceprovider').post(function(req, res) {
+    let signup = new SignUpServiceProvider(req.body);
     signup.save()
         .then(signup => {
             res.status(200).json({'signup': 'signup added successfully'});
