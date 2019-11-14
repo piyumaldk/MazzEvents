@@ -1,10 +1,15 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-let SignUp = new Schema({
+
+//Create Schema
+let SignUpSchema = new Schema({
     signup_firstName: {
         type: String
     },
     signup_lastName: {
+        type: String
+    },
+    signup_option: {
         type: String
     },
     signup_email: {
@@ -26,4 +31,4 @@ let SignUp = new Schema({
         type: Boolean
     }
 });
-module.exports = mongoose.model('SignUp', SignUp);
+module.exports = SignUp = mongoose.model('signUp', SignUpSchema);
