@@ -27,6 +27,7 @@ import Rating from "./Pages/Customer/Rating.component";
 import CustomerAddServices from "./Pages/Customer/AddServices.component";
 
 import ServiceProviderAddServices from "./Pages/ServiceProvider/AddServices.component";
+import ServiceProviderAddServicesForm from "./Pages/ServiceProvider/AddServicesForm.component";
 import ServiceProviderAccount from "./Pages/ServiceProvider/Account.component";
 import ServiceProviderAddDiscountOffers from "./Pages/ServiceProvider/AddDiscountOffers.component";
 import ServiceProviderCharts from "./Pages/ServiceProvider/Charts.component";
@@ -99,6 +100,7 @@ class App extends Component {
           <Route path="/customer/addservices" component={CustomerAddServices}/>
         {/*Service Provider Routes*/}
           <Route path="/serviceprovider/addservices" component={ServiceProviderAddServices}/>
+          <Route path="/serviceprovider/addservicesForm" component={ServiceProviderAddServicesForm}/>
           <Route path="/serviceprovider/account" component={ServiceProviderAccount}/>
           <Route path="/serviceprovider/adddiscountoffers" component={ServiceProviderAddDiscountOffers}/>
           <Route path="/serviceprovider/charts" component={ServiceProviderCharts}/>
