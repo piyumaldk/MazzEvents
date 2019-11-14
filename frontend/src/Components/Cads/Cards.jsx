@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Card from './CardUI';
 import LeftCustomer from "../LeftCustomer.component";
 
-import img1 from '../../Images/new.jpg'
+import img1 from '../../Images/Customer/new.jpg'
 
 class Cards extends Component {
     render() {
