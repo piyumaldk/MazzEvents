@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import LeftSeriveProvider from "../../Components/LeftServiceProvider.component";
-import {Form, Button, Badge} from 'react-bootstrap';
+import {Button, Badge, Table, Nav} from 'react-bootstrap';
 
 export default class ServiceProviderAddServices extends Component {
     render() {
@@ -8,38 +8,50 @@ export default class ServiceProviderAddServices extends Component {
             <div>
                 <LeftSeriveProvider/>
                 <div class="right">
-                <h3>
-    Add Services<Badge variant="secondary"></Badge>
-  </h3>
-
-                <Form>
-                <Form.Group controlId="exampleForm.ControlSelect1">
-    <Form.Label>Service Type</Form.Label>
-    <Form.Control as="select">
-      <option>Decoration</option>
-      <option>Catering</option>
-      <option>Hotel and venue</option>
-      <option>Vehicles</option>
-      <option>5</option>
-    </Form.Control>
-  </Form.Group>
-
-  <Form.Group controlId="formPrice">
-    <Form.Label>Price</Form.Label>
-    <Form.Control type="price" placeholder="Add a price" />
-  </Form.Group>
-  <Form.Group controlId="formDescription">
-    <Form.Label>Description</Form.Label>
-    <Form.Control type="description" placeholder="Tell people what's included" />
-  </Form.Group>
-  <Form.Group controlId="formDuration">
-    <Form.Label>Duration</Form.Label>
-    <Form.Control type="duration" placeholder="" />
-  </Form.Group>
-  <Button variant="primary" type="submit">
-    Submit
-  </Button>
-</Form>
+                <h3>Add Services<Badge variant="secondary"></Badge></h3>
+                <Table striped bordered hover variant="dark">
+                  <thead>
+                    <tr>
+                      <th>Service No</th>
+                      <th>Location</th>
+                      <th>Category</th>
+                      <th>Service</th>
+                      <th>Price</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>Colombo</td>
+                      <td>Photography</td>
+                      <td>basic package</td>
+                      <td>20000</td>
+                      <td>..........</td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>Colombo</td>
+                      <td>Photography</td>
+                      <td>standard </td>
+                      <td>50000</td>
+                      <td>..........</td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>Colombo</td>
+                      <td>Photography</td>
+                      <td>premium</td>
+                      <td>70000</td>
+                      <td>..........</td>
+                    </tr>
+                  </tbody>
+                </Table>
+                
+                
+                <Nav>
+                    <Nav.Link href="/serviceprovider/addservicesForm"><Button variant="primary">Add service</Button></Nav.Link>
+                </Nav>
                 </div>
             </div>   
         )
