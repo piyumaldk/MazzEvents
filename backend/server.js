@@ -7,12 +7,15 @@ const cors = require('cors');
 app.use(cors());
 
 //Bodyparser Middleware
-app.use(bodyParser.json());
+app.use(express.json());
 
 //DB Config
 const db = require('./config/keys').mongoURI;
 //Connect to Mongo
-mongoose.connect(db, { useNewUrlParser: true });
+mongoose.connect(db, { 
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
 //Use Routes
 app.use('/mazzevents', signups);
 

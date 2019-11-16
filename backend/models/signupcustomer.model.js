@@ -27,6 +27,10 @@ let SignUpSchema = new Schema({
     signup_location: {
         type: String
     },
+    signup_date: {
+        type: Date,
+        default: Date.now
+    },
     signup_completed: {
         type: Boolean
     }
