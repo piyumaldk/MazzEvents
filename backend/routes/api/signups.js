@@ -1,32 +1,71 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
+const config = require('config');
+const jwt = require('jsonwebtoken');
 //Signup Model
-let SignUpCustomer = require('../../models/signupcustomer.model');
-let SignUpServiceProvider = require('../../models/signupserviceprovider.model');
+const SignUpCustomer = require('../../models/signupcustomer.model');
+const SignUpServiceProvider = require('../../models/signupserviceprovider.model');
 
 //@route    POST api/signups
 //@desc     Add a new signup
 //@access   Public
-router.post('/addcustomer', (req, res) => {
+router.post('/', (req, res) => {
     const {signup_firstName, signup_lastName, signup_email, signup_password, signup_aPassword, signup_number, signup_location} = req.body;
-    //Simple Validation
+    //Simple Validation (Emty Form)
     if(!signup_firstName || !signup_lastName || !signup_email || !signup_password || !signup_aPassword || !signup_number || !signup_location){
         return res.status(400).json({ msg: 'Please enter all fileds'});
     }
     //Check for existing signupcustomer
-    SignUpCustomer.findOne({ signup_firstName })
+    SignUpCustomer.findOne({ signup_email })
         .then(signupcustomer => {
             if(signupcustomer) return res.status(400).json({ msg: 'SignUpCustomer already exists'});
             const newSignUpCustomer = new SignUpCustomer({
                 signup_firstName, signup_lastName, signup_email, signup_password, signup_aPassword, signup_number, signup_location
             });
             
-            //Create salt & Hash
-            newSignUpCustomer.save()
-                .then(signup => {
-                    res.status(200).json({'signup': 'signup added successfully'});
+            //Create salt & Hash (Need Decryption here)
+            bcrypt.genSalt(10, (err, salt) => {
+                bcrypt.hash(newSignUpCustomer.signup_password, salt, (err, hash) => {
+                  if(err) throw err;
+                  newSignUpCustomer.signup_password = hash;
+                  newSignUpCustomer.save()
+                    .then(signupcustomer => {
+                      jwt.sign(
+                        { id: signupcustomer.id },
+                        config.get('jwtSecret'),
+                        { expiresIn: 3600 },
+                        (err, token) => {
+                          if(err) throw err;
+                          res.json({
+                            token,
+                            signupcustomer: {
+                              id: signupcustomer.id,
+                              firstName: signupcustomer.signup_firstName,
+                              lastName: signupcustomer.signup_lastName,
+                              aPassword: signupcustomer.signup_aPassword,
+                              email: signupcustomer.signup_email,
+                              number: signupcustomer.signup_number,
+                              location: signupcustomer.signup_location
+                            }
+                          });
+                        }
+                      )
+                    });
                 })
+              })
+            /*newSignUpCustomer.save()
+                .then(signup => {
+                    jwt.sign(
+                        { id: signup.id },
+                        config.get('jwtSecret'),
+                        { expiresIn: 3600 },
+                        (err, token) => {
+                            if(err) throw err;
+                            res.status(200).json({token, 'signup': 'signup added successfully'});
+                        }
+                    )  
+                })*/
         })
 });
 router.route('/addserviceprovider').post(function(req, res) {
