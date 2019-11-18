@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import { Container } from 'reactstrap';
+import { Provider } from 'react-redux';
+import store from './store';
+import { loadUser} from './Actions/authActions';
 
 import Home from "./Pages/Home.component";
 import LogIn from "./Pages/LogIn.component";
@@ -66,6 +69,9 @@ import AdminStaff from "./Pages/Admin/Staff.component";
 
 
 class App extends Component {
+  componentDidMount() {
+    store.dispatch(loadUser());
+  }
   render() {
     return (
       <Router>
