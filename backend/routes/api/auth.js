@@ -3,6 +3,7 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const config = require('config');
 const jwt = require('jsonwebtoken');
+const auth = require('../../middleware/auth');
 //Signup Model
 const SignUpCustomer = require('../../models/signupcustomer.model');
 let SignUpServiceProvider = require('../../models/signupserviceprovider.model');
@@ -60,4 +61,12 @@ router.route('/addserviceprovider').post(function(req, res) {
         });
 });
 
+//@route    GET api/auth/signupcustomer
+//@desc     Get customer data
+//@access   Private
+router.get('/signupcustomer', auth, (req, res) => {
+    SignUpCustomer.findById(req.user.id)
+        .select('-signup_password')
+        .then(signupcustomer => res.json(signupcustomer));
+});
 module.exports = router;
