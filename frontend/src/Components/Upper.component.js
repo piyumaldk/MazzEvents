@@ -1,8 +1,30 @@
 import React, { Component } from 'react';
 import { Nav, Navbar, Form, FormControl, Button, Modal, ButtonToolbar } from 'react-bootstrap';
 import Logo from '../Images/logo.jpg';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { NavItem } from 'react-bootstrap';
+import SignUp from '../Components/Auth/RegisterModal';
 
 export default class Upper extends Component {
+    state = {
+        modal: false,
+        signup_firstName: '',
+        signup_lastName: '',
+        signup_option: '',
+        signup_email: '',
+        signup_password: '',
+        signup_aPassword: '',
+        signup_number: '',
+        signup_location: '',
+        msg: null
+      };
+    
+      static propTypes = {
+        isAuthenticated: PropTypes.bool,
+        error: PropTypes.object.isRequired
+      };
+
     render() {
         return (
             <div>
@@ -14,6 +36,7 @@ export default class Upper extends Component {
                     <Nav className="mr-auto">
                         <Nav.Link href="/">Home</Nav.Link>
                         <Nav.Link href="/login">Log in</Nav.Link>
+                        <SignUp />
                         <App />
                         <Nav.Link href="/aboutus">About us</Nav.Link>       
                     </Nav>
@@ -86,3 +109,4 @@ export default class Upper extends Component {
 
     }
 }
+
