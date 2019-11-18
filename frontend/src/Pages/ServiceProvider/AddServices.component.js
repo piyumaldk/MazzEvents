@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import LeftSeriveProvider from "../../Components/LeftServiceProvider.component";
-import {Button, Badge, Table, Nav} from 'react-bootstrap';
+import {Button, Badge, Table, Nav, Modal, ButtonToolbar, Form, Col} from 'react-bootstrap';
 
 export default class ServiceProviderAddServices extends Component {
     render() {
@@ -29,6 +29,7 @@ export default class ServiceProviderAddServices extends Component {
                       <td>20000</td>
                       <td>..........</td>
                     </tr>
+                    <tr></tr>
                     <tr>
                       <td>2</td>
                       <td>Colombo</td>
@@ -37,6 +38,8 @@ export default class ServiceProviderAddServices extends Component {
                       <td>50000</td>
                       <td>..........</td>
                     </tr>
+                    
+
                     <tr>
                       <td>3</td>
                       <td>Colombo</td>
@@ -47,13 +50,105 @@ export default class ServiceProviderAddServices extends Component {
                     </tr>
                   </tbody>
                 </Table>
+
+                <App />
                 
                 
-                <Nav>
-                    <Nav.Link href="/serviceprovider/addservicesForm"><Button variant="primary">Add service</Button></Nav.Link>
-                </Nav>
+
+                
+
                 </div>
             </div>   
         )
+        function MyVerticallyCenteredModal(props) {
+          return (
+            <Modal
+              {...props}
+              size="lg"
+              aria-labelledby="contained-modal-title-vcenter"
+              centered
+            >
+              <Modal.Header closeButton>
+                <Modal.Title id="contained-modal-title-vcenter">
+                  Add services form
+                </Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+              <Form>
+                    <Form.Row>
+                        <Form.Group as={Col} controlId="formGridLocation">
+                        <Form.Label>Location</Form.Label>
+                        <Form.Control type="Location" />
+                        </Form.Group>
+                    </Form.Row>
+
+                    <Form.Row>
+                        <Form.Group as={Col} controlId="formGridCategory">
+                        <Form.Label>Category</Form.Label>
+                        <Form.Control as="select"  >
+                            <option>Photography</option>
+                            <option>DJ</option>
+                            <option>Music</option>
+                            <option>Catering</option>
+                            <option>Reception Halls</option>
+                            <option>Hotels</option>
+                            <option>Fowers</option>
+                            <option>Vehicles</option>
+                            
+                        </Form.Control>
+                        </Form.Group>
+
+                        <Form.Group as={Col} controlId="formGridService">
+                        <Form.Label>Service</Form.Label>
+                        <Form.Control />
+                        </Form.Group>
+
+                        <Form.Group as={Col} controlId="formGridPrice">
+                        <Form.Label>Price</Form.Label>
+                        <Form.Control />
+                        </Form.Group>
+
+                        
+                    </Form.Row>
+                    <Form.Group controlId="formGridDescription">
+                            <Form.Label>Description</Form.Label>
+                            <Form.Control as="textarea" rows="3" />
+                    </Form.Group>
+
+
+
+                    
+
+                </Form>
+
+              </Modal.Body>
+              <Modal.Footer>
+                <Button onClick={props.onHide}>Add</Button>
+              </Modal.Footer>
+            </Modal>
+          );
+        }
+        
+        function App() {
+          const [modalShow, setModalShow] = React.useState(false);
+        
+          return (
+            <ButtonToolbar>
+              <Button variant="primary" onClick={() => setModalShow(true)}>
+                Add service
+              </Button>
+        
+              <MyVerticallyCenteredModal
+                show={modalShow}
+                onHide={() => setModalShow(false)}
+              />
+            </ButtonToolbar>
+          );
+        }
+        
+        
     }
+
+    
+    
 }
