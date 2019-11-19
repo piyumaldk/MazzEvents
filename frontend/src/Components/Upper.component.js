@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { NavItem } from 'react-bootstrap';
 import SignUp from './Auth/RegisterModal';
+import LogIn from './Auth/LoginModal';
 import Logout from './Auth/LogOut';
 
 export default class Upper extends Component {
@@ -36,8 +37,9 @@ export default class Upper extends Component {
                 <Navbar.Brand href="/">MazzEvents</Navbar.Brand>
                     <Nav className="mr-auto">
                         <Nav.Link href="/">Home</Nav.Link>
-                        <Nav.Link href="/login">Log in</Nav.Link>
+                        
                         <SignUp/>
+                        <LogIn/>
                         <Logout/>
                         <App />
                         <Nav.Link href="/aboutus">About us</Nav.Link>       
