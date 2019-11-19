@@ -19,7 +19,7 @@ router.post('/', (req, res) => {
     //Check for existing signupcustomer
     SignUpCustomer.findOne({ signup_email })
         .then(signupcustomer => {
-            if(signupcustomer) return res.status(400).json({ msg: 'SignUpCustomer already exists'});
+            if(signupcustomer) return res.status(400).json({ msg: 'User already exists'});
             const newSignUpCustomer = new SignUpCustomer({
                 signup_firstName, signup_lastName, signup_email, signup_password, signup_aPassword, signup_number, signup_location
             });

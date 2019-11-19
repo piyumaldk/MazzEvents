@@ -4,7 +4,8 @@ import Logo from '../Images/logo.jpg';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { NavItem } from 'react-bootstrap';
-import SignUp from '../Components/Auth/RegisterModal';
+import SignUp from './Auth/RegisterModal';
+import Logout from './Auth/LogOut';
 
 export default class Upper extends Component {
     state = {
@@ -36,7 +37,8 @@ export default class Upper extends Component {
                     <Nav className="mr-auto">
                         <Nav.Link href="/">Home</Nav.Link>
                         <Nav.Link href="/login">Log in</Nav.Link>
-                        <SignUp />
+                        <SignUp/>
+                        <Logout/>
                         <App />
                         <Nav.Link href="/aboutus">About us</Nav.Link>       
                     </Nav>
