@@ -38,7 +38,7 @@ export const register = ({ signup_firstName, signup_lastName, signup_email, sign
         headers: {
             'Content-Type': 'application/json'
         }
-    }
+    };
     //Request body
     const body = JSON.stringify({ signup_firstName, signup_lastName, signup_email, signup_password, signup_aPassword, signup_number, signup_location});
 
@@ -62,10 +62,12 @@ export const login = ({ signup_email, signup_password }) => dispatch => {
         headers: {
             'Content-Type': 'application/json'
         }
-    }
+    };
     //Request body
     const body = JSON.stringify({ signup_email, signup_password });
 
+
+    
     axios.post('/mazzevents/auth', body, config)
         .then(res => dispatch({
             type: LOGIN_SUCCESS,
@@ -77,6 +79,21 @@ export const login = ({ signup_email, signup_password }) => dispatch => {
                 type: LOGIN_FAIL
             });
         });
+    
+    /*
+    axios.post('/mazzevents/auth', body, config)
+        .then(res => {
+            console.log(res);
+            dispatch({ type: LOGIN_SUCCESS,payload: res.data});
+            localStorage.setItem(res);
+        })
+        .catch(err => {
+            dispatch(returnErrors(err.response.data, err.response.status, 'LOGIN_FAIL'));
+            dispatch({
+                type: LOGIN_FAIL
+            });
+        });  
+    */   
 };
 
 //Logout User
@@ -93,12 +110,12 @@ export const tokenConfig = getState => {
     //Headers
     const config = {
         headers: {
-            "Content-type": "application/json"
+            'Content-type': 'application/json'
         }
-    }
+    };
     //If token, add to header
     if(token) {
         config.headers['x-auth-token'] = token;
     }
     return config;
-}
+};

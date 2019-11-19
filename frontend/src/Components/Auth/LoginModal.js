@@ -66,14 +66,14 @@ class LogIn extends Component {
   onSubmit = e => {
     e.preventDefault();
     const { signup_email, signup_password } = this.state;
-    const signupcustomer = {
+    const user = {
         signup_email,
         signup_password
-    }
+    };
     //Attempt to login
-    this.props.login(signupcustomer);
+    this.props.login(user);
     
-  }
+  };
 
   render() {
     return (

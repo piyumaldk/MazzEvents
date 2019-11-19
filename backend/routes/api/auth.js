@@ -15,17 +15,17 @@ router.post('/', (req, res) => {
     const {signup_email, signup_password} = req.body;
     //Simple Validation (Emty Form)
     if(!signup_email || !signup_password){
-        return res.status(400).json({ msg: 'Please fill all fileds'});
+        return res.status(400).json({ msg: 'Please fill all fileds!'});
     }
     //Check for existing signupcustomer
     SignUpCustomer.findOne({ signup_email })
         .then(signupcustomer => {
-            if(!signupcustomer) return res.status(400).json({ msg: 'This email already has a account'});
+            if(!signupcustomer) return res.status(400).json({ msg: 'This email does not have an account!'});
             
             //Validate password
             bcrypt.compare(signup_password, signupcustomer.signup_password)
                 .then(isMatch => {
-                    if(!isMatch) return res.status(400).json({ msg: 'Check the password again'});
+                    if(!isMatch) return res.status(400).json({ msg: 'Check your password again!'});
 
                     jwt.sign(
                         { id: signupcustomer.id },
