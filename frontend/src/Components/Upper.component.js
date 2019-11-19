@@ -19,6 +19,7 @@ class Upper extends Component {
           <span className='navbar-text mr-3'>
             <strong>{signupcustomer ? `Hi ${signupcustomer.firstName}!` : ``}</strong>
           </span>
+          <Nav.Link href="/serviceprovider/addservices">Dashboard</Nav.Link>
           <Logout/>
         </Fragment>
       );
