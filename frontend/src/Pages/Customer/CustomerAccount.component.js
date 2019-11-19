@@ -1,14 +1,10 @@
-
 import React, { Component } from 'react';
 import LeftCustomer from "../../Components/LeftCustomer.component";
-import {Form, Button, Col} from 'react-bootstrap';
+import {Form, Button } from 'react-bootstrap';
 import '../../Css/Customer.css'
 import img1 from "../../Images/Customer/new.jpg"
 
-
-export default class CustomerAccount extends Component {
-
-   
+export default class CustomerAccount extends Component {   
     render() {
         return (
             <div>
@@ -16,7 +12,7 @@ export default class CustomerAccount extends Component {
                 <div className="container">
                 This is LeftCustomer - CustomerAccount
                 <div className="overflow">
-                <img src={img1} alt='image 1' className="card-img-top" />
+                <img alt="" src={img1} className="card-img-top" />
                 </div>
                 <div id="signup">
                     <div className="col-md-5 col-md-offset-5">

@@ -1,8 +1,6 @@
-import SideNav, {NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import React, { Component } from 'react';
 import '../App.css';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 export default class LeftServiceProvider extends Component {
     render() {

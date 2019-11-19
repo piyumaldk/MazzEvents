@@ -1,8 +1,6 @@
-
 import React, { Component } from 'react';
 import LeftCustomer from "../../Components/LeftCustomer.component";
 import Card from '../../Components/Cads/CardUI';
-import {Link} from 'react-router-dom';
 import axios from 'axios';
 
 import img1 from '../../Images/Customer/hotel.jpg';

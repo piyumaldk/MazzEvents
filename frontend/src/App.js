@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Container } from 'reactstrap';
 import { Provider } from 'react-redux';
 import store from './store';
 import { loadUser} from './Actions/authActions';
@@ -13,7 +12,6 @@ import SignUp from "./Pages/SignUp.component";
 import LeftCustomer from "./Components/LeftCustomer.component";
 import Cards from "./Components/Cads/Cards"
 
-import Photographers from "./Pages/Customer/Photographers.component";
 import Dj from "./Pages/Customer/Dj.component";
 import Music from "./Pages/Customer/Music.component";
 import Catering from "./Pages/Customer/Catering.component";
@@ -26,7 +24,6 @@ import CmailBox from "./Pages/Customer/CmailBox.component";
 import CeventsCalendar from "./Pages/Customer/CeventsCalendar.component";
 import CustomerAccount from "./Pages/Customer/CustomerAccount.component";
 import Rating from "./Pages/Customer/Rating.component";
-
 import CustomerAddServices from "./Pages/Customer/AddServices.component";
 
 import ServiceProviderAddServices from "./Pages/ServiceProvider/AddServices.component";
@@ -66,8 +63,6 @@ import AdminSendNotification from "./Pages/Admin/SendNotification.component";
 import AdminServiceProvider from "./Pages/Admin/ServiceProvider.component";
 import AdminStaff from "./Pages/Admin/Staff.component";
 
-
-
 class App extends Component {
   componentDidMount() {
     store.dispatch(loadUser());
@@ -77,10 +72,6 @@ class App extends Component {
       <Provider store={store}>
       <Router>
         <div>
-
-
-        
-
         {/*home Routes*/}
           <Route path="/" exact component={Home} />
           <Route path="/login" component={LogIn} />
@@ -103,7 +94,6 @@ class App extends Component {
           <Route path="/customer/eventscl" component={CeventsCalendar} />
           <Route path="/customer/account" component={CustomerAccount} />
           <Route path="/customer/rating" component={Rating} />
-
           <Route path="/customer/addservices" component={CustomerAddServices}/>
         {/*Service Provider Routes*/}
           <Route path="/serviceprovider/addservices" component={ServiceProviderAddServices}/>
@@ -148,8 +138,6 @@ class App extends Component {
     );
   }
 }
-
-
 export default App;
 
 

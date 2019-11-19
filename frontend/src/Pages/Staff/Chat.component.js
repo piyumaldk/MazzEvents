@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import LeftStaff from "../../Components/LeftStaff.component";
-import {Table, Nav, Form, Col, Button, Modal,Alert} from 'react-bootstrap';
+import {Table, Nav, Form, Button } from 'react-bootstrap';
 export default class StaffChat extends Component {
     render() {
         return (

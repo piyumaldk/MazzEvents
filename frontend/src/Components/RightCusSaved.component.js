@@ -1,14 +1,8 @@
-
 import React, { Component } from 'react';
 import '../App.css';
 
-
-
 export default class RightCusSaved extends Component {
-
-
     render() {
-
         console.log(this.props.selectedFlowers)
         var SelectedList = this.props.selectedFlowers.map(title=>{
             return (
@@ -21,8 +15,6 @@ export default class RightCusSaved extends Component {
             )
     
         })
-
-        
         return(
             <ul>
                 <h3>Selected Flowers</h3>

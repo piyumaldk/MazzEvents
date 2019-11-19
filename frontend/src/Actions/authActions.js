@@ -10,8 +10,6 @@ import {
     LOGOUT_SUCCESS,
     REGISTER_SUCCESS,
     REGISTER_FAIL,
-    GET_ERRORS,
-    CLEAR_ERRORS
     } from "./types";
     
 //Check token & load user
