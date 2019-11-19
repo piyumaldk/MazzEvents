@@ -1,9 +1,36 @@
-import React, { Component } from 'react';
-import { Nav, Navbar, Form, FormControl, Button } from 'react-bootstrap';
+import React, { Component, Fragment } from 'react';
+import { Nav, Navbar, Form, FormControl, Button, Modal, ButtonToolbar } from 'react-bootstrap';
 import Logo from '../Images/logo.jpg';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { NavItem } from 'react-bootstrap';
+import SignUp from './Auth/RegisterModal';
+import LogIn from './Auth/LoginModal';
+import Logout from './Auth/LogOut';
 
-export default class Upper extends Component {
+class Upper extends Component {
+  static propTypes = {
+    auth: PropTypes.object.isRequired
+  }
     render() {
+      const { isAuthenticated, signupcustomer} = this.props.auth;
+      const authLinks = (
+        <Fragment>
+          <span className='navbar-text mr-3'>
+            <strong>{signupcustomer ? `Hi ${signupcustomer.firstName}!` : ``}</strong>
+          </span>
+          <Nav.Link href="/serviceprovider/addservices">Dashboard</Nav.Link>
+          <Logout/>
+        </Fragment>
+      );
+      const guestLinks = (
+        <Fragment>
+          <SignUp/>
+          <LogIn/>
+        </Fragment>
+      );
+
+
         return (
             <div>
                 <Navbar bg="dark" variant="dark">
@@ -13,7 +40,10 @@ export default class Upper extends Component {
                 <Navbar.Brand href="/">MazzEvents</Navbar.Brand>
                     <Nav className="mr-auto">
                         <Nav.Link href="/">Home</Nav.Link>
-                        <Nav.Link href="/login">Log in</Nav.Link>
+                        
+                        { isAuthenticated ? authLinks : guestLinks }
+                        
+                        
                         <Nav.Link href="/aboutus">About us</Nav.Link>       
                     </Nav>
                     <Form inline>
@@ -25,3 +55,9 @@ export default class Upper extends Component {
         )
     }
 }
+
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+export default connect(mapStateToProps, null)(Upper);
+

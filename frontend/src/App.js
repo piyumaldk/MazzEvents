@@ -74,6 +74,7 @@ class App extends Component {
   }
   render() {
     return (
+      <Provider store={store}>
       <Router>
         <div>
 
@@ -143,6 +144,7 @@ class App extends Component {
           <Route path="/admin/staff" component={AdminStaff}/>
         </div>
       </Router>
+      </Provider>
     );
   }
 }
