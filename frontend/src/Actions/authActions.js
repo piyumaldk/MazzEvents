@@ -17,7 +17,7 @@ export const loadUser = () => (dispatch, getState) => {
     //User loading
     dispatch({ type: USER_LOADING});
 
-    axios.get('/mazzevents/addcustomer', tokenConfig(getState))
+    axios.get('/', tokenConfig(getState))
         .then(res => dispatch({
             type: USER_LOADED,
             payload: res.data
