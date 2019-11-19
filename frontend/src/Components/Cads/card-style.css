@@ -47,4 +47,10 @@ body {
 
 .card_ss {
     padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+.mycard{
+    margin-right: 30px;
+    margin-bottom: 30px;
 }

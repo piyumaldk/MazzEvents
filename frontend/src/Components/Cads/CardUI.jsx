@@ -9,7 +9,7 @@ import * as Icon from 'react-feather';
 const Card = props => {
     return (
 
-        <div className="card text-center shadow">
+        <div className="card text-center shadow mycard">
             <div className="overflow">
                 <img src={props.imgsrc} alt='image 1' className="card-img-top" />
             </div>
@@ -31,21 +31,23 @@ const Card = props => {
                 </div>
 
                 <br/>
-                {/* <a href="#" className="btn btn-outline-success">Go Anywhere</a> */}
+               
                 <div className="container">
                     <div className="row">
                         <div className="col-md-4">
-                            <Icon.Facebook color="blue" size={20}/>
+                            <Icon.Facebook color="blue" size={30}/>
                   </div>
                         <div className="col-md-4">
-                            <Icon.Instagram/>
+                            <Icon.Instagram color="pink"/>
                   </div>
                         <div className="col-md-4">
-                            <Icon.Twitter/>
+                            <Icon.Twitter color="blue"/>
                   </div>
                     </div>
 
                 </div>
+                <br/>
+                <a className="btn btn-outline-success" onClick={()=>props.selectFlower(props.title)}>Select</a>
             </div>
         </div>
     );

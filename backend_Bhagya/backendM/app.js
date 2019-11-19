@@ -43,7 +43,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 // const signupRoutes = express.Router();
-const PORT = 4000;
+const PORT = 4001;
 
 let SignUp = require('./routes/users/customers');
 

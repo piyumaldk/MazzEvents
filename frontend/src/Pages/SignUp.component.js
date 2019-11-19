@@ -106,6 +106,9 @@ export default class SignUp extends Component {
             axios.post('http://localhost:4000/mazzevents/addcustomer', newSignUp)
                 .then(res => console.log(res.data));
         }
+
+        // axios.post('http://localhost:4001/mazzevent/customers', newSignUp)
+        //         .then(res => console.log(res.data));
         
         this.setState({
             signup_firstName: '',

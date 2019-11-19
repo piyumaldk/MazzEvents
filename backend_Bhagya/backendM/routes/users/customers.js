@@ -60,6 +60,7 @@ const express = require('express');
 const signupRoutes = express.Router();
 
 const Customer = require('../../models/users/customerReg');
+const CustomerSelection = require('../../models/users/customerSelections');
 
 
 signupRoutes.route('/').get(function(req, res) {
@@ -103,15 +104,18 @@ signupRoutes.route('/update/:id').post(function(req, res) {
 });
 
 signupRoutes.route('/add').post(function(req, res) {
-    console.log("saniod")
-    let customers = new Customer(req.body);
-    customers.save()
-        .then(signup => {
-            res.status(200).json({'signup': 'signup added successfully'});
-        })
-        .catch(err => {
-            res.status(400).send('adding new signup failed');
-        });
+    // let customers = new Customer(req.body);
+    console.log(req.body);
+    
+    // customers.save()
+    //     .then(signup => {
+    //         res.status(200).json({'signup': 'signup added successfully'});
+    //     })
+    //     .catch(err => {
+    //         res.status(400).send('adding new signup failed');
+    //     });
 });
+
+
 
 module.exports = signupRoutes;

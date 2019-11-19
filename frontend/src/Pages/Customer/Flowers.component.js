@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import LeftCustomer from "../../Components/LeftCustomer.component";
+import RightCusSaved from "../../Components/RightCusSaved.component"
 import Card from '../../Components/Cads/CardUI';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
@@ -16,13 +17,17 @@ export default class Flowers extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            customers: []
+            customers: [],
+            selected: []
         };
+
 
     }
 
+
+
     componentDidMount() {
-        axios.get('http://localhost:4000/mazzevent/')
+        axios.get('http://localhost:4001/mazzevent/')
             .then(response => {
                 // let tmpArray = []
                 const mydata = response.data
@@ -41,6 +46,29 @@ export default class Flowers extends Component {
     //     });
     // }
 
+    selectFlower(title) {
+
+        // console.log(title)
+
+        const flowers = this.state.selected.concat([title])
+        this.setState({
+            selected: flowers
+        })
+    }
+
+    myClick() {
+        const selectedArray = JSON.stringify(this.state.selected)
+        console.log(selectedArray)
+        let json = JSON.stringify(selectedArray);
+        const url = 'http://localhost:4001/mazzevent/add';
+
+        axios.post(url, json)
+            .then(res => console.log(res.data));
+    }
+
+
+
+
 
     render() {
         console.log(this.state.customers);
@@ -49,18 +77,28 @@ export default class Flowers extends Component {
                 <div className="col-md-3">
                     <LeftCustomer />
                 </div>
-                <div className="col-md-9">
+                <div className="col-md-7">
                     <div className="row card_ss">
-                  
+
                         {Object.keys(this.state.customers).map((key) => (
-                            <Card imgsrc={img1} title={this.state.customers[key].signup_firstName} />
+                            <Card imgsrc={img1} title={this.state.customers[key].signup_firstName}
+                                selectFlower={this.selectFlower.bind(this)} />
                         ))}
-                       
                     </div>
+                </div>
+                <div className="col-md-2">
+                    <RightCusSaved selectedFlowers={this.state.selected}
+
+                    />
+                </div>
+                <div>
+                    <button onClick={() => this.myClick()}>
+                        Save Array
+                    </button>
                 </div>
             </div>
         )
     }
 }
 
-//meke css tika hdaganna 
+//meke css tika hdanna 
