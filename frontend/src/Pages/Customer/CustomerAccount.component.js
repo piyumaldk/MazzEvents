@@ -1,78 +1,101 @@
-import React, { Component } from 'react';
-import LeftCustomer from "../../Components/LeftCustomer.component";
-import {Form, Button } from 'react-bootstrap';
-import '../../Css/Customer.css'
-import img1 from "../../Images/Customer/new.jpg"
 
-export default class CustomerAccount extends Component {   
+import LeftCustomer from "../../Components/LeftCustomer.component";
+import React, { Component } from 'react';
+import {Button, Card, Form, Col} from 'react-bootstrap';
+
+import img1 from '../../Images/Customer/profile.png';
+
+export default class CustomerAccount extends Component {
     render() {
         return (
             <div>
                 <LeftCustomer/>
-                <div className="container">
-                This is LeftCustomer - CustomerAccount
-                <div className="overflow">
-                <img alt="" src={img1} className="card-img-top" />
-                </div>
-                <div id="signup">
-                    <div className="col-md-5 col-md-offset-5">
-                        <Form onSubmit={this.onSubmit}>
-                            <Form.Group controlId="firstName">
-                                <Form.Label>First Name</Form.Label>
-                                <Form.Control type="name" placeholder="firstName" />
-                            </Form.Group>
+                <div className="accountright">
+                  <h4>Service Provider Account</h4>
+                <div className="account">
+                  <Card style={{ width: '18rem' }}>
+                    <Card.Img variant="top" src={img1} />
+                    <Card.Body>
+                      <Card.Title><center>Chamodi Kulathunge</center></Card.Title>
+                      <Card.Text>
+                        {/* I'm doing a catering servise in giriulla area.<br/> */}
+                        <a href="#">chamodi95@gmail.com</a><br/>
+                        +94771234567<br/>
+                      </Card.Text>
+                      
+                    </Card.Body>
+                  </Card>
+                  </div>
+                
+               
+                  <Form>
+                  <Form.Row>
+                      <Form.Group as={Col} controlId="formGridFirstName">
+                        <Form.Label>First Name</Form.Label>
+                        <Form.Control type="first name" placeholder="Enter first name" />
+                      </Form.Group>
 
-                            <Form.Group controlId="lastName">
-                                <Form.Label>Last Name</Form.Label>
-                                <Form.Control type="name" placeholder="LastName" />
-                            </Form.Group>
+                      <Form.Group as={Col} controlId="formGridLastName">
+                        <Form.Label>Last Name</Form.Label>
+                        <Form.Control type="last name" placeholder="last name" />
+                      </Form.Group>
+                    </Form.Row>
+                    <Form.Row>
+                      <Form.Group as={Col} controlId="formGridEmail">
+                        <Form.Label>Email</Form.Label>
+                        <Form.Control type="email" placeholder="Enter email" />
+                      </Form.Group>
 
-                            {/* <Form.Group as={Col} controlId="formGridState">
-                                <Form.Label>Are you a Free User or a Service Provider?</Form.Label>
-                                <select name="cars" type="name" value={this.state.signup_option} onChange={this.onChangeSignupOption}>
-                                    <option value="0">Free User</option>
-                                    <option value="1">Service Provider</option>
-                                </select>
-                            </Form.Group> */}
+                      <Form.Group as={Col} controlId="formGridPassword">
+                        <Form.Label>Password</Form.Label>
+                        <Form.Control type="password" placeholder="Password" />
+                      </Form.Group>
+                    </Form.Row>
 
-                            {/* <Form.Group controlId="password">
-                                <Form.Label>Password</Form.Label>
-                                <Form.Control type="password" placeholder="Password" value={this.state.signup_password} onChange={this.onChangeSignupPassword}/>
-                            </Form.Group>
-                        
-                            <Form.Group controlId="aPassword">
-                                <Form.Label>Confirm Password</Form.Label>
-                                <Form.Control type="password" placeholder="Password" value={this.state.signup_aPassword} onChange={this.onChangeSignupAPassword}/>
-                            </Form.Group> */}
+                    <Form.Group controlId="ContactNumber">
+                      <Form.Label>Contact Number</Form.Label>
+                      <Form.Control placeholder="contact number" />
+                    </Form.Group>
 
-                            <Form.Group controlId="Email">
-                                <Form.Label>Email address</Form.Label>
-                                <Form.Control type="email" placeholder="Email" />
-                            </Form.Group>
+                    <Form.Group controlId="formGridAddress1">
+                      <Form.Label>Address</Form.Label>
+                      <Form.Control placeholder="1234 Main St" />
+                    </Form.Group>
 
-                            <Form.Group controlId="Number">
-                                <Form.Label>Mobile Number</Form.Label>
-                                <Form.Control type="number" placeholder="Number"/>
-                            </Form.Group>
+                    <Form.Group controlId="formGridAddress2">
+                      <Form.Label>Address 2</Form.Label>
+                      <Form.Control placeholder="Apartment, studio, or floor" />
+                    </Form.Group>
 
-                            <Form.Group controlId="Location">
-                                <Form.Label>Location</Form.Label>
-                                <Form.Control type="name" placeholder="Location" />
-                            </Form.Group>
-                            <div className="btn">
-                            <Button variant="primary" type="submit" value="Create Signup" >
-                                Update
-                            </Button>
-                            </div >
-                            <div className="btn">
-                            <Button variant="primary" type="submit" value="Create Signup" >
-                                Delete
-                            </Button>
-                            </div>
-                        </Form>
-                    </div>
-                </div>
-                    
+                    <Form.Row>
+                      <Form.Group as={Col} controlId="formGridCity">
+                        <Form.Label>City</Form.Label>
+                        <Form.Control />
+                      </Form.Group>
+
+                      {/* <Form.Group as={Col} controlId="formGridState">
+                        <Form.Label>State</Form.Label>
+                        <Form.Control as="select">
+                          <option>Choose...</option>
+                          <option>...</option>
+                        </Form.Control>
+                      </Form.Group> */}
+
+                      <Form.Group as={Col} controlId="formGridZip">
+                        <Form.Label>Zip</Form.Label>
+                        <Form.Control />
+                      </Form.Group>
+                    </Form.Row>
+
+                    {/* <Form.Group id="formGridCheckbox">
+                      <Form.Check type="checkbox" label="Check me out" />
+                    </Form.Group> */}
+
+                    <Button variant="primary" type="submit">
+                      Update
+                    </Button>
+                  </Form>
+                  
                 </div>
             </div>   
         )
