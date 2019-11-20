@@ -9,9 +9,9 @@ export default class ServiceProviderAccount extends Component {
         return (
             <div>
                 <LeftSeriveProvider/>
-                <div class="accountright">
+                <div className="accountright">
                   <h4>Service Provider Account</h4>
-                <div class="account">
+                <div className="account">
                   <Card style={{ width: '18rem' }}>
                     <Card.Img variant="top" src={Piyumal} />
                     <Card.Body>
@@ -72,23 +72,23 @@ export default class ServiceProviderAccount extends Component {
                         <Form.Control />
                       </Form.Group>
 
-                      <Form.Group as={Col} controlId="formGridState">
+                      {/* <Form.Group as={Col} controlId="formGridState">
                         <Form.Label>State</Form.Label>
                         <Form.Control as="select">
                           <option>Choose...</option>
                           <option>...</option>
                         </Form.Control>
-                      </Form.Group>
+                      </Form.Group> */}
 
                       <Form.Group as={Col} controlId="formGridZip">
                         <Form.Label>Zip</Form.Label>
                         <Form.Control />
                       </Form.Group>
                     </Form.Row>
-
+{/* 
                     <Form.Group id="formGridCheckbox">
                       <Form.Check type="checkbox" label="Check me out" />
-                    </Form.Group>
+                    </Form.Group> */}
 
                     <Button variant="primary" type="submit">
                       Update
