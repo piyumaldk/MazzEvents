@@ -94,12 +94,13 @@ export default class Flowers extends Component {
                     <RightCusSaved selectedFlowers={this.state.selected}
 
                     />
+                    <div>
+                    {/* <button onClick={() => this.myClick()}>
+                        Save 
+                    </button> */}
                 </div>
-                <div>
-                    <button onClick={() => this.myClick()}>
-                        Save Array
-                    </button>
                 </div>
+                
             </div>
         )
     }
