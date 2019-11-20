@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import LeftStaff from "../../Components/LeftStaff.component";
-import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
+import { Map, GoogleApiWrapper } from 'google-maps-react';
 
 class StaffMaps extends Component {
     render() {

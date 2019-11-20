@@ -1,9 +1,8 @@
 import React, { Component, Fragment } from 'react';
-import { Nav, Navbar, Form, FormControl, Button, Modal, ButtonToolbar } from 'react-bootstrap';
+import { Nav, Navbar, Form, FormControl, Button } from 'react-bootstrap';
 import Logo from '../Images/logo.jpg';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { NavItem } from 'react-bootstrap';
 import SignUp from './Auth/RegisterModal';
 import LogIn from './Auth/LoginModal';
 import Logout from './Auth/LogOut';
@@ -34,8 +33,8 @@ class Upper extends Component {
         return (
             <div>
                 <Navbar bg="dark" variant="dark">
-                <a className="navbar-brand">
-                    <img src={Logo} width="30" height="30"/>
+                <a href="/" className="navbar-brand">
+                    <img alt="" src={Logo} width="30" height="30"/>
                 </a>
                 <Navbar.Brand href="/">MazzEvents</Navbar.Brand>
                     <Nav className="mr-auto">

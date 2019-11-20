@@ -46,3 +46,78 @@
   border: 3px solid rgb(255, 255, 255);
   padding: 10px;
 }
+
+.mailright{
+  position: absolute;
+  left: 30%;
+  width: 60%;
+  height: 100%;
+  
+  padding: 10px;
+}
+
+.mail {
+  height: 100%;
+  width: 15%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 15%;
+  border: 1px solid rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.chat {
+  height: 100%;
+  width: 15%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 15%;
+  border: 1px solid rgb(163, 163, 163);
+  background-color: rgb(255, 255, 255);
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.chatright{
+  position: absolute;
+  left: 30%;
+  width: 60%;
+  height: 100%;
+  
+  padding: 10px;
+}
+
+.chattop{
+  position: absolute;
+  left: 0%;
+  width: 100%;
+  height: 60%;
+  border: 1px solid rgb(163, 163, 163);
+  padding: 10px;
+}
+
+.account {
+  height: 100%;
+  width: 20%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 15%;
+  background-color: rgb(255, 255, 255);
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.accountright{
+  position: absolute;
+  left: 40%;
+  width: 60%;
+  height: 100%;
+  
+  padding: 10px;
+}
+

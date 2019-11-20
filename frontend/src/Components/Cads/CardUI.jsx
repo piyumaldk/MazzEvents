@@ -11,7 +11,7 @@ const Card = props => {
 
         <div className="card text-center shadow mycard">
             <div className="overflow">
-                <img src={props.imgsrc} alt='image 1' className="card-img-top" />
+                <img src={props.imgsrc} alt="" className="card-img-top" />
             </div>
             <div className="card-body text-dark">
                 <h4 className="card-title">{props.title} </h4>

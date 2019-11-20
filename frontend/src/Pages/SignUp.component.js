@@ -74,7 +74,6 @@ export default class SignUp extends Component {
     }
     onSubmit(e){
         e.preventDefault();
-        {/*on Submit logic here*/}
         console.log(`Form submitted:`);
         console.log(`signup First Name: ${this.state.signup_firstName}`);
         console.log(`signup last Name: ${this.state.signup_lastName}`);
@@ -98,7 +97,7 @@ export default class SignUp extends Component {
             signup_completed: this.state.signup_completed
         }
 
-        if(this.state.signup_option=="1"){
+        if(this.state.signup_option==="1"){
             axios.post('http://localhost:4000/mazzevents/addserviceprovider', newSignUp)
                 .then(res => console.log(res.data));
         }

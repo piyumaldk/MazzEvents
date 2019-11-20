@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import LeftSeriveProvider from "../../Components/LeftServiceProvider.component";
-import {Table, Nav, Form, Col, Button, Modal,Alert} from 'react-bootstrap';
+import {Table, Nav, Form, Button } from 'react-bootstrap';
 export default class ServiceProviderChat extends Component {
     render() {
         return (

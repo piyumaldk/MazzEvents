@@ -14,14 +14,17 @@ router.post('/', (req, res) => {
     const {signup_firstName, signup_lastName, signup_email, signup_password, signup_aPassword, signup_number, signup_location} = req.body;
     //Simple Validation (Emty Form)
     if(!signup_firstName || !signup_lastName || !signup_email || !signup_password || !signup_aPassword || !signup_number || !signup_location){
-        return res.status(400).json({ msg: 'Please enter all fileds'});
+        return res.status(400).json({ msg: 'Please fill all fileds!'});
+    }
+    if(signup_password !== signup_aPassword){
+      return res.status(400).json({ msg: 'Passwords are not matching!'});
     }
     //Check for existing signupcustomer
     SignUpCustomer.findOne({ signup_email })
         .then(signupcustomer => {
-            if(signupcustomer) return res.status(400).json({ msg: 'User already exists'});
+            if(signupcustomer) return res.status(400).json({ msg: 'An user with this email already exists'});
             const newSignUpCustomer = new SignUpCustomer({
-                signup_firstName, signup_lastName, signup_email, signup_password, signup_aPassword, signup_number, signup_location
+                signup_firstName, signup_lastName, signup_email, signup_password, signup_number, signup_location
             });
             
             //Create salt & Hash (Need Decryption here)
@@ -43,7 +46,6 @@ router.post('/', (req, res) => {
                               id: signupcustomer.id,
                               firstName: signupcustomer.signup_firstName,
                               lastName: signupcustomer.signup_lastName,
-                              aPassword: signupcustomer.signup_aPassword,
                               email: signupcustomer.signup_email,
                               number: signupcustomer.signup_number,
                               location: signupcustomer.signup_location
