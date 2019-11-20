@@ -46,6 +46,7 @@ const mongoose = require('mongoose');
 const PORT = 4001;
 
 let SignUp = require('./routes/users/customers');
+let CustSelections = require('./routes/users/customerSelection');
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -59,7 +60,7 @@ connection.once('open', function() {
 })
 
 app.use('/mazzevent', SignUp);
-
+app.use('/custSelect', CustSelections);
 
 app.listen(PORT, function() {
     console.log("Server is running on Port: " + PORT);

@@ -57,13 +57,18 @@ export default class Flowers extends Component {
     }
 
     myClick() {
-        const selectedArray = JSON.stringify(this.state.selected)
-        console.log(selectedArray)
-        let json = JSON.stringify(selectedArray);
-        const url = 'http://localhost:4001/mazzevent/add';
-
-        axios.post(url, json)
-            .then(res => console.log(res.data));
+        var i;
+        // var arrayDataSize = isundigmsbof,gp
+        for (i = 0; i < 4; i++) {
+            const selectItem = {
+                customerId: "00001",
+                servicePId: "11111",
+                servicePName: this.state.selected[i]
+            }
+            const url = 'http://localhost:4001/custSelect/add';    
+            axios.post(url, selectItem)
+                .then(res => console.log(res.data.msg));
+        }
     }
 
 
