@@ -47,9 +47,9 @@ const Card = props => {
 
                 </div>
                 <br/>
-                <a className="btn btn-outline-success" onClick={()=>props.selectFlower(props.title)}>Select</a>
+                <div className="btn btn-outline-success" onClick={()=>props.selectFlower(props.title)}>Select</div>
             </div>
-        </div>
+        </div> 
     );
 
 };
