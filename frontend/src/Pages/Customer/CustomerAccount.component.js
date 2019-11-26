@@ -19,7 +19,7 @@ export default class CustomerAccount extends Component {
                       <Card.Title><center>Chamodi Kulathunge</center></Card.Title>
                       <Card.Text>
                         {/* I'm doing a catering servise in giriulla area.<br/> */}
-                        <a href="#">chamodi95@gmail.com</a><br/>
+                        <a href="../Home">chamodi95@gmail.com</a><br/>
                         +94771234567<br/>
                       </Card.Text>
                       
