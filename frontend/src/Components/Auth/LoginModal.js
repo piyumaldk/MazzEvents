@@ -70,6 +70,7 @@ class LogIn extends Component {
         signup_email,
         signup_password
     };
+    //console.log(user);
     //Attempt to login
     this.props.login(user);
     
@@ -96,7 +97,7 @@ class LogIn extends Component {
                 { this.state.msg ? (<Alert color="danger">{ this.state.msg }</Alert>) : null }
 
                 <Button color='dark' style={{ marginTop: '2rem' }} block>
-                  Log In
+                  Yasaa
                 </Button>
               </FormGroup>
             </Form>

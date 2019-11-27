@@ -16,7 +16,7 @@ class Upper extends Component {
       const authLinks = (
         <Fragment>
           <span className='navbar-text mr-3'>
-            <strong>{signupcustomer ? `Hi ${signupcustomer.firstName}!` : ``}</strong>
+            <strong>{this.props.fName ? `Hi ${this.props.fName}!` : ``}</strong>
           </span>
           <Nav.Link href="/serviceprovider/addservices">Dashboard</Nav.Link>
           <Logout/>
@@ -56,7 +56,8 @@ class Upper extends Component {
 }
 
 const mapStateToProps = state => ({
-  auth: state.auth
+  auth: state.auth,
+  fName: state.auth.fName
 });
 export default connect(mapStateToProps, null)(Upper);
 

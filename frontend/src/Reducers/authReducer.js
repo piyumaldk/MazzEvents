@@ -13,7 +13,12 @@ import {
     token: localStorage.getItem('token'),
     isAuthenticated: null,
     isLoading: false,
-    signupcustomer: null
+    fName: null,
+    lName: null,
+    email: null,
+    number: null,
+    location: null
+
   };
   
   export default function(state = initialState, action) {
@@ -26,24 +31,62 @@ import {
       case USER_LOADED:
         return {
           ...state,
-          isAuthenticated: true,
+          isAuthenticated: state.token !== null,
+          
           isLoading: false,
-          user: action.payload
+          fName: localStorage.getItem('fName'),
+          lName: localStorage.getItem('lName'),
+          email: localStorage.getItem('email'),
+          number: localStorage.getItem('number'),
         };
       case LOGIN_SUCCESS:
       case REGISTER_SUCCESS:
         localStorage.setItem('token', action.payload.token);
+        localStorage.setItem('email', action.payload.signupcustomer.email);
+        localStorage.setItem('fName', action.payload.signupcustomer.firstName);
+        localStorage.setItem('lName', action.payload.signupcustomer.lastName);
+        localStorage.setItem('location', action.payload.signupcustomer.location);
+        localStorage.setItem('number', action.payload.signupcustomer.number);
+
+        console.log(action.payload);
         return {
           ...state,
-          ...action.payload,
+          token: action.payload.token,
           isAuthenticated: true,
-          isLoading: false
+          isLoading: false,
+          fName: action.payload.signupcustomer.firstName,
+          lName: action.payload.signupcustomer.lastName,
+          email: action.payload.signupcustomer.email,
+          number: action.payload.signupcustomer.number,
+          location: action.payload.signupcustomer.location
         };
       case AUTH_ERROR:
       case LOGIN_FAIL:
       case LOGOUT_SUCCESS:
+          localStorage.removeItem('token');
+          localStorage.removeItem('email');
+          localStorage.removeItem('fName');
+          localStorage.removeItem('lName');
+          localStorage.removeItem('location');
+          localStorage.removeItem('number');
+          return {
+            token: null,
+            isAuthenticated: false,
+            isLoading: false,
+            fName: null,
+            lName: null,
+            email: null,
+            number: null,
+            location: null
+          }
       case REGISTER_FAIL:
         localStorage.removeItem('token');
+        localStorage.removeItem('email');
+        localStorage.removeItem('fName');
+        localStorage.removeItem('lName');
+        localStorage.removeItem('location');
+        localStorage.removeItem('number');
+       
         return {
           ...state,
           token: null,

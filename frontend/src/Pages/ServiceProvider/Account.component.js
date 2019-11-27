@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import LeftSeriveProvider from "../../Components/LeftServiceProvider.component";
+import {Table} from 'react-bootstrap';
 import {Button, Card, Form, Col} from 'react-bootstrap';
 import Piyumal from '../../Images/piyumal.jpeg';
 
@@ -8,9 +9,9 @@ export default class ServiceProviderAccount extends Component {
         return (
             <div>
                 <LeftSeriveProvider/>
-                <div className="accountright">
+                <div class="accountright">
                   <h4>Service Provider Account</h4>
-                <div className="account">
+                <div class="account">
                   <Card style={{ width: '18rem' }}>
                     <Card.Img variant="top" src={Piyumal} />
                     <Card.Body>
@@ -71,23 +72,23 @@ export default class ServiceProviderAccount extends Component {
                         <Form.Control />
                       </Form.Group>
 
-                      {/* <Form.Group as={Col} controlId="formGridState">
+                      <Form.Group as={Col} controlId="formGridState">
                         <Form.Label>State</Form.Label>
                         <Form.Control as="select">
                           <option>Choose...</option>
                           <option>...</option>
                         </Form.Control>
-                      </Form.Group> */}
+                      </Form.Group>
 
                       <Form.Group as={Col} controlId="formGridZip">
                         <Form.Label>Zip</Form.Label>
                         <Form.Control />
                       </Form.Group>
                     </Form.Row>
-{/* 
+
                     <Form.Group id="formGridCheckbox">
                       <Form.Check type="checkbox" label="Check me out" />
-                    </Form.Group> */}
+                    </Form.Group>
 
                     <Button variant="primary" type="submit">
                       Update
