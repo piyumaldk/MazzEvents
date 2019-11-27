@@ -23,20 +23,24 @@ class App extends Component {
   render() {
     console.log(this.props.isAuthenticated);
     let route = <Switch>
-          <Route path="/serviceprovider" render={() => <h1>Not found : Error 404</h1>}/>
-          <Route path="/customer" render={() => <h1>Not found : Error 404</h1>}/>
-          <Route path="/admin" render={() => <h1>Not found : Error 404</h1>}/>
-          <Route path="/staff" render={() => <h1>Not found : Error 404</h1>}/>
-          <Route path="/" component={Home}/>
-        </Switch>
-
-if(this.props.isAuthenticated === true) {
-  route = <Switch>
-    <Route path="/serviceprovider" component={ServiceProvider}/>
+          <Route path="/serviceprovider" component={ServiceProvider}/>
     <Route path="/customer" component={Customer}/>
     <Route path="/admin" component={Admin}/>
     <Route path="/staff" component={Staff}/>
     <Route path="/" component={Home}/>
+        </Switch>
+
+if(this.props.isAuthenticated === false) {
+  route = <Switch>
+      <Route path="/serviceprovider" render={() => <h1>Not found : Error 404</h1>}/>
+          <Route path="/customer" render={() => <h1>Not found : Error 404</h1>}/>
+          <Route path="/admin" render={() => <h1>Not found : Error 404</h1>}/>
+          <Route path="/staff" render={() => <h1>Not found : Error 404</h1>}/>
+          <Route path="/" component={Home}/>
+
+
+
+    
   </Switch>
 } 
         
