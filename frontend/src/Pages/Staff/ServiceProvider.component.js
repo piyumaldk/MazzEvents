@@ -161,10 +161,3 @@ export default class StaffServiceProvider extends Component {
     }
 }
 
-const mapStateToProps = state => ({
-    isAuthenticated: PropTypes.bool,
-    error: PropTypes.object.isRequired,
-    register: PropTypes.func.isRequired,
-    clearErrors: PropTypes.func.isRequired
-  });
-  
