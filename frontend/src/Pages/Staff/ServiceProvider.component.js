@@ -4,8 +4,10 @@ import '../../App.css';
 import axios from 'axios';
 import LeftStaff from "../../Components/LeftStaff.component";
 import {Alert} from 'reactstrap';
+
 export default class StaffServiceProvider extends Component {
 
+    
     constructor(props){
         super(props);
 
@@ -80,7 +82,6 @@ export default class StaffServiceProvider extends Component {
         const newSignUp = {
             signup_firstName: this.state.signup_firstName, 
             signup_lastName: this.state.signup_lastName,
-            signup_option: this.state.signup_option,
             signup_email: this.state.signup_email,
             signup_password: this.state.signup_password,
             signup_aPassword: this.state.signup_aPassword,
@@ -108,9 +109,11 @@ export default class StaffServiceProvider extends Component {
     
     render() {
         return (
+            
             <div>
                 <LeftStaff/>
                 <div id="signup" class="right">
+                    <center>
                     <div class="col-md-5 col-md-offset-5">
                         <Form onSubmit={this.onSubmit}>
                             <Form.Group controlId="firstName">
@@ -154,7 +157,9 @@ export default class StaffServiceProvider extends Component {
                                 Add Service Provider
                             </Button>
                         </Form>
+                        
                     </div>
+                    </center>
                 </div>
             </div>
         )
