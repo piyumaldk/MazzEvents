@@ -39,6 +39,7 @@ class Upper extends Component {
           <Nav className="mr-auto">
             <Nav.Link href="/">Home</Nav.Link>
             { isAuthenticated ? authLinks : guestLinks }
+            <Nav.Link href="/aboutus">About us</Nav.Link>
             <Nav.Link href="/aboutus">About us</Nav.Link>       
           </Nav>
           <Form inline>

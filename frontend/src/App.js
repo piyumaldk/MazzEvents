@@ -4,7 +4,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import store from './store';
 import { loadUser} from './Actions/authActions';
 import { connect } from 'react-redux';
-
 import Home from "./Pages/Home.component";
 import AboutUs from "./Pages/AboutUs.component";
 import ServiceProvider from "./Pages/ServiceProvider/ServiceProvider";
@@ -22,9 +21,7 @@ class App extends Component {
       <Route path="/serviceprovider" component={ServiceProvider}/>
       <Route path="/customer" component={Customer}/>
       <Route path="/admin" component={Admin}/>
-      <Route path="/staff" component={Staff}/>
-      <Route path="/" component={Home}/>
-      <Route path="/aboutus" component={AboutUs}/>
+      <Route path="/staff" component={Staff}/>  
     </Switch>
 
     if(this.props.isAuthenticated === false) {
@@ -32,12 +29,16 @@ class App extends Component {
         <Route path="/serviceprovider" render={() => <h1>Not found : Error 404</h1>}/>
         <Route path="/customer" render={() => <h1>Not found : Error 404</h1>}/>
         <Route path="/admin" render={() => <h1>Not found : Error 404</h1>}/>
-        <Route path="/staff" render={() => <h1>Not found : Error 404</h1>}/>
-        <Route path="/" component={Home}/> 
-        <Route path="/aboutus" component={AboutUs}/>
+        <Route path="/staff" render={() => <h1>Not found : Error 404</h1>}/> 
       </Switch>
     }        
-    return(<Router>{route}</Router>);
+    return(
+    <Router>
+      <Route default path="/" exact component={Home}/> 
+      <Route path="/aboutus" component={AboutUs}/>
+      {route} 
+    </Router>
+    );
   }
 }
 
