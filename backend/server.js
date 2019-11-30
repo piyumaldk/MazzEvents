@@ -18,7 +18,8 @@ mongoose.connect(db, {
     useUnifiedTopology: true
 });
 //Use Routes
-app.use('/mazzevents/addcustomer', require('./routes/api/signups'));
+app.use('/mazzevents', require('./routes/api/signups'));
+
 app.use('/mazzevents/auth', require('./routes/api/auth'));
 
 const PORT = 4000;
