@@ -2,10 +2,6 @@ import React from 'react';
 import "./card-style.css";
 import * as Icon from 'react-feather';
 
-
-
-//import img1 from '../../Images/new.jpg';
-
 const Card = props => {
     return (
 
@@ -47,7 +43,7 @@ const Card = props => {
 
                 </div>
                 <br/>
-                <a className="btn btn-outline-success" onClick={()=>props.selectFlower(props.title)}>Select</a>
+                <a href="/" className="btn btn-outline-success" onClick={()=>props.selectFlower(props.title)}>Select</a>
             </div>
         </div>
     );

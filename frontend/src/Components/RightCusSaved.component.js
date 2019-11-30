@@ -8,7 +8,7 @@ export default class RightCusSaved extends Component {
             return (
                 <div class="rights">
                     
-                        <a href="#" className="btn btn-xs btn-primary pull-right">Delete</a>
+                        <a href="/" className="btn btn-xs btn-primary pull-right">Delete</a>
                         <strong>{title}</strong>
                
                 </div>

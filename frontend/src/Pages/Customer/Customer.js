@@ -20,21 +20,23 @@ export default class Customer extends Component {
     render() {
         return (
             <div>
-                <Route path="/customer/photo" component={Cards} />
-          <Route path="/customer/dj" component={Dj} />
-          <Route path="/customer/music" component={Music} />
-          <Route path="/customer/catering" component={Catering} />
-          <Route path="/customer/reception" component={ReceptionHalls} />
-          <Route path="/customer/hotels" component={Hotels} />
-          <Route path="/customer/flowers" component={Flowers} />
-          <Route path="/customer/vehicles" component={Vehicles} />
-          <Route path="/customer/chat" component={Cchat} />
-          <Route path="/customer/mail" component={CmailBox} />
-          <Route path="/customer/eventscl" component={CeventsCalendar} />
-          <Route path="/customer/account" component={CustomerAccount} />
-          <Route path="/customer/rating" component={Rating} />
-          <Route path="/customer/addservices" component={CustomerAddServices}/>
-          <Route path="/customer/dash" component={LeftCustomer} />
+                <Router>
+                    <Route path="/customer/photo" component={Cards} />
+                    <Route path="/customer/dj" component={Dj} />
+                    <Route path="/customer/music" component={Music} />
+                    <Route path="/customer/catering" component={Catering} />
+                    <Route path="/customer/reception" component={ReceptionHalls} />
+                    <Route path="/customer/hotels" component={Hotels} />
+                    <Route path="/customer/flowers" component={Flowers} />
+                    <Route path="/customer/vehicles" component={Vehicles} />
+                    <Route path="/customer/chat" component={Cchat} />
+                    <Route path="/customer/mail" component={CmailBox} />
+                    <Route path="/customer/eventscl" component={CeventsCalendar} />
+                    <Route path="/customer/account" component={CustomerAccount} />
+                    <Route path="/customer/rating" component={Rating} />
+                    <Route path="/customer/addservices" component={CustomerAddServices}/>
+                    <Route path="/customer/dash" component={LeftCustomer} />
+                </Router>
             </div>
         )
     }

@@ -17,18 +17,20 @@ export default class ServiceProvider extends Component {
     render() {
         return (
             <div>
-            <Route path="/serviceprovider/addservices" component={ServiceProviderAddServices}/>
-          <Route path="/serviceprovider/addservicesForm" component={ServiceProviderAddServicesForm}/>
-          <Route path="/serviceprovider/account" component={ServiceProviderAccount}/>
-          <Route path="/serviceprovider/adddiscountoffers" component={ServiceProviderAddDiscountOffers}/>
-          <Route path="/serviceprovider/charts" component={ServiceProviderCharts}/>
-          <Route path="/serviceprovider/chat" component={ServiceProviderChat}/>
-          <Route path="/serviceprovider/eventcalendar" component={ServiceProviderEventCalendar}/>
-          <Route path="/serviceprovider/help" component={ServiceProviderHelp}/>
-          <Route path="/serviceprovider/mailbox" component={ServiceProviderMailbox}/>
-          <Route path="/serviceprovider/reviews" component={ServiceProviderReviews}/>
-          <Route path="/serviceprovider/viewbookings" component={ServiceProviderViewBookings}/>
-          <Route path="/serviceprovider/viewservices" component={ServiceProviderViewServices}/>
+                <Router>
+                    <Route path="/serviceprovider/addservices" component={ServiceProviderAddServices}/>
+                    <Route path="/serviceprovider/addservicesForm" component={ServiceProviderAddServicesForm}/>
+                    <Route path="/serviceprovider/account" component={ServiceProviderAccount}/>
+                    <Route path="/serviceprovider/adddiscountoffers" component={ServiceProviderAddDiscountOffers}/>
+                    <Route path="/serviceprovider/charts" component={ServiceProviderCharts}/>
+                    <Route path="/serviceprovider/chat" component={ServiceProviderChat}/>
+                    <Route path="/serviceprovider/eventcalendar" component={ServiceProviderEventCalendar}/>
+                    <Route path="/serviceprovider/help" component={ServiceProviderHelp}/>
+                    <Route path="/serviceprovider/mailbox" component={ServiceProviderMailbox}/>
+                    <Route path="/serviceprovider/reviews" component={ServiceProviderReviews}/>
+                    <Route path="/serviceprovider/viewbookings" component={ServiceProviderViewBookings}/>
+                    <Route path="/serviceprovider/viewservices" component={ServiceProviderViewServices}/>
+                </Router>
             </div>
         )
     }

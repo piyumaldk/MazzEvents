@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import LeftSeriveProvider from "../../Components/LeftServiceProvider.component";
-import {Table} from 'react-bootstrap';
 import {Button, Card, Form, Col} from 'react-bootstrap';
 import Piyumal from '../../Images/piyumal.jpeg';
 

@@ -16,17 +16,19 @@ export default class Admin extends Component {
     render() {
         return (
             <div>
-                <Route path="/admin/chat" component={AdminChat}/>
-                <Route path="/admin/authenticaton" component={AdminAuthentication}/>
-                <Route path="/admin/charts" component={AdminCharts}/>
-                <Route path="/admin/customer" component={AdminCustomer}/>
-                <Route path="/admin/customerreviews" component={AdminCustomerReviews}/>
-                <Route path="/admin/eventcalendar" component={AdminEventCalendar}/>
-                <Route path="/admin/mailbox" component={AdminMailbox}/>
-                <Route path="/admin/maps" component={AdminMaps}/>
-                <Route path="/admin/sendnotification" component={AdminSendNotification}/>
-                <Route path="/admin/serviceprovider" component={AdminServiceProvider}/>
-                <Route path="/admin/staff" component={AdminStaff}/>
+                <Router>
+                    <Route path="/admin/chat" component={AdminChat}/>
+                    <Route path="/admin/authenticaton" component={AdminAuthentication}/>
+                    <Route path="/admin/charts" component={AdminCharts}/>
+                    <Route path="/admin/customer" component={AdminCustomer}/>
+                    <Route path="/admin/customerreviews" component={AdminCustomerReviews}/>
+                    <Route path="/admin/eventcalendar" component={AdminEventCalendar}/>
+                    <Route path="/admin/mailbox" component={AdminMailbox}/>
+                    <Route path="/admin/maps" component={AdminMaps}/>
+                    <Route path="/admin/sendnotification" component={AdminSendNotification}/>
+                    <Route path="/admin/serviceprovider" component={AdminServiceProvider}/>
+                    <Route path="/admin/staff" component={AdminStaff}/>
+                </Router>
             </div>
         )
     }

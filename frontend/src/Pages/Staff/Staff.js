@@ -17,17 +17,19 @@ export default class Staff extends Component {
     render() {
         return (
             <div>
-                <Route path="/staff/account" component={StaffAccount}/>
-                <Route path="/staff/chat" component={StaffChat}/>
-                <Route path="/staff/mailbox" component={StaffMailbox}/>
-                <Route path="/staff/eventcalendar" component={StaffEventCalendar}/>
-                <Route path="/staff/charts" component={StaffCharts}/>
-                <Route path="/staff/sendnotification" component={StaffSendNotification}/>
-                <Route path="/staff/serviceprovider" component={StaffServiceProvider}/>
-                <Route path="/staff/customer" component={StaffCustomer}/>
-                <Route path="/staff/customerreviews" component={StaffCustomerReviews}/>
-                <Route path="/staff/authentication" component={StaffAuthentication}/>
-                <Route path="/staff/maps" component={StaffMaps}/>
+                <Router>
+                    <Route path="/staff/account" component={StaffAccount}/>
+                    <Route path="/staff/chat" component={StaffChat}/>
+                    <Route path="/staff/mailbox" component={StaffMailbox}/>
+                    <Route path="/staff/eventcalendar" component={StaffEventCalendar}/>
+                    <Route path="/staff/charts" component={StaffCharts}/>
+                    <Route path="/staff/sendnotification" component={StaffSendNotification}/>
+                    <Route path="/staff/serviceprovider" component={StaffServiceProvider}/>
+                    <Route path="/staff/customer" component={StaffCustomer}/>
+                    <Route path="/staff/customerreviews" component={StaffCustomerReviews}/>
+                    <Route path="/staff/authentication" component={StaffAuthentication}/>
+                    <Route path="/staff/maps" component={StaffMaps}/>
+                </Router>
             </div>
         )
     }
