@@ -53,6 +53,27 @@ export const register = ({ signup_firstName, signup_lastName, signup_email, sign
         });
 };
 
+//Register Customer
+export const register2 = ({ signup_firstName, signup_lastName, signup_email, signup_password, signup_aPassword, signup_number, signup_location}) => dispatch => {
+    //Headers
+    const config = {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    };
+    //Request body
+    const body = JSON.stringify({ signup_firstName, signup_lastName, signup_email, signup_password, signup_aPassword, signup_number, signup_location});
+    
+    axios.post('/mazzevents/addserviceprovider', body, config)
+        .then(res => console.log(res.data))
+        .catch(err => {
+            dispatch(returnErrors(err.response.data, err.response.status, 'REGISTER_FAIL'));
+            dispatch({
+                type: REGISTER_FAIL
+            });
+        });
+};
+
 //Login User
 export const login = ({ signup_email, signup_password }) => dispatch => {
     //Headers

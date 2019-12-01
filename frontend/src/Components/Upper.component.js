@@ -4,6 +4,7 @@ import Logo from '../Images/logo.jpg';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import SignUp from './Auth/RegisterModal';
+import SignUp2 from './Auth/RegisterServiceProviderModal';
 import LogIn from './Auth/LoginModal';
 import Logout from './Auth/LogOut';
 
@@ -25,6 +26,7 @@ class Upper extends Component {
     const guestLinks = (
       <Fragment>
         <SignUp/>
+        <SignUp2/>
         <LogIn/>
       </Fragment>
     );
