@@ -1,8 +1,9 @@
-import { GET_ERRORS, CLEAR_ERRORS } from '../Actions/types';
+import { GET_ERRORS, CLEAR_ERRORS, ADDING_SUCCESS } from '../Actions/types';
 const initialState = {
     msg: {},
     status: null,
-    id: null
+    id: null,
+    added: null
 }
 
 export default function(state = initialState, action) {
@@ -13,13 +14,18 @@ export default function(state = initialState, action) {
                 status: action.payload.status,
                 id: action.payload.id
             }
-            case CLEAR_ERRORS:
+        case ADDING_SUCCESS:
                 return {
-                    msg: {},
-                    status: null,
-                    id: null
-                };
-                default:
-                    return state;
+                    added: true
+                }
+        case CLEAR_ERRORS:
+            return {
+                msg: {},
+                status: null,
+                id: null,
+                added: null
+            };
+        default:
+            return state;
     }
 }

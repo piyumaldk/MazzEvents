@@ -30,14 +30,14 @@ class SignUp2 extends Component {
   };
 
   static propTypes = {
-    isAuthenticated: PropTypes.bool,
+    added: PropTypes.bool,
     error: PropTypes.object.isRequired,
     register2: PropTypes.func.isRequired,
     clearErrors: PropTypes.func.isRequired
   };
   //Bring msgs from backend
   componentDidUpdate(prevProps) {
-    const { error, isAuthenticated } = this.props;
+    const { error, added } = this.props;
     if(error !== prevProps.error) {
       //Check signup errors
       if(error.id === 'REGISTER_FAIL') {
@@ -48,7 +48,13 @@ class SignUp2 extends Component {
       }
     }
     //If modal is open
-    
+    if(this.state.modal) {
+      //If authenticated
+      if(added){
+        //Closing modal
+        this.toggle();
+      }
+    }
   }
   //Where modal open and close
   toggle = () => {
@@ -78,7 +84,6 @@ class SignUp2 extends Component {
     };
     //Attempt to Register
     this.props.register2(newSignUpServiceProvider);
-    
   }
 
   render() {
@@ -129,7 +134,7 @@ class SignUp2 extends Component {
 }
 
 const mapStateToProps = state => ({
-  isAuthenticated: state.auth.isAuthenticated,
+  added: state.error.added,
   error: state.error
 });
 

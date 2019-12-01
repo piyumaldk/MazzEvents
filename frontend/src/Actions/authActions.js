@@ -10,6 +10,7 @@ import {
     LOGOUT_SUCCESS,
     REGISTER_SUCCESS,
     REGISTER_FAIL,
+    ADDING_SUCCESS
     } from "./types";
     
 //Check token & load user
@@ -53,7 +54,7 @@ export const register = ({ signup_firstName, signup_lastName, signup_email, sign
         });
 };
 
-//Register Customer
+//Register SProvider
 export const register2 = ({ signup_firstName, signup_lastName, signup_email, signup_password, signup_aPassword, signup_number, signup_location}) => dispatch => {
     //Headers
     const config = {
@@ -65,7 +66,9 @@ export const register2 = ({ signup_firstName, signup_lastName, signup_email, sig
     const body = JSON.stringify({ signup_firstName, signup_lastName, signup_email, signup_password, signup_aPassword, signup_number, signup_location});
     
     axios.post('/mazzevents/addserviceprovider', body, config)
-        .then(res => console.log(res.data))
+        .then(res => dispatch({
+            type: ADDING_SUCCESS
+        }))
         .catch(err => {
             dispatch(returnErrors(err.response.data, err.response.status, 'REGISTER_FAIL'));
             dispatch({
