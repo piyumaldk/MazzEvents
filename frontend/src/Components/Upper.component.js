@@ -20,13 +20,13 @@ class Upper extends Component {
           <strong>{this.props.fName ? `Hi ${this.props.fName}!` : ``}</strong>
         </span>
         <Nav.Link href="/serviceprovider/addservices">Dashboard</Nav.Link>
+        <SignUp2/>
         <Logout/>
       </Fragment>
     );
     const guestLinks = (
       <Fragment>
         <SignUp/>
-        <SignUp2/>
         <LogIn/>
       </Fragment>
     );
@@ -41,8 +41,7 @@ class Upper extends Component {
           <Nav className="mr-auto">
             <Nav.Link href="/">Home</Nav.Link>
             { isAuthenticated ? authLinks : guestLinks }
-            <Nav.Link href="/aboutus">About us</Nav.Link>
-            <Nav.Link href="/aboutus">About us</Nav.Link>       
+            <Nav.Link href="/aboutus">About us</Nav.Link>     
           </Nav>
           <Form inline>
             <FormControl type="text" placeholder="Search" className="mr-sm-2" />

@@ -5,7 +5,7 @@ export default class AboutUs extends Component {
     render() {
         return (
             <div>
-                <Upper/>
+              <Upper/>
                 <p>Welcome to About US!!</p>
             </div>
         )

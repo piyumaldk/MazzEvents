@@ -11,6 +11,7 @@ import Admin from "./Pages/Admin/Admin";
 import Staff from "./Pages/Staff/Staff";
 import Customer from "./Pages/Customer/Customer";
 
+
 class App extends Component {
   componentDidMount() {
     store.dispatch(loadUser());
@@ -33,11 +34,15 @@ class App extends Component {
       </Switch>
     }        
     return(
+      <div>
+        
     <Router>
       <Route default path="/" exact component={Home}/> 
       <Route path="/aboutus" component={AboutUs}/>
       {route} 
     </Router>
+    
+    </div>
     );
   }
 }

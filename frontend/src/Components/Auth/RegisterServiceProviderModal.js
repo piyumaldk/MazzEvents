@@ -90,11 +90,11 @@ class SignUp2 extends Component {
     return (
         <div>
             <NavLink onClick={this.toggle} href="#">
-                Sign Up
+                Service Provider+
             </NavLink>
 
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
-          <ModalHeader toggle={this.toggle}>Register2</ModalHeader>
+          <ModalHeader toggle={this.toggle}>Register a Service Provider</ModalHeader>
           <ModalBody>
             <Form onSubmit={this.onSubmit}>
               <FormGroup>

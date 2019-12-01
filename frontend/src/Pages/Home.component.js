@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import Upper from "../Components/Upper.component";
 import {Carousel} from 'react-bootstrap';
+import Upper from "../Components/Upper.component";
 export default class Home extends Component {
     render() {
         return (
                 <div>  
-                    <Upper/>   
+                      <Upper/>
                         <Carousel>
                             <Carousel.Item>
                                 <img className="d-block w-100" src="https://cdn.pixabay.com/photo/2015/05/15/14/50/concert-768722_960_720.jpg" alt="First slide"/>
