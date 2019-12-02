@@ -30,7 +30,7 @@ export const loadUser = () => (dispatch, getState) => {
             });
         });
 }
-//Register Customer
+//Register Buyer
 export const register = ({ signup_type, signup_firstName, signup_lastName, signup_email, signup_password, signup_aPassword, signup_number, signup_location}) => dispatch => {
     //Headers
     const config = {
@@ -65,7 +65,7 @@ export const register2 = ({ signup_type, signup_firstName, signup_lastName, sign
     //Request body
     const body = JSON.stringify({ signup_type, signup_firstName, signup_lastName, signup_email, signup_password, signup_aPassword, signup_number, signup_location});
     
-    axios.post('/mazzevents/addserviceprovider', body, config)
+    axios.post('/mazzevents/addcustomer', body, config)
         .then(res => dispatch({
             type: ADDING_SUCCESS
         }))
@@ -84,9 +84,7 @@ export const login = ({ signup_email, signup_password }) => dispatch => {
     };
     //Request body
     const body = JSON.stringify({ signup_email, signup_password });
-
-
-    
+  
     axios.post('/mazzevents/auth', body, config)
         .then(res => dispatch({
             type: LOGIN_SUCCESS,
@@ -98,21 +96,6 @@ export const login = ({ signup_email, signup_password }) => dispatch => {
                 type: LOGIN_FAIL
             });
         });
-    
-    /*
-    axios.post('/mazzevents/auth', body, config)
-        .then(res => {
-            console.log(res);
-            dispatch({ type: LOGIN_SUCCESS,payload: res.data});
-            localStorage.setItem(res);
-        })
-        .catch(err => {
-            dispatch(returnErrors(err.response.data, err.response.status, 'LOGIN_FAIL'));
-            dispatch({
-                type: LOGIN_FAIL
-            });
-        });  
-    */   
 };
 
 //Logout User

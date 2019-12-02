@@ -37,6 +37,7 @@ router.post('/', (req, res) => {
                                     token,
                                     signupcustomer: {
                                         id: signupcustomer.id,
+                                        type: signupcustomer.signup_type,
                                         firstName: signupcustomer.signup_firstName,
                                         lastName: signupcustomer.signup_lastName,
                                         aPassword: signupcustomer.signup_aPassword,
