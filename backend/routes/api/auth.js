@@ -51,16 +51,6 @@ router.post('/', (req, res) => {
                 })
         })
 });
-router.route('/addserviceprovider').post(function(req, res) {
-    let signup = new SignUpServiceProvider(req.body);
-    signup.save()
-        .then(signup => {
-            res.status(200).json({'signup': 'signup added successfully'});
-        })
-        .catch(err => {
-            res.status(400).send('adding new signup failed');
-        });
-});
 
 //@route    GET api/auth/signupcustomer
 //@desc     Get customer data
