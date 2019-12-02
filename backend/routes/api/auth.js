@@ -5,7 +5,7 @@ const config = require('config');
 const jwt = require('jsonwebtoken');
 const auth = require('../../middleware/auth');
 //Signup Model
-const SignUpCustomer = require('../../models/signupcustomer.model');
+const SignUpCustomer = require('../../models/user.model');
 let SignUpServiceProvider = require('../../models/signupserviceprovider.model');
 
 //@route    POST api/auth
