@@ -11,7 +11,7 @@ const SignUpServiceProvider = require('../../models/signupserviceprovider.model'
 //@desc     Add a new signup
 //@access   Public
 router.post('/addcustomer', (req, res) => {
-    const {signup_firstName, signup_lastName, signup_email, signup_password, signup_aPassword, signup_number, signup_location} = req.body;
+    const {signup_type, signup_firstName, signup_lastName, signup_email, signup_password, signup_aPassword, signup_number, signup_location} = req.body;
     //Simple Validation (Emty Form)
     if(!signup_firstName || !signup_lastName || !signup_email || !signup_password || !signup_aPassword || !signup_number || !signup_location){
         return res.status(400).json({ msg: 'Please fill all fileds!'});
@@ -24,7 +24,7 @@ router.post('/addcustomer', (req, res) => {
         .then(signupcustomer => {
             if(signupcustomer) return res.status(400).json({ msg: 'An user with this email already exists'});
             const newSignUpCustomer = new SignUpCustomer({
-                signup_firstName, signup_lastName, signup_email, signup_password, signup_number, signup_location
+              signup_type, signup_firstName, signup_lastName, signup_email, signup_password, signup_number, signup_location
             });
             
             //Create salt & Hash (Need Decryption here)
@@ -44,6 +44,7 @@ router.post('/addcustomer', (req, res) => {
                             token,
                             signupcustomer: {
                               id: signupcustomer.id,
+                              type: signupcustomer.signup_type,
                               firstName: signupcustomer.signup_firstName,
                               lastName: signupcustomer.signup_lastName,
                               email: signupcustomer.signup_email,
@@ -56,18 +57,6 @@ router.post('/addcustomer', (req, res) => {
                     });
                 })
               })
-            /*newSignUpCustomer.save()
-                .then(signup => {
-                    jwt.sign(
-                        { id: signup.id },
-                        config.get('jwtSecret'),
-                        { expiresIn: 3600 },
-                        (err, token) => {
-                            if(err) throw err;
-                            res.status(200).json({token, 'signup': 'signup added successfully'});
-                        }
-                    )  
-                })*/
         })
 });
 

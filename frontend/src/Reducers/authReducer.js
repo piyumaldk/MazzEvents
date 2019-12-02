@@ -13,6 +13,7 @@ import {
     token: localStorage.getItem('token'),
     isAuthenticated: null,
     isLoading: false,
+    type: null,
     fName: null,
     lName: null,
     email: null,
@@ -34,6 +35,7 @@ import {
           isAuthenticated: state.token !== null,
           
           isLoading: false,
+          type: localStorage.getItem('type'),
           fName: localStorage.getItem('fName'),
           lName: localStorage.getItem('lName'),
           email: localStorage.getItem('email'),
@@ -42,6 +44,7 @@ import {
       case LOGIN_SUCCESS:
       case REGISTER_SUCCESS:
         localStorage.setItem('token', action.payload.token);
+        localStorage.setItem('type', action.payload.signupcustomer.type);
         localStorage.setItem('email', action.payload.signupcustomer.email);
         localStorage.setItem('fName', action.payload.signupcustomer.firstName);
         localStorage.setItem('lName', action.payload.signupcustomer.lastName);
@@ -54,6 +57,7 @@ import {
           token: action.payload.token,
           isAuthenticated: true,
           isLoading: false,
+          type: action.payload.signupcustomer.type,
           fName: action.payload.signupcustomer.firstName,
           lName: action.payload.signupcustomer.lastName,
           email: action.payload.signupcustomer.email,
@@ -63,6 +67,7 @@ import {
       case AUTH_ERROR:
       case LOGIN_FAIL:
       case LOGOUT_SUCCESS:
+          localStorage.removeItem('type');
           localStorage.removeItem('token');
           localStorage.removeItem('email');
           localStorage.removeItem('fName');
@@ -70,6 +75,7 @@ import {
           localStorage.removeItem('location');
           localStorage.removeItem('number');
           return {
+            type: null,
             token: null,
             isAuthenticated: false,
             isLoading: false,
@@ -80,6 +86,7 @@ import {
             location: null
           }
       case REGISTER_FAIL:
+        localStorage.removeItem('type');
         localStorage.removeItem('token');
         localStorage.removeItem('email');
         localStorage.removeItem('fName');

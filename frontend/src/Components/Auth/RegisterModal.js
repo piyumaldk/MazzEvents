@@ -16,8 +16,10 @@ import PropTypes from 'prop-types';
 import { register } from '../../Actions/authActions';
 import { clearErrors } from '../../Actions/errorActions';
 class SignUp extends Component {
+
   state = {
     modal: false,
+    signup_type: '1',
     signup_firstName: '',
     signup_lastName: '',
     signup_option: '',
@@ -71,9 +73,10 @@ class SignUp extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    const { signup_firstName, signup_lastName, signup_email, signup_password, signup_aPassword, signup_number, signup_location } = this.state;
+    const { signup_type, signup_firstName, signup_lastName, signup_email, signup_password, signup_aPassword, signup_number, signup_location } = this.state;
     //Create user object
     const newSignUpCustomer = {
+      signup_type,
       signup_firstName, 
       signup_lastName, 
       signup_email, 
@@ -99,6 +102,8 @@ class SignUp extends Component {
           <ModalBody>
             <Form onSubmit={this.onSubmit}>
               <FormGroup>
+                
+
                 <Label for='firstName'>First Name</Label>
                 <Input type="text" name="signup_firstName" id="signup_firstName" placeholder="First Name" className="mb-3" onChange={this.onChange}/>
 

@@ -31,7 +31,7 @@ export const loadUser = () => (dispatch, getState) => {
         });
 }
 //Register Customer
-export const register = ({ signup_firstName, signup_lastName, signup_email, signup_password, signup_aPassword, signup_number, signup_location}) => dispatch => {
+export const register = ({ signup_type, signup_firstName, signup_lastName, signup_email, signup_password, signup_aPassword, signup_number, signup_location}) => dispatch => {
     //Headers
     const config = {
         headers: {
@@ -39,7 +39,7 @@ export const register = ({ signup_firstName, signup_lastName, signup_email, sign
         }
     };
     //Request body
-    const body = JSON.stringify({ signup_firstName, signup_lastName, signup_email, signup_password, signup_aPassword, signup_number, signup_location});
+    const body = JSON.stringify({ signup_type, signup_firstName, signup_lastName, signup_email, signup_password, signup_aPassword, signup_number, signup_location});
 
     axios.post('/mazzevents/addcustomer', body, config)
         .then(res => dispatch({

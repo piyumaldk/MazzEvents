@@ -3,6 +3,9 @@ const Schema = mongoose.Schema;
 
 //Create Schema
 let SignUpSchema = new Schema({
+    signup_type: {
+        type: String
+    },
     signup_firstName: {
         type: String
     },
@@ -36,4 +39,4 @@ let SignUpSchema = new Schema({
     }
 });
 
-module.exports = SignUp = mongoose.model('signUpCustomer', SignUpSchema);
+module.exports = SignUp = mongoose.model('user', SignUpSchema);
