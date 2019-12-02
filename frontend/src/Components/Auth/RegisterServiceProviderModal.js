@@ -18,6 +18,7 @@ import { clearErrors } from '../../Actions/errorActions';
 class SignUp2 extends Component {
   state = {
     modal: false,
+    signup_type: '2',
     signup_firstName: '',
     signup_lastName: '',
     signup_option: '',
@@ -71,9 +72,10 @@ class SignUp2 extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    const { signup_firstName, signup_lastName, signup_email, signup_password, signup_aPassword, signup_number, signup_location } = this.state;
+    const { signup_type, signup_firstName, signup_lastName, signup_email, signup_password, signup_aPassword, signup_number, signup_location } = this.state;
     //Create user object
     const newSignUpServiceProvider = {
+      signup_type,
       signup_firstName, 
       signup_lastName, 
       signup_email, 
