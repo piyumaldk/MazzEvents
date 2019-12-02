@@ -97,7 +97,7 @@ class LogIn extends Component {
                 { this.state.msg ? (<Alert color="danger">{ this.state.msg }</Alert>) : null }
 
                 <Button color='dark' style={{ marginTop: '2rem' }} block>
-                  Yasaa
+                  Log in
                 </Button>
               </FormGroup>
             </Form>

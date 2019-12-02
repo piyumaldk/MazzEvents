@@ -71,9 +71,6 @@ export const register2 = ({ signup_firstName, signup_lastName, signup_email, sig
         }))
         .catch(err => {
             dispatch(returnErrors(err.response.data, err.response.status, 'REGISTER_FAIL'));
-            dispatch({
-                type: REGISTER_FAIL
-            });
         });
 };
 
