@@ -37,6 +37,7 @@ router.post('/', (req, res) => {
                                     token,
                                     signupcustomer: {
                                         id: signupcustomer.id,
+                                        type: signupcustomer.signup_type,
                                         firstName: signupcustomer.signup_firstName,
                                         lastName: signupcustomer.signup_lastName,
                                         aPassword: signupcustomer.signup_aPassword,
@@ -49,16 +50,6 @@ router.post('/', (req, res) => {
                     )
                 })
         })
-});
-router.route('/addserviceprovider').post(function(req, res) {
-    let signup = new SignUpServiceProvider(req.body);
-    signup.save()
-        .then(signup => {
-            res.status(200).json({'signup': 'signup added successfully'});
-        })
-        .catch(err => {
-            res.status(400).send('adding new signup failed');
-        });
 });
 
 //@route    GET api/auth/signupcustomer

@@ -11,7 +11,7 @@ const SignUpServiceProvider = require('../../models/signupserviceprovider.model'
 //@desc     Add a new signup
 //@access   Public
 router.post('/addcustomer', (req, res) => {
-    const {signup_firstName, signup_lastName, signup_email, signup_password, signup_aPassword, signup_number, signup_location} = req.body;
+    const {signup_type, signup_firstName, signup_lastName, signup_email, signup_password, signup_aPassword, signup_number, signup_location} = req.body;
     //Simple Validation (Emty Form)
     if(!signup_firstName || !signup_lastName || !signup_email || !signup_password || !signup_aPassword || !signup_number || !signup_location){
         return res.status(400).json({ msg: 'Please fill all fileds!'});
@@ -24,7 +24,7 @@ router.post('/addcustomer', (req, res) => {
         .then(signupcustomer => {
             if(signupcustomer) return res.status(400).json({ msg: 'An user with this email already exists'});
             const newSignUpCustomer = new SignUpCustomer({
-                signup_firstName, signup_lastName, signup_email, signup_password, signup_number, signup_location
+              signup_type, signup_firstName, signup_lastName, signup_email, signup_password, signup_number, signup_location
             });
             
             //Create salt & Hash (Need Decryption here)
@@ -44,6 +44,7 @@ router.post('/addcustomer', (req, res) => {
                             token,
                             signupcustomer: {
                               id: signupcustomer.id,
+                              type: signupcustomer.signup_type,
                               firstName: signupcustomer.signup_firstName,
                               lastName: signupcustomer.signup_lastName,
                               email: signupcustomer.signup_email,
@@ -56,72 +57,10 @@ router.post('/addcustomer', (req, res) => {
                     });
                 })
               })
-            /*newSignUpCustomer.save()
-                .then(signup => {
-                    jwt.sign(
-                        { id: signup.id },
-                        config.get('jwtSecret'),
-                        { expiresIn: 3600 },
-                        (err, token) => {
-                            if(err) throw err;
-                            res.status(200).json({token, 'signup': 'signup added successfully'});
-                        }
-                    )  
-                })*/
         })
 });
 
-//@route    POST api/signups
-//@desc     Add a new signup
-//@access   Public
-router.post('/addserviceprovider', (req, res) => {
-  const {signup_firstName, signup_lastName, signup_email, signup_password, signup_aPassword, signup_number, signup_location} = req.body;
-  //Simple Validation (Emty Form)
-  if(!signup_firstName || !signup_lastName || !signup_email || !signup_password || !signup_aPassword || !signup_number || !signup_location){
-      return res.status(400).json({ msg: 'Please fill all fileds!'});
-  }
-  if(signup_password !== signup_aPassword){
-    return res.status(400).json({ msg: 'Passwords are not matching!'});
-  }
-  //Check for existing signupserviceprovider
-  SignUpServiceProvider.findOne({ signup_email })
-      .then(signupserviceprovider => {
-          if(signupserviceprovider) return res.status(400).json({ msg: 'An user with this email already exists'});
-          const newSignUpServiceProvider = new SignUpServiceProvider({
-              signup_firstName, signup_lastName, signup_email, signup_password, signup_number, signup_location
-          });
-          
-          //Create salt & Hash (Need Decryption here)
-          bcrypt.genSalt(10, (err, salt) => {
-              bcrypt.hash(newSignUpServiceProvider.signup_password, salt, (err, hash) => {
-                if(err) throw err;
-                newSignUpServiceProvider.signup_password = hash;
-                newSignUpServiceProvider.save()
-                  .then(signupserviceprovider => {
-                    jwt.sign(
-                      { id: signupserviceprovider.id },
-                      config.get('jwtSecret'),
-                      { expiresIn: 3600 },
-                      (err, token) => {
-                        if(err) throw err;
-                        res.json({
-                          token,
-                          signupserviceprovider: {
-                            id: signupserviceprovider.id,
-                            firstName: signupserviceprovider.signup_firstName,
-                            lastName: signupserviceprovider.signup_lastName,
-                            email: signupserviceprovider.signup_email,
-                            number: signupserviceprovider.signup_number,
-                            location: signupserviceprovider.signup_location
-                          }
-                        });
-                      }
-                    )
-                  });
-              })
-            })
-      })
-});
+
 /*
 router.route('/addserviceprovider').post(function(req, res) {
     let signup = new SignUpServiceProvider(req.body);
