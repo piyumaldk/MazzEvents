@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 const config = require('config');
 const jwt = require('jsonwebtoken');
 //Signup Model
-const SignUp = require('../../models/signupcustomer.model');
+const SignUpCustomer = require('../../models/signupcustomer.model');
 const SignUpServiceProvider = require('../../models/signupserviceprovider.model');
 
 //@route    POST api/signups
@@ -19,37 +19,37 @@ router.post('/addcustomer', (req, res) => {
     if(signup_password !== signup_aPassword){
       return res.status(400).json({ msg: 'Passwords are not matching!'});
     }
-    //Check for existing signup
-    SignUp.findOne({ signup_email })
-        .then(signup => {
-            if(signup) return res.status(400).json({ msg: 'An user with this email already exists'});
-            const newSignUp = new SignUp({
+    //Check for existing signupcustomer
+    SignUpCustomer.findOne({ signup_email })
+        .then(signupcustomer => {
+            if(signupcustomer) return res.status(400).json({ msg: 'An user with this email already exists'});
+            const newSignUpCustomer = new SignUpCustomer({
               signup_type, signup_firstName, signup_lastName, signup_email, signup_password, signup_number, signup_location
             });
             
             //Create salt & Hash (Need Decryption here)
             bcrypt.genSalt(10, (err, salt) => {
-                bcrypt.hash(newSignUp.signup_password, salt, (err, hash) => {
+                bcrypt.hash(newSignUpCustomer.signup_password, salt, (err, hash) => {
                   if(err) throw err;
-                  newSignUp.signup_password = hash;
-                  newSignUp.save()
-                    .then(signup => {
+                  newSignUpCustomer.signup_password = hash;
+                  newSignUpCustomer.save()
+                    .then(signupcustomer => {
                       jwt.sign(
-                        { id: signup.id },
+                        { id: signupcustomer.id },
                         config.get('jwtSecret'),
                         { expiresIn: 3600 },
                         (err, token) => {
                           if(err) throw err;
                           res.json({
                             token,
-                            signup: {
-                              id: signup.id,
-                              type: signup.signup_type,
-                              firstName: signup.signup_firstName,
-                              lastName: signup.signup_lastName,
-                              email: signup.signup_email,
-                              number: signup.signup_number,
-                              location: signup.signup_location
+                            signupcustomer: {
+                              id: signupcustomer.id,
+                              type: signupcustomer.signup_type,
+                              firstName: signupcustomer.signup_firstName,
+                              lastName: signupcustomer.signup_lastName,
+                              email: signupcustomer.signup_email,
+                              number: signupcustomer.signup_number,
+                              location: signupcustomer.signup_location
                             }
                           });
                         }
