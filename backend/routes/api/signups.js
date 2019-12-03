@@ -5,10 +5,9 @@ const config = require('config');
 const jwt = require('jsonwebtoken');
 //Signup Model
 const SignUpCustomer = require('../../models/signupcustomer.model');
-const SignUpServiceProvider = require('../../models/signupserviceprovider.model');
 
 //@route    POST api/signups
-//@desc     Add a new signup
+//@desc     Add a new Customer : Any
 //@access   Public
 router.post('/addcustomer', (req, res) => {
     const {signup_type, signup_firstName, signup_lastName, signup_email, signup_password, signup_aPassword, signup_number, signup_location} = req.body;
@@ -60,17 +59,4 @@ router.post('/addcustomer', (req, res) => {
         })
 });
 
-
-/*
-router.route('/addserviceprovider').post(function(req, res) {
-    let signup = new SignUpServiceProvider(req.body);
-    signup.save()
-        .then(signup => {
-            res.status(200).json({'signup': 'signup added successfully'});
-        })
-        .catch(err => {
-            res.status(400).send('adding new signup failed');
-        });
-});
-*/
 module.exports = router;

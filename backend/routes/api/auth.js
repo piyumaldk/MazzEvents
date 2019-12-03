@@ -9,7 +9,7 @@ const SignUpCustomer = require('../../models/signupcustomer.model');
 let SignUpServiceProvider = require('../../models/signupserviceprovider.model');
 
 //@route    POST api/auth
-//@desc     Auth signups
+//@desc     Auth Customer : Any
 //@access   Public
 router.post('/', (req, res) => {
     const {signup_email, signup_password} = req.body;
@@ -17,7 +17,7 @@ router.post('/', (req, res) => {
     if(!signup_email || !signup_password){
         return res.status(400).json({ msg: 'Please fill all fileds!'});
     }
-    //Check for existing signupcustomer
+    //Check for existing Customer : Any
     SignUpCustomer.findOne({ signup_email })
         .then(signupcustomer => {
             if(!signupcustomer) return res.status(400).json({ msg: 'This email does not have an account!'});

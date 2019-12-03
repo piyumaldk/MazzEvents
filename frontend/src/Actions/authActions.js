@@ -13,7 +13,7 @@ import {
     ADDING_SUCCESS
     } from "./types";
     
-//Check token & load user
+//Check token & load Customer: Any
 export const loadUser = () => (dispatch, getState) => {
     //User loading
     dispatch({ type: USER_LOADING});
@@ -30,7 +30,7 @@ export const loadUser = () => (dispatch, getState) => {
             });
         });
 }
-//Register Buyer
+//Register Customer :Customer
 export const register = ({ signup_type, signup_firstName, signup_lastName, signup_email, signup_password, signup_aPassword, signup_number, signup_location}) => dispatch => {
     //Headers
     const config = {
@@ -54,7 +54,7 @@ export const register = ({ signup_type, signup_firstName, signup_lastName, signu
         });
 };
 
-//Register SProvider
+//Register Customer:Service Provider
 export const register2 = ({ signup_type, signup_firstName, signup_lastName, signup_email, signup_password, signup_aPassword, signup_number, signup_location}) => dispatch => {
     //Headers
     const config = {
@@ -74,7 +74,7 @@ export const register2 = ({ signup_type, signup_firstName, signup_lastName, sign
         });
 };
 
-//Login User
+//Login Customer: Any
 export const login = ({ signup_email, signup_password }) => dispatch => {
     //Headers
     const config = {
@@ -98,7 +98,7 @@ export const login = ({ signup_email, signup_password }) => dispatch => {
         });
 };
 
-//Logout User
+//Logout Customer : Any
 export const logout = () => {
     return {
         type: LOGOUT_SUCCESS
