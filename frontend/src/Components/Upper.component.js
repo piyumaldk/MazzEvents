@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import SignUp from './Auth/RegisterModal';
 import SignUp2 from './Auth/RegisterServiceProviderModal';
+import SignUp3 from './Auth/RegisterStaffModal';
 import LogIn from './Auth/LoginModal';
 import Logout from './Auth/LogOut';
 
@@ -21,6 +22,7 @@ class Upper extends Component {
         </span>
         <Nav.Link href="/serviceprovider/addservices">Dashboard</Nav.Link>
         <SignUp2/>
+        <SignUp3/>
         <Logout/>
       </Fragment>
     );
