@@ -17,20 +17,47 @@ class App extends Component {
     store.dispatch(loadUser());
   }
   render() {
-    console.log(this.props.isAuthenticated);
+    console.log(this.props.isAuthenticated === false);
     let route = <Switch>
-      <Route path="/serviceprovider" component={ServiceProvider}/>
-      <Route path="/customer" component={Customer}/>
-      <Route path="/admin" component={Admin}/>
-      <Route path="/staff" component={Staff}/>  
+      <Route path="/serviceprovider" render={() => <h1>Not found : Error 404</h1>}/>
+      <Route path="/customer" render={() => <h1>Not found : Error 404</h1>}/>
+      <Route path="/admin" render={() => <h1>Not found : Error 404</h1>}/>
+      <Route path="/staff" render={() => <h1>Not found : Error 404</h1>}/>        
     </Switch>
-
-    if(this.props.isAuthenticated === false) {
+    //Customer 
+    if(this.props.isAuthenticated === true && this.props.type === "1") {
       route = <Switch>
-        <Route path="/serviceprovider" render={() => <h1>Not found : Error 404</h1>}/>
-        <Route path="/customer" render={() => <h1>Not found : Error 404</h1>}/>
-        <Route path="/admin" render={() => <h1>Not found : Error 404</h1>}/>
-        <Route path="/staff" render={() => <h1>Not found : Error 404</h1>}/> 
+        <Route path="/serviceprovider" render={() => <h1>Customers are not allowed to visit Service Provider section.</h1>}/>
+        <Route path="/customer" component={Customer}/>
+        <Route path="/admin" render={() => <h1>Customers are not allowed to visit Administator section</h1>}/>
+        <Route path="/staff" render={() => <h1>Customers are not allowed to visit Staff Member section</h1>}/> 
+      </Switch>
+    }  
+    //ServiceProvider
+    if(this.props.isAuthenticated === true && this.props.type === "2") {
+      route = <Switch>
+        <Route path="/serviceprovider" component={ServiceProvider}/>
+        <Route path="/customer" render={() => <h1>Service Providers are not allowed to visit Customer section</h1>}/>
+        <Route path="/admin" render={() => <h1>Service Providers are not allowed to visit Administrator section</h1>}/>
+        <Route path="/staff" render={() => <h1>Service Providers are not allowed to visit Staff Member section</h1>}/> 
+      </Switch>
+    }
+    //Staff
+    if(this.props.isAuthenticated === true && this.props.type === "3") {
+      route = <Switch>
+        <Route path="/serviceprovider" render={() => <h1>Staff Members are not allowed to visit Service Provider section</h1>}/>
+        <Route path="/customer" render={() => <h1>Staff Members are not allowed to visit Customer section</h1>}/>
+        <Route path="/admin" render={() => <h1>Staff Members are not allowed to visit Administator section</h1>}/>
+        <Route path="/staff" component={Staff}/> 
+      </Switch>
+    } 
+    //Admin
+    if(this.props.isAuthenticated === true && this.props.type === "4") {
+      route = <Switch>
+        <Route path="/serviceprovider" render={() => <h1>Administator is not allowed to visit Service Provider section</h1>}/>
+        <Route path="/customer" render={() => <h1>Administator is not allowed to visit Customer section</h1>}/>
+        <Route path="/admin" component={Admin}/>
+        <Route path="/staff" render={() => <h1>Administator is not allowed to visit Staff Member section</h1>}/> 
       </Switch>
     }        
     return(
@@ -48,7 +75,8 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  isAuthenticated: state.auth.isAuthenticated
+  isAuthenticated: state.auth.isAuthenticated,
+  type: state.auth.type
 });
 
 export default connect(mapStateToProps,null)(App);
