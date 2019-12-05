@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import SignUp from './Auth/RegisterModal';
 import SignUp2 from './Auth/RegisterServiceProviderModal';
+import SignUp3 from './Auth/RegisterStaffModal';
 import LogIn from './Auth/LoginModal';
 import Logout from './Auth/LogOut';
 
@@ -13,14 +14,15 @@ class Upper extends Component {
     auth: PropTypes.object.isRequired
   }
   render() {
-    const { isAuthenticated} = this.props.auth;
+    const { isAuthenticated, type } = this.props.auth;
     const authLinks = (
       <Fragment>
         <span className='navbar-text mr-3'>
           <strong>{this.props.fName ? `Hi ${this.props.fName}!` : ``}</strong>
         </span>
-        <Nav.Link href="/serviceprovider/addservices">Dashboard</Nav.Link>
+        
         <SignUp2/>
+        <SignUp3/>
         <Logout/>
       </Fragment>
     );
@@ -50,7 +52,11 @@ class Upper extends Component {
         <Navbar.Brand href="/">MazzEvents</Navbar.Brand>
           <Nav className="mr-auto">
             <Nav.Link href="/">Home</Nav.Link>
-            { isAuthenticated ? authLinks : guestLinks }
+            { isAuthenticated  ? authLinks : guestLinks }
+            { isAuthenticated === true && type ==="1"  ? <Nav.Link href="/customer/dash">Customer Dashboard</Nav.Link> : null }
+            { isAuthenticated === true && type ==="2"  ? <Nav.Link href="/serviceprovider/addservices">Service Provider Dashboard</Nav.Link> : null }
+            { isAuthenticated === true && type ==="3"  ? <Nav.Link href="/staff/addservicerpvoder">Staff Member Dashboard</Nav.Link> : null }
+            { isAuthenticated === true && type ==="4"  ? <Nav.Link href="/admin/staff">Administrator Dashboard</Nav.Link> : null }
             <Nav.Link href="/aboutus">About us</Nav.Link>     
           </Nav>
           
