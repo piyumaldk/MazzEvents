@@ -21,7 +21,7 @@ let SignUpSchema = new Schema({
     signup_password: {
         type: String
     },
-    signup_aPassword: {
+    signup_category: {
         type: String
     },
     signup_number: {

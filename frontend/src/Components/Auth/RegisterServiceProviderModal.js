@@ -25,6 +25,7 @@ class SignUp2 extends Component {
     signup_email: '',
     signup_password: '',
     signup_aPassword: '',
+    signup_category: '',
     signup_number: '',
     signup_location: '',
     msg: null
@@ -72,7 +73,7 @@ class SignUp2 extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    const { signup_type, signup_firstName, signup_lastName, signup_email, signup_password, signup_aPassword, signup_number, signup_location } = this.state;
+    const { signup_type, signup_firstName, signup_lastName, signup_email, signup_password, signup_aPassword, signup_category, signup_number, signup_location } = this.state;
     //Create user object
     const newSignUpServiceProvider = {
       signup_type,
@@ -81,6 +82,7 @@ class SignUp2 extends Component {
       signup_email, 
       signup_password, 
       signup_aPassword, 
+      signup_category,
       signup_number, 
       signup_location
     };
@@ -114,6 +116,18 @@ class SignUp2 extends Component {
 
                 <Label for='aPassword'>Confirm Password</Label>
                 <Input type="password" name="signup_aPassword" id="signup_aPassword" placeholder="Confirm Password" className="mb-3" onChange={this.onChange}/>
+
+                <Label for='Category'>Category</Label>
+                <Input type="select" name="signup_category" id="signup_category"  className="mb-3" onChange={this.onChange}>
+                  <option>Photography</option>
+                  <option>DJ</option>
+                  <option>Music</option>
+                  <option>Catering</option>
+                  <option>Reception Halls</option>
+                  <option>Hotels</option>
+                  <option>Fowers</option>
+                  <option>Vehicles</option>
+                </Input>
 
                 <Label for='number'>Contact Number</Label>
                 <Input type="number" name="signup_number" id="signup_number" placeholder="Contact Number" className="mb-3" onChange={this.onChange}/>
