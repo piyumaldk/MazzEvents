@@ -19,8 +19,8 @@ mongoose.connect(db, {
 });
 //Use Routes
 app.use('/mazzevents', require('./routes/api/signups'));
-
 app.use('/mazzevents/auth', require('./routes/api/auth'));
+app.use('/mazzevents', require('./routes/api/services'));
 
 const PORT = 4000;
 app.listen(PORT, function() {

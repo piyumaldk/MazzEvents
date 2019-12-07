@@ -8,6 +8,7 @@ import SignUp2 from './Auth/RegisterServiceProviderModal';
 import SignUp3 from './Auth/RegisterStaffModal';
 import LogIn from './Auth/LoginModal';
 import Logout from './Auth/LogOut';
+import Adddj from "./Services/DjModal";
 
 class Upper extends Component {
   static propTypes = {
@@ -35,6 +36,7 @@ class Upper extends Component {
       <Fragment>
         <LogIn/>
         <SignUp/>
+        
       </Fragment>
     );
     const guestLinks = (
@@ -52,12 +54,14 @@ class Upper extends Component {
         <Navbar.Brand href="/">MazzEvents</Navbar.Brand>
           <Nav className="mr-auto">
             <Nav.Link href="/">Home</Nav.Link>
+            <Adddj/> 
             { isAuthenticated  ? authLinks : guestLinks }
             { isAuthenticated === true && type ==="1"  ? <Nav.Link href="/customer/dash">Customer Dashboard</Nav.Link> : null }
             { isAuthenticated === true && type ==="2"  ? <Nav.Link href="/serviceprovider/addservices">Service Provider Dashboard</Nav.Link> : null }
             { isAuthenticated === true && type ==="3"  ? <Nav.Link href="/staff/addservicerpvoder">Staff Member Dashboard</Nav.Link> : null }
             { isAuthenticated === true && type ==="4"  ? <Nav.Link href="/admin/staff">Administrator Dashboard</Nav.Link> : null }
-            <Nav.Link href="/aboutus">About us</Nav.Link>     
+            <Nav.Link href="/aboutus">About us</Nav.Link>   
+             
           </Nav>
           
           

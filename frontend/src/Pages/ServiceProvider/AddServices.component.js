@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import LeftSeriveProvider from "../../Components/LeftServiceProvider.component";
 import {Button, Badge, Table, Modal, ButtonToolbar, Form, Col} from 'react-bootstrap';
-
+import adddj from "../../Components/Services/DjModal";
 export default class ServiceProviderAddServices extends Component {
     render() {
         return (
             <div>
                 <LeftSeriveProvider/>
                 <div class="right">
+                  <adddj/>
                 <h3>Add Services<Badge variant="secondary"></Badge></h3>
                 <Table striped bordered hover variant="dark">
                   <thead>
