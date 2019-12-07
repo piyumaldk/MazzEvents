@@ -26,10 +26,20 @@ class Upper extends Component {
         <Logout/>
       </Fragment>
     );
+    const logout = (
+      <Fragment>
+        <Logout/>
+      </Fragment>
+    );
+    const login = (
+      <Fragment>
+        <LogIn/>
+        <SignUp/>
+      </Fragment>
+    );
     const guestLinks = (
       <Fragment>
-        <SignUp/>
-        <LogIn/>
+        
       </Fragment>
     );
 
@@ -49,10 +59,10 @@ class Upper extends Component {
             { isAuthenticated === true && type ==="4"  ? <Nav.Link href="/admin/staff">Administrator Dashboard</Nav.Link> : null }
             <Nav.Link href="/aboutus">About us</Nav.Link>     
           </Nav>
-          <Form inline>
-            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-            <Button variant="outline-info">Search Events</Button>
-          </Form>
+          
+          
+          
+          { isAuthenticated ? logout : login }
         </Navbar>
       </div>
     )
