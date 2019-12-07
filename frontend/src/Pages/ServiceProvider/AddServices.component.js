@@ -8,7 +8,7 @@ export default class ServiceProviderAddServices extends Component {
             <div>
                 <LeftSeriveProvider/>
                 <div class="right">
-                  <adddj/>
+                  
                 <h3>Add Services<Badge variant="secondary"></Badge></h3>
                 <Table striped bordered hover variant="dark">
                   <thead>

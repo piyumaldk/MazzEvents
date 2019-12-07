@@ -65,14 +65,19 @@ class Adddj extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    const { name1, name2 } = this.state;
+    let { name1, name2 } = this.state;
     //Create user object
-    const dj = {
+    let dj = {
       name1,
       name2
     };
-    //Attempt to Register
+    //Register
     this.props.djAction(dj);
+    //Clear form data
+    this.setState({
+      name1: "",
+      name2: ""
+    });
   }
 
   render() {

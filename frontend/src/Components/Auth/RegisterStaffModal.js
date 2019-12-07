@@ -86,6 +86,16 @@ class SignUp3 extends Component {
     };
     //Attempt to Register
     this.props.register2(newSignUpServiceProvider);
+    this.setState({
+      signup_type: "",
+      signup_firstName: "", 
+      signup_lastName: "", 
+      signup_email: "", 
+      signup_password: "", 
+      signup_aPassword: "", 
+      signup_number: "", 
+      signup_location: ""
+    });
   }
 
   render() {
