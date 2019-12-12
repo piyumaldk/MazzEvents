@@ -9,6 +9,8 @@ import SignUp3 from './Auth/RegisterStaffModal';
 import LogIn from './Auth/LoginModal';
 import Logout from './Auth/LogOut';
 import Adddj from "./Services/DjModal";
+import Add_photographer from "./Services/PhotographerModal";
+
 
 class Upper extends Component {
   static propTypes = {
@@ -54,7 +56,8 @@ class Upper extends Component {
         <Navbar.Brand href="/">MazzEvents</Navbar.Brand>
           <Nav className="mr-auto">
             <Nav.Link href="/">Home</Nav.Link>
-            <Adddj/> 
+            <Adddj/>
+            <Add_photographer/>
             { isAuthenticated  ? authLinks : guestLinks }
             { isAuthenticated === true && type ==="1"  ? <Nav.Link href="/customer/dash">Customer Dashboard</Nav.Link> : null }
             { isAuthenticated === true && type ==="2"  ? <Nav.Link href="/serviceprovider/addservices">Service Provider Dashboard</Nav.Link> : null }

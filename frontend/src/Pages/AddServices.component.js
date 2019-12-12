@@ -6,6 +6,7 @@ export default class ServiceProviderAddServices extends Component {
     render() {
         return (
             <div>
+                
                 <LeftSeriveProvider/>
                 <div class="right">
                 <h3>Add Services<Badge variant="secondary"></Badge></h3>

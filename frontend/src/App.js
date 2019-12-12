@@ -13,6 +13,7 @@ import Customer from "./Pages/Customer/Customer";
 import Upper from "./Components/Upper.component";
 
 
+
 class App extends Component {
   componentDidMount() {
     store.dispatch(loadUser());
@@ -64,7 +65,7 @@ class App extends Component {
     return(
       
       <div>
-        <Upper/>
+      <Upper/> 
     <Router>
       <Route default path="/" exact component={Home}/> 
       <Route path="/aboutus" component={AboutUs}/>

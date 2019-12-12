@@ -15,6 +15,18 @@ let ServiceSchema = new Schema({
     },
     completed: {
         type: Boolean
+    },Name: {
+        type: String
+    },Email: {
+        type: String
+    },City: {
+        type: String
+    },Website: {
+        type: String
+    },Fackbook_link: {
+        type: String
+    },Phone_number: {
+        type: String
     }
 });
 
