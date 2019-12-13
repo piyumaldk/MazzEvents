@@ -1,12 +1,14 @@
 import React, { Component, useState } from 'react';
 import LeftAdmin from "../../Components/LeftAdmin.component";
 import {Table, Nav, Form, Col, Button, Modal,Alert} from 'react-bootstrap';
+import Upper from "../../Components/Upper.component";
 export default class AdminMailbox extends Component {
     render() {
         return (
             <div>
                 <LeftAdmin/>
                 <div class="mailright">
+                <Upper/>
                     <div class="mail">
                         <center><h4>Email</h4></center>
                         <Table striped bordered hover size="sm">

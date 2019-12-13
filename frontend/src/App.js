@@ -21,10 +21,10 @@ class App extends Component {
   render() {
     console.log(this.props.isAuthenticated === false);
     let route = <Switch>
-      <Route path="/serviceprovider" render={() => <h1>Not found : Error 404</h1>}/>
-      <Route path="/customer" render={() => <h1>Not found : Error 404</h1>}/>
-      <Route path="/admin" render={() => <h1>Not found : Error 404</h1>}/>
-      <Route path="/staff" render={() => <h1>Not found : Error 404</h1>}/>        
+      <Route path="/serviceprovider" component={Home}/>
+      <Route path="/customer" component={Home}/>
+      <Route path="/admin" component={Home}/>
+      <Route path="/staff" component={Home}/>        
     </Switch>
     //Customer 
     if(this.props.isAuthenticated === true && this.props.type === "1") {
@@ -65,7 +65,7 @@ class App extends Component {
     return(
       
       <div>
-      <Upper/> 
+      
     <Router>
       <Route default path="/" exact component={Home}/> 
       <Route path="/aboutus" component={AboutUs}/>

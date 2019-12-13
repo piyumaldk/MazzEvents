@@ -11,11 +11,14 @@ import AdminMaps from "./Maps.component";
 import AdminSendNotification from "./SendNotification.component";
 import AdminServiceProvider from "./ServiceProvider.component";
 import AdminStaff from "./Staff.component";
-
+import LeftAdmin from "../../Components/LeftAdmin.component";
+import Upper from "../../Components/Upper.component";
 export default class Admin extends Component {
     render() {
         return (
             <div>
+                <LeftAdmin/>
+                
                 <Router>
                     <Route path="/admin/chat" component={AdminChat}/>
                     <Route path="/admin/authenticaton" component={AdminAuthentication}/>
@@ -29,6 +32,7 @@ export default class Admin extends Component {
                     <Route path="/admin/serviceprovider" component={AdminServiceProvider}/>
                     <Route path="/admin/staff" component={AdminStaff}/>
                 </Router>
+               
             </div>
         )
     }

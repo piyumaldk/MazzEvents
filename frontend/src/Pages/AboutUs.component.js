@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
 import {Card} from 'react-bootstrap';
-
+import Upper from "../Components/Upper.component";
 export default class AboutUs extends Component {
     render() {
         return (
             <div>
-             
+             <Upper/>
               <div class="leftAboutUs">
                  <h1><font color="blue"><b>About Us</b></font></h1>
                     <h3>We are MazzEvents</h3>
