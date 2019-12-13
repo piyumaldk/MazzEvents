@@ -39,11 +39,12 @@
 
 /*Right Component*/
 .right{
+background-image: url("Images/rightbackground.jpg"); 
 position: absolute;
 right: 0px;
 width: 85%;
 height: 100%;
-border: 3px solid rgb(255, 255, 255);
+
 padding: 10px;
 }
 
@@ -156,23 +157,23 @@ padding: 10px;
 }
 
 .account {
-height: 100%;
-width: 20%;
-position: fixed;
-z-index: 1;
-top: 0;
-left: 15%;
-background-color: rgb(255, 255, 255);
-overflow-x: hidden;
-padding-top: 20px;
-}
-
-.accountright{
-position: absolute;
-left: 40%;
-width: 60%;
-height: 100%;
-
-padding: 10px;
-}
+  height: 100%;
+  width: 20%;
+  position: fixed;
+  z-index: 1;
+  top: 8%;
+  left: 15%;
+  background-color: rgb(255, 255, 255);
+  overflow-x: hidden;
+  padding-top: 20px;
+  }
+  
+  .accountright{
+  position: absolute;
+  left: 40%;
+  width: 60%;
+  height: 100%;
+  
+  padding: 10px;
+  }
 
