@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import LeftSeriveProvider from "../../Components/LeftServiceProvider.component";
 import {Table, Nav, Form, Button } from 'react-bootstrap';
+import Upper from "../../Components/Upper.component";
 export default class ServiceProviderChat extends Component {
     render() {
         return (
             <div>
                 <LeftSeriveProvider/>
                 <div class="chatright">
+                <Upper/>
                     <div class="chat">
                         <center><h4>Chat</h4></center>
                         <Table striped bordered hover size="sm">

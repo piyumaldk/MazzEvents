@@ -11,6 +11,7 @@ class ServiceProviderAccount extends Component {
       <div>
         <LeftSeriveProvider/>
         <div  class="right">
+          <Upper/>
           <div class="accountright">
             <h4>Service Provider Profile</h4>
             <div class="account">

@@ -12,7 +12,7 @@ import ServiceProviderMailbox from "./MailBox.component";
 import ServiceProviderReviews from "./Reviews.component";
 import ServiceProviderViewBookings from "./ViewBookings.component";
 import ServiceProviderViewServices from "./ViewServices.component";
-
+import Upper from "../../Components/Upper.component";
 export default class ServiceProvider extends Component {
     render() {
         return (

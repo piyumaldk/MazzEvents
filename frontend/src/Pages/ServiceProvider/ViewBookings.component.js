@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import LeftSeriveProvider from "../../Components/LeftServiceProvider.component";
 import {Table} from 'react-bootstrap';
-
+import Upper from "../../Components/Upper.component";
 export default class ServiceProviderViewBookings extends Component {
     render() {
         return (
           <div>
             <LeftSeriveProvider/>
               <div class="right">
+              <Upper/>
                 <h1>Vehicle Bookings</h1>
                 <Table striped bordered hover>
                   <thead>

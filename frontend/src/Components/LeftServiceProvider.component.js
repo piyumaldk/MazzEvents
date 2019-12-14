@@ -6,7 +6,7 @@ export default class LeftServiceProvider extends Component {
     render() {
         return (
             <div class="sidenav">
-                <h5>Service Provider</h5>
+                <h>Service Provider</h>
                 <p>Components</p>
                 <a href="/serviceprovider/addservices">Add Services +</a>
                 <a href="/serviceprovider/chat">Chat</a>

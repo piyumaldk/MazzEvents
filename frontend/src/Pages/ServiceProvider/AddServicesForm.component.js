@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import LeftSeriveProvider from "../../Components/LeftServiceProvider.component";
 import {Button, Badge, Form, Col, Nav} from 'react-bootstrap';
-
+import Upper from "../../Components/Upper.component";
 export default class ServiceProviderAddServicesForm extends Component {
     render() {
         return (
             <div>
                 <LeftSeriveProvider/>
                 <div class="right">
+                <Upper/>
                 <h3>Add Services Form<Badge variant="secondary"></Badge></h3>
 
                 <Form>

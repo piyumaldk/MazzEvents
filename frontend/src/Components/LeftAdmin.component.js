@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../Css/Sidenav.css';
+
 
 export default class LeftServiceProvider extends Component {
     render() {

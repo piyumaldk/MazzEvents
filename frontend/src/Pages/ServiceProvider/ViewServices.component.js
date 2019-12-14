@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import LeftSeriveProvider from "../../Components/LeftServiceProvider.component";
 import {Badge, Table} from 'react-bootstrap';
-
+import Upper from "../../Components/Upper.component";
 export default class ServiceProviderViewServices extends Component {
     render() {
         return (
             <div>
                 <LeftSeriveProvider/>
                 <div class="right">
+                  <Upper/>
                 <h3>
                     Services<Badge variant="secondary"></Badge>
                 </h3>
