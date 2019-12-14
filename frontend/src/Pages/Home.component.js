@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {Carousel} from 'react-bootstrap';
 import Upper from "../Components/Upper.component";
+import Card from '../Components/Cads/CardUI';
+import img1 from '../Images/Customer/new.jpg';
 export default class Home extends Component {
     render() {
         return (
@@ -30,7 +32,27 @@ export default class Home extends Component {
                                     <p>18th December : @AvenraNegombo(5pm onwards)</p>
                                 </Carousel.Caption>
                             </Carousel.Item>
-                        </Carousel>   
+                        </Carousel> 
+                        <div >
+                    <p>Upcoming events</p>
+                </div>
+                <div className="fullbanner-container">
+                <div className="row card_ss">
+                        
+                        <div className="col-md-3">
+                            <Card imgsrc={img1} title="Sachin" />
+                        </div>
+                        <div className="col-md-3">
+                            <Card imgsrc={img1} title="Ravindu" />
+                        </div>
+                        <div className="col-md-3">
+                            <Card imgsrc={img1} title="Himash" />
+                        </div>
+                        <div className="col-md-3">
+                            <Card imgsrc={img1} title="Himash" />
+                        </div>
+                    </div> 
+                    </div>  
                 </div>  
         )
     }

@@ -177,3 +177,10 @@ padding: 10px;
   padding: 10px;
   }
 
+  .navb{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+   }
