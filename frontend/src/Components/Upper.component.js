@@ -48,10 +48,10 @@ class Upper extends Component {
     );
 
     return (
-      <div className="navb">
+      <div>
         <Navbar bg="dark" variant="dark">
         <a href="/" className="navbar-brand">
-          <img alt="" src={Logo} width="50" height="50"/>
+          <img alt="" src={Logo} width="30" height="30"/>
         </a>
         <Navbar.Brand href="/">MazzEvents</Navbar.Brand>
           <Nav className="mr-auto">

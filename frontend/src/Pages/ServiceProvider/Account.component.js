@@ -19,8 +19,13 @@ class ServiceProviderAccount extends Component {
                 <Card.Body>
                   <Card.Title><center>{this.props.fName} {this.props.lName}</center></Card.Title>
                   <Card.Text>
-                    <a href>{this.props.email}</a><br/>
-                    {this.props.number}<br/>
+                    Email Address: {this.props.email}<br/>
+                    Contact Number: {this.props.number}<br/>
+                    Address :<br/> {this.props.address}<br/>
+                    Second Address :<br/> {this.props.address2}<br/>
+                    City : {this.props.city}<br/>
+                    State : {this.props.state}<br/>
+                    Zip : {this.props.zip}<br/>
                   </Card.Text>
                 </Card.Body>
               </Card>
@@ -94,7 +99,13 @@ const mapStateToProps = state => ({
   fName: state.auth.fName,
   lName: state.auth.lName,
   email: state.auth.email,
-  number: state.auth.number
+  number: state.auth.number,
+  location: state.auth.location,
+  address: state.auth.address,
+  address2: state.auth.address2,
+  city: state.auth.city,
+  state: state.auth.state,
+  zip: state.auth.zip
 });
 
 export default connect(mapStateToProps,null)(ServiceProviderAccount);

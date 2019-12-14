@@ -18,8 +18,12 @@ import {
     lName: null,
     email: null,
     number: null,
-    location: null
-
+    location: null,
+    address: null,
+    address2: null,
+    city: null,
+    state: null,
+    zip: null,
   };
   
   export default function(state = initialState, action) {
@@ -40,6 +44,12 @@ import {
           lName: localStorage.getItem('lName'),
           email: localStorage.getItem('email'),
           number: localStorage.getItem('number'),
+          location: localStorage.getItem('location'),
+          address: localStorage.getItem('address'),
+          address2: localStorage.getItem('address2'),
+          city: localStorage.getItem('city'),
+          state: localStorage.getItem('state'),
+          zip: localStorage.getItem('zip'),
         };
       case LOGIN_SUCCESS:
       case REGISTER_SUCCESS:
@@ -50,7 +60,11 @@ import {
         localStorage.setItem('lName', action.payload.signupcustomer.lastName);
         localStorage.setItem('location', action.payload.signupcustomer.location);
         localStorage.setItem('number', action.payload.signupcustomer.number);
-
+        localStorage.setItem('address', action.payload.signupcustomer.address);
+        localStorage.setItem('address2', action.payload.signupcustomer.address2);
+        localStorage.setItem('city', action.payload.signupcustomer.city);
+        localStorage.setItem('state', action.payload.signupcustomer.state);
+        localStorage.setItem('zip', action.payload.signupcustomer.zip);
         console.log(action.payload);
         return {
           ...state,
@@ -62,7 +76,12 @@ import {
           lName: action.payload.signupcustomer.lastName,
           email: action.payload.signupcustomer.email,
           number: action.payload.signupcustomer.number,
-          location: action.payload.signupcustomer.location
+          location: action.payload.signupcustomer.location,
+          address: action.payload.signupcustomer.address,
+          address2: action.payload.signupcustomer.address2,
+          city: action.payload.signupcustomer.city,
+          state: action.payload.signupcustomer.state,
+          zip: action.payload.signupcustomer.zip,
         };
       case AUTH_ERROR:
       case LOGIN_FAIL:
@@ -74,6 +93,11 @@ import {
           localStorage.removeItem('lName');
           localStorage.removeItem('location');
           localStorage.removeItem('number');
+          localStorage.removeItem('address');
+          localStorage.removeItem('address2');
+          localStorage.removeItem('city');
+          localStorage.removeItem('state');
+          localStorage.removeItem('zip');
           return {
             type: null,
             token: null,
@@ -83,7 +107,12 @@ import {
             lName: null,
             email: null,
             number: null,
-            location: null
+            location: null,
+            address: null,
+            address2: null,
+            city: null,
+            state: null,
+            zip: null,
           }
       case REGISTER_FAIL:
         localStorage.removeItem('type');
@@ -93,7 +122,11 @@ import {
         localStorage.removeItem('lName');
         localStorage.removeItem('location');
         localStorage.removeItem('number');
-       
+        localStorage.removeItem('address');
+        localStorage.removeItem('address2');
+        localStorage.removeItem('city');
+        localStorage.removeItem('state');
+        localStorage.removeItem('zip');
         return {
           ...state,
           token: null,
