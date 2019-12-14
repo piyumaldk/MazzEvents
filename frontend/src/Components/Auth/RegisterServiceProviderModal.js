@@ -25,9 +25,13 @@ class SignUp2 extends Component {
     signup_email: '',
     signup_password: '',
     signup_aPassword: '',
-    signup_category: '',
+    signup_category: 'Photography',
     signup_number: '',
-    signup_location: '',
+    signup_address: '',
+    signup_address2: '',
+    signup_city: '',
+    signup_state: '',
+    signup_zip: '',
     msg: null
   };
 
@@ -73,7 +77,7 @@ class SignUp2 extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    const { signup_type, signup_firstName, signup_lastName, signup_email, signup_password, signup_aPassword, signup_category, signup_number, signup_location } = this.state;
+    const { signup_type, signup_firstName, signup_lastName, signup_email, signup_password, signup_aPassword, signup_category, signup_number, signup_address, signup_address2, signup_city, signup_state, signup_zip } = this.state;
     //Create user object
     const newSignUpServiceProvider = {
       signup_type,
@@ -84,21 +88,29 @@ class SignUp2 extends Component {
       signup_aPassword, 
       signup_category,
       signup_number, 
-      signup_location
+      signup_address,
+      signup_address2,
+      signup_city,
+      signup_state,
+      signup_zip
     };
     //Attempt to Register
     this.props.register2(newSignUpServiceProvider);
     //Clear form data
     this.setState({
-      signup_type: "",
+      signup_type: "2",
       signup_firstName: "", 
       signup_lastName: "", 
       signup_email: "", 
       signup_password: "", 
       signup_aPassword: "", 
-      signup_category: "",
+      signup_category: "Photography",
       signup_number: "", 
-      signup_location: ""
+      signup_address: "",
+      signup_address2: "",
+      signup_city: "",
+      signup_state: "",
+      signup_zip: ""
     });
   }
 
@@ -144,8 +156,20 @@ class SignUp2 extends Component {
                 <Label for='number'>Contact Number</Label>
                 <Input type="number" name="signup_number" id="signup_number" placeholder="Contact Number" className="mb-3" onChange={this.onChange}/>
 
-                <Label for='location'>Home town</Label>
-                <Input type="text" name="signup_location" id="signup_location" placeholder="Home Town" className="mb-3" onChange={this.onChange}/>
+                <Label for='address'>Address</Label>
+                <Input type="text" name="signup_address" id="signup_address" placeholder="Address" className="mb-3" onChange={this.onChange}/>
+
+                <Label for='address2'>Second Address</Label>
+                <Input type="text" name="signup_address2" id="signup_address2" placeholder="Second Address" className="mb-3" onChange={this.onChange}/>
+
+                <Label for='city'>City</Label>
+                <Input type="text" name="signup_city" id="signup_city" placeholder="City" className="mb-3" onChange={this.onChange}/>
+
+                <Label for='state'>State</Label>
+                <Input type="text" name="signup_state" id="signup_state" placeholder="State" className="mb-3" onChange={this.onChange}/>
+
+                <Label for='zip'>Zip</Label>
+                <Input type="text" name="signup_zip" id="signup_zip" placeholder="Zip" className="mb-3" onChange={this.onChange}/>
 
                 { this.state.msg ? (<Alert color="danger">{ this.state.msg }</Alert>) : null }
 

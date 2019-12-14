@@ -10,12 +10,15 @@ const SignUpCustomer = require('../../models/signupcustomer.model');
 //@desc     Add a new Customer : Any
 //@access   Public
 router.post('/addcustomer', (req, res) => {
-    const {signup_type, signup_firstName, signup_lastName, signup_email, signup_password, signup_aPassword, signup_category, signup_number, signup_location} = req.body;
+    const {signup_type, signup_firstName, signup_lastName, signup_email, signup_password, signup_aPassword, signup_category, signup_number,signup_location, signup_address, signup_address2, signup_city, signup_state, signup_zip } = req.body;
     //Simple Validation (Emty Form)
-
-          if(!signup_firstName || !signup_lastName || !signup_email || !signup_password || !signup_aPassword || !signup_number || !signup_location){
-              return res.status(400).json({ msg: 'Please fill all fileds!'});
-          }
+    
+      if(!signup_firstName || !signup_lastName || !signup_email || !signup_password || !signup_aPassword || !signup_number){
+        return res.status(400).json({ msg: 'Please fill all fileds!'});
+      }
+    
+ 
+          
     if(signup_password !== signup_aPassword){
       return res.status(400).json({ msg: 'Passwords are not matching!'});
     }
@@ -24,7 +27,7 @@ router.post('/addcustomer', (req, res) => {
         .then(signupcustomer => {
             if(signupcustomer) return res.status(400).json({ msg: 'An user with this email already exists'});
             const newSignUpCustomer = new SignUpCustomer({
-              signup_type, signup_firstName, signup_lastName, signup_email, signup_password, signup_category, signup_number, signup_location
+              signup_type, signup_firstName, signup_lastName, signup_email, signup_password, signup_aPassword, signup_category, signup_number, signup_location, signup_address, signup_address2, signup_city, signup_state, signup_zip 
             });
             
             //Create salt & Hash (Need Decryption here)
@@ -50,7 +53,12 @@ router.post('/addcustomer', (req, res) => {
                               email: signupcustomer.signup_email,
                               category: signupcustomer.signup_category,
                               number: signupcustomer.signup_number,
-                              location: signupcustomer.signup_location
+                              location: signupcustomer.signup_location,
+                              address: signupcustomer.signup_address,
+                              address2: signupcustomer.signup_address2,
+                              city: signupcustomer.signup_city,
+                              state: signupcustomer.signup_state,
+                              zip: signupcustomer.signup_zip,
                             }
                           });
                         }

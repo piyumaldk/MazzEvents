@@ -30,6 +30,21 @@ let SignUpSchema = new Schema({
     signup_location: {
         type: String
     },
+    signup_address: {
+        type: String
+    },
+    signup_address2: {
+        type: String
+    },
+    signup_city: {
+        type: String
+    },
+    signup_state: {
+        type: String
+    },
+    signup_zip: {
+        type: String
+    },
     signup_date: {
         type: Date,
         default: Date.now

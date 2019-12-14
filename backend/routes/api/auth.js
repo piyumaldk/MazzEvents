@@ -43,7 +43,12 @@ router.post('/', (req, res) => {
                                         aPassword: signupcustomer.signup_aPassword,
                                         email: signupcustomer.signup_email,
                                         number: signupcustomer.signup_number,
-                                        location: signupcustomer.signup_location
+                                        location: signupcustomer.signup_location,
+                                        address: signupcustomer.signup_address,
+                                        address2: signupcustomer.signup_address2,
+                                        city: signupcustomer.signup_city,
+                                        state: signupcustomer.signup_state,
+                                        zip: signupcustomer.signup_zip,
                                     }
                                 });
                         }
