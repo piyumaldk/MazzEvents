@@ -13,7 +13,7 @@ class ServiceProviderAccount extends Component {
         <div  class="right">
           <Upper/>
           <div class="accountright">
-            <h4>Service Provider Profile</h4>
+            
             <div class="account">
               <Card style={{ width: '18rem' }}>
                 <Card.Img variant="top" src={Piyumal} />
@@ -32,7 +32,7 @@ class ServiceProviderAccount extends Component {
               </Card>
             </div>
           </div>
-
+          <div  class="rightAccount">
           <Form>
             <Form.Row>
               <Form.Group as={Col} controlId="formGridFirstName">
@@ -90,6 +90,7 @@ class ServiceProviderAccount extends Component {
               Update
             </Button>
           </Form>
+          </div>
         </div>
       </div>   
     )
