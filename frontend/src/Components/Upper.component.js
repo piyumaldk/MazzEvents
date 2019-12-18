@@ -10,7 +10,9 @@ import LogIn from './Auth/LoginModal';
 import Logout from './Auth/LogOut';
 import Adddj from "./Services/DjModal";
 import Add_photographer from "./Services/PhotographerModal";
-
+import Add_Vehicle from "./Services/VehicleModal"; 
+import Add_Music from "./Services/MusicModal"; 
+import Add_Flower from "./Services/FlowerModal"; 
 
 class Upper extends Component {
   static propTypes = {
@@ -58,6 +60,9 @@ class Upper extends Component {
             <Nav.Link href="/">Home</Nav.Link>
             <Adddj/>
             <Add_photographer/>
+            <Add_Vehicle/>
+            <Add_Music/>
+            <Add_Flower/>
             { isAuthenticated  ? authLinks : guestLinks }
             { isAuthenticated === true && type ==="1"  ? <Nav.Link href="/customer/dash">Customer Dashboard</Nav.Link> : null }
             { isAuthenticated === true && type ==="2"  ? <Nav.Link href="/serviceprovider/addservices">Service Provider Dashboard</Nav.Link> : null }
