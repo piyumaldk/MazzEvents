@@ -13,7 +13,7 @@ import {
 } from 'reactstrap';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Photographer_Action } from '../../Actions/serviceActions';
+import { Music_Action } from '../../Actions/serviceActions';
 import { clearErrors } from '../../Actions/errorActions';
 class Add_Music extends Component {
   state = {
@@ -22,8 +22,8 @@ class Add_Music extends Component {
     Email: '',
     Phone_number: '',
     City: '',
-    Brand: '',
-    Type: '',
+    Youtube_link: '',
+    Facebook_link: '',
 
     msg: null
   };
@@ -31,7 +31,7 @@ class Add_Music extends Component {
   static propTypes = {
     added: PropTypes.bool,
     error: PropTypes.object.isRequired,
-    Vehicle_Action: PropTypes.func.isRequired,
+    Music_Action: PropTypes.func.isRequired,
     clearErrors: PropTypes.func.isRequired
   };
   //Bring msgs from backend
@@ -70,18 +70,26 @@ class Add_Music extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    let { Name, Email } = this.state;
+    let { Name, Email, Phone_number, City, Youtube_link, Fackbook_link } = this.state;
     //Create user object
-    let dj = {
-      Name,
-      Email
+    let Music = {
+      Name, 
+      Email, 
+      Phone_number, 
+      City, 
+      Youtube_link, 
+      Fackbook_link
     };
     //Register
-    this.props.Vehicle_Action(dj);
+    this.props.Music_Action(Music);
     //Clear form data
     this.setState({
-      Name: "",
-      Email: ""
+      ame: "",
+      Email: "",
+      Phone_number: "",
+      City: "",
+      Youtube_link: "",
+      Fackbook_link: ""
     });
   }
 
@@ -136,5 +144,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { Photographer_Action, clearErrors }
+  { Music_Action, clearErrors }
 )(Add_Music);

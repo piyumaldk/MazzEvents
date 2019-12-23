@@ -18,8 +18,12 @@ import { clearErrors } from '../../Actions/errorActions';
 class Adddj extends Component {
   state = {
     modal: false,
-    name1: '',
-    name2: '',
+    Name: '',
+    Email: '',
+    Phone_number: '',
+    City: '',
+    Website: '',
+    Fackbook_link: '',
     msg: null
   };
 
@@ -65,18 +69,25 @@ class Adddj extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    let { name1, name2 } = this.state;
+    let { Name, Email, Phone_number, City, Website, Fackbook_link } = this.state;
     //Create user object
     let dj = {
-      name1,
-      name2
+      Name, 
+      Email, 
+      Phone_number, 
+      City, Website, 
+      Fackbook_link
     };
     //Register
     this.props.djAction(dj);
     //Clear form data
     this.setState({
-      name1: "",
-      name2: ""
+      Name: "",
+      Email: "",
+      Phone_number: "",
+      City: "",
+      Website: "",
+      Fackbook_link: ""
     });
   }
 
@@ -88,15 +99,27 @@ class Adddj extends Component {
         </NavLink>
 
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
-          <ModalHeader toggle={this.toggle}>Register a Staff Member</ModalHeader>
+          <ModalHeader toggle={this.toggle}>Register a Dj</ModalHeader>
           <ModalBody>
             <Form onSubmit={this.onSubmit}>
-              <FormGroup>
-                <Label for='name1'>name1</Label>
-                <Input type="text" name="name1" id="name1" placeholder="name1" className="mb-3" onChange={this.onChange}/>
+            <FormGroup>
+                <Label for='Name'>Name</Label>
+                <Input type="text" name="Name" id="Name" placeholder="Name" className="mb-3" onChange={this.onChange}/>
 
-                <Label for='name2'>name2</Label>
-                <Input type="text" name="name2" id="name2" placeholder="name2" className="mb-3" onChange={this.onChange}/>
+                <Label for='Email'>Email</Label>
+                <Input type="text" name="Email" id="Email" placeholder="Email" className="mb-3" onChange={this.onChange}/>
+
+                <Label for='Phone_number'>Contact Number</Label>
+                <Input type="text" name="Phone_number" id="Phone_number" placeholder="Phone_number" className="mb-3" onChange={this.onChange}/>
+
+                <Label for='City'>City</Label>
+                <Input type="text" name="City" id="City" placeholder="City" className="mb-3" onChange={this.onChange}/>
+
+                <Label for='Website'>Website</Label>
+                <Input type="text" name="Website" id="Website" placeholder="Website" className="mb-3" onChange={this.onChange}/>
+
+                <Label for='Fackbook_link'>Fackbook link</Label>
+                <Input type="text" name="Fackbook_link" id="Fackbook_link" placeholder="Fackbook_link" className="mb-3" onChange={this.onChange}/>
 
                 { this.state.msg ? (<Alert color="danger">{ this.state.msg }</Alert>) : null }
 

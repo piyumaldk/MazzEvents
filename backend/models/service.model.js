@@ -3,18 +3,9 @@ const Schema = mongoose.Schema;
 
 //Create Schema
 let ServiceSchema = new Schema({
-    name1: {
-        type: String
-    },
-    name2: {
-        type: String
-    },
     date: {
         type: Date,
         default: Date.now
-    },
-    completed: {
-        type: Boolean
     },Name: {
         type: String
     },Email: {
@@ -27,6 +18,14 @@ let ServiceSchema = new Schema({
         type: String
     },Phone_number: {
         type: String
+    },Brand: {
+        type: String
+    },Type: {
+        type: String
+    },Type: {
+        Youtube_link: String
+    },completed: {
+        type: Boolean
     }
 });
 

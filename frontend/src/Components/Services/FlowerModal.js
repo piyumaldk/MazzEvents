@@ -13,7 +13,7 @@ import {
 } from 'reactstrap';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Photographer_Action } from '../../Actions/serviceActions';
+import {Flower_Action } from '../../Actions/serviceActions';
 import { clearErrors } from '../../Actions/errorActions';
 class Add_Flower extends Component {
   state = {
@@ -31,7 +31,7 @@ class Add_Flower extends Component {
   static propTypes = {
     added: PropTypes.bool,
     error: PropTypes.object.isRequired,
-    Photographer_Action: PropTypes.func.isRequired,
+   Flower_Action: PropTypes.func.isRequired,
     clearErrors: PropTypes.func.isRequired
   };
   //Bring msgs from backend
@@ -70,18 +70,26 @@ class Add_Flower extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    let { Name, Email } = this.state;
+    let { Name, Email, Phone_number, City, Website, Fackbook_link } = this.state;
     //Create user object
-    let dj = {
-      Name,
-      Email
+    let Flower = {
+      Name, 
+      Email, 
+      Phone_number, 
+      City, 
+      Website, 
+      Fackbook_link
     };
     //Register
-    this.props.Photographer_Action(dj);
+    this.props.Photographer_Action(Flower);
     //Clear form data
     this.setState({
       Name: "",
-      Email: ""
+      Email: "",
+      Phone_number: "",
+      City: "",
+      Website: "",
+      Fackbook_link: ""
     });
   }
 
@@ -136,5 +144,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { Photographer_Action, clearErrors }
+  {Flower_Action, clearErrors }
 )(Add_Flower);

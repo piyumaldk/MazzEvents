@@ -13,7 +13,7 @@ import {
 } from 'reactstrap';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Photographer_Action } from '../../Actions/serviceActions';
+import { Vehicle_Action } from '../../Actions/serviceActions';
 import { clearErrors } from '../../Actions/errorActions';
 class Add_Vehicle extends Component {
   state = {
@@ -70,18 +70,26 @@ class Add_Vehicle extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    let { Name, Email } = this.state;
+    let { Name, Email, Phone_number, City, Brand, Type } = this.state;
     //Create user object
-    let dj = {
-      Name,
-      Email
+    let Vehicle = {
+      Name, 
+      Email, 
+      Phone_number, 
+      City, 
+      Brand, 
+      Type
     };
     //Register
-    this.props.Vehicle_Action(dj);
+    this.props.Vehicle_Action(Vehicle);
     //Clear form data
     this.setState({
       Name: "",
-      Email: ""
+      Email: "",
+      Phone_number: "",
+      City: "",
+      Brand: "",
+      Type: ""
     });
   }
 
@@ -146,5 +154,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { Photographer_Action, clearErrors }
+  { Vehicle_Action, clearErrors }
 )(Add_Vehicle);

@@ -70,18 +70,26 @@ class Add_photographer extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    let { Name, Email } = this.state;
+    let { Name, Email, Phone_number, City, Website, Fackbook_link } = this.state;
     //Create user object
-    let dj = {
-      Name,
-      Email
+    let Photographer = {
+      Name, 
+      Email, 
+      Phone_number, 
+      City, 
+      Website, 
+      Fackbook_link
     };
     //Register
-    this.props.Photographer_Action(dj);
+    this.props.Photographer_Action(Photographer);
     //Clear form data
     this.setState({
       Name: "",
-      Email: ""
+      Email: "",
+      Phone_number: "",
+      City: "",
+      Website: "",
+      Fackbook_link: ""
     });
   }
 
