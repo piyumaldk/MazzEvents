@@ -4,164 +4,83 @@ import '../../App.css';
 import axios from 'axios';
 import LeftStaff from "../../Components/LeftStaff.component";
 import {Alert} from 'reactstrap';
+import Upper from "../../Components/Upper.component";
+import { Link } from 'react-router-dom';
+
+
+const SignUpCustomer = props => (
+    <tr>
+        <td>{props.signupcustomer.signup_firstName}</td>
+        <td>{props.signupcustomer.signup_lastName}</td>
+        <td>{props.signupcustomer.signup_email}</td>
+        <td>{props.signupcustomer.signup_number}</td>
+        <td>{props.signupcustomer.signup_address}</td>
+        <td>{props.signupcustomer.signup_address2}</td>
+        <td>{props.signupcustomer.signup_city}</td>
+        <td>{props.signupcustomer.signup_state}</td>
+        <td>{props.signupcustomer.signup_zip}</td>
+        <td>
+            {/*<Link to={"/edit/"+props.todo._id}>Edit</Link>*/}
+        </td>
+    </tr>
+)
 
 export default class StaffServiceProvider extends Component {
 
-    
-    constructor(props){
+    constructor(props) {
         super(props);
-
-        this.onChangeSignupFirstName = this.onChangeSignupFirstName.bind(this);
-        this.onChangeSignupLastName = this.onChangeSignupLastName.bind(this);
-        this.onChangeSignupEmail = this.onChangeSignupEmail.bind(this);
-        this.onChangeSignupPassword = this.onChangeSignupPassword.bind(this);
-        this.onChangeSignupAPassword = this.onChangeSignupAPassword.bind(this);
-        this.onChangeSignupNumber = this.onChangeSignupNumber.bind(this);
-        this.onChangeSignupLocation = this.onChangeSignupLocation.bind(this);
-        this.onSubmit = this.onSubmit.bind(this);
-
-        this.state = {
-            signup_firstName: '',
-            signup_lastName: '',
-            signup_email: '',
-            signup_password: '',
-            signup_aPassword: '',
-            signup_number: '',
-            signup_location: '',
-            signup_completed: false
-        }
+        this.state = {users: []};
     }
 
-    onChangeSignupFirstName(e){
-        this.setState({
-            signup_firstName: e.target.value
-        });
+    componentDidMount() {
+        axios.get('http://localhost:4000/mazzevents/')
+            .then(response => {
+                this.setState({ users: response.data });
+            })
+            .catch(function (error){
+                console.log(error);
+            })
     }
-    onChangeSignupLastName(e){
-        this.setState({
-            signup_lastName: e.target.value
-        });
-    }
-    onChangeSignupEmail(e){
-        this.setState({
-            signup_email: e.target.value
-        });
-    }
-    onChangeSignupPassword(e){
-        this.setState({
-            signup_password: e.target.value
-        });
-    }
-    onChangeSignupAPassword(e){
-        this.setState({
-            signup_aPassword: e.target.value
-        });
-    }
-    onChangeSignupNumber(e){
-        this.setState({
-            signup_number: e.target.value
-        });
-    }
-    onChangeSignupLocation(e){
-        this.setState({
-            signup_location: e.target.value
-        });
-    }
-    onSubmit(e){
-        e.preventDefault();
-        console.log(`Form submitted:`);
-        console.log(`signup First Name: ${this.state.signup_firstName}`);
-        console.log(`signup last Name: ${this.state.signup_lastName}`);
-        console.log(`signup Email: ${this.state.signup_email}`);
-        console.log(`signup Password: ${this.state.signup_password}`);
-        console.log(`signup Password Agian: ${this.state.signup_aPassword}`);
-        console.log(`signup Number: ${this.state.signup_number}`);
-        console.log(`signup Location: ${this.state.signup_location}`);
-        console.log(`signup Completed: ${this.state.signup_completed}`);
 
-        const newSignUp = {
-            signup_firstName: this.state.signup_firstName, 
-            signup_lastName: this.state.signup_lastName,
-            signup_email: this.state.signup_email,
-            signup_password: this.state.signup_password,
-            signup_aPassword: this.state.signup_aPassword,
-            signup_number: this.state.signup_number,
-            signup_location: this.state.signup_location,
-            signup_completed: this.state.signup_completed,
-            msg: this.props.msg
-        }
-
-        axios.post('http://localhost:4000/mazzevents/addserviceprovider', newSignUp)
-            .then(res => console.log(res.data));
-        
-        this.setState({
-            signup_firstName: '',
-            signup_lastName: '',
-            signup_email: '',
-            signup_password: '',
-            signup_aPassword: '',
-            signup_number: '',
-            signup_location: '',
-            signup_completed: false
+    todoList() {
+        return this.state.users.map(function(currentSignUpCustomer, i){
+            return <SignUpCustomer signupcustomer={currentSignUpCustomer} key={i} />;
         })
-        
     }
-    
+
     render() {
+
+        
         return (
-            
             <div>
                 <LeftStaff/>
-                <div id="signup" class="right">
-                    <center>
-                    <div class="col-md-5 col-md-offset-5">
-                        <Form onSubmit={this.onSubmit}>
-                            <Form.Group controlId="firstName">
-                                <Form.Label>First Name</Form.Label>
-                                <Form.Control type="name" placeholder="firstName" value={this.state.signup_firstName} onChange={this.onChangeSignupFirstName}/>
-                            </Form.Group>
+                <div class="right">
+                    <Upper/>
 
-                            <Form.Group controlId="lastName">
-                                <Form.Label>Last Name</Form.Label>
-                                <Form.Control type="name" placeholder="LastName" value={this.state.signup_lastName} onChange={this.onChangeSignupLastName}/>
-                            </Form.Group>
-
-                            <Form.Group controlId="password">
-                                <Form.Label>Password</Form.Label>
-                                <Form.Control type="password" placeholder="Password" value={this.state.signup_password} onChange={this.onChangeSignupPassword}/>
-                            </Form.Group>
-                        
-                            <Form.Group controlId="aPassword">
-                                <Form.Label>Confirm Password</Form.Label>
-                                <Form.Control type="password" placeholder="Password" value={this.state.signup_aPassword} onChange={this.onChangeSignupAPassword}/>
-                            </Form.Group>
-
-                            <Form.Group controlId="Email">
-                                <Form.Label>Email address</Form.Label>
-                                <Form.Control type="email" placeholder="Email" value={this.state.signup_email} onChange={this.onChangeSignupEmail}/>
-                            </Form.Group>
-
-                            <Form.Group controlId="Number">
-                                <Form.Label>Mobile Number</Form.Label>
-                                <Form.Control type="number" placeholder="Number" value={this.state.signup_number} onChange={this.onChangeSignupNumber}/>
-                            </Form.Group>
-
-                            <Form.Group controlId="Location">
-                                <Form.Label>Location</Form.Label>
-                                <Form.Control type="name" placeholder="Location" value={this.state.signup_location} onChange={this.onChangeSignupLocation}/>
-                            </Form.Group>
-
-                            { this.state.msg ? (<Alert color="danger">{ this.state.msg }</Alert>) : null }
-
-                            <Button variant="primary" type="submit" value="Create Signup" >
-                                Add Service Provider
-                            </Button>
-                        </Form>
-                        
+                    <div>
+                    <h3>List of Our Service Providers</h3>
+                        <table className="table table-striped" style={{ marginTop: 20 }} >
+                            <thead>
+                                <tr>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Email</th>
+                                    <th>Number</th>
+                                    <th>Address</th>
+                                    <th>Second Address</th>
+                                    <th>City</th>
+                                    <th>State</th>
+                                    <th>Zip</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                { this.todoList() }
+                            </tbody>
+                        </table>
                     </div>
-                    </center>
+
                 </div>
-            </div>
+            </div>   
         )
     }
 }

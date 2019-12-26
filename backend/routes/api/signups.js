@@ -4,8 +4,24 @@ const bcrypt = require('bcryptjs');
 const config = require('config');
 const jwt = require('jsonwebtoken');
 //Signup Model
-const SignUpCustomer = require('../../models/signupcustomer.model');
+let SignUpCustomer = require('../../models/signupcustomer.model');
 
+
+router.route('/').get(function(req, res) {
+  SignUpCustomer.find(function(err, signupcustomer) {
+      if (err) {
+          console.log(err);
+      } else {
+          res.json(signupcustomer);
+      }
+  });
+});
+router.route('/:id').get(function(req, res) {
+    let id = req.params.id;
+    Todo.findById(id, function(err, signupcustomer) {
+        res.json(signupcustomer);
+    });
+});
 //@route    POST api/signups
 //@desc     Add a new Customer : Any
 //@access   Public
