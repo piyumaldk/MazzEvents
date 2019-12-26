@@ -4,28 +4,35 @@ const Schema = mongoose.Schema;
 //Create Schema
 let SignUpSchema = new Schema({
     signup_type: {
-        type: String
+        type: String,
+        required: true
     },
     signup_firstName: {
-        type: String
+        type: String,
+        required: true
     },
     signup_lastName: {
-        type: String
+        type: String,
+        required: true
     },
     signup_option: {
-        type: String
+        type: String,
+        required: true
     },
     signup_email: {
-        type: String
+        type: String,
+        required: true
     },
     signup_password: {
-        type: String
+        type: String,
+        required: true
     },
     signup_category: {
         type: String
     },
     signup_number: {
-        type: String
+        type: String,
+        required: true
     },
     signup_location: {
         type: String

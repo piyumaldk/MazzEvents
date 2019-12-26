@@ -19,13 +19,16 @@ class App extends Component {
     store.dispatch(loadUser());
   }
   render() {
-    console.log(this.props.isAuthenticated === false);
-    let route = <Switch>
-      <Route path="/serviceprovider" component={Home}/>
-      <Route path="/customer" component={Home}/>
-      <Route path="/admin" component={Home}/>
-      <Route path="/staff" component={Home}/>        
-    </Switch>
+    
+    let route;
+    if(this.props.isAuthenticated === false) {
+      route = <Switch>
+        <Route path="/serviceprovider" component={Home}/>
+        <Route path="/customer" component={Home}/>
+        <Route path="/admin" component={Home}/>
+        <Route path="/staff" component={Home}/>        
+      </Switch>
+    }
     //Customer 
     if(this.props.isAuthenticated === true && this.props.type === "1") {
       route = <Switch>
