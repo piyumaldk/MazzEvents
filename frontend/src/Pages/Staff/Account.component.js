@@ -1,100 +1,170 @@
-import React, { Component } from 'react';
-import LeftStaff from "../../Components/LeftStaff.component";
+import React, {Component} from 'react';
+import axios from 'axios';
 import {Button, Card, Form, Col} from 'react-bootstrap';
+import LeftStaff from "../../Components/LeftStaff.component";
+import Upper from "../../Components/Upper.component";
+import { connect } from 'react-redux';
 import Piyumal from '../../Images/piyumal.jpeg';
-export default class StaffAccount extends Component {
+
+class StaffAccount extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.onChangeSignupFirstName = this.onChangeSignupFirstName.bind(this);
+        this.onChangeSignupLastName = this.onChangeSignupLastName.bind(this);
+        this.onChangeSignupEmail = this.onChangeSignupEmail.bind(this);
+        this.onChangeSignupPassword = this.onChangeSignupPassword.bind(this);
+        this.onChangeSignupAPassword = this.onChangeSignupAPassword.bind(this);
+        this.onChangeSignupNumber = this.onChangeSignupNumber.bind(this);
+        this.onChangeSignupLocation = this.onChangeSignupLocation.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
+
+        this.state = {
+            signup_firstName: '',
+            signup_lastName: '',
+            signup_email: '',
+            signup_password: '',
+            signup_aPassword: '',
+            signup_number: '',
+            signup_location: '',
+            signup_completed: false
+        }
+    }
+
+    componentDidMount() {
+        axios.get('http://localhost:4000/mazzevents/'+this.props.id)
+            .then(response => {
+                this.setState({
+                    signup_firstName: response.data.signup_firstName,
+                    signup_lastName: response.data.signup_lastName,
+                    signup_email: response.data.signup_email,
+                    signup_password: response.data.signup_password,
+                    signup_aPassword: response.data.signup_aPassword,
+                    signup_number: response.data.signup_number,
+                    signup_location: response.data.signup_location,
+                    signup_completed: response.data.signup_completed
+                })
+            })
+            .catch(function(error) {
+                console.log(error)
+            })
+    }
+
+    onChangeSignupFirstName(e){
+        this.setState({
+            signup_firstName: e.target.value
+        });
+    }
+    onChangeSignupLastName(e){
+        this.setState({
+            signup_lastName: e.target.value
+        });
+    }
+    onChangeSignupEmail(e){
+        this.setState({
+            signup_email: e.target.value
+        });
+    }
+    onChangeSignupPassword(e){
+        this.setState({
+            signup_password: e.target.value
+        });
+    }
+    onChangeSignupAPassword(e){
+        this.setState({
+            signup_aPassword: e.target.value
+        });
+    }
+    onChangeSignupNumber(e){
+        this.setState({
+            signup_number: e.target.value
+        });
+    }
+    onChangeSignupLocation(e){
+      this.setState({
+          signup_location: e.target.value
+      });
+  }
+    onSubmit(e) {
+        e.preventDefault();
+        const obj = {
+            signup_firstName: this.state.signup_firstName, 
+            signup_lastName: this.state.signup_lastName,
+            signup_email: this.state.signup_email,
+            signup_password: this.state.signup_password,
+            signup_aPassword: this.state.signup_aPassword,
+            signup_number: this.state.signup_number,
+            signup_location: this.state.signup_location,
+            signup_completed: this.state.signup_completed
+        };
+        
+        axios.post('http://localhost:4000/mazzevents/updatecustomer/'+this.props.id, obj)
+            .then(res => console.log(res.data));
+
+        this.props.history.push('/staff/serviceprovider');
+    }
+    
     render() {
         return (
             <div>
                 <LeftStaff/>
-                <div class="accountright">
-                  <h4>Staff Account</h4>
-                <div class="account">
-                  <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src={Piyumal} />
-                    <Card.Body>
-                      <Card.Title><center>Piyumal Kularathne</center></Card.Title>
-                      <Card.Text>
-                        <a href>Piyumaldk95@gmail.com</a><br/>
-                        +94771234567<br/>
-                      </Card.Text>
-                      
-                    </Card.Body>
-                  </Card>
-                  </div>
-                
-               
-                  <Form>
-                  <Form.Row>
-                      <Form.Group as={Col} controlId="formGridFirstName">
-                        <Form.Label>First Name</Form.Label>
-                        <Form.Control type="first name" placeholder="Enter first name" />
-                      </Form.Group>
+                <div class="right">
+                    <Upper/>
 
-                      <Form.Group as={Col} controlId="formGridLastName">
-                        <Form.Label>Last Name</Form.Label>
-                        <Form.Control type="last name" placeholder="last name" />
-                      </Form.Group>
-                    </Form.Row>
-                    <Form.Row>
-                      <Form.Group as={Col} controlId="formGridEmail">
-                        <Form.Label>Email</Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" />
-                      </Form.Group>
+                    <div class="left">
+                        <Card style={{ width: '18rem' }}>
+                            <Card.Img variant="top" src={Piyumal} />
+                            <Card.Body>
+                            <Card.Title><center>{this.state.signup_firstName} {this.state.signup_lastName}</center></Card.Title>
+                            <Card.Text>
+                                Email Address: {this.state.signup_email}<br/>
+                                Contact Number: {this.state.signup_number}<br/>
+                            </Card.Text>
+                            </Card.Body>
+                        </Card>
+                    </div>
 
-                      <Form.Group as={Col} controlId="formGridPassword">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Password" />
-                      </Form.Group>
-                    </Form.Row>
-
-                    <Form.Group controlId="ContactNumber">
-                      <Form.Label>Contact Number</Form.Label>
-                      <Form.Control placeholder="contact number" />
-                    </Form.Group>
-
-                    <Form.Group controlId="formGridAddress1">
-                      <Form.Label>Address</Form.Label>
-                      <Form.Control placeholder="1234 Main St" />
-                    </Form.Group>
-
-                    <Form.Group controlId="formGridAddress2">
-                      <Form.Label>Address 2</Form.Label>
-                      <Form.Control placeholder="Apartment, studio, or floor" />
-                    </Form.Group>
-
-                    <Form.Row>
-                      <Form.Group as={Col} controlId="formGridCity">
-                        <Form.Label>City</Form.Label>
-                        <Form.Control />
-                      </Form.Group>
-
-                      <Form.Group as={Col} controlId="formGridState">
-                        <Form.Label>State</Form.Label>
-                        <Form.Control as="select">
-                          <option>Choose...</option>
-                          <option>...</option>
-                        </Form.Control>
-                      </Form.Group>
-
-                      <Form.Group as={Col} controlId="formGridZip">
-                        <Form.Label>Zip</Form.Label>
-                        <Form.Control />
-                      </Form.Group>
-                    </Form.Row>
-
-                    <Form.Group id="formGridCheckbox">
-                      <Form.Check type="checkbox" label="Check me out" />
-                    </Form.Group>
-
-                    <Button variant="primary" type="submit">
-                      Update
-                    </Button>
-                  </Form>
-                  
+                    <div class="rightAccount">
+                        <h3>Update My details</h3>
+                        <Form onSubmit={this.onSubmit}>
+                            <Form.Row>
+                                <Form.Group as={Col} controlId="formGridFirstName">
+                                    <Form.Label>First Name</Form.Label>
+                                    <Form.Control type="text" className="form-control" value={this.state.signup_firstName} onChange={this.onChangeSignupFirstName}/>
+                                </Form.Group>
+                                <Form.Group as={Col} controlId="formGridLastName">
+                                    <Form.Label>Last Name</Form.Label>
+                                    <Form.Control type="text" className="form-control" value={this.state.signup_lastName} onChange={this.onChangeSignupLastName}/>
+                                </Form.Group>
+                            </Form.Row>
+                            <Form.Row>
+                                <Form.Group as={Col} controlId="formGridEmail">
+                                    <Form.Label>Email</Form.Label>
+                                    <Form.Control type="text" className="form-control" value={this.state.signup_email} onChange={this.onChangeSignupEmail}/>
+                                </Form.Group>
+                                <Form.Group controlId="ContactNumber">
+                                    <Form.Label>Contact Number</Form.Label>
+                                    <Form.Control  type="text" className="form-control" value={this.state.signup_number} onChange={this.onChangeSignupNumber}/>
+                                </Form.Group>
+                            </Form.Row>
+                            <Button variant="primary" type="submit"  value="Update">
+                                Update
+                            </Button>
+                        </Form>
+                    </div>
                 </div>
-                
-            </div>   
+             </div>
         )
     }
 }
+
+const mapStateToProps = state => ({
+    id: state.auth.id,
+    fName: state.auth.fName,
+    lName: state.auth.lName,
+    email: state.auth.email,
+    number: state.auth.number
+  });
+
+export default connect(mapStateToProps,null)(StaffAccount);

@@ -17,6 +17,7 @@ class CustomerAccount extends Component {
         this.onChangeSignupPassword = this.onChangeSignupPassword.bind(this);
         this.onChangeSignupAPassword = this.onChangeSignupAPassword.bind(this);
         this.onChangeSignupNumber = this.onChangeSignupNumber.bind(this);
+        this.onChangeSignupLocation = this.onChangeSignupLocation.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
@@ -26,6 +27,7 @@ class CustomerAccount extends Component {
             signup_password: '',
             signup_aPassword: '',
             signup_number: '',
+            signup_location: '',
             signup_completed: false
         }
     }
@@ -40,6 +42,7 @@ class CustomerAccount extends Component {
                     signup_password: response.data.signup_password,
                     signup_aPassword: response.data.signup_aPassword,
                     signup_number: response.data.signup_number,
+                    signup_location: response.data.signup_location,
                     signup_completed: response.data.signup_completed
                 })
             })
@@ -78,6 +81,11 @@ class CustomerAccount extends Component {
             signup_number: e.target.value
         });
     }
+    onChangeSignupLocation(e){
+      this.setState({
+          signup_location: e.target.value
+      });
+  }
     onSubmit(e) {
         e.preventDefault();
         const obj = {
@@ -87,6 +95,7 @@ class CustomerAccount extends Component {
             signup_password: this.state.signup_password,
             signup_aPassword: this.state.signup_aPassword,
             signup_number: this.state.signup_number,
+            signup_location: this.state.signup_location,
             signup_completed: this.state.signup_completed
         };
         
