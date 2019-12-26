@@ -32,37 +32,37 @@ class App extends Component {
     //Customer 
     if(this.props.isAuthenticated === true && this.props.type === "1") {
       route = <Switch>
-        <Route path="/serviceprovider" render={() => <h1>Customers are not allowed to visit Service Provider section.</h1>}/>
+        <Route path="/serviceprovider" rcomponent={Home}/>
         <Route path="/customer" component={Customer}/>
-        <Route path="/admin" render={() => <h1>Customers are not allowed to visit Administator section</h1>}/>
-        <Route path="/staff" render={() => <h1>Customers are not allowed to visit Staff Member section</h1>}/> 
+        <Route path="/admin" component={Home}/>
+        <Route path="/staff" component={Home}/> 
       </Switch>
     }  
     //ServiceProvider
     if(this.props.isAuthenticated === true && this.props.type === "2") {
       route = <Switch>
         <Route path="/serviceprovider" component={ServiceProvider}/>
-        <Route path="/customer" render={() => <h1>Service Providers are not allowed to visit Customer section</h1>}/>
-        <Route path="/admin" render={() => <h1>Service Providers are not allowed to visit Administrator section</h1>}/>
-        <Route path="/staff" render={() => <h1>Service Providers are not allowed to visit Staff Member section</h1>}/> 
+        <Route path="/customer" component={Home}/>
+        <Route path="/admin" component={Home}/>
+        <Route path="/staff" component={Home}/> 
       </Switch>
     }
     //Staff
     if(this.props.isAuthenticated === true && this.props.type === "3") {
       route = <Switch>
-        <Route path="/serviceprovider" render={() => <h1>Staff Members are not allowed to visit Service Provider section</h1>}/>
-        <Route path="/customer" render={() => <h1>Staff Members are not allowed to visit Customer section</h1>}/>
-        <Route path="/admin" render={() => <h1>Staff Members are not allowed to visit Administator section</h1>}/>
+        <Route path="/serviceprovider" component={Home}/>
+        <Route path="/customer" component={Home}/>
+        <Route path="/admin" component={Home}/>
         <Route path="/staff" component={Staff}/> 
       </Switch>
     } 
     //Admin
     if(this.props.isAuthenticated === true && this.props.type === "4") {
       route = <Switch>
-        <Route path="/serviceprovider" render={() => <h1>Administator is not allowed to visit Service Provider section</h1>}/>
-        <Route path="/customer" render={() => <h1>Administator is not allowed to visit Customer section</h1>}/>
+        <Route path="/serviceprovider" component={Home}/>
+        <Route path="/customer" component={Home}/>
         <Route path="/admin" component={Admin}/>
-        <Route path="/staff" render={() => <h1>Administator is not allowed to visit Staff Member section</h1>}/> 
+        <Route path="/staff" component={Home}/> 
       </Switch>
     }        
     return(
