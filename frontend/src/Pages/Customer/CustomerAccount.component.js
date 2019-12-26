@@ -1,80 +1,158 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
+import axios from 'axios';
 import LeftCustomer from "../../Components/LeftCustomer.component";
-import {Form, Button } from 'react-bootstrap';
-import '../../Css/Customer.css'
-import img1 from "../../Images/Customer/new.jpg"
+import Upper from "../../Components/Upper.component";
+import { connect } from 'react-redux';
 
-export default class CustomerAccount extends Component {   
+class CustomerAccount extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.onChangeSignupFirstName = this.onChangeSignupFirstName.bind(this);
+        this.onChangeSignupLastName = this.onChangeSignupLastName.bind(this);
+        this.onChangeSignupEmail = this.onChangeSignupEmail.bind(this);
+        this.onChangeSignupPassword = this.onChangeSignupPassword.bind(this);
+        this.onChangeSignupAPassword = this.onChangeSignupAPassword.bind(this);
+        this.onChangeSignupNumber = this.onChangeSignupNumber.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
+
+        this.state = {
+            signup_firstName: '',
+            signup_lastName: '',
+            signup_email: '',
+            signup_password: '',
+            signup_aPassword: '',
+            signup_number: '',
+            signup_completed: false
+        }
+    }
+
+    
+    componentDidMount() {
+        axios.get('http://localhost:4000/mazzevents/'+this.props.id)
+            .then(response => {
+                this.setState({
+                    signup_firstName: response.data.signup_firstName,
+                    signup_lastName: response.data.signup_lastName,
+                    signup_email: response.data.signup_email,
+                    signup_password: response.data.signup_password,
+                    signup_aPassword: response.data.signup_aPassword,
+                    signup_number: response.data.signup_number,
+                    signup_completed: response.data.signup_completed
+                })
+            })
+            .catch(function(error) {
+                console.log(error)
+            })
+    }
+
+    onChangeSignupFirstName(e){
+        this.setState({
+            signup_firstName: e.target.value
+        });
+    }
+    onChangeSignupLastName(e){
+        this.setState({
+            signup_lastName: e.target.value
+        });
+    }
+    onChangeSignupEmail(e){
+        this.setState({
+            signup_email: e.target.value
+        });
+    }
+    onChangeSignupPassword(e){
+        this.setState({
+            signup_password: e.target.value
+        });
+    }
+    onChangeSignupAPassword(e){
+        this.setState({
+            signup_aPassword: e.target.value
+        });
+    }
+    onChangeSignupNumber(e){
+        this.setState({
+            signup_number: e.target.value
+        });
+    }
+    onSubmit(e) {
+        e.preventDefault();
+        const obj = {
+            signup_firstName: this.state.signup_firstName, 
+            signup_lastName: this.state.signup_lastName,
+            signup_email: this.state.signup_email,
+            signup_password: this.state.signup_password,
+            signup_aPassword: this.state.signup_aPassword,
+            signup_number: this.state.signup_number,
+            signup_completed: this.state.signup_completed
+        };
+        
+        axios.post('http://localhost:4000/mazzevents/updatecustomer/'+this.props.id, obj)
+            .then(res => console.log(res.data));
+
+        this.props.history.push('/customer/photo');
+    }
+    
     render() {
         return (
             <div>
                 <LeftCustomer/>
-                <div className="container">
-                This is LeftCustomer - CustomerAccount
-                <div className="overflow">
-                <img alt="" src={img1} className="card-img-top" />
-                </div>
-                <div id="signup">
-                    <div className="col-md-5 col-md-offset-5">
-                        <Form onSubmit={this.onSubmit}>
-                            <Form.Group controlId="firstName">
-                                <Form.Label>First Name</Form.Label>
-                                <Form.Control type="name" placeholder="firstName" />
-                            </Form.Group>
-
-                            <Form.Group controlId="lastName">
-                                <Form.Label>Last Name</Form.Label>
-                                <Form.Control type="name" placeholder="LastName" />
-                            </Form.Group>
-
-                            {/* <Form.Group as={Col} controlId="formGridState">
-                                <Form.Label>Are you a Free User or a Service Provider?</Form.Label>
-                                <select name="cars" type="name" value={this.state.signup_option} onChange={this.onChangeSignupOption}>
-                                    <option value="0">Free User</option>
-                                    <option value="1">Service Provider</option>
-                                </select>
-                            </Form.Group> */}
-
-                            {/* <Form.Group controlId="password">
-                                <Form.Label>Password</Form.Label>
-                                <Form.Control type="password" placeholder="Password" value={this.state.signup_password} onChange={this.onChangeSignupPassword}/>
-                            </Form.Group>
-                        
-                            <Form.Group controlId="aPassword">
-                                <Form.Label>Confirm Password</Form.Label>
-                                <Form.Control type="password" placeholder="Password" value={this.state.signup_aPassword} onChange={this.onChangeSignupAPassword}/>
-                            </Form.Group> */}
-
-                            <Form.Group controlId="Email">
-                                <Form.Label>Email address</Form.Label>
-                                <Form.Control type="email" placeholder="Email" />
-                            </Form.Group>
-
-                            <Form.Group controlId="Number">
-                                <Form.Label>Mobile Number</Form.Label>
-                                <Form.Control type="number" placeholder="Number"/>
-                            </Form.Group>
-
-                            <Form.Group controlId="Location">
-                                <Form.Label>Location</Form.Label>
-                                <Form.Control type="name" placeholder="Location" />
-                            </Form.Group>
-                            <div className="btn">
-                            <Button variant="primary" type="submit" value="Create Signup" >
-                                Update
-                            </Button>
-                            </div >
-                            <div className="btn">
-                            <Button variant="primary" type="submit" value="Create Signup" >
-                                Delete
-                            </Button>
-                            </div>
-                        </Form>
+                <div class="right">
+                <Upper/>
+                <div>
+                <h3>Update My details</h3>
+                <form onSubmit={this.onSubmit}>
+                    <div className="form-group">
+                        <label>First name</label>
+                        <input  type="text"
+                                className="form-control"
+                                value={this.state.signup_firstName}
+                                onChange={this.onChangeSignupFirstName}
+                                />
                     </div>
+                    <div className="form-group">
+                        <label>Last name</label>
+                        <input  type="text"
+                                className="form-control"
+                                value={this.state.signup_lastName}
+                                onChange={this.onChangeSignupLastName}
+                                />
+                    </div>
+                    <div className="form-group">
+                        <label>Email</label>
+                        <input  type="text"
+                                className="form-control"
+                                value={this.state.signup_email}
+                                onChange={this.onChangeSignupEmail}
+                                />
+                    </div>
+                    <div className="form-group">
+                        <label>Contact Number</label>
+                        <input  type="text"
+                                className="form-control"
+                                value={this.state.signup_number}
+                                onChange={this.onChangeSignupNumber}
+                                />
+                    </div>
+
+                    <div className="form-group">
+                        <br/>
+                        <input type="submit" value="Update" className="btn btn-primary" />    
+                    </div>
+                </form>
+            </div>
                 </div>
-                    
-                </div>
-            </div>   
+                
+            </div>
+            
         )
     }
 }
+
+const mapStateToProps = state => ({
+    id: state.auth.id,
+  });
+
+  export default connect(mapStateToProps,null)(CustomerAccount);

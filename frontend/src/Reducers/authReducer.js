@@ -13,6 +13,7 @@ import {
     token: localStorage.getItem('token'),
     isAuthenticated: null,
     isLoading: false,
+    id: null,
     type: null,
     fName: null,
     lName: null,
@@ -40,6 +41,7 @@ import {
           
           isLoading: false,
           type: localStorage.getItem('type'),
+          id: localStorage.getItem('id'),
           fName: localStorage.getItem('fName'),
           lName: localStorage.getItem('lName'),
           email: localStorage.getItem('email'),
@@ -54,6 +56,7 @@ import {
       case LOGIN_SUCCESS:
       case REGISTER_SUCCESS:
         localStorage.setItem('token', action.payload.token);
+        localStorage.setItem('id', action.payload.signupcustomer.id);
         localStorage.setItem('type', action.payload.signupcustomer.type);
         localStorage.setItem('email', action.payload.signupcustomer.email);
         localStorage.setItem('fName', action.payload.signupcustomer.firstName);
@@ -71,6 +74,7 @@ import {
           token: action.payload.token,
           isAuthenticated: true,
           isLoading: false,
+          id: action.payload.signupcustomer.id,
           type: action.payload.signupcustomer.type,
           fName: action.payload.signupcustomer.firstName,
           lName: action.payload.signupcustomer.lastName,
@@ -86,6 +90,7 @@ import {
       case AUTH_ERROR:
       case LOGIN_FAIL:
       case LOGOUT_SUCCESS:
+          localStorage.removeItem('id');
           localStorage.removeItem('type');
           localStorage.removeItem('token');
           localStorage.removeItem('email');
@@ -99,6 +104,7 @@ import {
           localStorage.removeItem('state');
           localStorage.removeItem('zip');
           return {
+            id: null,
             type: null,
             token: null,
             isAuthenticated: false,
@@ -115,6 +121,7 @@ import {
             zip: null,
           }
       case REGISTER_FAIL:
+        localStorage.removeItem('id');
         localStorage.removeItem('type');
         localStorage.removeItem('token');
         localStorage.removeItem('email');
