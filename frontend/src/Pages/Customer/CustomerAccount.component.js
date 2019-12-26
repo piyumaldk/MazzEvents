@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import {Button, Card, Form, Col} from 'react-bootstrap';
 import LeftCustomer from "../../Components/LeftCustomer.component";
 import Upper from "../../Components/Upper.component";
 import { connect } from 'react-redux';
+import Piyumal from '../../Images/piyumal.jpeg';
 
 class CustomerAccount extends Component {
 
@@ -28,7 +30,6 @@ class CustomerAccount extends Component {
         }
     }
 
-    
     componentDidMount() {
         axios.get('http://localhost:4000/mazzevents/'+this.props.id)
             .then(response => {
@@ -100,59 +101,61 @@ class CustomerAccount extends Component {
             <div>
                 <LeftCustomer/>
                 <div class="right">
-                <Upper/>
-                <div>
-                <h3>Update My details</h3>
-                <form onSubmit={this.onSubmit}>
-                    <div className="form-group">
-                        <label>First name</label>
-                        <input  type="text"
-                                className="form-control"
-                                value={this.state.signup_firstName}
-                                onChange={this.onChangeSignupFirstName}
-                                />
-                    </div>
-                    <div className="form-group">
-                        <label>Last name</label>
-                        <input  type="text"
-                                className="form-control"
-                                value={this.state.signup_lastName}
-                                onChange={this.onChangeSignupLastName}
-                                />
-                    </div>
-                    <div className="form-group">
-                        <label>Email</label>
-                        <input  type="text"
-                                className="form-control"
-                                value={this.state.signup_email}
-                                onChange={this.onChangeSignupEmail}
-                                />
-                    </div>
-                    <div className="form-group">
-                        <label>Contact Number</label>
-                        <input  type="text"
-                                className="form-control"
-                                value={this.state.signup_number}
-                                onChange={this.onChangeSignupNumber}
-                                />
+                    <Upper/>
+
+                    <div class="left">
+                        <Card style={{ width: '18rem' }}>
+                            <Card.Img variant="top" src={Piyumal} />
+                            <Card.Body>
+                            <Card.Title><center>{this.state.signup_firstName} {this.state.signup_lastName}</center></Card.Title>
+                            <Card.Text>
+                                Email Address: {this.state.signup_email}<br/>
+                                Contact Number: {this.state.signup_number}<br/>
+                            </Card.Text>
+                            </Card.Body>
+                        </Card>
                     </div>
 
-                    <div className="form-group">
-                        <br/>
-                        <input type="submit" value="Update" className="btn btn-primary" />    
+                    <div class="rightAccount">
+                        <h3>Update My details</h3>
+                        <Form onSubmit={this.onSubmit}>
+                            <Form.Row>
+                                <Form.Group as={Col} controlId="formGridFirstName">
+                                    <Form.Label>First Name</Form.Label>
+                                    <Form.Control type="text" className="form-control" value={this.state.signup_firstName} onChange={this.onChangeSignupFirstName}/>
+                                </Form.Group>
+                                <Form.Group as={Col} controlId="formGridLastName">
+                                    <Form.Label>Last Name</Form.Label>
+                                    <Form.Control type="text" className="form-control" value={this.state.signup_lastName} onChange={this.onChangeSignupLastName}/>
+                                </Form.Group>
+                            </Form.Row>
+                            <Form.Row>
+                                <Form.Group as={Col} controlId="formGridEmail">
+                                    <Form.Label>Email</Form.Label>
+                                    <Form.Control type="text" className="form-control" value={this.state.signup_email} onChange={this.onChangeSignupEmail}/>
+                                </Form.Group>
+                                <Form.Group controlId="ContactNumber">
+                                    <Form.Label>Contact Number</Form.Label>
+                                    <Form.Control  type="text" className="form-control" value={this.state.signup_number} onChange={this.onChangeSignupNumber}/>
+                                </Form.Group>
+                            </Form.Row>
+                            <Button variant="primary" type="submit"  value="Update">
+                                Update
+                            </Button>
+                        </Form>
                     </div>
-                </form>
-            </div>
                 </div>
-                
-            </div>
-            
+             </div>
         )
     }
 }
 
 const mapStateToProps = state => ({
     id: state.auth.id,
+    fName: state.auth.fName,
+    lName: state.auth.lName,
+    email: state.auth.email,
+    number: state.auth.number
   });
 
-  export default connect(mapStateToProps,null)(CustomerAccount);
+export default connect(mapStateToProps,null)(CustomerAccount);
