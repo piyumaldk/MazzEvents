@@ -18,7 +18,7 @@ router.route('/').get(function(req, res) {
 });
 router.route('/:id').get(function(req, res) {
     let id = req.params.id;
-    Todo.findById(id, function(err, signupcustomer) {
+    SignUpCustomer.findById(id, function(err, signupcustomer) {
         res.json(signupcustomer);
     });
 });
@@ -86,13 +86,13 @@ router.post('/addcustomer', (req, res) => {
 });
 
 router.route('/updatecustomer/:id').post(function(req, res) {
-  Todo.findById(req.params.id, function(err, signupcustomer) {
-      if (!signupcustomer)
+  SignUpCustomer.findById(req.params.id, function(err, signupcustomer) {
+      if (!signupcustomer){
           res.status(404).send("data is not found");
+      }
       else
-        signupcustomer.signup_type  = req.body.signup_type;
-        signupcustomer.signup_firstName = req.body.signup_firstname;
-        signupcustomer.signup_lastName = req.body.signup_lastname;
+        signupcustomer.signup_firstName = req.body.signup_firstName;
+        signupcustomer.signup_lastName = req.body.signup_lastName;
         signupcustomer.signup_email = req.body.signup_email;
         signupcustomer.signup_number = req.body.signup_number;
         signupcustomer.signup_location = req.body.signup_location;
@@ -103,11 +103,12 @@ router.route('/updatecustomer/:id').post(function(req, res) {
         signupcustomer.signup_zip = req.body.signup_zip;
         signupcustomer.signup_completed = req.body.signup_completed;
           
-          signup.save().then(signupcustomer => {
-              res.json('Todo updated!');
+          signupcustomer.save().then(signupcustomer => {
+              
           })
           .catch(err => {
               res.status(400).send("Update not possible");
+              console.log("ded");
           });
   });
 });

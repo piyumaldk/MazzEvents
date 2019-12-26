@@ -8,6 +8,10 @@ import Upper from "../../Components/Upper.component";
 import { Link } from 'react-router-dom';
 
 
+const type = props =>props.signupcustomer.signup_type;
+
+
+
 const SignUpCustomer = props => (
     <tr>
         <td>{props.signupcustomer.signup_firstName}</td>
@@ -20,7 +24,7 @@ const SignUpCustomer = props => (
         <td>{props.signupcustomer.signup_state}</td>
         <td>{props.signupcustomer.signup_zip}</td>
         <td>
-            {/*<Link to={"/edit/"+props.todo._id}>Edit</Link>*/}
+            <Link to={"/staff/editserviceprovider/"+props.signupcustomer._id}>Edit</Link>
         </td>
     </tr>
 )
@@ -42,8 +46,9 @@ export default class StaffServiceProvider extends Component {
             })
     }
 
-    todoList() {
+    UserList() {
         return this.state.users.map(function(currentSignUpCustomer, i){
+            
             return <SignUpCustomer signupcustomer={currentSignUpCustomer} key={i} />;
         })
     }
@@ -74,7 +79,8 @@ export default class StaffServiceProvider extends Component {
                                 </tr>
                             </thead>
                             <tbody>
-                                { this.todoList() }
+                                
+                                { this.UserList() }
                             </tbody>
                         </table>
                     </div>
