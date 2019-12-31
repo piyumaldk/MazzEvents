@@ -94,6 +94,26 @@ class SignUp2 extends Component {
       signup_state,
       signup_zip
     };
+
+  /*
+    isFormValid = () => {
+      const {signup_type,
+        signup_firstName, 
+        signup_lastName, 
+        signup_email, 
+        signup_password, 
+        signup_aPassword, 
+        signup_category,
+        signup_number, 
+        signup_address,
+        signup_address2,
+        signup_city,
+        signup_state,
+        signup_zip} = this.state
+
+      return signup_type && signup_firstName && signup_lastName && signup_email && signup_password && signup_aPassword && signup_category && signup_number && signup_address && signup_address2 && signup_city && signup_state && signup_zip
+    };
+*/
     //Attempt to Register
     this.props.register2(newSignUpServiceProvider);
     //Clear form data
@@ -173,7 +193,9 @@ class SignUp2 extends Component {
 
                 { this.state.msg ? (<Alert color="danger">{ this.state.msg }</Alert>) : null }
 
-                <Button color='dark' style={{ marginTop: '2rem' }} block>
+                <Button color='dark' disabled={ 
+                  !this.state.signup_type || !this.state.signup_firstName || !this.state.signup_lastName || !this.state.signup_email || !this.state.signup_password || !this.state.signup_aPassword || !this.state.signup_category || !this.state.signup_number || !this.state.signup_address || !this.state.signup_address2 || !this.state.signup_city || !this.state.signup_state || !this.state.signup_zip
+                  } style={{ marginTop: '2rem' }} block>
                   Add
                 </Button>
               </FormGroup>
