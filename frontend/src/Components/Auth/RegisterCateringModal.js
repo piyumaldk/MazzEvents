@@ -15,7 +15,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { register2 } from '../../Actions/authActions';
 import { clearErrors } from '../../Actions/errorActions';
-class SignUp2 extends Component {
+class SignUpCatering extends Component {
   state = {
     modal: false,
     signup_type: '2',
@@ -25,7 +25,7 @@ class SignUp2 extends Component {
     signup_email: '',
     signup_password: '',
     signup_aPassword: '',
-    signup_category: 'Photography',
+    signup_category: 'Catering',
     signup_number: '',
     signup_address: '',
     signup_address2: '',
@@ -105,7 +105,7 @@ class SignUp2 extends Component {
       signup_email: "", 
       signup_password: "", 
       signup_aPassword: "", 
-      signup_category: "Photography",
+      signup_category: "Catering",
       signup_number: "", 
       signup_address: "",
       signup_address2: "",
@@ -119,11 +119,11 @@ class SignUp2 extends Component {
     return (
         <div>
             <NavLink onClick={this.toggle} href="#">
-                Service Provider+
+                Catering+
             </NavLink>
 
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
-          <ModalHeader toggle={this.toggle}>Register a Service Provider</ModalHeader>
+          <ModalHeader toggle={this.toggle}>Register a Catering</ModalHeader>
           <ModalBody>
             <Form onSubmit={this.onSubmit}>
               <FormGroup>
@@ -132,6 +132,10 @@ class SignUp2 extends Component {
 
                 <Label for='lastName'>Last Name</Label>
                 <Input type="text" name="signup_lastName" id="signup_lastName" placeholder="Last Name" className="mb-3" onChange={this.onChange}/>
+
+                <Label for="exampleFile">File</Label>
+                <Input type="file" name="file" id="exampleFile" />
+                
 
                 <Label for='email'>Email Address</Label>
                 <Input type="email" name="signup_email" id="signup_email" placeholder="Email Address" className="mb-3" onChange={this.onChange}/>
@@ -142,23 +146,13 @@ class SignUp2 extends Component {
                 <Label for='aPassword'>Confirm Password</Label>
                 <Input type="password" name="signup_aPassword" id="signup_aPassword" placeholder="Confirm Password" className="mb-3" onChange={this.onChange}/>
 
-                <Label for='Category'>Category</Label>
-                <Input type="select" name="signup_category" id="signup_category"  className="mb-3" onChange={this.onChange}>
-                  <option>Photography</option>
-                  <option>DJ</option>
-                  <option>Music</option>
-                  <option>Catering</option>
-                  <option>Reception Halls</option>
-                  <option>Hotels</option>
-                  <option>Fowers</option>
-                  <option>Vehicles</option>
-                </Input>
-
                 <Label for='number'>Contact Number</Label>
                 <Input type="number" name="signup_number" id="signup_number" placeholder="Contact Number" className="mb-3" onChange={this.onChange}/>
 
                 <Label for='address'>Address</Label>
                 <Input type="text" name="signup_address" id="signup_address" placeholder="Address" className="mb-3" onChange={this.onChange}/>
+
+
 
                 <Label for='address2'>Second Address</Label>
                 <Input type="text" name="signup_address2" id="signup_address2" placeholder="Second Address" className="mb-3" onChange={this.onChange}/>
@@ -196,5 +190,5 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { register2, clearErrors }
-)(SignUp2);
+)(SignUpCatering);
 

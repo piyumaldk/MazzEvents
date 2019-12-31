@@ -15,7 +15,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { register2 } from '../../Actions/authActions';
 import { clearErrors } from '../../Actions/errorActions';
-class SignUp2 extends Component {
+class SignUpHotels extends Component {
   state = {
     modal: false,
     signup_type: '2',
@@ -25,7 +25,7 @@ class SignUp2 extends Component {
     signup_email: '',
     signup_password: '',
     signup_aPassword: '',
-    signup_category: 'Photography',
+    signup_category: 'Hotel',
     signup_number: '',
     signup_address: '',
     signup_address2: '',
@@ -105,7 +105,7 @@ class SignUp2 extends Component {
       signup_email: "", 
       signup_password: "", 
       signup_aPassword: "", 
-      signup_category: "Photography",
+      signup_category: "Hotel",
       signup_number: "", 
       signup_address: "",
       signup_address2: "",
@@ -119,11 +119,11 @@ class SignUp2 extends Component {
     return (
         <div>
             <NavLink onClick={this.toggle} href="#">
-                Service Provider+
+                Hotel+
             </NavLink>
 
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
-          <ModalHeader toggle={this.toggle}>Register a Service Provider</ModalHeader>
+          <ModalHeader toggle={this.toggle}>Register a Hotel</ModalHeader>
           <ModalBody>
             <Form onSubmit={this.onSubmit}>
               <FormGroup>
@@ -196,5 +196,5 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { register2, clearErrors }
-)(SignUp2);
+)(SignUpHotels);
 

@@ -4,15 +4,17 @@ import Logo from '../Images/logo.jpg';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import SignUp from './Auth/RegisterModal';
-import SignUp2 from './Auth/RegisterServiceProviderModal';
 import SignUp3 from './Auth/RegisterStaffModal';
 import LogIn from './Auth/LoginModal';
 import Logout from './Auth/LogOut';
 import Adddj from "./Services/DjModal";
-import Add_photographer from "./Services/PhotographerModal";
-import Add_Vehicle from "./Services/VehicleModal"; 
-import Add_Music from "./Services/MusicModal"; 
-import Add_Flower from "./Services/FlowerModal"; 
+import SignUpCatering from './Auth/RegisterCateringModal';
+import SignUpDj from './Auth/RegisterDjModal';
+import SignUpFlowers from './Auth/RegisterFlowersModal';
+import SignUpHotels from './Auth/RegisterHotelModal';
+import SignUpMusic from './Auth/RegisterMusicModal';
+import SignUpPhotography from './Auth/RegisterPhotographyModal';
+import SignUpVehicles from './Auth/RegisterVehiclesModal';
 
 class Upper extends Component {
   static propTypes = {
@@ -25,8 +27,13 @@ class Upper extends Component {
         <span className='navbar-text mr-3'>
           <strong>{this.props.fName ? `Hi ${this.props.fName}!` : ``}</strong>
         </span>
-        
-        <SignUp2/>
+        <SignUpCatering/>
+        <SignUpDj/>
+        <SignUpFlowers/>
+        <SignUpHotels/>
+        <SignUpMusic/>
+        <SignUpPhotography/>
+        <SignUpVehicles/>
         <SignUp3/>
         <Logout/>
       </Fragment>
@@ -39,8 +46,7 @@ class Upper extends Component {
     const login = (
       <Fragment>
         <LogIn/>
-        <SignUp/>
-        
+        <SignUp/> 
       </Fragment>
     );
     const guestLinks = (
@@ -59,10 +65,7 @@ class Upper extends Component {
           <Nav className="mr-auto">
             <Nav.Link href="/">Home</Nav.Link>
             <Adddj/>
-            <Add_photographer/>
-            <Add_Vehicle/>
-            <Add_Music/>
-            <Add_Flower/>
+            
             { isAuthenticated  ? authLinks : guestLinks }
             { isAuthenticated === true && type ==="1"  ? <Nav.Link href="/customer/dash">Customer Dashboard</Nav.Link> : null }
             { isAuthenticated === true && type ==="2"  ? <Nav.Link href="/serviceprovider/addservices">Service Provider Dashboard</Nav.Link> : null }
