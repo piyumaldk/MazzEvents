@@ -158,11 +158,14 @@ class SignUpCatering extends Component {
                 <Label for='package1text'>Package 1 Text</Label>
                 <Input type="textarea" name="package1text" id="package1text" />
                 
-                <Label for='package1'>Package 1 Name</Label>
-                <Input type="text" name="signup_package1name" id="signup_package1name" placeholder="1st Package" className="mb-3" onChange={this.onChange}/>
+                <Label for='package1'>Package 1 Price</Label>
+                <Input type="number" name="signup_package1price" id="signup_package1price" placeholder="1st Package" className="mb-3" onChange={this.onChange}/>
 
                 <Label for='address'>Package 2 Name</Label>
                 <Input type="text" name="signup_package2name" id="signup_package2name" placeholder="2nd Package" className="mb-3" onChange={this.onChange}/>
+
+                <Label for='package1'>Package 2 Price</Label>
+                <Input type="number" name="signup_package1price" id="signup_package1price" placeholder="1st Package" className="mb-3" onChange={this.onChange}/>
 
                 <Label for='package2text'>Package 2 Text</Label>
                 <Input type="textarea" name="package2text" id="package2text" />
@@ -172,6 +175,9 @@ class SignUpCatering extends Component {
 
                 <Label for='package3text'>Package 3 Text</Label>
                 <Input type="textarea" name="package3text" id="package3text" />
+
+                <Label for='package3price'>Package 3 Price</Label>
+                <Input type="number" name="signup_package3price" id="signup_package3price" placeholder="3rd Package" className="mb-3" onChange={this.onChange}/>
 
                 <Label for='address2'>Second Address</Label>
                 <Input type="text" name="signup_address2" id="signup_address2" placeholder="Second Address" className="mb-3" onChange={this.onChange}/>
