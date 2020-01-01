@@ -118,9 +118,9 @@ class SignUpHotels extends Component {
   render() {
     return (
         <div>
-            <NavLink onClick={this.toggle} href="#">
+            <Button onClick={this.toggle} href="#">
                 Hotel+
-            </NavLink>
+            </Button>
 
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>Register a Hotel</ModalHeader>

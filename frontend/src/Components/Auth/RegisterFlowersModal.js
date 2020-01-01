@@ -118,9 +118,9 @@ class SignUpFlowers extends Component {
   render() {
     return (
         <div>
-            <NavLink onClick={this.toggle} href="#">
+            <Button onClick={this.toggle} href="#">
                 Flowers+
-            </NavLink>
+            </Button>
 
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>Register a Flowers</ModalHeader>

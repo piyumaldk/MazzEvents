@@ -6,6 +6,13 @@ import LeftStaff from "../../Components/LeftStaff.component";
 import {Alert} from 'reactstrap';
 import Upper from "../../Components/Upper.component";
 import { Link } from 'react-router-dom';
+import SignUpCatering from '../../Components/Auth/RegisterCateringModal';
+import SignUpDj from '../../Components/Auth/RegisterDjModal';
+import SignUpFlowers from '../../Components/Auth/RegisterFlowersModal';
+import SignUpHotels from '../../Components/Auth/RegisterHotelModal';
+import SignUpMusic from '../../Components/Auth/RegisterMusicModal';
+import SignUpPhotography from '../../Components/Auth/RegisterPhotographyModal';
+import SignUpVehicles from '../../Components/Auth/RegisterVehiclesModal';
 
 
 const type = props =>props.signupcustomer.signup_type;
@@ -83,6 +90,17 @@ export default class StaffServiceProvider extends Component {
                                 
                                 { this.UserList() }
                             </tbody>
+                        </table>
+                        <table>
+                            <tr>
+                                <th><SignUpCatering/></th>
+                                <th><SignUpDj/></th>
+                                <th><SignUpFlowers/></th>
+                                <th><SignUpHotels/></th>
+                                <th><SignUpMusic/></th>
+                                <th><SignUpPhotography/></th>
+                                <th><SignUpVehicles/></th>
+                            </tr>
                         </table>
                     </div>
 

@@ -118,9 +118,9 @@ class SignUpDj extends Component {
   render() {
     return (
         <div>
-            <NavLink onClick={this.toggle} href="#">
+            <Button onClick={this.toggle} href="#">
                 Dj+
-            </NavLink>
+            </Button>
 
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>Register a Dj</ModalHeader>

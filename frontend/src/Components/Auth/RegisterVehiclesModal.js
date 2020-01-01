@@ -118,9 +118,9 @@ class SignUpVehicles extends Component {
   render() {
     return (
         <div>
-            <NavLink onClick={this.toggle} href="#">
+            <Button onClick={this.toggle} href="#">
                 Vehicles+
-            </NavLink>
+            </Button>
 
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>Register a Vehicle</ModalHeader>
