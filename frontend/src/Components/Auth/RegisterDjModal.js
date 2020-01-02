@@ -15,7 +15,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { register2 } from '../../Actions/authActions';
 import { clearErrors } from '../../Actions/errorActions';
-class SignUp2 extends Component {
+class SignUpDj extends Component {
   state = {
     modal: false,
     signup_type: '2',
@@ -25,7 +25,7 @@ class SignUp2 extends Component {
     signup_email: '',
     signup_password: '',
     signup_aPassword: '',
-    signup_category: 'Photography',
+    signup_category: 'Dj',
     signup_number: '',
     signup_address: '',
     signup_address2: '',
@@ -105,7 +105,7 @@ class SignUp2 extends Component {
       signup_email: "", 
       signup_password: "", 
       signup_aPassword: "", 
-      signup_category: "Photography",
+      signup_category: "Dj",
       signup_number: "", 
       signup_address: "",
       signup_address2: "",
@@ -118,12 +118,12 @@ class SignUp2 extends Component {
   render() {
     return (
         <div>
-            <NavLink onClick={this.toggle} href="#">
-                Service Provider+
-            </NavLink>
+            <Button onClick={this.toggle} href="#">
+                Dj+
+            </Button>
 
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
-          <ModalHeader toggle={this.toggle}>Register a Service Provider</ModalHeader>
+          <ModalHeader toggle={this.toggle}>Register a Dj</ModalHeader>
           <ModalBody>
             <Form onSubmit={this.onSubmit}>
               <FormGroup>
@@ -141,18 +141,6 @@ class SignUp2 extends Component {
 
                 <Label for='aPassword'>Confirm Password</Label>
                 <Input type="password" name="signup_aPassword" id="signup_aPassword" placeholder="Confirm Password" className="mb-3" onChange={this.onChange}/>
-
-                <Label for='Category'>Category</Label>
-                <Input type="select" name="signup_category" id="signup_category"  className="mb-3" onChange={this.onChange}>
-                  <option>Photography</option>
-                  <option>DJ</option>
-                  <option>Music</option>
-                  <option>Catering</option>
-                  <option>Reception Halls</option>
-                  <option>Hotels</option>
-                  <option>Fowers</option>
-                  <option>Vehicles</option>
-                </Input>
 
                 <Label for='number'>Contact Number</Label>
                 <Input type="number" name="signup_number" id="signup_number" placeholder="Contact Number" className="mb-3" onChange={this.onChange}/>
@@ -196,5 +184,5 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { register2, clearErrors }
-)(SignUp2);
+)(SignUpDj);
 
