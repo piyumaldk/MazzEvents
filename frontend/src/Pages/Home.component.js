@@ -6,8 +6,11 @@ import img1 from '../Images/Customer/new.jpg';
 export default class Home extends Component {
     render() {
         return (
-                <div>  
+            <div>
+                <div className="navb">  
                      <Upper/>
+                     </div>
+                     <div className="caro">
                         <Carousel>
                             <Carousel.Item>
                                 <img className="d-block w-100" src="https://cdn.pixabay.com/photo/2015/05/15/14/50/concert-768722_960_720.jpg" alt="First slide"/>
@@ -33,6 +36,7 @@ export default class Home extends Component {
                                 </Carousel.Caption>
                             </Carousel.Item>
                         </Carousel> 
+                        </div>
                         <div >
                     <p>Upcoming events</p>
                 </div>
@@ -51,8 +55,26 @@ export default class Home extends Component {
                         <div className="col-md-3">
                             <Card imgsrc={img1} title="Himash" />
                         </div>
+
+                       
                     </div> 
-                    </div>  
+                    </div> 
+                    <div className="fullbanner-container">
+                    <div className="row bottom">
+                    <div className="col-md-4">
+                            <p>event</p>
+                        </div>
+                        <div className="col-md-4">
+                            <p>time</p>
+                        </div>
+                        <div className="col-md-4">
+                            <p>
+                                date
+                            </p>
+                        </div>
+
+                    </div> 
+                    </div>
                 </div>  
         )
     }
