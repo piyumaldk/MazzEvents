@@ -12,6 +12,7 @@ import StaffCustomerReviews from "./CustomerReviews.component";
 import StaffAuthentication from "./Authentication.component";
 import StaffMaps from "./Maps.component";
 import EditServiceProvider from "./EditServiceProvider.component";
+import StaffCatering from "./Catering.component";
 
 export default class Staff extends Component {
     render() {
@@ -29,6 +30,7 @@ export default class Staff extends Component {
                     <Route path="/staff/customerreviews" component={StaffCustomerReviews}/>
                     <Route path="/staff/authentication" component={StaffAuthentication}/>
                     <Route path="/staff/maps" component={StaffMaps}/>
+                    <Route path="/staff/catering" component={StaffCatering}/>
                     <Route path="/staff/editserviceprovider/:id" component={EditServiceProvider} />
                 </Router>
             </div>

@@ -40,6 +40,18 @@ let SignUpSchema = new Schema({
     signup_address: {
         type: String
     },
+    signup_text: {
+        type: String
+    },
+    signup_daymax: {
+        type: String
+    },
+    signup_nightmax: {
+        type: String
+    },
+    signup_company: {
+        type: String
+    },
     signup_address2: {
         type: String
     },
