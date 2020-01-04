@@ -18,12 +18,14 @@ const SignUpCustomer = props => (
             <td>
         <Card style={{ width: '18rem' }}>
             
-            <Card.Img variant="top" src="holder.js/100px180" />
+        <Card.Img variant="top" src="holder.js/100px180" />
             <Card.Body>
-            <Card.Title>{props.signupcustomer.signup_firstName}</Card.Title>
+            <Card.Title>{props.signupcustomer.signup_company}</Card.Title>
             <Card.Text>
-                Some quick example text to build on the card title and make up the bulk of
-                the card's content.
+                Owner : {props.signupcustomer.signup_firstName} {props.signupcustomer.signup_lastName}<br/>
+                Contact Number : {props.signupcustomer.signup_number}<br/>
+                Location : {props.signupcustomer.signup_city}<br/>
+                Address : {props.signupcustomer.signup_address2}<br/>
             </Card.Text>
             <Button variant="primary">Go somewhere</Button>
             </Card.Body>
