@@ -9,7 +9,7 @@ import {Alert} from 'reactstrap';
 import Upper from "../../Components/Upper.component";
 import { Link } from 'react-router-dom';
 import SignUpCatering from '../../Components/Auth/RegisterCateringModal';
-
+import catering from '../../Images/catering.jpg';
 const type = props =>props.signupcustomer.signup_type;
 
 const SignUpCustomer = props => (
@@ -18,7 +18,7 @@ const SignUpCustomer = props => (
             <td>
         <Card style={{ width: '18rem' }}>
             
-        <Card.Img variant="top" src="holder.js/100px180" />
+        <Card.Img variant="top" src={catering} />
             <Card.Body>
             <Card.Title>{props.signupcustomer.signup_company}</Card.Title>
             <Card.Text>
