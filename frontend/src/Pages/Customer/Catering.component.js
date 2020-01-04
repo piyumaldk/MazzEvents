@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import LeftCustomer from "../../Components/LeftCustomer.component";
 
-import {Form, Button,Card} from 'react-bootstrap';
+import {Form, Button,Card, CardDeck} from 'react-bootstrap';
 import '../../App.css';
 import axios from 'axios';
 
@@ -15,22 +15,23 @@ const type = props =>props.signupcustomer.signup_type;
 const SignUpCustomer = props => (
     <div>
         
-            <td>
-        <Card style={{ width: '18rem' }}>
+            
+        <Card  bg="light" text="black" style={{ width: '18rem'  }}>
             
         <Card.Img variant="top" src={catering} />
+        <Card.Header><center>Are you from around {props.signupcustomer.signup_city}?</center></Card.Header>
             <Card.Body>
-            <Card.Title>{props.signupcustomer.signup_company}</Card.Title>
+            <Card.Title><center>{props.signupcustomer.signup_company}</center></Card.Title>
             <Card.Text>
                 Owner : {props.signupcustomer.signup_firstName} {props.signupcustomer.signup_lastName}<br/>
                 Contact Number : {props.signupcustomer.signup_number}<br/>
                 Location : {props.signupcustomer.signup_city}<br/>
                 Address : {props.signupcustomer.signup_address2}<br/>
             </Card.Text>
-            <Button variant="primary">Go somewhere</Button>
+            <center><Button variant="dark">Go somewhere</Button></center>
             </Card.Body>
         </Card>  
-        </td>
+        
          
     </div>
 )
@@ -72,7 +73,9 @@ export default class Catering extends Component {
                         
                         
                           <div  className="row card_ss">
+                          <CardDeck>
                             { this.UserList() } 
+                            </CardDeck>
                             </div>   
                         
                         
