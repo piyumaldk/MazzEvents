@@ -36,7 +36,7 @@ const SignUpCustomer = props => (
     </tr>
 )
 
-export default class StaffServiceProvider extends Component {
+export default class StaffDj extends Component {
 
     constructor(props) {
         super(props);
@@ -55,7 +55,7 @@ export default class StaffServiceProvider extends Component {
 
     UserList() {
         return this.state.users.map(function(currentSignUpCustomer, i){
-            if(currentSignUpCustomer.signup_type == "2"){
+            if(currentSignUpCustomer.signup_type == "2" && currentSignUpCustomer.signup_category == "Dj"){
             return <SignUpCustomer signupcustomer={currentSignUpCustomer} key={i} />;
             }
         })
@@ -93,13 +93,9 @@ export default class StaffServiceProvider extends Component {
                         </table>
                         <table>
                             <tr>
-                                <th><SignUpCatering/></th>
+                                
                                 <th><SignUpDj/></th>
-                                <th><SignUpFlowers/></th>
-                                <th><SignUpHotels/></th>
-                                <th><SignUpMusic/></th>
-                                <th><SignUpPhotography/></th>
-                                <th><SignUpVehicles/></th>
+                                
                             </tr>
                         </table>
                     </div>

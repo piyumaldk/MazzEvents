@@ -13,6 +13,8 @@ import StaffAuthentication from "./Authentication.component";
 import StaffMaps from "./Maps.component";
 import EditServiceProvider from "./EditServiceProvider.component";
 import StaffCatering from "./Catering.component";
+import StaffDj from "./Dj.component";
+import StaffMusic from "./Music.component";
 
 export default class Staff extends Component {
     render() {
@@ -31,6 +33,8 @@ export default class Staff extends Component {
                     <Route path="/staff/authentication" component={StaffAuthentication}/>
                     <Route path="/staff/maps" component={StaffMaps}/>
                     <Route path="/staff/catering" component={StaffCatering}/>
+                    <Route path="/staff/dj" component={StaffDj}/>
+                    <Route path="/staff/music" component={StaffMusic}/>
                     <Route path="/staff/editserviceprovider/:id" component={EditServiceProvider} />
                 </Router>
             </div>
