@@ -55,7 +55,7 @@ export default class StaffServiceProvider extends Component {
 
     UserList() {
         return this.state.users.map(function(currentSignUpCustomer, i){
-            if(currentSignUpCustomer.signup_type == "2"){
+            if(currentSignUpCustomer.signup_type == "2" && currentSignUpCustomer.signup_category == "Music"){
             return <SignUpCustomer signupcustomer={currentSignUpCustomer} key={i} />;
             }
         })
