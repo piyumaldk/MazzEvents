@@ -64,6 +64,43 @@ let SignUpSchema = new Schema({
     signup_zip: {
         type: String
     },
+    signup_package1name: {
+        type: String
+    },
+    signup_package1text: {
+        type: String
+    },
+    signup_package1price: {
+        type: String
+    },
+    signup_max1: {
+        type: String
+    },
+    signup_package2name: {
+        type: String
+    },
+    signup_package2text: {
+        type: String
+    },
+    signup_package2price: {
+        type: String
+    },
+    signup_max2: {
+        type: String
+    },
+    signup_package3name: {
+        type: String
+    },
+    signup_package3text: {
+        type: String
+    },
+    signup_package3price: {
+        type: String
+    },
+    signup_max3: {
+        type: String
+    },
+
     signup_date: {
         type: Date,
         default: Date.now
