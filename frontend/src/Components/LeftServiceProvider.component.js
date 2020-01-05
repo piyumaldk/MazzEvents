@@ -8,7 +8,7 @@ export default class LeftServiceProvider extends Component {
             <div class="sidenav">
                 <h>Service Provider</h>
                 <p>Components</p>
-                <a href="/serviceprovider/addservices">Add Services +</a>
+                <a href="/serviceprovider/addservices">My service</a>
                 <a href="/serviceprovider/chat">Chat</a>
                 <a href="/serviceprovider/mailbox">Mail Box</a>
                 <a href="/serviceprovider/eventcalendar">Event Calendar</a>

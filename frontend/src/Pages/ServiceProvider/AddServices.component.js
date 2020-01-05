@@ -23,6 +23,7 @@ class ServiceProviderAddServices extends Component {
       this.onChangeSignupCity = this.onChangeSignupCity.bind(this);
       this.onChangeSignupState = this.onChangeSignupState.bind(this);
       this.onChangeSignupZip = this.onChangeSignupZip.bind(this);
+      this.onChangeSignupText = this.onChangeSignupText.bind(this);
       this.onSubmit = this.onSubmit.bind(this);
 
       this.state = {
@@ -37,6 +38,7 @@ class ServiceProviderAddServices extends Component {
           signup_city: '',
           signup_state: '',
           signup_zip: '',
+          signup_text:'',
           signup_completed: false
       }
   }
@@ -56,6 +58,7 @@ class ServiceProviderAddServices extends Component {
                   signup_city: response.data.signup_city,
                   signup_state: response.data.signup_state,
                   signup_zip: response.data.signup_zip,
+                  signup_text: response.data.signup_text,
                   signup_completed: response.data.signup_completed
               })
           })
@@ -119,6 +122,11 @@ onChangeSignupZip(e){
       signup_zip: e.target.value
   });
 }
+onChangeSignupText(e){
+    this.setState({
+        signup_text: e.target.value
+    });
+  }
   onSubmit(e) {
       e.preventDefault();
       const obj = {
@@ -133,6 +141,7 @@ onChangeSignupZip(e){
           signup_city: this.state.signup_city,
           signup_state: this.state.signup_state,
           signup_zip: this.state.signup_zip,
+          signup_text: this.state.signup_text,
           signup_completed: this.state.signup_completed
       };
       
@@ -167,12 +176,12 @@ onChangeSignupZip(e){
                       <Form onSubmit={this.onSubmit}>
                           <Form.Row>
                               <Form.Group as={Col} controlId="formGridFirstName">
-                                  <Form.Label>First Name</Form.Label>
-                                  <Form.Control type="text" className="form-control" value={this.state.signup_firstName} onChange={this.onChangeSignupFirstName}/>
-                              </Form.Group>
+                                    <Form.Label>Company Name</Form.Label>
+                                    <Form.Control type="text" className="form-control" value={this.state.signup_address2} onChange={this.onChangeSignupAddress2}/>
+                                </Form.Group>
                               <Form.Group as={Col} controlId="formGridLastName">
-                                  <Form.Label>Last Name</Form.Label>
-                                  <Form.Control type="text" className="form-control" value={this.state.signup_lastName} onChange={this.onChangeSignupLastName}/>
+                                  <Form.Label>Text</Form.Label>
+                                  <Form.Control type="text" className="form-control" value={this.state.signup_text} onChange={this.onChangeSignupText}/>
                               </Form.Group>
                           </Form.Row>
                           <Form.Row>
