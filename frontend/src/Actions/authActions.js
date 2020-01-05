@@ -55,7 +55,7 @@ export const register = ({ signup_type, signup_firstName, signup_lastName, signu
 };
 
 //Register Customer:Service Provider
-export const register2 = ({ signup_type, signup_firstName, signup_lastName, signup_email, signup_password, signup_aPassword, signup_category, signup_number, signup_address, signup_text, signup_daymax, signup_nightmax, signup_company, signup_address2, signup_city, signup_state, signup_zip }) => dispatch => {
+export const register2 = ({ signup_type, signup_firstName, signup_lastName, signup_email, signup_password, signup_aPassword, signup_category, signup_number, signup_address, signup_text, signup_daymax, signup_nightmax, signup_company, signup_address2, signup_city, signup_state, signup_zip,signup_package1name,signup_package1text,signup_package1price,signup_max1,signup_package2name,signup_package2text,signup_package2price,signup_max2,signup_package3name,signup_package3text,signup_package3price,signup_max3 }) => dispatch => {
     //Headers
     const config = {
         headers: {
@@ -63,7 +63,7 @@ export const register2 = ({ signup_type, signup_firstName, signup_lastName, sign
         }
     };
     //Request body
-    const body = JSON.stringify({ signup_type, signup_firstName, signup_lastName, signup_email, signup_password, signup_aPassword, signup_category, signup_number, signup_address, signup_text, signup_daymax, signup_nightmax, signup_company, signup_address2, signup_city, signup_state, signup_zip });
+    const body = JSON.stringify({ signup_type, signup_firstName, signup_lastName, signup_email, signup_password, signup_aPassword, signup_category, signup_number, signup_address, signup_text, signup_daymax, signup_nightmax, signup_company, signup_address2, signup_city, signup_state, signup_zip,signup_package1name,signup_package1text,signup_package1price,signup_max1,signup_package2name,signup_package2text,signup_package2price,signup_max2,signup_package3name,signup_package3text,signup_package3price,signup_max3 });
     
     axios.post('/mazzevents/addcustomer', body, config)
         .then(res => dispatch({
