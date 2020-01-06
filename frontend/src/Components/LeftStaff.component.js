@@ -18,6 +18,7 @@ export default class LeftServiceProvider extends Component {
                 <a href="/staff/catering">Catering +</a>
                 <a href="/staff/dj">Dj +</a>
                 <a href="/staff/music">Music +</a>
+                <a href="/staff/photographer">Photographers +</a>
                 <a href="/staff/customer">Customer +</a>
                 <p>More Pages</p>
                 <a href="/staff/customerreviews">Customer Reviews</a>

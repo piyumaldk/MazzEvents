@@ -93,13 +93,9 @@ export default class StaffServiceProvider extends Component {
                         </table>
                         <table>
                             <tr>
-                                <th><SignUpCatering/></th>
-                                <th><SignUpDj/></th>
-                                <th><SignUpFlowers/></th>
-                                <th><SignUpHotels/></th>
+                                
                                 <th><SignUpMusic/></th>
-                                <th><SignUpPhotography/></th>
-                                <th><SignUpVehicles/></th>
+                              
                             </tr>
                         </table>
                     </div>
