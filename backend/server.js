@@ -1,34 +1,62 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const config = require('config');
+let express = require('express'),
+    mongoose = require('mongoose'),
+    cors = require('cors'),
+    bodyParser = require('body-parser'),
+    dbConfig = require('./database/db'),
+    config = require('config');
+
+const api = require('../backend/routes/user.routes')
 const app = express();
-const cors = require('cors');
-app.use(cors());
-
-//Bodyparser Middleware
-app.use(express.json());
-
-//DB Config
-//const db = config.get('mongoURI');
 const db = require('./config/keys').mongoURI;
-//Connect to Mongo
-mongoose.connect(db, { 
+// MongoDB Configuration
+mongoose.Promise = global.Promise;
+mongoose.connect(db, {
     useNewUrlParser: true,
     useUnifiedTopology: true
-});
+}).then(() => {
+    console.log('Database sucessfully connected')
+},
+    error => {
+    console.log('Database could not be connected: ' + error)
+    }
+)
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
+app.use(cors());
+
+app.use('/public', express.static('public'));
+app.use('/api', api)
+
+const port = process.env.PORT || 4000;
+const server = app.listen(port, () => {
+    console.log("Server is running on Port: " + port);
+})
+
 //Use Routes
 app.use('/mazzevents', require('./routes/api/signups'));
 app.use('/mazzevents/auth', require('./routes/api/auth'));
 app.use('/mazzevents', require('./routes/api/services'));
 
-const PORT = 4000;
-app.listen(PORT, function() {
-    console.log("Server is running on Port: " + PORT);
+app.use((req, res, next) => {
+    // Error goes via `next()` method
+    setImmediate(() => {
+        next(new Error('Something went wrong'));
+    });
 });
+
+app.use(function (err, req, res, next) {
+    console.error(err.message);
+    if (!err.statusCode) err.statusCode = 500;
+    res.status(err.statusCode).send(err.message);
+});
+
+//Bodyparser Middleware
+app.use(express.json());
+
 const connection = mongoose.connection;
 connection.once('open', function() {
     console.log("MongoDB database connection established successfully");
 })
-
-

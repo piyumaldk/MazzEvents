@@ -9,7 +9,6 @@ import LogIn from './Auth/LoginModal';
 import Logout from './Auth/LogOut';
 import Adddj from "./Services/DjModal";
 
-
 class Upper extends Component {
   static propTypes = {
     auth: PropTypes.object.isRequired
@@ -57,7 +56,8 @@ class Upper extends Component {
             { isAuthenticated === true && type ==="2"  ? <Nav.Link href="/serviceprovider/addservices">Service Provider Dashboard</Nav.Link> : null }
             { isAuthenticated === true && type ==="3"  ? <Nav.Link href="/staff/serviceprovider">Staff Member Dashboard</Nav.Link> : null }
             { isAuthenticated === true && type ==="4"  ? <Nav.Link href="/admin/staff">Administrator Dashboard</Nav.Link> : null }
-            <Nav.Link href="/aboutus">About us</Nav.Link>     
+            <Nav.Link href="/aboutus">About us</Nav.Link> 
+            <Nav.Link href="/addimage">Add Image</Nav.Link>    
           </Nav>
           { isAuthenticated ? logout : login }
         </Navbar>

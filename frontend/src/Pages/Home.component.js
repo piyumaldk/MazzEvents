@@ -3,13 +3,15 @@ import {Carousel} from 'react-bootstrap';
 import Upper from "../Components/Upper.component";
 import Card from '../Components/Cads/CardUI';
 import img1 from '../Images/Customer/new.jpg';
+
 export default class Home extends Component {
     render() {
         return (
             <div>
                 <div className="navb">  
-                     <Upper/>
-                     </div>
+                    <Upper/>
+                    </div>
+                    
                      <div className="caro">
                         <Carousel>
                             <Carousel.Item>
