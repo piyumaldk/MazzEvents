@@ -31,10 +31,11 @@ var upload = multer({
 // User model
 let User = require('../models/User');
 
-router.post('/user-profile', upload.single('profileImg'), (req, res, next) => {
+router.post('/user-profile/:id', upload.single('profileImg'), (req, res, next) => {
     const url = req.protocol + '://' + req.get('host')
     const user = new User({
         _id: new mongoose.Types.ObjectId(),
+        ownerid: req.params.id,
         name: req.body.name,
         profileImg: url + '/public/' + req.file.filename
     });

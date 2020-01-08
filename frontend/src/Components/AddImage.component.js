@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
 
-export default class AddImage extends Component {
+class AddImage extends Component {
 
     constructor(props) {
         super(props);
@@ -22,7 +23,7 @@ export default class AddImage extends Component {
         e.preventDefault()
         const formData = new FormData()
         formData.append('profileImg', this.state.profileImg)
-        axios.post("http://localhost:4000/api/user-profile", formData, {
+        axios.post("http://localhost:4000/api/user-profile/"+this.props.id, formData, {
         }).then(res => {
             console.log(res)
         })
@@ -46,3 +47,13 @@ export default class AddImage extends Component {
         )
     }
 }
+
+const mapStateToProps = state => ({
+    id: state.auth.id,
+    fName: state.auth.fName,
+    lName: state.auth.lName,
+    email: state.auth.email,
+    number: state.auth.number
+  });
+
+export default connect(mapStateToProps,null)(AddImage);
