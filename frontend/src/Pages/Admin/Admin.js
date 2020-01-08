@@ -31,6 +31,8 @@ export default class Admin extends Component {
                     <Route path="/admin/sendnotification" component={AdminSendNotification}/>
                     <Route path="/admin/serviceprovider" component={AdminServiceProvider}/>
                     <Route path="/admin/staff" component={AdminStaff}/>
+                    
+                    
                 </Router>
                
             </div>

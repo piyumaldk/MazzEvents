@@ -165,10 +165,10 @@ class ServiceProviderAccount extends Component {
                         <h3>Update My details</h3>
                         <Form onSubmit={this.onSubmit}>
                             <Form.Row>
-                                <Form.Group as={Col} controlId="formGridFirstName">
-                                    <Form.Label>First Name</Form.Label>
-                                    <Form.Control type="text" className="form-control" value={this.state.signup_firstName} onChange={this.onChangeSignupFirstName}/>
-                                </Form.Group>
+                            <Form.Group as={Col} controlId="formGridFirstName">
+                                  <Form.Label>First Name</Form.Label>
+                                  <Form.Control type="text" className="form-control" value={this.state.signup_firstName} onChange={this.onChangeSignupFirstName}/>
+                              </Form.Group>
                                 <Form.Group as={Col} controlId="formGridLastName">
                                     <Form.Label>Last Name</Form.Label>
                                     <Form.Control type="text" className="form-control" value={this.state.signup_lastName} onChange={this.onChangeSignupLastName}/>
