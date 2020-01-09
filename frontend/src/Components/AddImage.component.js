@@ -54,6 +54,6 @@ const mapStateToProps = state => ({
     lName: state.auth.lName,
     email: state.auth.email,
     number: state.auth.number
-  });
+});
 
 export default connect(mapStateToProps,null)(AddImage);
