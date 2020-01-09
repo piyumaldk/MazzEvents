@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
     _id: mongoose.Schema.Types.ObjectId,
-    ownerid: {
+    ownerId: {
         type: String
     },
     profileImg: {

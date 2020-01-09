@@ -31,29 +31,42 @@ var upload = multer({
 // User model
 let User = require('../models/User');
 
-router.post('/user-profile/:id', upload.single('profileImg'), (req, res, next) => {
-    const url = req.protocol + '://' + req.get('host')
-    const user = new User({
-        _id: new mongoose.Types.ObjectId(),
-        ownerid: req.params.id,
-        name: req.body.name,
-        profileImg: url + '/public/' + req.file.filename
-    });
-    user.save().then(result => {
-        res.status(201).json({
-            message: "User registered successfully!",
-            userCreated: {
-                _id: result._id,
-                profileImg: result.profileImg
-            }
-        })
-    }).catch(err => {
-        console.log(err),
-            res.status(500).json({
-                error: err
+router.post('/user-profile/:id', upload.single('profileImg'),(req, res, next)=>{
+    const url = req.protocol+'://'+req.get('host')
+    
+    
+   
+    console.log(req.params.id);
+    let ownerId = req.params.id;
+        User.findOne({ownerId: ownerId}, function(err, user){
+        //User.findOne({ownerId: req.params.id},(user, err)=>{
+        if(!user){
+            //new
+            console.log("naththam!");
+            const user = new User({
+                _id: new mongoose.Types.ObjectId(),
+                ownerId: req.params.id,
+                profileImg: url+'/public/'+req.file.filename
             });
+            user.save().then(result => {})
+            .catch(err => {
+                console.log(err),
+                res.status(500).json({
+                error: err
+                });
+            })
+        }
+        else{
+            user.ownerId = req.params.id;
+            user.profileImg = url+'/public/'+req.file.filename;
+            user.save().then(user => {})
+            console.log("thiyenawanam!");
+        }
+        } );
+        
     })
-})
+
+    
 
 router.get("/", (req, res, next) => {
     User.find().then(data => {
