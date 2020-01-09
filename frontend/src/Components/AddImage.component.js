@@ -1,6 +1,18 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
+import {
+    Button,
+    Modal,
+    ModalHeader,
+    ModalBody,
+    Form,
+    FormGroup,
+    Label,
+    Input,
+    NavLink,
+    Alert
+  } from 'reactstrap';
 
 class AddImage extends Component {
 
@@ -15,6 +27,13 @@ class AddImage extends Component {
         }
     }
 
+    toggle = () => {
+        //Clear messages
+        this.setState({
+          modal: !this.state.modal
+        });
+    };
+
     onFileChange(e) {
         this.setState({ profileImg: e.target.files[0] })
     }
@@ -27,12 +46,20 @@ class AddImage extends Component {
         }).then(res => {
             console.log(res)
         })
+        this.toggle();
     }
 
 
     render() {
         return (
-            <div className="container">
+<div>
+<Button onClick={this.toggle} href="#">
+                Add Images
+            </Button>
+            <Modal isOpen={this.state.modal} toggle={this.toggle}>
+          <ModalHeader toggle={this.toggle}>Register a Musician</ModalHeader>
+          <ModalBody>
+          <div className="container">
                 <div className="row">
                     <form onSubmit={this.onSubmit}>
                         <div className="form-group">
@@ -44,6 +71,9 @@ class AddImage extends Component {
                     </form>
                 </div>
             </div>
+          </ModalBody>
+          </Modal>
+          </div>          
         )
     }
 }

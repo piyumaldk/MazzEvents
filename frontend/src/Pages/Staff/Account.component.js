@@ -28,10 +28,13 @@ class StaffAccount extends Component {
             signup_aPassword: '',
             signup_number: '',
             signup_location: '',
+            ownerId: '',
+            profilePic: '',
             signup_completed: false
         }
     }
 
+    
     componentDidMount() {
         axios.get('http://localhost:4000/mazzevents/'+this.props.id)
             .then(response => {
@@ -44,6 +47,14 @@ class StaffAccount extends Component {
                     signup_number: response.data.signup_number,
                     signup_location: response.data.signup_location,
                     signup_completed: response.data.signup_completed
+                })
+            })  
+        axios.get('http://localhost:4000/'+this.props.id)
+            .then(response => {
+                console.log("testing");
+                this.setState({
+                    ownerId: response.data.ownerId,
+                    profilePic: response.data.profilePic
                 })
             })
             .catch(function(error) {
@@ -120,6 +131,7 @@ class StaffAccount extends Component {
                             <Card.Text>
                                 Email Address: {this.state.signup_email}<br/>
                                 Contact Number: {this.state.signup_number}<br/>
+                                {this.state.profilePic}
                             </Card.Text>
                             </Card.Body>
                         </Card>
