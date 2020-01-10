@@ -8,9 +8,7 @@ import {
   FormGroup,
   Label,
   Input,
-  NavLink,
-  Alert
-} from 'reactstrap';
+  Alert} from 'reactstrap';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { register2 } from '../../Actions/authActions';

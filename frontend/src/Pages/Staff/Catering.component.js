@@ -1,16 +1,10 @@
 import React, { Component } from 'react';
-import {Form, Button} from 'react-bootstrap';
 import '../../App.css';
 import axios from 'axios';
 import LeftStaff from "../../Components/LeftStaff.component";
-import {Alert} from 'reactstrap';
 import Upper from "../../Components/Upper.component";
 import { Link } from 'react-router-dom';
 import SignUpCatering from '../../Components/Auth/RegisterCateringModal';
-
-
-
-const type = props =>props.signupcustomer.signup_type;
 
 
 
@@ -50,9 +44,10 @@ export default class StaffCatering extends Component {
 
     UserList() {
         return this.state.users.map(function(currentSignUpCustomer, i){
-            if(currentSignUpCustomer.signup_type == "2" && currentSignUpCustomer.signup_category == "Catering"){
+            if(currentSignUpCustomer.signup_type === "2" && currentSignUpCustomer.signup_category === "Catering"){
             return <SignUpCustomer signupcustomer={currentSignUpCustomer} key={i} />;
             }
+            return null;
         })
     }
 

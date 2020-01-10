@@ -16,12 +16,7 @@
 // }
 
 import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
-import {
-  LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ReferenceLine,
-} from 'recharts';
-import { scaleOrdinal } from 'd3-scale';
-import { schemeCategory10 } from 'd3-scale-chromatic';
+import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
 import LeftAdmin from "../../Components/LeftAdmin.component";
 import Upper from "../../Components/Upper.component";
 import axios from 'axios';

@@ -5,13 +5,7 @@ import {
     Button,
     Modal,
     ModalHeader,
-    ModalBody,
-    Form,
-    FormGroup,
-    Label,
-    Input,
-    NavLink,
-    Alert
+    ModalBody
   } from 'reactstrap';
 
 class AddImage extends Component {
