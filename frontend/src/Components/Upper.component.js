@@ -7,8 +7,7 @@ import SignUp from './Auth/RegisterModal';
 import SignUp3 from './Auth/RegisterStaffModal';
 import LogIn from './Auth/LoginModal';
 import Logout from './Auth/LogOut';
-import Adddj from "./Services/DjModal";
-
+import AddImage from "./AddImage.component";
 
 class Upper extends Component {
   static propTypes = {
@@ -57,7 +56,8 @@ class Upper extends Component {
             { isAuthenticated === true && type ==="2"  ? <Nav.Link href="/serviceprovider/addservices">Service Provider Dashboard</Nav.Link> : null }
             { isAuthenticated === true && type ==="3"  ? <Nav.Link href="/staff/serviceprovider">Staff Member Dashboard</Nav.Link> : null }
             { isAuthenticated === true && type ==="4"  ? <Nav.Link href="/admin/staff">Administrator Dashboard</Nav.Link> : null }
-            <Nav.Link href="/aboutus">About us</Nav.Link>     
+            <Nav.Link href="/aboutus">About us</Nav.Link> 
+            <AddImage/>    
           </Nav>
           { isAuthenticated ? logout : login }
         </Navbar>

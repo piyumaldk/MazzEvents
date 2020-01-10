@@ -7,10 +7,8 @@ import { connect } from 'react-redux';
 import Piyumal from '../../Images/piyumal.jpeg';
 
 class ServiceProviderAccount extends Component {
-
     constructor(props) {
         super(props);
-
         this.onChangeSignupFirstName = this.onChangeSignupFirstName.bind(this);
         this.onChangeSignupLastName = this.onChangeSignupLastName.bind(this);
         this.onChangeSignupEmail = this.onChangeSignupEmail.bind(this);
@@ -61,7 +59,7 @@ class ServiceProviderAccount extends Component {
             .catch(function(error) {
                 console.log(error)
             })
-    }
+        }
 
     onChangeSignupFirstName(e){
         this.setState({

@@ -11,7 +11,7 @@ import Admin from "./Pages/Admin/Admin";
 import Staff from "./Pages/Staff/Staff";
 import Customer from "./Pages/Customer/Customer";
 import Upper from "./Components/Upper.component";
-
+import AddImage from "./Components/AddImage.component";
 
 
 class App extends Component {
@@ -72,6 +72,7 @@ class App extends Component {
     <Router>
       <Route default path="/" exact component={Home}/> 
       <Route path="/aboutus" component={AboutUs}/>
+      <Route path="/addimage" component={AddImage}/>
       {route} 
     </Router>
     
