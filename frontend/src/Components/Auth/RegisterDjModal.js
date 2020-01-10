@@ -29,8 +29,8 @@ class SignUpCatering extends Component {
     signup_number: '',
     signup_address: '',
     signup_text: "",
-    signup_daymax: "",
-    signup_nightmax: "",
+    signup_daymax: "1",
+    signup_nightmax: "1",
     signup_company: "",
     signup_address2: '',
     signup_city: '',
@@ -117,8 +117,8 @@ class SignUpCatering extends Component {
       signup_number: "", 
       signup_address: "",
       signup_text: "",
-      signup_daymax: "",
-      signup_nightmax: "",
+      signup_daymax: "1",
+      signup_nightmax: "1",
       signup_company: "",
       signup_address2: "",
       signup_city: "",
@@ -198,13 +198,13 @@ class SignUpCatering extends Component {
                 <Label for='text'>Text to display</Label>
                 <Input type="textarea" name="signup_text" id="signup_text" placeholder="text" className="mb-3" onChange={this.onChange}/>
 
-                <Label for='address'>Maximum plates for Day</Label>
+                {/* <Label for='address'>Maximum plates for Day</Label>
                 <Input type="text" name="signup_daymax" id="signup_daymax" placeholder="max day" className="mb-3" onChange={this.onChange}/>
 
                 <Label for='address'>Maximum plates for Night</Label>
-                <Input type="text" name="signup_nightmax" id="signup_nightmax" placeholder="max night" className="mb-3" onChange={this.onChange}/>
+                <Input type="text" name="signup_nightmax" id="signup_nightmax" placeholder="max night" className="mb-3" onChange={this.onChange}/> */}
 
-                <Label for='address2'>Second Address</Label>
+                <Label for='address2'>Company address</Label>
                 <Input type="text" name="signup_address2" id="signup_address2" placeholder="Second Address" className="mb-3" onChange={this.onChange}/>
 
                 <Label for='city'>City</Label>

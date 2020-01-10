@@ -71,7 +71,7 @@ export default class StaffServiceProvider extends Component {
                     <Upper/>
 
                     <div>
-                    <h3>List of Our Service Providers</h3>
+                    <h3>List of Our Musicians</h3>
                         <table className="table table-striped" style={{ marginTop: 20 }} >
                             <thead>
                                 <tr>
@@ -80,7 +80,7 @@ export default class StaffServiceProvider extends Component {
                                     <th>Email</th>
                                     <th>Number</th>
                                     <th>Address</th>
-                                    <th>Second Address</th>
+                                    <th>Company Address</th>
                                     <th>City</th>
                                     <th>State</th>
                                     <th>Zip</th>
