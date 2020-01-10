@@ -5,7 +5,7 @@ let express = require('express'),
     router = express.Router();
 
 const DIR = './public/';
-
+let SignUpCustomer = require('../models/User');
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, DIR);
@@ -59,13 +59,21 @@ router.post('/user-profile/:id', upload.single('profileImg'),(req, res, next)=>{
         });   
     })
 
-router.get("/:id", (req, res, next) => {
-    User.find().then(data => {
-        res.status(200).json({
-            message: "User list retrieved successfully!",
-            users: data
+router.route('/').get(function(req, res) {
+    SignUpCustomer.find(function(err, signupcustomer) {
+        if (err) {
+            console.log(err);
+        } else {
+            res.json(signupcustomer);
+        }
+    });
+    });
+
+    router.route('/:id').get(function(req, res) {
+        let id = req.params.id;
+        SignUpCustomer.findOne({ownerId: id}, function(err, signupcustomer) {
+            res.json(signupcustomer);
         });
     });
-});
 
 module.exports = router;
