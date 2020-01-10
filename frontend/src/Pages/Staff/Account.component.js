@@ -49,7 +49,7 @@ class StaffAccount extends Component {
                     signup_completed: response.data.signup_completed
                 })
             })  
-        axios.get('http://localhost:4000/api/'+this.props.id)
+        axios.get('http://localhost:4000/mazzevents/getprofileimg/'+this.props.id)
             .then(response => {
                 console.log("testing");
                 this.setState({

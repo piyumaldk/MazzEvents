@@ -5,7 +5,7 @@ let express = require('express'),
     router = express.Router();
 
 const DIR = './public/';
-let SignUpCustomer = require('../models/User');
+let Photo = require('../models/photo');
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, DIR);
@@ -28,23 +28,22 @@ var upload = multer({
     }
 });
 
-// User model
-let User = require('../models/User');
-router.post('/user-profile/:id', upload.single('profileImg'),(req, res, next)=>{
+//Add profile Img
+router.post('/addprofileimg/:id', upload.single('profileImg'),(req, res, next)=>{
     const url = req.protocol+'://'+req.get('host')
     let ownerId = req.params.id;
-        User.findOne({ownerId: ownerId}, function(err, user){
-            if(!user){
+        Photo.findOne({ownerId: ownerId}, function(err, photo){
+            if(!photo){
                 //new
                 console.log("Added!");
-                const user = new User({
+                const photo = new Photo({
                     _id: new mongoose.Types.ObjectId(),
                     ownerId: req.params.id,
                     profileImg: url+'/public/'+req.file.filename
-                });
-                user.save().then(result => {})
+                }); 
+                photo.save().then(result => {})
                 .catch(err => {
-                    console.log(err),
+                    console.log("Error"),
                     res.status(500).json({
                     error: err
                     });
@@ -52,28 +51,19 @@ router.post('/user-profile/:id', upload.single('profileImg'),(req, res, next)=>{
             }
             else{
                 console.log("Update!");
-                user.ownerId = req.params.id;
-                user.profileImg = url+'/public/'+req.file.filename;
-                user.save().then(user => {})  
+                photo.ownerId = req.params.id;
+                photo.profileImg = url+'/public/'+req.file.filename;
+                photo.save().then(photo => {})  
             }
         });   
     })
 
-router.route('/').get(function(req, res) {
-    SignUpCustomer.find(function(err, signupcustomer) {
-        if (err) {
-            console.log(err);
-        } else {
-            res.json(signupcustomer);
-        }
+//Get Profile Img
+router.route('/getprofileimg/:id').get(function(req, res) {
+    let id = req.params.id;
+    Photo.findOne({ownerId: id}, function(err, photo) {
+        res.json(photo);
     });
-    });
-
-    router.route('/:id').get(function(req, res) {
-        let id = req.params.id;
-        SignUpCustomer.findOne({ownerId: id}, function(err, signupcustomer) {
-            res.json(signupcustomer);
-        });
-    });
+});
 
 module.exports = router;
