@@ -144,9 +144,11 @@ export default class EditServiceProvider extends Component {
                 <LeftStaff/>
                 <div class="right">
                 <Upper/>
-                <div>
+                <div className="frm">
                 <h3>Update Service Provider</h3>
-                <form onSubmit={this.onSubmit}>
+                
+                <form onSubmit={this.onSubmit} >
+                    
                     <div className="form-group">
                         <label>First name</label>
                         <input  type="text"
@@ -224,9 +226,12 @@ export default class EditServiceProvider extends Component {
                         <br/>
                         <input type="submit" value="Update SignUpCustomer" className="btn btn-primary" />    
                     </div>
+                   
                 </form>
-            </div>
                 </div>
+                
+            </div>
+                
                 
             </div>
             

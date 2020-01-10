@@ -251,3 +251,9 @@ padding: 10px;
      width: 100%;
      max-height: fit-content;
    }
+
+   .frm{
+    margin-left: 25%;
+    margin-right:25%;
+    width: 50%;
+   }
