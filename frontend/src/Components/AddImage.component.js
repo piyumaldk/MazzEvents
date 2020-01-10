@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import {
+    Input,
+    Label,
     Button,
     Modal,
     ModalHeader,
@@ -41,26 +43,28 @@ class AddImage extends Component {
             console.log(res)
         })
         this.toggle();
+        window.location.reload(false);
     }
 
 
     render() {
         return (
 <div>
-<Button onClick={this.toggle} href="#">
-                Add Images
+<Button className="btn btn-dark" onClick={this.toggle} href="#">
+                Update the profile Picture
             </Button>
             <Modal isOpen={this.state.modal} toggle={this.toggle}>
-          <ModalHeader toggle={this.toggle}>Register a Musician</ModalHeader>
+          <ModalHeader toggle={this.toggle}>Select a Picture</ModalHeader>
           <ModalBody>
           <div className="container">
                 <div className="row">
                     <form onSubmit={this.onSubmit}>
                         <div className="form-group">
-                            <input type="file" onChange={this.onFileChange} />
+                            <Label for="avatar">Choose a profile picture</Label>
+                            <Input className="btn btn-dark" type="file" id="avatar" onChange={this.onFileChange} />
                         </div>
                         <div className="form-group">
-                            <button className="btn btn-primary" type="submit">Upload</button>
+                            <Button className="btn btn-dark" type="submit">Change</Button>
                         </div>
                     </form>
                 </div>
