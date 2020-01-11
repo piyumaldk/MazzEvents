@@ -62,7 +62,7 @@ export default class Catering extends Component {
         return (
             <div>
                 <LeftCustomer/>
-                <div class="right">
+                <div className="right">
                     <Upper/>
                     <div>
                         

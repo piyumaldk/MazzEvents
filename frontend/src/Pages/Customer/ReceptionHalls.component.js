@@ -7,7 +7,7 @@ export default class ReceptionHalls extends Component {
         return (
             <div>
                 <LeftCustomer/>
-                <div class="right">
+                <div className="right">
                 This is LeftCustomer - Reception Halls
                     
                 </div>

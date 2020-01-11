@@ -6,7 +6,7 @@ export default class StaffSendNotification extends Component {
         return (
             <div>
                 <LeftStaff/>
-                <div class="right">
+                <div className="right">
                     This is Staff - Send Notification
                 </div>
                 

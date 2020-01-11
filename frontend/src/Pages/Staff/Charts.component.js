@@ -6,7 +6,7 @@ export default class StaffCharts extends Component {
         return (
             <div>
                 <LeftStaff/>
-                <div class="right">
+                <div className="right">
                     This is Staff - Charts
                 </div>
                 

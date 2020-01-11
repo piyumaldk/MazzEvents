@@ -48,7 +48,7 @@ export default class StaffCustomer extends Component {
         return (
             <div>
                 <LeftStaff/>
-                <div class="right">
+                <div className="right">
                     <Upper/>
 
                     <div>

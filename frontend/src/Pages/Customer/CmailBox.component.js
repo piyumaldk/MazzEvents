@@ -7,7 +7,7 @@ export default class CmailBox extends Component {
         return (
             <div>
                 <LeftCustomer/>
-                <div class="right">
+                <div className="right">
                 This is LeftCustomer - Mail Box
                     
                 </div>
