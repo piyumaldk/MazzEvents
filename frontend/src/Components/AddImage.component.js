@@ -5,13 +5,7 @@ import {
     Button,
     Modal,
     ModalHeader,
-    ModalBody,
-    Form,
-    FormGroup,
-    Label,
-    Input,
-    NavLink,
-    Alert
+    ModalBody
   } from 'reactstrap';
 
 class AddImage extends Component {
@@ -42,7 +36,7 @@ class AddImage extends Component {
         e.preventDefault()
         const formData = new FormData()
         formData.append('profileImg', this.state.profileImg)
-        axios.post("http://localhost:4000/api/user-profile/"+this.props.id, formData, {
+        axios.post("http://localhost:4000/mazzevents/addprofileimg/"+this.props.id, formData, {
         }).then(res => {
             console.log(res)
         })

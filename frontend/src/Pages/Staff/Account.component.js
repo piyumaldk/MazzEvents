@@ -49,12 +49,12 @@ class StaffAccount extends Component {
                     signup_completed: response.data.signup_completed
                 })
             })  
-        axios.get('http://localhost:4000/'+this.props.id)
+        axios.get('http://localhost:4000/mazzevents/getprofileimg/'+this.props.id)
             .then(response => {
                 console.log("testing");
                 this.setState({
                     ownerId: response.data.ownerId,
-                    profilePic: response.data.profilePic
+                    profilePic: response.data.profileImg
                 })
             })
             .catch(function(error) {

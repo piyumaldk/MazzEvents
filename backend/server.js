@@ -5,7 +5,7 @@ let express = require('express'),
     dbConfig = require('./database/db'),
     config = require('config');
 
-const api = require('../backend/routes/user.routes')
+const photo = require('../backend/routes/photo.routes')
 const app = express();
 const db = require('./config/keys').mongoURI;
 // MongoDB Configuration
@@ -28,7 +28,7 @@ app.use(bodyParser.urlencoded({
 app.use(cors());
 
 app.use('/public', express.static('public'));
-app.use('/api', api)
+app.use('/mazzevents', photo)
 
 const port = process.env.PORT || 4000;
 const server = app.listen(port, () => {

@@ -1,21 +1,10 @@
 import React, { Component } from 'react';
-import {Form, Button} from 'react-bootstrap';
 import '../../App.css';
 import axios from 'axios';
 import LeftStaff from "../../Components/LeftStaff.component";
-import {Alert} from 'reactstrap';
 import Upper from "../../Components/Upper.component";
 import { Link } from 'react-router-dom';
-import SignUpCatering from '../../Components/Auth/RegisterCateringModal';
-import SignUpDj from '../../Components/Auth/RegisterDjModal';
-import SignUpFlowers from '../../Components/Auth/RegisterFlowersModal';
-import SignUpHotels from '../../Components/Auth/RegisterHotelModal';
-import SignUpMusic from '../../Components/Auth/RegisterMusicModal';
 import SignUpPhotography from '../../Components/Auth/RegisterPhotographyModal';
-import SignUpVehicles from '../../Components/Auth/RegisterVehiclesModal';
-
-
-const type = props =>props.signupcustomer.signup_type;
 
 
 
@@ -55,9 +44,11 @@ export default class StaffServiceProvider extends Component {
 
     UserList() {
         return this.state.users.map(function(currentSignUpCustomer, i){
-            if(currentSignUpCustomer.signup_type == "2" && currentSignUpCustomer.signup_category == "Photgrapher"){
+            if(currentSignUpCustomer.signup_type === "2" && currentSignUpCustomer.signup_category === "Photgrapher"){
             return <SignUpCustomer signupcustomer={currentSignUpCustomer} key={i} />;
             }
+
+            return null;
         })
     }
 

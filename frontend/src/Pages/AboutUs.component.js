@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-
-import {Card} from 'react-bootstrap';
 import Upper from "../Components/Upper.component";
 export default class AboutUs extends Component {
     render() {

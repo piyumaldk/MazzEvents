@@ -1,16 +1,10 @@
 import React, { Component } from 'react';
 import LeftCustomer from "../../Components/LeftCustomer.component";
-
-import {Form, Button,Card, CardDeck} from 'react-bootstrap';
+import {Button,Card, CardDeck} from 'react-bootstrap';
 import '../../App.css';
 import axios from 'axios';
-
-import {Alert} from 'reactstrap';
 import Upper from "../../Components/Upper.component";
-import { Link } from 'react-router-dom';
-import SignUpCatering from '../../Components/Auth/RegisterCateringModal';
 import catering from '../../Images/catering.jpg';
-const type = props =>props.signupcustomer.signup_type;
 
 const SignUpCustomer = props => (
     <div>
@@ -55,9 +49,10 @@ export default class Catering extends Component {
 
     UserList() {
         return this.state.users.map(function(currentSignUpCustomer, i){
-            if(currentSignUpCustomer.signup_type == "2" && currentSignUpCustomer.signup_category == "Catering"){
+            if(currentSignUpCustomer.signup_type === "2" && currentSignUpCustomer.signup_category === "Catering"){
             return <SignUpCustomer signupcustomer={currentSignUpCustomer} key={i} />;
             }
+            return null;
         })
     }
 

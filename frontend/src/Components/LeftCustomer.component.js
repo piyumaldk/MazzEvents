@@ -5,7 +5,7 @@ import '../App.css';
 export default class LeftCustomer extends Component {
     render() {
         return (
-            <div class="sidenav">
+            <div className="sidenav">
                 
                 <h5>Customer</h5>
                 <p>Components</p>

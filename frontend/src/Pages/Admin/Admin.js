@@ -12,7 +12,6 @@ import AdminSendNotification from "./SendNotification.component";
 import AdminServiceProvider from "./ServiceProvider.component";
 import AdminStaff from "./Staff.component";
 import LeftAdmin from "../../Components/LeftAdmin.component";
-import Upper from "../../Components/Upper.component";
 export default class Admin extends Component {
     render() {
         return (
