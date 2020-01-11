@@ -26,7 +26,8 @@ class AddImage extends Component {
     toggle = () => {
         //Clear messages
         this.setState({
-          modal: !this.state.modal
+          modal: !this.state.modal,
+          profileImg: ''
         });
     };
 
@@ -43,6 +44,7 @@ class AddImage extends Component {
             console.log(res)
         })
         this.toggle();
+        window.location.reload();
     }
 
 
@@ -63,7 +65,7 @@ class AddImage extends Component {
                             <Input className="btn btn-dark" type="file" id="avatar" onChange={this.onFileChange} />
                         </div>
                         <div className="form-group">
-                            <Button className="btn btn-dark" type="submit">Change</Button>
+                            <Button className="btn btn-dark" disabled={!this.state.profileImg} type="submit">Change</Button>
                         </div>
                     </form>
                 </div>
