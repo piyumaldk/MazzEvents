@@ -43,7 +43,6 @@ class AddImage extends Component {
             console.log(res)
         })
         this.toggle();
-        window.location.reload();
     }
 
 
