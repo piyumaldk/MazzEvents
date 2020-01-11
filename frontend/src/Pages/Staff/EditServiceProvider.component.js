@@ -145,7 +145,9 @@ export default class EditServiceProvider extends Component {
                 <div class="right">
                 <Upper/>
                 <div className="frm">
-                <h3>Update Service Provider</h3>
+                <div className="txt">
+                <h3 >Update Service Provider</h3>
+                </div>
                 
                 <form onSubmit={this.onSubmit} >
                     
