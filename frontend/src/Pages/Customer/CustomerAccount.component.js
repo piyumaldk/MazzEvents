@@ -4,7 +4,7 @@ import {Button, Card, Form, Col} from 'react-bootstrap';
 import LeftCustomer from "../../Components/LeftCustomer.component";
 import Upper from "../../Components/Upper.component";
 import { connect } from 'react-redux';
-import Piyumal from '../../Images/piyumal.jpeg';
+import AddImage from "../../Components/AddImage.component";
 
 class CustomerAccount extends Component {
 
@@ -46,6 +46,16 @@ class CustomerAccount extends Component {
                     signup_completed: response.data.signup_completed
                 })
             })
+
+            axios.get('http://localhost:4000/mazzevents/getprofileimg/'+this.props.id)
+            .then(response => {
+                console.log("testing");
+                this.setState({
+                    ownerId: response.data.ownerId,
+                    profilePic: response.data.profileImg
+                })
+            })
+
             .catch(function(error) {
                 console.log(error)
             })
@@ -114,13 +124,18 @@ class CustomerAccount extends Component {
 
                     <div className="left">
                         <Card style={{ width: '18rem' }}>
-                            <Card.Img variant="top" src={Piyumal} />
+                            <Card.Img variant="top" src={this.state.profilePic} />
                             <Card.Body>
                             <Card.Title><center>{this.state.signup_firstName} {this.state.signup_lastName}</center></Card.Title>
                             <Card.Text>
                                 Email Address: {this.state.signup_email}<br/>
                                 Contact Number: {this.state.signup_number}<br/>
+                            
                             </Card.Text>
+                            <br/>
+                            <center>
+                        <AddImage/> 
+                        </center>
                             </Card.Body>
                         </Card>
                     </div>
