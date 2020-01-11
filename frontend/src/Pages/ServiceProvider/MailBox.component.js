@@ -7,9 +7,9 @@ export default class ServiceProviderMailBox extends Component {
         return (
             <div>
                 <LeftSeriveProvider/>
-                <div class="mailright">
+                <div className="mailright">
                 <Upper/>
-                    <div class="mail">
+                    <div className="mail">
                         <center><h4>Email</h4></center>
                         <Table striped bordered hover size="sm">
                             

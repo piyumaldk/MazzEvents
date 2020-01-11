@@ -7,7 +7,7 @@ export default class Rating extends Component {
         return (
             <div>
                 <LeftCustomer/>
-                <div class="right">
+                <div className="right">
                 This is LeftCustomer - Rating
                     
                 </div>
