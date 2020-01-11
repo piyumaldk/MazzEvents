@@ -164,10 +164,10 @@ onChangeSignupText(e){
       return (
           <div>
               <LeftServiceProvider/>
-              <div class="right">
+              <div className="right">
                   <Upper/>
 
-                  <div class="left">
+                  <div className="left">
                       <Card style={{ width: '18rem' }}>
                           <Card.Img variant="top" src={Piyumal} />
                           <Card.Body>
@@ -180,7 +180,7 @@ onChangeSignupText(e){
                       </Card>
                   </div>
 
-                  <div class="rightAccount">
+                  <div className="rightAccount">
                       <h3>My Service</h3>
                       <Form onSubmit={this.onSubmit}>
                           <Form.Row>
