@@ -57,7 +57,7 @@ export default class StaffCatering extends Component {
         return (
             <div>
                 <LeftStaff/>
-                <div class="right">
+                <div className="right">
                     <Upper/>
 
                     <div>
@@ -82,10 +82,12 @@ export default class StaffCatering extends Component {
                             </tbody>
                         </table>
                         <table>
-                            <tr>
-                                <th><SignUpCatering/></th>
-                            
-                            </tr>
+                            <tbody>
+                                <tr>
+                                    <th><SignUpCatering/></th>
+                                
+                                </tr>
+                            </tbody>
                         </table>
                     </div>
 

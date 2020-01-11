@@ -146,7 +146,7 @@ export default class Dj extends Component {
         return (
             <div>
                 <LeftCustomer/>
-                <div class="right">
+                <div className="right">
                     <Upper/>
                     <div>
                         

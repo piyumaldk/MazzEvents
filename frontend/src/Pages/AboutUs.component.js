@@ -5,7 +5,7 @@ export default class AboutUs extends Component {
         return (
             <div>
              <Upper/>
-              <div class="leftAboutUs">
+              <div className="leftAboutUs">
                  <h1><font color="blue"><b>About Us</b></font></h1>
                     <h3>We are MazzEvents</h3>
                     <p>
@@ -25,15 +25,15 @@ export default class AboutUs extends Component {
                     <h3>Join with our website and make your event AWESOME!!!</h3>
                 </div>
 
-                <div class="rightAboutUs">
-                    <div class="aboutustop">
+                <div className="rightAboutUs">
+                    <div className="aboutustop">
                     <h2><font color="#00ffff">Our Location</font></h2>
                     <h3><font color="black">Map</font></h3>
                     </div>
                 </div>
 
-                <div class="rightAboutUs">
-                    <div class="aboutusbottomleft">
+                <div className="rightAboutUs">
+                    <div className="aboutusbottomleft">
 
                     <h2><font text-align= "center" color="white"><b>Contact Us</b></font></h2>
 
@@ -47,7 +47,7 @@ export default class AboutUs extends Component {
 
                     </div>
 
-                    <div class="aboutusbottomright">
+                    <div className="aboutusbottomright">
 
                         <h2><font text-align= "center" color="white"><b>Our Logo</b></font></h2>
 

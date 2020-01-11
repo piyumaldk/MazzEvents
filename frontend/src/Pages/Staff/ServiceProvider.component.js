@@ -63,7 +63,7 @@ export default class StaffServiceProvider extends Component {
         return (
             <div>
                 <LeftStaff/>
-                <div class="right">
+                <div className="right">
                     <Upper/>
 
                     <div>
@@ -88,6 +88,7 @@ export default class StaffServiceProvider extends Component {
                             </tbody>
                         </table>
                         <table>
+                            <tbody>
                             <tr>
                                 <th><SignUpCatering/></th>
                                 <th><SignUpDj/></th>
@@ -97,6 +98,7 @@ export default class StaffServiceProvider extends Component {
                                 <th><SignUpPhotography/></th>
                                 <th><SignUpVehicles/></th>
                             </tr>
+                            </tbody>
                         </table>
                     </div>
 

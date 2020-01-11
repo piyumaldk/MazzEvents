@@ -109,10 +109,10 @@ class CustomerAccount extends Component {
         return (
             <div>
                 <LeftCustomer/>
-                <div class="right">
+                <div className="right">
                     <Upper/>
 
-                    <div class="left">
+                    <div className="left">
                         <Card style={{ width: '18rem' }}>
                             <Card.Img variant="top" src={Piyumal} />
                             <Card.Body>
@@ -125,7 +125,7 @@ class CustomerAccount extends Component {
                         </Card>
                     </div>
 
-                    <div class="rightAccount">
+                    <div className="rightAccount">
                         <h3>Update My details</h3>
                         <Form onSubmit={this.onSubmit}>
                             <Form.Row>
