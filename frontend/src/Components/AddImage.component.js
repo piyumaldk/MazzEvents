@@ -67,7 +67,7 @@ class AddImage extends Component {
                             <Input className="btn btn-dark" type="file" id="avatar" onChange={this.onFileChange} />
                         </div>
                         <div className="form-group">
-                            <Button className="btn btn-dark" disabled={!this.state.profileImg} type="submit">Change</Button>
+                            <Button className="btn btn-dark" disabled={!this.state.profileImg || this.state.upload===1} type="submit">Change</Button>
                             <Button className="btn btn-dark" disabled={!this.state.profileImg || !this.state.upload} href="/staff/account">Save</Button>
                         </div>
                     </form>
