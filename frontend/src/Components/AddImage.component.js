@@ -19,7 +19,8 @@ class AddImage extends Component {
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
-            profileImg: ''
+            profileImg: '',
+            upload: ''
         }
     }
 
@@ -27,12 +28,14 @@ class AddImage extends Component {
         //Clear messages
         this.setState({
           modal: !this.state.modal,
-          profileImg: ''
+          profileImg: '',
+          upload: ''
         });
     };
 
     onFileChange(e) {
         this.setState({ profileImg: e.target.files[0] })
+        
     }
 
     onSubmit(e) {
@@ -43,8 +46,7 @@ class AddImage extends Component {
         }).then(res => {
             console.log(res)
         })
-        this.toggle();
-        window.location.reload();
+        this.setState({ upload: 1 })
     }
 
 
@@ -66,6 +68,7 @@ class AddImage extends Component {
                         </div>
                         <div className="form-group">
                             <Button className="btn btn-dark" disabled={!this.state.profileImg} type="submit">Change</Button>
+                            <Button className="btn btn-dark" disabled={!this.state.profileImg || !this.state.upload} href="/staff/account">Save</Button>
                         </div>
                     </form>
                 </div>
