@@ -9,7 +9,7 @@ export default class Cchat extends Component {
                 
                 <LeftCustomer/>
                 <Upper/> 
-                <div class="right">
+                <div className="right">
                 This is LeftCustomer - Chat
                     
                 </div>

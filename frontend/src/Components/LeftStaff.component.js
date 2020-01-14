@@ -5,7 +5,7 @@ import '../App.css';
 export default class LeftServiceProvider extends Component {
     render() {
         return (
-            <div class="sidenav">
+            <div className="sidenav">
                 <h5>Staff Dashboard</h5>
                 <p>Components</p>
                 <a href="/staff/account">Staff Account</a>

@@ -6,7 +6,7 @@ export default class StaffEventCalendar extends Component {
         return (
             <div>
                 <LeftStaff/>
-                <div class="right">
+                <div className="right">
                     This is Staff - Event Calendar
                 </div>
                 

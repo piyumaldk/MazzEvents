@@ -7,7 +7,7 @@ export default class ServiceProviderViewBookings extends Component {
         return (
           <div>
             <LeftSeriveProvider/>
-              <div class="right">
+              <div className="right">
               <Upper/>
                 <h1>Vehicle Bookings</h1>
                 <Table striped bordered hover>

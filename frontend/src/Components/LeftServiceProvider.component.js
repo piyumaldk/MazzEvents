@@ -5,8 +5,8 @@ import '../App.css';
 export default class LeftServiceProvider extends Component {
     render() {
         return (
-            <div class="sidenav">
-                <h>Service Provider</h>
+            <div className="sidenav">
+                
                 <p>Components</p>
                 <a href="/serviceprovider/addservices">My service</a>
                 <a href="/serviceprovider/chat">Chat</a>

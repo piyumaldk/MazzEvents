@@ -6,7 +6,7 @@ export default class ServiceProviderAddDiscountOffers extends Component {
         return (
             <div>
                 <LeftSeriveProvider/>
-                <div class="right">
+                <div className="right">
                 <Upper/>
                     This is Serivce Proivder - Add Discount Offers
                 </div>

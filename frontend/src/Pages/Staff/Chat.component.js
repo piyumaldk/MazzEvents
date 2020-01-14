@@ -6,8 +6,8 @@ export default class StaffChat extends Component {
         return (
             <div>
                 <LeftStaff/>
-                <div class="chatright">
-                    <div class="chat">
+                <div className="chatright">
+                    <div className="chat">
                         <center><h4>Chat</h4></center>
                         <Table striped bordered hover size="sm">
                             
@@ -30,7 +30,7 @@ export default class StaffChat extends Component {
                             </tbody>
                         </Table>
                     </div>
-                    <div class="chattop">
+                    <div className="chattop">
 
                     </div>
                     

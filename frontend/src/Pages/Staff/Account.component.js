@@ -4,7 +4,7 @@ import { Button, Card, Form, Col } from 'react-bootstrap';
 import LeftStaff from "../../Components/LeftStaff.component";
 import Upper from "../../Components/Upper.component";
 import { connect } from 'react-redux';
-import Piyumal from '../../Images/piyumal.jpeg';
+import AddImage from "../../Components/AddImage.component";
 
 class StaffAccount extends Component {
 
@@ -119,25 +119,30 @@ class StaffAccount extends Component {
     render() {
         return (
             <div>
-                <LeftStaff />
-                <div class="right">
-                    <Upper />
+                <LeftStaff/>
+                <div className="right">
+                    <Upper/>
 
-                    <div class="left">
+                    <div className="left">
                         <Card style={{ width: '18rem' }}>
-                            <Card.Img variant="top" src={Piyumal} />
+                            <Card.Img variant="top" src={this.state.profilePic} />
                             <Card.Body>
-                                <Card.Title><center>{this.state.signup_firstName} {this.state.signup_lastName}</center></Card.Title>
-                                <Card.Text>
-                                    Email Address: {this.state.signup_email}<br />
-                                    Contact Number: {this.state.signup_number}<br />
-                                    {this.state.profilePic}
-                                </Card.Text>
+                            <Card.Title><center>{this.state.signup_firstName} {this.state.signup_lastName}</center></Card.Title>
+                            <Card.Text>
+                                Email Address: {this.state.signup_email}<br/>
+                                Contact Number: {this.state.signup_number}<br/>
+                            
+                            </Card.Text>
+                            <br/>
+                            <center>
+                        <AddImage/> 
+                        </center>
                             </Card.Body>
                         </Card>
+                        
                     </div>
 
-                    <div class="rightAccount">
+                    <div className="rightAccount">
                         <h3>Update My details</h3>
                         <Form onSubmit={this.onSubmit}>
                             <Form.Row>

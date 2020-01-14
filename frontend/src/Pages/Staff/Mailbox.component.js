@@ -43,8 +43,8 @@ export default class StaffMailbox extends Component {
         return (
             <div>
                 <LeftStaff/>
-                <div class="mailright">
-                    <div class="mail">
+                <div className="mailright">
+                    <div className="mail">
                         <center><h4>Email</h4></center>
                         <Table striped bordered hover size="sm">
                             

@@ -7,7 +7,7 @@ export default class ServiceProviderViewServices extends Component {
         return (
             <div>
                 <LeftSeriveProvider/>
-                <div class="right">
+                <div className="right">
                   <Upper/>
                 <h3>
                     Services<Badge variant="secondary"></Badge>
