@@ -4,8 +4,10 @@ let express = require('express'),
     bodyParser = require('body-parser'),
     dbConfig = require('./database/db'),
     config = require('config');
+    nodemailer = require('nodemailer');
 
-const photo = require('../backend/routes/photo.routes')
+const photo = require('../backend/routes/photo.routes');
+const graph = require('../backend/routes/graph')
 const app = express();
 const db = require('./config/keys').mongoURI;
 // MongoDB Configuration
@@ -30,7 +32,15 @@ app.use(cors());
 app.use('/public', express.static('public'));
 app.use('/mazzevents', photo)
 
+app.post('/api/form',(req, res)=>{
+    res.send("Data added")
+    console.log(req.body);
+})
+
 const port = process.env.PORT || 4000;
+
+
+
 const server = app.listen(port, () => {
     console.log("Server is running on Port: " + port);
 })
@@ -39,6 +49,7 @@ const server = app.listen(port, () => {
 app.use('/mazzevents', require('./routes/api/signups'));
 app.use('/mazzevents/auth', require('./routes/api/auth'));
 app.use('/mazzevents', require('./routes/api/services'));
+app.use('/mazzevents', require('./routes/graph'));
 
 app.use((req, res, next) => {
     // Error goes via `next()` method

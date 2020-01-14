@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
-import {Button, Card, Form, Col} from 'react-bootstrap';
+import { Button, Card, Form, Col } from 'react-bootstrap';
 import LeftStaff from "../../Components/LeftStaff.component";
 import Upper from "../../Components/Upper.component";
 import { connect } from 'react-redux';
@@ -34,9 +34,9 @@ class StaffAccount extends Component {
         }
     }
 
-    
+
     componentDidMount() {
-        axios.get('http://localhost:4000/mazzevents/'+this.props.id)
+        axios.get('http://localhost:4000/mazzevents/' + this.props.id)
             .then(response => {
                 this.setState({
                     signup_firstName: response.data.signup_firstName,
@@ -48,8 +48,8 @@ class StaffAccount extends Component {
                     signup_location: response.data.signup_location,
                     signup_completed: response.data.signup_completed
                 })
-            })  
-        axios.get('http://localhost:4000/mazzevents/getprofileimg/'+this.props.id)
+            })
+        axios.get('http://localhost:4000/mazzevents/getprofileimg/' + this.props.id)
             .then(response => {
                 console.log("testing");
                 this.setState({
@@ -57,50 +57,50 @@ class StaffAccount extends Component {
                     profilePic: response.data.profileImg
                 })
             })
-            .catch(function(error) {
+            .catch(function (error) {
                 console.log(error)
             })
     }
 
-    onChangeSignupFirstName(e){
+    onChangeSignupFirstName(e) {
         this.setState({
             signup_firstName: e.target.value
         });
     }
-    onChangeSignupLastName(e){
+    onChangeSignupLastName(e) {
         this.setState({
             signup_lastName: e.target.value
         });
     }
-    onChangeSignupEmail(e){
+    onChangeSignupEmail(e) {
         this.setState({
             signup_email: e.target.value
         });
     }
-    onChangeSignupPassword(e){
+    onChangeSignupPassword(e) {
         this.setState({
             signup_password: e.target.value
         });
     }
-    onChangeSignupAPassword(e){
+    onChangeSignupAPassword(e) {
         this.setState({
             signup_aPassword: e.target.value
         });
     }
-    onChangeSignupNumber(e){
+    onChangeSignupNumber(e) {
         this.setState({
             signup_number: e.target.value
         });
     }
-    onChangeSignupLocation(e){
-      this.setState({
-          signup_location: e.target.value
-      });
-  }
+    onChangeSignupLocation(e) {
+        this.setState({
+            signup_location: e.target.value
+        });
+    }
     onSubmit(e) {
         e.preventDefault();
         const obj = {
-            signup_firstName: this.state.signup_firstName, 
+            signup_firstName: this.state.signup_firstName,
             signup_lastName: this.state.signup_lastName,
             signup_email: this.state.signup_email,
             signup_password: this.state.signup_password,
@@ -109,30 +109,30 @@ class StaffAccount extends Component {
             signup_location: this.state.signup_location,
             signup_completed: this.state.signup_completed
         };
-        
-        axios.post('http://localhost:4000/mazzevents/updatecustomer/'+this.props.id, obj)
+
+        axios.post('http://localhost:4000/mazzevents/updatecustomer/' + this.props.id, obj)
             .then(res => console.log(res.data));
 
         this.props.history.push('/staff/serviceprovider');
     }
-    
+
     render() {
         return (
             <div>
-                <LeftStaff/>
+                <LeftStaff />
                 <div class="right">
-                    <Upper/>
+                    <Upper />
 
                     <div class="left">
                         <Card style={{ width: '18rem' }}>
                             <Card.Img variant="top" src={Piyumal} />
                             <Card.Body>
-                            <Card.Title><center>{this.state.signup_firstName} {this.state.signup_lastName}</center></Card.Title>
-                            <Card.Text>
-                                Email Address: {this.state.signup_email}<br/>
-                                Contact Number: {this.state.signup_number}<br/>
-                                {this.state.profilePic}
-                            </Card.Text>
+                                <Card.Title><center>{this.state.signup_firstName} {this.state.signup_lastName}</center></Card.Title>
+                                <Card.Text>
+                                    Email Address: {this.state.signup_email}<br />
+                                    Contact Number: {this.state.signup_number}<br />
+                                    {this.state.profilePic}
+                                </Card.Text>
                             </Card.Body>
                         </Card>
                     </div>
@@ -143,30 +143,30 @@ class StaffAccount extends Component {
                             <Form.Row>
                                 <Form.Group as={Col} controlId="formGridFirstName">
                                     <Form.Label>First Name</Form.Label>
-                                    <Form.Control type="text" className="form-control" value={this.state.signup_firstName} onChange={this.onChangeSignupFirstName}/>
+                                    <Form.Control type="text" className="form-control" value={this.state.signup_firstName} onChange={this.onChangeSignupFirstName} />
                                 </Form.Group>
                                 <Form.Group as={Col} controlId="formGridLastName">
                                     <Form.Label>Last Name</Form.Label>
-                                    <Form.Control type="text" className="form-control" value={this.state.signup_lastName} onChange={this.onChangeSignupLastName}/>
+                                    <Form.Control type="text" className="form-control" value={this.state.signup_lastName} onChange={this.onChangeSignupLastName} />
                                 </Form.Group>
                             </Form.Row>
                             <Form.Row>
                                 <Form.Group as={Col} controlId="formGridEmail">
                                     <Form.Label>Email</Form.Label>
-                                    <Form.Control type="text" className="form-control" value={this.state.signup_email} onChange={this.onChangeSignupEmail}/>
+                                    <Form.Control type="text" className="form-control" value={this.state.signup_email} onChange={this.onChangeSignupEmail} />
                                 </Form.Group>
                                 <Form.Group controlId="ContactNumber">
                                     <Form.Label>Contact Number</Form.Label>
-                                    <Form.Control  type="text" className="form-control" value={this.state.signup_number} onChange={this.onChangeSignupNumber}/>
+                                    <Form.Control type="text" className="form-control" value={this.state.signup_number} onChange={this.onChangeSignupNumber} />
                                 </Form.Group>
                             </Form.Row>
-                            <Button variant="primary" type="submit"  value="Update">
+                            <Button variant="primary" type="submit" value="Update">
                                 Update
                             </Button>
                         </Form>
                     </div>
                 </div>
-             </div>
+            </div>
         )
     }
 }
@@ -177,6 +177,6 @@ const mapStateToProps = state => ({
     lName: state.auth.lName,
     email: state.auth.email,
     number: state.auth.number
-  });
+});
 
-export default connect(mapStateToProps,null)(StaffAccount);
+export default connect(mapStateToProps, null)(StaffAccount);
