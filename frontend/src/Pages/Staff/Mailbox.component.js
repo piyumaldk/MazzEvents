@@ -1,7 +1,7 @@
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 // import LeftStaff from "../../Components/LeftStaff.component";
 // import {Table, Nav, Form, Col, Button, Modal,Alert} from 'react-bootstrap';
-import axios from 'axios';
+// import axios from 'axios';
 
 import { connect } from 'react-redux';
 
