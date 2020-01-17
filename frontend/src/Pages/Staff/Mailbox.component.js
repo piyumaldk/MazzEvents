@@ -1,29 +1,32 @@
 import React, { Component, useState } from 'react';
 // import LeftStaff from "../../Components/LeftStaff.component";
 // import {Table, Nav, Form, Col, Button, Modal,Alert} from 'react-bootstrap';
-// import axios from 'axios';
+import axios from 'axios';
 
+import { connect } from 'react-redux';
 
+class StaffMailbox extends Component {
 
-export default class StaffMailbox extends Component {
+  
 
-    
-
-        state = {
-          email: {
-            recipient: '',
-            sender: '',
-            subject: '',
-            text: ''
-          }
+    state = {
+        email: {
+          recipient: '',
+          sender: this.props.email,
+          subject: '',
+          text: '',
         }
+      }
+
       
         sendEmail = _ => {
           const { email } = this.state;
           fetch(`http://127.0.0.1:4000/send-email?recipient=${email.recipient}&sender=${email.sender}&topic=${email.subject}&text=${email.text}`) //query string url
             .catch(err => console.error(err))
+
+            this.props.history.push('/staff/mailbox');
         }
-      
+       
         render() {
           const { email } = this.state;
           const spacer = {
@@ -41,11 +44,6 @@ export default class StaffMailbox extends Component {
                 <input value={email.recipient}
                   onChange={e => this.setState({ email: { ...email, recipient: e.target.value } })} />
                 <div style={spacer} />
-                <label> Sender </label>
-                <br />
-                <input value={email.sender}
-                  onChange={e => this.setState({ email: { ...email, sender: e.target.value } })} />
-                <div style={spacer} />
                 <label> Subject </label>
                 <br />
                 <input value={email.subject}
@@ -60,7 +58,16 @@ export default class StaffMailbox extends Component {
               </div>
             </div>
           );
-        }class
+        }
       }
       
+      const mapStateToProps = state => ({
+        id: state.auth.id,
+        fName: state.auth.fName,
+        lName: state.auth.lName,
+        email: state.auth.email,
+        number: state.auth.number
+    });
+    
+    export default connect(mapStateToProps, null)(StaffMailbox);
    
