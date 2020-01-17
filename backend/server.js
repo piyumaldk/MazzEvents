@@ -4,7 +4,10 @@ let express = require('express'),
     bodyParser = require('body-parser'),
     dbConfig = require('./database/db'),
     config = require('config');
-    nodemailer = require('nodemailer');
+
+const sgMail = require('@sendgrid/mail');
+
+sgMail.setApiKey('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');
 
 const photo = require('../backend/routes/photo.routes');
 const graph = require('../backend/routes/graph')
@@ -23,19 +26,37 @@ mongoose.connect(db, {
     }
 )
 
+
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
 }));
 app.use(cors());
 
+app.get('/send-email', (req,res) => {
+    
+    //Get Variables from query string in the search bar
+    const { recipient, sender, topic, text } = req.query; 
+
+    //Sendgrid Data Requirements
+    const msg = {
+        to: recipient, 
+        from: sender,
+        subject: topic,
+        text: text,
+    }
+
+    //Send Email
+    sgMail.send(msg)
+    .then((msg) => console.log(text));
+});
+
+
 app.use('/public', express.static('public'));
 app.use('/mazzevents', photo)
 
-app.post('/api/form',(req, res)=>{
-    res.send("Data added")
-    console.log(req.body);
-})
+
 
 const port = process.env.PORT || 4000;
 
