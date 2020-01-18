@@ -10,7 +10,7 @@ const sgMail = require('@sendgrid/mail');
 sgMail.setApiKey('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');
 
 const photo = require('../backend/routes/photo.routes');
-const graph = require('../backend/routes/graph')
+const graph = require('../backend/routes/graph');
 const app = express();
 const db = require('./config/keys').mongoURI;
 // MongoDB Configuration
@@ -54,8 +54,8 @@ app.get('/send-email', (req,res) => {
 
 
 app.use('/public', express.static('public'));
-app.use('/mazzevents', photo)
-
+app.use('/mazzevents', photo);
+app.use('mazzevents/graph', graph);
 
 
 const port = process.env.PORT || 4000;
@@ -70,7 +70,7 @@ const server = app.listen(port, () => {
 app.use('/mazzevents', require('./routes/api/signups'));
 app.use('/mazzevents/auth', require('./routes/api/auth'));
 app.use('/mazzevents', require('./routes/api/services'));
-app.use('/mazzevents', require('./routes/graph'));
+app.use('/mazzevents/graph', require('./routes/graph'));
 
 app.use((req, res, next) => {
     // Error goes via `next()` method
