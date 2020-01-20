@@ -5,6 +5,7 @@ import LeftServiceProvider from "../../Components/LeftServiceProvider.component"
 import Upper from "../../Components/Upper.component";
 import { connect } from 'react-redux';
 import AddImage from "../../Components/AddServiceImage.component";
+import Piyumal from '../../Images/piyumal.jpeg';
 
 class ServiceProviderAccount extends Component {
     constructor(props) {
@@ -149,7 +150,8 @@ class ServiceProviderAccount extends Component {
 
                     <div className="left">
                         <Card style={{ width: '18rem' }}>
-                            <Card.Img variant="top" src={this.state.profilePic} />
+                            <Card.Img variant="top" src={!this.state.profilePic ? Piyumal :this.state.profilePic}/>
+                            
                             <Card.Body>
                             <Card.Title><center>{this.state.signup_firstName} {this.state.signup_lastName}</center></Card.Title>
                             <Card.Text>

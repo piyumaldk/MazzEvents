@@ -4,7 +4,6 @@ import {Button,Card, CardDeck} from 'react-bootstrap';
 import '../../App.css';
 import axios from 'axios';
 import Upper from "../../Components/Upper.component";
-import catering from '../../Images/catering.jpg';
 
 const SignUpCustomer = props => (
     <div>
