@@ -4,7 +4,7 @@ import {Button, Card, Form, Col} from 'react-bootstrap';
 import LeftCustomer from "../../Components/LeftCustomer.component";
 import Upper from "../../Components/Upper.component";
 import { connect } from 'react-redux';
-import AddImage from "../../Components/AddImage.component";
+import AddImage from "../../Components/AddCustomerImage.component";
 
 class CustomerAccount extends Component {
 

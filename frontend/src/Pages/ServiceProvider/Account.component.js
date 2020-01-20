@@ -4,7 +4,7 @@ import {Button, Card, Form, Col} from 'react-bootstrap';
 import LeftServiceProvider from "../../Components/LeftServiceProvider.component";
 import Upper from "../../Components/Upper.component";
 import { connect } from 'react-redux';
-import AddImage from "../../Components/AddImage.component";
+import AddImage from "../../Components/AddServiceImage.component";
 
 class ServiceProviderAccount extends Component {
     constructor(props) {
@@ -146,7 +146,7 @@ class ServiceProviderAccount extends Component {
         axios.post('http://localhost:4000/mazzevents/updatecustomer/'+this.props.id, obj)
             .then(res => console.log(res.data));
 
-        this.props.history.push('/serviceprovider/addservices');
+        this.props.history.push('/serviceprovider/account');
     }
     
     render() {

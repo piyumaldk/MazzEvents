@@ -4,7 +4,7 @@ import { Button, Card, Form, Col } from 'react-bootstrap';
 import LeftStaff from "../../Components/LeftStaff.component";
 import Upper from "../../Components/Upper.component";
 import { connect } from 'react-redux';
-import AddImage from "../../Components/AddImage.component";
+import AddImage from "../../Components/AddStaffImage.component";
 
 class StaffAccount extends Component {
 

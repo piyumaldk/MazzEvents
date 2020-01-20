@@ -8,6 +8,9 @@ const userSchema = new Schema({
     },
     profileImg: {
         type: String
+    },
+    businessImg: {
+        type: String
     }
 })
 

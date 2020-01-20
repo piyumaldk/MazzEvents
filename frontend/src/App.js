@@ -10,8 +10,6 @@ import ServiceProvider from "./Pages/ServiceProvider/ServiceProvider";
 import Admin from "./Pages/Admin/Admin";
 import Staff from "./Pages/Staff/Staff";
 import Customer from "./Pages/Customer/Customer";
-import AddImage from "./Components/AddImage.component";
-
 
 class App extends Component {
   componentDidMount() {
@@ -71,7 +69,6 @@ class App extends Component {
     <Router>
       <Route default path="/" exact component={Home}/> 
       <Route path="/aboutus" component={AboutUs}/>
-      <Route path="/addimage" component={AddImage}/>
       {route} 
     </Router>
     
