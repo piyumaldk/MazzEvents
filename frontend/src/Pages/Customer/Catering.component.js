@@ -12,7 +12,7 @@ const SignUpCustomer = props => (
             
         <Card  bg="light" text="black" style={{ width: '18rem'  }}>
             
-        <Card.Img variant="top" src={catering} />
+        <Card.Img variant="top" src={props.signupcustomer.businessImg} />
         <Card.Header><center>Are you from around {props.signupcustomer.signup_city}?</center></Card.Header>
             <Card.Body>
             <Card.Title><center>{props.signupcustomer.signup_company}</center></Card.Title>
@@ -45,6 +45,7 @@ export default class Catering extends Component {
             .catch(function (error){
                 console.log(error);
             })
+        
     }
 
     UserList() {

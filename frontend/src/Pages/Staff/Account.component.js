@@ -46,17 +46,11 @@ class StaffAccount extends Component {
                     signup_aPassword: response.data.signup_aPassword,
                     signup_number: response.data.signup_number,
                     signup_location: response.data.signup_location,
+                    profilePic: response.data.profileImg,
                     signup_completed: response.data.signup_completed
                 })
             })
-        axios.get('http://localhost:4000/mazzevents/getprofileimg/' + this.props.id)
-            .then(response => {
-                console.log("testing");
-                this.setState({
-                    ownerId: response.data.ownerId,
-                    profilePic: response.data.profileImg
-                })
-            })
+        
             .catch(function (error) {
                 console.log(error)
             })
@@ -121,9 +115,9 @@ class StaffAccount extends Component {
             <div>
                 <LeftStaff/>
                 <div className="right">
-                    <Upper/>
-
+                <Upper/>
                     <div className="left">
+                    
                         <Card style={{ width: '18rem' }}>
                             <Card.Img variant="top" src={this.state.profilePic} />
                             <Card.Body>
@@ -141,6 +135,7 @@ class StaffAccount extends Component {
                         </Card>
                         
                     </div>
+                    
 
                     <div className="rightAccount">
                         <h3>Update My details</h3>
@@ -170,6 +165,7 @@ class StaffAccount extends Component {
                             </Button>
                         </Form>
                     </div>
+                   
                 </div>
             </div>
         )

@@ -53,19 +53,10 @@ class ServiceProviderAccount extends Component {
                     signup_city: response.data.signup_city,
                     signup_state: response.data.signup_state,
                     signup_zip: response.data.signup_zip,
+                    profilePic: response.data.profileImg,
                     signup_completed: response.data.signup_completed
                 })
             })
-
-            axios.get('http://localhost:4000/mazzevents/getprofileimg/'+this.props.id)
-            .then(response => {
-                console.log("testing");
-                this.setState({
-                    ownerId: response.data.ownerId,
-                    profilePic: response.data.profileImg
-                })
-            })
-
             .catch(function(error) {
                 console.log(error)
             })

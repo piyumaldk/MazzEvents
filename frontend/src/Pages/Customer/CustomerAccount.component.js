@@ -43,6 +43,7 @@ class CustomerAccount extends Component {
                     signup_aPassword: response.data.signup_aPassword,
                     signup_number: response.data.signup_number,
                     signup_location: response.data.signup_location,
+                    profilePic: response.data.profileImg,
                     signup_completed: response.data.signup_completed
                 })
             })

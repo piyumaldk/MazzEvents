@@ -61,6 +61,7 @@ class ServiceProviderAddServices extends Component {
                   signup_zip: response.data.signup_zip,
                   signup_text: response.data.signup_text,
                   signup_company: response.data.signup_company,
+                  businessPic: response.data.businessImg,
                   signup_completed: response.data.signup_completed
               })
           })

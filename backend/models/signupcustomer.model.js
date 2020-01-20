@@ -100,7 +100,12 @@ let SignUpSchema = new Schema({
     signup_max3: {
         type: String
     },
-
+    profileImg: {
+        type: String
+    },
+    businessImg: {
+        type: String
+    },
     signup_date: {
         type: Date,
         default: Date.now
