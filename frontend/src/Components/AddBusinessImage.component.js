@@ -54,7 +54,7 @@ class AddBusinessImage extends Component {
         return (
 <div>
 <Button className="btn btn-dark" onClick={this.toggle} href="#">
-                Update the profile Picture
+                Update the Business Logo
             </Button>
             <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>Select a Picture</ModalHeader>

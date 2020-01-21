@@ -5,7 +5,7 @@ import LeftServiceProvider from "../../Components/LeftServiceProvider.component"
 import Upper from "../../Components/Upper.component";
 import { connect } from 'react-redux';
 import AddBusinessImage from "../../Components/AddBusinessImage.component";
-
+import company from '../../Images/Profile/company.png';
 class ServiceProviderAddServices extends Component {
 
   constructor(props) {
@@ -179,7 +179,7 @@ onChangeSignupText(e){
 
                   <div className="left">
                       <Card style={{ width: '18rem' }}>
-                          <Card.Img variant="top" src={this.state.businessPic} />
+                          <Card.Img variant="top" src={!this.state.businessPic ? company :this.state.businessPic} />
                           <Card.Body>
                           <Card.Title><center>{this.state.signup_firstName} {this.state.signup_lastName}</center></Card.Title>
                           <Card.Text>

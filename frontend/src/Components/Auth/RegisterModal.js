@@ -87,7 +87,6 @@ class SignUp extends Component {
     };
     //Attempt to Register
     this.props.register(newSignUpCustomer);
-    this.props.history.push('/');
   }
 
   render() {

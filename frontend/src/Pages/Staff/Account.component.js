@@ -5,6 +5,7 @@ import LeftStaff from "../../Components/LeftStaff.component";
 import Upper from "../../Components/Upper.component";
 import { connect } from 'react-redux';
 import AddImage from "../../Components/AddStaffImage.component";
+import normal from '../../Images/Profile/normal.png';
 
 class StaffAccount extends Component {
 
@@ -119,7 +120,7 @@ class StaffAccount extends Component {
                     <div className="left">
                     
                         <Card style={{ width: '18rem' }}>
-                            <Card.Img variant="top" src={this.state.profilePic} />
+                            <Card.Img variant="top" src={!this.state.profilePic ? normal :this.state.profilePic} />
                             <Card.Body>
                             <Card.Title><center>{this.state.signup_firstName} {this.state.signup_lastName}</center></Card.Title>
                             <Card.Text>
