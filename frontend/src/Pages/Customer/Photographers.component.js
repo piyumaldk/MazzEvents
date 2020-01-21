@@ -67,14 +67,23 @@ export default class Photgraphers extends Component {
         //local = local.toUpperCase();
 
         console.log(local);
+        //local = local.filterText.toLowerCase();
+        if(local ==null || local==""){
+            return this.state.users.map(function(currentSignUpCustomer, i){
+                if(currentSignUpCustomer.signup_type === "2" && currentSignUpCustomer.signup_category === "Photographer"){
+                return <SignUpCustomer signupcustomer={currentSignUpCustomer} key={i} />;
+                }
+                return null;
+            })
+        }
+        else{
             return this.state.users.map(function(currentSignUpCustomer, i){
                 if(currentSignUpCustomer.signup_type === "2" && currentSignUpCustomer.signup_category === "Photographer" && currentSignUpCustomer.signup_city === local ){
                 return <SignUpCustomer signupcustomer={currentSignUpCustomer} key={i} />;
                 }
                 return null;
             })
-        
-        
+        }
     }
 
     render() {
