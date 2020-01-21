@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
 import LeftCustomer from "../../Components/LeftCustomer.component";
-import {Button, Card, CardDeck} from 'react-bootstrap';
-import { Form, FormGroup, Input} from 'reactstrap';
+import {Button, Card, CardDeck, FormControl, Container} from 'react-bootstrap';
+import { Form, FormGroup,  Input, Col} from 'reactstrap';
 import '../../App.css';
 import axios from 'axios';
 import Upper from "../../Components/Upper.component";
 
 const SignUpCustomer = props => (
-    <div>
-        
-            
-        <Card  bg="light" text="black" style={{ width: '20rem'  }}>
-            
+    <div>   
+        <Card  bg="light" text="black" style={{ width: '20rem'  }}>   
         <Card.Img variant="top" height="240" src={props.signupcustomer.businessImg} />
         <Card.Header><center>Are you from around {props.signupcustomer.signup_city}?</center></Card.Header>
             <Card.Body>
@@ -24,9 +21,7 @@ const SignUpCustomer = props => (
             </Card.Text>
             <center><Button variant="dark">Go somewhere</Button></center>
             </Card.Body>
-        </Card>  
-        
-         
+        </Card>     
     </div>
 )
 
@@ -57,14 +52,8 @@ export default class Photgraphers extends Component {
         
     };
    
-
-
     UserList () {
         const local = this.state.location;
-        //local = local.toUpperCase();
-        //const m = local.toUpperCase();
-        console.log(local);
-        //local = local.filterText.toLowerCase();
         if(local ==null || local==""){
             return this.state.users.map(function(currentSignUpCustomer, i){
                 if(currentSignUpCustomer.signup_type === "2" && currentSignUpCustomer.signup_category === "Photographer"){
@@ -84,30 +73,24 @@ export default class Photgraphers extends Component {
     }
 
     render() {
-
-        
         return (
             <div>
                 <LeftCustomer/>
                 <div className="right">
                     <Upper/>
                     <div>
-                       redda =  {this.state.location}
                         <Form>
                             <FormGroup>
-                                <Input type="location" name="location" id="location" placeholder="Location" onChange={this.onChange}/>
+                                <Input type="location" name="location" align="right" width="1" height="48" id="location" placeholder="Location" onChange={this.onChange}/>
                             </FormGroup>
-                            <Button>Serach Location</Button>
+                            <Button align="right">Serach Location</Button>
                         </Form>
                         
                           <div  className="row card_ss">
                           <CardDeck>
                             { this.UserList() } 
                             </CardDeck>
-                            </div>   
-                        
-                        
-                         
+                            </div>                
                     </div>
                 </div>
             </div>   
