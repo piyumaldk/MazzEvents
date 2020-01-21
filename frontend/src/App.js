@@ -29,7 +29,7 @@ class App extends Component {
     //Customer 
     if(this.props.isAuthenticated === true && this.props.type === "1") {
       route = <Switch>
-        <Route path="/serviceprovider" rcomponent={Home}/>
+        <Route path="/serviceprovider" component={Home}/>
         <Route path="/customer" component={Customer}/>
         <Route path="/admin" component={Home}/>
         <Route path="/staff" component={Home}/> 
