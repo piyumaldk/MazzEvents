@@ -4,17 +4,23 @@ import {
   Modal,
   ModalHeader,
   ModalBody,
-  Form,
   FormGroup,
   Label,
   Input,
   NavLink,
   Alert
 } from 'reactstrap';
+import { Form } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { login } from '../../Actions/authActions';
 import { clearErrors } from '../../Actions/errorActions';
+import AccountCircleSharpIcon from '@material-ui/icons/AccountCircleSharp';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import AccountCircle from '@material-ui/icons/AccountCircle';
+import "bootstrap/dist/css/bootstrap.min.css";
+
+import PersonIcon from '@material-ui/icons/Person';
 class LogIn extends Component {
   state = {
     modal: false,
@@ -82,15 +88,16 @@ class LogIn extends Component {
             <NavLink onClick={this.toggle} href="#">
                 Log In
             </NavLink>
-
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
-          <ModalHeader toggle={this.toggle}>Log In</ModalHeader>
+          <ModalHeader toggle={this.toggle}>Log In </ModalHeader>
+
+          <center><AccountCircleSharpIcon style={{ fontSize: 80 }} /></center>
           <ModalBody>
             <Form onSubmit={this.onSubmit}>
               <FormGroup>
                 <Label for='email'>Email Address</Label>
-                <Input type="email" name="signup_email" id="signup_email" placeholder="Email Address" className="mb-3" onChange={this.onChange}/>
-
+                <Input id="InputAdornment" type="email" name="signup_email" id="signup_email" placeholder="Email Address" className="mb-3" onChange={this.onChange}/>
+    
                 <Label for='password'>Password</Label>
                 <Input type="password" name="signup_password" id="signup_password" placeholder="Password" className="mb-3" onChange={this.onChange}/>
 

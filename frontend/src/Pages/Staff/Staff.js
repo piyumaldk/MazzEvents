@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import StaffAccount from "./Account.component";
 import StaffChat from "./Chat.component";
 import StaffMailbox from "./Mailbox.component";
-import StaffEventCalendar from "./EventCalendar.component";
+import StaffEventCalendar from "./EventCalender.component";
 import StaffCharts from "./Charts.component";
 import StaffSendNotification from "./SendNotification.component";
 import StaffServiceProvider from "./ServiceProvider.component";

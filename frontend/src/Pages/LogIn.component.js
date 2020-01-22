@@ -55,7 +55,7 @@ export default class LogIn extends Component {
         return (
             <div>
                 <Upper/>
-                <div class="login">    
+                <div class="login">  
                     <div class="col-md-5 col-md-offset-5">
                         <Form onSubmit={this.onSubmit}>
                             <Form.Group controlId="loginEmail">
