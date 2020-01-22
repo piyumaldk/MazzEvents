@@ -81,9 +81,8 @@ export default class Photgraphers extends Component {
                     <div>
                         <Form>
                             <FormGroup>
-                                <Input type="location" name="location" align="right" width="1" height="48" id="location" placeholder="Location" onChange={this.onChange}/>
+                                <Input type="location" name="location" id="location" placeholder="Search Location / City here" onChange={this.onChange}/>
                             </FormGroup>
-                            <Button align="right">Serach Location</Button>
                         </Form>
                         
                           <div  className="row card_ss">

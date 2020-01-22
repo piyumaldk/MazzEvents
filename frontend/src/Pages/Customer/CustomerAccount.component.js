@@ -5,6 +5,7 @@ import LeftCustomer from "../../Components/LeftCustomer.component";
 import Upper from "../../Components/Upper.component";
 import { connect } from 'react-redux';
 import AddImage from "../../Components/AddCustomerImage.component";
+import Delete from "../../Components/Delete.component";
 import customer from '../../Images/Profile/customer.jpg';
 
 class CustomerAccount extends Component {
@@ -137,11 +138,12 @@ class CustomerAccount extends Component {
                             <br/>
                             <center>
                         <AddImage/> 
+                        <Delete/>
                         </center>
                             </Card.Body>
                         </Card>
                     </div>
-
+                    
                     <div className="rightAccount">
                         <h3>Update My details</h3>
                         <Form onSubmit={this.onSubmit}>
@@ -169,6 +171,7 @@ class CustomerAccount extends Component {
                                 Update
                             </Button>
                         </Form>
+                        
                     </div>
                 </div>
              </div>
