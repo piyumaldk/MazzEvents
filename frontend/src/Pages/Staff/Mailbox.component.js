@@ -1,123 +1,73 @@
-import React, { Component, useState } from 'react';
-import LeftStaff from "../../Components/LeftStaff.component";
-import {Table, Nav, Form, Col, Button, Modal,Alert} from 'react-bootstrap';
-import axios from 'axios';
-export default class StaffMailbox extends Component {
+import React, { Component } from 'react';
+// import LeftStaff from "../../Components/LeftStaff.component";
+// import {Table, Nav, Form, Col, Button, Modal,Alert} from 'react-bootstrap';
+// import axios from 'axios';
 
-    constructor(){
-        super()
+import { connect } from 'react-redux';
 
-        this.state = {
-            name:'',
-            email:'',
-            subject:'',
-            message:''
+class StaffMailbox extends Component {
+
+  
+
+    state = {
+        email: {
+          recipient: '',
+          sender: this.props.email,
+          subject: '',
+          text: '',
         }
+      }
 
-        this.handleChange = this.handleChange.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this)
-    }
+      
+        sendEmail = _ => {
+          const { email } = this.state;
+          fetch(`http://127.0.0.1:4000/send-email?recipient=${email.recipient}&sender=${email.sender}&topic=${email.subject}&text=${email.text}`) //query string url
+            .catch(err => console.error(err))
 
-    handleChange = e =>{
-        this.setState({[e.target.name]: e.target.value})
-    }
-
-    async handleSubmit(e){
-        console.log("sasvy");
-        
-        e.preventDefault()
-        const {name, email, subject, message } = this.state
-
-        const form = await axios.post('/api/form',{
-            name,
-            email,
-            subject,
-            message
-        })
-        // console.log(res);
-        
-
-    }
+            this.props.history.push('/staff/mailbox');
+        }
+       
+        render() {
+          const { email } = this.state;
+          const spacer = {
+            margin: 10
+          }
+          const textArea = {
+            borderRadius: 4
+          }
+          return (
+            <div className="App">
+              <div style={{ marginTop: 10 }} >
+                <h2> Send Email </h2>
+                <label> Recipient </label>
+                <br />
+                <input value={email.recipient}
+                  onChange={e => this.setState({ email: { ...email, recipient: e.target.value } })} />
+                <div style={spacer} />
+                <label> Subject </label>
+                <br />
+                <input value={email.subject}
+                  onChange={e => this.setState({ email: { ...email, subject: e.target.value } })} />
+                <div style={spacer} />
+                <label> Message </label>
+                <br />
+                <textarea rows={3} value={email.text} style={textArea}
+                  onChange={e => this.setState({ email: { ...email, text: e.target.value } })} />
+                <div style={spacer} />
+                <button onClick={this.sendEmail}> Send Email </button>
+              </div>
+            </div>
+          );
+        }
+      }
+      
+      const mapStateToProps = state => ({
+        id: state.auth.id,
+        fName: state.auth.fName,
+        lName: state.auth.lName,
+        email: state.auth.email,
+        number: state.auth.number
+    });
     
-    render() {
-        return (
-            <div>
-                <LeftStaff/>
-                <div className="mailright">
-                    <div className="mail">
-                        <center><h4>Email</h4></center>
-                        <Table striped bordered hover size="sm">
-                            
-                            <tbody>
-                                <tr>
-                                <td><Nav.Link href="">Mithila</Nav.Link> </td>
-                                </tr>
-                                <tr>
-                                <td><Nav.Link href="">Piyumal</Nav.Link></td>
-                                </tr>   
-                                <tr>
-                                <td><Nav.Link href="">Bhagaya</Nav.Link></td>
-                                </tr>
-                                <tr>
-                                <td><Nav.Link href="">Nipuni</Nav.Link></td>
-                                </tr>
-                                <tr>
-                                <td><Nav.Link href="">Yasas</Nav.Link></td>
-                                </tr>       
-                            </tbody>
-                        </Table>
-                    </div>
-
-                    <Form onSubmit={this.handleSubmit}>
-                        <Form.Row>
-                            <Form.Group as={Col} controlId="formGridFrom">
-                            <Form.Control type="text" name="name" placeholder="From" onChange={this.handleChange}/>
-                            </Form.Group>
-                        </Form.Row>
-
-                        <Form.Row>
-                            <Form.Group as={Col} controlId="formGridTo">
-                            <Form.Control type="email" name="email" placeholder="To" onChange={this.handleChange}/>
-                            </Form.Group>
-                        </Form.Row>
-
-                        <Form.Row>
-                            <Form.Group as={Col} controlId="formGridSubject">
-                            <Form.Control type="text" name="subject" placeholder="Subject" onChange={this.handleChange}/>
-                            </Form.Group>
-                        </Form.Row>
-            
-                        <Form.Group controlId="formGridDescription">
-                                <Form.Control type="textarea" name="message" placeholder="Compose email" rows="12" onChange={this.handleChange}/>
-                        </Form.Group>
-                        <Button variant="primary" type="submit">Send</Button>
-                    </Form>
-
-                    {/* <Email /> */}
-                    
-
-                </div>  
-            </div>   
-        )
-        // function Email() {
-        //     const [show, setShow] = useState(false);
-          
-        //     const handleClose = () => setShow(false);
-        //     const handleShow = () => setShow(true);
-          
-        //     return (
-        //       <>
-        //         <Button variant="primary" onClick={handleShow}>
-        //           Send
-        //         </Button>
-          
-        //         <Modal show={show} onHide={handleClose}>
-                  
-        //           <Alert variant="success">Email sent</Alert>
-                  
-        //         </Modal>
-        //       </>
-        //     );
-        //   }
-    }
-}
+    export default connect(mapStateToProps, null)(StaffMailbox);
+   

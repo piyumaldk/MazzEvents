@@ -4,7 +4,8 @@ import { Button, Card, Form, Col } from 'react-bootstrap';
 import LeftStaff from "../../Components/LeftStaff.component";
 import Upper from "../../Components/Upper.component";
 import { connect } from 'react-redux';
-import AddImage from "../../Components/AddImage.component";
+import AddImage from "../../Components/AddStaffImage.component";
+import normal from '../../Images/Profile/normal.png';
 
 class StaffAccount extends Component {
 
@@ -46,17 +47,11 @@ class StaffAccount extends Component {
                     signup_aPassword: response.data.signup_aPassword,
                     signup_number: response.data.signup_number,
                     signup_location: response.data.signup_location,
+                    profilePic: response.data.profileImg,
                     signup_completed: response.data.signup_completed
                 })
             })
-        axios.get('http://localhost:4000/mazzevents/getprofileimg/' + this.props.id)
-            .then(response => {
-                console.log("testing");
-                this.setState({
-                    ownerId: response.data.ownerId,
-                    profilePic: response.data.profileImg
-                })
-            })
+        
             .catch(function (error) {
                 console.log(error)
             })
@@ -121,11 +116,11 @@ class StaffAccount extends Component {
             <div>
                 <LeftStaff/>
                 <div className="right">
-                    <Upper/>
-
+                <Upper/>
                     <div className="left">
+                    
                         <Card style={{ width: '18rem' }}>
-                            <Card.Img variant="top" src={this.state.profilePic} />
+                            <Card.Img variant="top" src={!this.state.profilePic ? normal :this.state.profilePic} />
                             <Card.Body>
                             <Card.Title><center>{this.state.signup_firstName} {this.state.signup_lastName}</center></Card.Title>
                             <Card.Text>
@@ -141,6 +136,7 @@ class StaffAccount extends Component {
                         </Card>
                         
                     </div>
+                    
 
                     <div className="rightAccount">
                         <h3>Update My details</h3>
@@ -170,6 +166,7 @@ class StaffAccount extends Component {
                             </Button>
                         </Form>
                     </div>
+                   
                 </div>
             </div>
         )

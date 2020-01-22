@@ -15,13 +15,13 @@ import Rating from "./Rating.component";
 import CustomerAddServices from "./AddServices.component";
 import LeftCustomer from "../../Components/LeftCustomer.component";
 import Cards from "../../Components/Cads/Cards";
-
+import Photographers from "./Photographers.component";
 export default class Customer extends Component {
     render() {
         return (
             <div>
                 <Router>
-                    <Route path="/customer/photo" component={Cards} />
+                    <Route path="/customer/photo" component={Photographers} />
                     <Route path="/customer/dj" component={Dj} />
                     <Route path="/customer/music" component={Music} />
                     <Route path="/customer/catering" component={Catering} />

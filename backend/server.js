@@ -4,10 +4,13 @@ let express = require('express'),
     bodyParser = require('body-parser'),
     dbConfig = require('./database/db'),
     config = require('config');
-    nodemailer = require('nodemailer');
+
+const sgMail = require('@sendgrid/mail');
+
+sgMail.setApiKey('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');
 
 const photo = require('../backend/routes/photo.routes');
-const graph = require('../backend/routes/graph')
+const graph = require('../backend/routes/graph');
 const app = express();
 const db = require('./config/keys').mongoURI;
 // MongoDB Configuration
@@ -23,19 +26,37 @@ mongoose.connect(db, {
     }
 )
 
+
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
 }));
 app.use(cors());
 
-app.use('/public', express.static('public'));
-app.use('/mazzevents', photo)
+app.get('/send-email', (req,res) => {
+    
+    //Get Variables from query string in the search bar
+    const { recipient, sender, topic, text } = req.query; 
 
-app.post('/api/form',(req, res)=>{
-    res.send("Data added")
-    console.log(req.body);
-})
+    //Sendgrid Data Requirements
+    const msg = {
+        to: recipient, 
+        from: sender,
+        subject: topic,
+        text: text,
+    }
+
+    //Send Email
+    sgMail.send(msg)
+    .then((msg) => console.log(text));
+});
+
+
+app.use('/public', express.static('public'));
+app.use('/mazzevents', photo);
+app.use('mazzevents/graph', graph);
+
 
 const port = process.env.PORT || 4000;
 
@@ -49,8 +70,12 @@ const server = app.listen(port, () => {
 app.use('/mazzevents', require('./routes/api/signups'));
 app.use('/mazzevents/auth', require('./routes/api/auth'));
 app.use('/mazzevents', require('./routes/api/services'));
+<<<<<<< HEAD
 app.use('/mazzevents', require('./routes/graph'));
 app.use('/mazzevents', require('./routes/events'));
+=======
+app.use('/mazzevents/graph', require('./routes/graph'));
+>>>>>>> 8ac9160f99683b2abf5be8c150df0823d12d7b11
 
 app.use((req, res, next) => {
     // Error goes via `next()` method
