@@ -4,7 +4,9 @@ import {Button, Card, Form, Col} from 'react-bootstrap';
 import LeftCustomer from "../../Components/LeftCustomer.component";
 import Upper from "../../Components/Upper.component";
 import { connect } from 'react-redux';
-import AddImage from "../../Components/AddImage.component";
+import AddImage from "../../Components/AddCustomerImage.component";
+import Delete from "../../Components/Delete.component";
+import customer from '../../Images/Profile/customer.jpg';
 
 class CustomerAccount extends Component {
 
@@ -43,6 +45,7 @@ class CustomerAccount extends Component {
                     signup_aPassword: response.data.signup_aPassword,
                     signup_number: response.data.signup_number,
                     signup_location: response.data.signup_location,
+                    profilePic: response.data.profileImg,
                     signup_completed: response.data.signup_completed
                 })
             })
@@ -124,7 +127,7 @@ class CustomerAccount extends Component {
 
                     <div className="left">
                         <Card style={{ width: '18rem' }}>
-                            <Card.Img variant="top" src={this.state.profilePic} />
+                            <Card.Img variant="top" src={!this.state.profilePic ? customer :this.state.profilePic} />
                             <Card.Body>
                             <Card.Title><center>{this.state.signup_firstName} {this.state.signup_lastName}</center></Card.Title>
                             <Card.Text>
@@ -135,11 +138,12 @@ class CustomerAccount extends Component {
                             <br/>
                             <center>
                         <AddImage/> 
+                        <Delete/>
                         </center>
                             </Card.Body>
                         </Card>
                     </div>
-
+                    
                     <div className="rightAccount">
                         <h3>Update My details</h3>
                         <Form onSubmit={this.onSubmit}>
@@ -167,6 +171,7 @@ class CustomerAccount extends Component {
                                 Update
                             </Button>
                         </Form>
+                        
                     </div>
                 </div>
              </div>

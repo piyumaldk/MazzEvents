@@ -10,8 +10,6 @@ import ServiceProvider from "./Pages/ServiceProvider/ServiceProvider";
 import Admin from "./Pages/Admin/Admin";
 import Staff from "./Pages/Staff/Staff";
 import Customer from "./Pages/Customer/Customer";
-import AddImage from "./Components/AddImage.component";
-
 
 class App extends Component {
   componentDidMount() {
@@ -31,7 +29,7 @@ class App extends Component {
     //Customer 
     if(this.props.isAuthenticated === true && this.props.type === "1") {
       route = <Switch>
-        <Route path="/serviceprovider" rcomponent={Home}/>
+        <Route path="/serviceprovider" component={Home}/>
         <Route path="/customer" component={Customer}/>
         <Route path="/admin" component={Home}/>
         <Route path="/staff" component={Home}/> 
@@ -71,7 +69,6 @@ class App extends Component {
     <Router>
       <Route default path="/" exact component={Home}/> 
       <Route path="/aboutus" component={AboutUs}/>
-      <Route path="/addimage" component={AddImage}/>
       {route} 
     </Router>
     

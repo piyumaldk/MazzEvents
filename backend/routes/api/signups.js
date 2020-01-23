@@ -135,4 +135,10 @@ router.route('/updatecustomer/:id').post(function(req, res) {
   });
 });
 
+router.delete('/removecustomer/:id',function(req, res, next){
+  SignUpCustomer.findByIdAndRemove({_id: req.params.id}).then(function(signupcustomer){
+    res.send(signupcustomer);
+  });
+});
+
 module.exports = router;

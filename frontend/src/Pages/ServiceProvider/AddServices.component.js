@@ -4,9 +4,8 @@ import {Button, Card, Form, Col} from 'react-bootstrap';
 import LeftServiceProvider from "../../Components/LeftServiceProvider.component";
 import Upper from "../../Components/Upper.component";
 import { connect } from 'react-redux';
-import Piyumal from '../../Images/piyumal.jpeg';
- 
-
+import AddBusinessImage from "../../Components/AddBusinessImage.component";
+import company from '../../Images/Profile/company.png';
 class ServiceProviderAddServices extends Component {
 
   constructor(props) {
@@ -62,9 +61,20 @@ class ServiceProviderAddServices extends Component {
                   signup_zip: response.data.signup_zip,
                   signup_text: response.data.signup_text,
                   signup_company: response.data.signup_company,
+                  businessPic: response.data.businessImg,
                   signup_completed: response.data.signup_completed
               })
           })
+
+          axios.get('http://localhost:4000/mazzevents/getprofileimg/'+this.props.id)
+            .then(response => {
+                console.log("testing");
+                this.setState({
+                    ownerId: response.data.ownerId,
+                    businessPic: response.data.businessImg
+                })
+            })
+
           .catch(function(error) {
               console.log(error)
           })
@@ -169,13 +179,17 @@ onChangeSignupText(e){
 
                   <div className="left">
                       <Card style={{ width: '18rem' }}>
-                          <Card.Img variant="top" src={Piyumal} />
+                          <Card.Img variant="top" src={!this.state.businessPic ? company :this.state.businessPic} />
                           <Card.Body>
                           <Card.Title><center>{this.state.signup_firstName} {this.state.signup_lastName}</center></Card.Title>
                           <Card.Text>
                               Email Address: {this.state.signup_email}<br/>
                               Contact Number: {this.state.signup_number}<br/>
                           </Card.Text>
+                          <br/>
+                            <center>
+                        <AddBusinessImage/> 
+                        </center>
                           </Card.Body>
                       </Card>
                   </div>

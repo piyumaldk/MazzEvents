@@ -4,7 +4,8 @@ import {Button, Card, Form, Col} from 'react-bootstrap';
 import LeftServiceProvider from "../../Components/LeftServiceProvider.component";
 import Upper from "../../Components/Upper.component";
 import { connect } from 'react-redux';
-import AddImage from "../../Components/AddImage.component";
+import AddImage from "../../Components/AddServiceImage.component";
+import normal from '../../Images/Profile/normal.png';
 
 class ServiceProviderAccount extends Component {
     constructor(props) {
@@ -53,19 +54,10 @@ class ServiceProviderAccount extends Component {
                     signup_city: response.data.signup_city,
                     signup_state: response.data.signup_state,
                     signup_zip: response.data.signup_zip,
+                    profilePic: response.data.profileImg,
                     signup_completed: response.data.signup_completed
                 })
             })
-
-            axios.get('http://localhost:4000/mazzevents/getprofileimg/'+this.props.id)
-            .then(response => {
-                console.log("testing");
-                this.setState({
-                    ownerId: response.data.ownerId,
-                    profilePic: response.data.profileImg
-                })
-            })
-
             .catch(function(error) {
                 console.log(error)
             })
@@ -146,7 +138,7 @@ class ServiceProviderAccount extends Component {
         axios.post('http://localhost:4000/mazzevents/updatecustomer/'+this.props.id, obj)
             .then(res => console.log(res.data));
 
-        this.props.history.push('/serviceprovider/addservices');
+        this.props.history.push('/serviceprovider/account');
     }
     
     render() {
@@ -158,7 +150,8 @@ class ServiceProviderAccount extends Component {
 
                     <div className="left">
                         <Card style={{ width: '18rem' }}>
-                            <Card.Img variant="top" src={this.state.profilePic} />
+                            <Card.Img variant="top" src={!this.state.profilePic ? normal :this.state.profilePic}/>
+                            
                             <Card.Body>
                             <Card.Title><center>{this.state.signup_firstName} {this.state.signup_lastName}</center></Card.Title>
                             <Card.Text>
