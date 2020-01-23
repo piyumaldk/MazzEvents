@@ -70,12 +70,8 @@ const server = app.listen(port, () => {
 app.use('/mazzevents', require('./routes/api/signups'));
 app.use('/mazzevents/auth', require('./routes/api/auth'));
 app.use('/mazzevents', require('./routes/api/services'));
-<<<<<<< HEAD
-app.use('/mazzevents', require('./routes/graph'));
-app.use('/mazzevents', require('./routes/events'));
-=======
 app.use('/mazzevents/graph', require('./routes/graph'));
->>>>>>> 8ac9160f99683b2abf5be8c150df0823d12d7b11
+app.use('/mazzevents', require('./routes/events'));
 
 app.use((req, res, next) => {
     // Error goes via `next()` method

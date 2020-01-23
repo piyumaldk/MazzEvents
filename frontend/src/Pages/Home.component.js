@@ -47,14 +47,14 @@ export default class Home extends Component {
             })
     }
 
-    /*UserList() {
+    UserList() {
         return this.state.users.map(function(currentSignUpCustomer, i){
             if(currentSignUpCustomer.signup_type === "2"){
             return <SignUpCustomer signupcustomer={currentSignUpCustomer} key={i} />;
             }
             return null;
         })
-    }*/
+    }
 
     render() {
         return (
@@ -62,6 +62,7 @@ export default class Home extends Component {
                 <div className="navb">  
                     <Upper/>
                     </div>
+                   ccd {props.event.eventName}
                      <div className="caro">
                         <Carousel>
                             <Carousel.Item>
@@ -94,6 +95,15 @@ export default class Home extends Component {
 
                     <div>
                     <div>
+                        
+                        
+                          <div  className="row card_ss">
+                          <CardDeck>
+                            { this.UserList() } 
+                            </CardDeck>
+                            </div>   
+                        
+                        
                          
                     </div>
             </div>   
