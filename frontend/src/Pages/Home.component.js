@@ -1,17 +1,68 @@
 import React, { Component } from 'react';
 import {Carousel} from 'react-bootstrap';
 import Upper from "../Components/Upper.component";
-import Card from '../Components/Cads/CardUI';
-import img1 from '../Images/Customer/new.jpg';
+
+import {Button, Card, CardDeck} from 'react-bootstrap';
+import axios from 'axios';
+import catering from '../Images/catering.jpg';
+
+const SignUpCustomer = props => (
+    <div>
+        
+            
+        <Card  bg="light" text="black" style={{ width: '18rem'  }}>
+            
+        <Card.Img variant="top" src={catering} />
+        <Card.Header><center>Are you from around {props.signupcustomer.signup_city}?</center></Card.Header>
+            <Card.Body>
+            <Card.Title><center>{props.signupcustomer.signup_company}</center></Card.Title>
+            <Card.Text>
+                Owner : {props.signupcustomer.signup_firstName} {props.signupcustomer.signup_lastName}<br/>
+                Contact Number : {props.signupcustomer.signup_number}<br/>
+                Location : {props.signupcustomer.signup_city}<br/>
+                Address : {props.signupcustomer.signup_address2}<br/>
+            </Card.Text>
+            <center><Button variant="dark">Go somewhere</Button></center>
+            </Card.Body>
+        </Card>  
+        
+         
+    </div>
+)
 
 export default class Home extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {users: []};
+    }
+
+    componentDidMount() {
+        axios.get('http://localhost:4000/mazzevents/getevent')
+            .then(response => {
+                this.setState({ users: response.data });
+            })
+            .catch(function (error){
+                console.log(error);
+            })
+    }
+
+    // UserList() {
+    //     return this.state.users.map(function(currentSignUpCustomer, i){
+    //         if(currentSignUpCustomer.signup_type === "2"){
+    //         return <SignUpCustomer signupcustomer={currentSignUpCustomer} key={i} />;
+    //         }
+    //         return null;
+    //     })
+    // }
+
     render() {
         return (
             <div>
                 <div className="navb">  
                     <Upper/>
                     </div>
-                    
+                   {/* ccd {props.event.eventName} */}
                      <div className="caro">
                         <Carousel>
                             <Carousel.Item>
@@ -41,42 +92,25 @@ export default class Home extends Component {
                         </div>
                         <div >
                     <p>Upcoming events</p>
-                </div>
-                <div className="fullbanner-container">
-                <div className="row card_ss">
+
+                    <div>
+                    <div>
                         
-                        <div className="col-md-3">
-                            <Card imgsrc={img1} title="Sachin" />
-                        </div>
-                        <div className="col-md-3">
-                            <Card imgsrc={img1} title="Ravindu" />
-                        </div>
-                        <div className="col-md-3">
-                            <Card imgsrc={img1} title="Himash" />
-                        </div>
-                        <div className="col-md-3">
-                            <Card imgsrc={img1} title="Himash" />
-                        </div>
-
-                       
-                    </div> 
-                    </div> 
-                    <div className="fullbanner-container">
-                    <div className="row bottom">
-                    <div className="col-md-4">
-                            <p>event</p>
-                        </div>
-                        <div className="col-md-4">
-                            <p>time</p>
-                        </div>
-                        <div className="col-md-4">
-                            <p>
-                                date
-                            </p>
-                        </div>
-
-                    </div> 
+                        
+                          {/* <div  className="row card_ss">
+                          <CardDeck>
+                            { this.UserList() } 
+                            </CardDeck>
+                            </div>    */}
+                        
+                        
+                         
                     </div>
+            </div>   
+
+                </div>
+                
+                    
                 </div>  
         )
     }
