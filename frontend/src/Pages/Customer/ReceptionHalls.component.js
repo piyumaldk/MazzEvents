@@ -5,11 +5,12 @@ import { Form, FormGroup,  Input, Col} from 'reactstrap';
 import '../../App.css';
 import axios from 'axios';
 import Upper from "../../Components/Upper.component";
+import company from '../../Images/Profile/company.png';
 
 const SignUpCustomer = props => (
     <div>   
         <Card  bg="light" text="black" style={{ width: '20rem'  }}>   
-        <Card.Img variant="top" height="240" src={props.signupcustomer.businessImg} />
+        <Card.Img variant="top" height="240" src={!props.signupcustomer.businessImg ? company :props.signupcustomer.businessImg} />
         <Card.Header><center>Are you from around {props.signupcustomer.signup_city}?</center></Card.Header>
             <Card.Body>
             <Card.Title><center>{props.signupcustomer.signup_company}</center></Card.Title>
@@ -25,7 +26,7 @@ const SignUpCustomer = props => (
     </div>
 )
 
-export default class Photgraphers extends Component {
+export default class Halls extends Component {
 
     state = {
         location: ''
@@ -56,7 +57,7 @@ export default class Photgraphers extends Component {
         const local = this.state.location;
         if(local ==null || local==""){
             return this.state.users.map(function(currentSignUpCustomer, i){
-                if(currentSignUpCustomer.signup_type === "2" && currentSignUpCustomer.signup_category === "Photographer"){
+                if(currentSignUpCustomer.signup_type === "2" && currentSignUpCustomer.signup_category === "Halls"){
                 return <SignUpCustomer signupcustomer={currentSignUpCustomer} key={i} />;
                 }
                 return null;
@@ -64,7 +65,7 @@ export default class Photgraphers extends Component {
         }
         else{
             return this.state.users.map(function(currentSignUpCustomer, i){
-                if(currentSignUpCustomer.signup_type === "2" && currentSignUpCustomer.signup_category === "Photographer" && currentSignUpCustomer.signup_city.toLowerCase() === local ){
+                if(currentSignUpCustomer.signup_type === "2" && currentSignUpCustomer.signup_category === "Halls" && currentSignUpCustomer.signup_city.toLowerCase() === local ){
                 return <SignUpCustomer signupcustomer={currentSignUpCustomer} key={i} />;
                 }
                 return null;

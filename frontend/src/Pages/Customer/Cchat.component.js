@@ -7,9 +7,11 @@ export default class Cchat extends Component {
         return (
             <div>
                 
+                
                 <LeftCustomer/>
-                <Upper/> 
                 <div className="right">
+                <Upper/> 
+               
                 This is LeftCustomer - Chat
                     
                 </div>

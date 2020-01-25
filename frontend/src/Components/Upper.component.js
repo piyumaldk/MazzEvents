@@ -52,7 +52,7 @@ class Upper extends Component {
           <Nav className="mr-auto">
             <Nav.Link href="/">Home</Nav.Link>  
             { isAuthenticated  ? authLinks : guestLinks }
-            { isAuthenticated === true && type ==="1"  ? <Nav.Link href="/customer/dash">Customer Dashboard</Nav.Link> : null }
+            { isAuthenticated === true && type ==="1"  ? <Nav.Link href="/customer/photo">Customer Dashboard</Nav.Link> : null }
             { isAuthenticated === true && type ==="2"  ? <Nav.Link href="/serviceprovider/addservices">Service Provider Dashboard</Nav.Link> : null }
             { isAuthenticated === true && type ==="3"  ? <Nav.Link href="/staff/serviceprovider">Staff Member Dashboard</Nav.Link> : null }
             { isAuthenticated === true && type ==="4"  ? <Nav.Link href="/admin/staff">Administrator Dashboard</Nav.Link> : null }
