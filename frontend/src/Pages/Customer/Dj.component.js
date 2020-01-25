@@ -79,27 +79,20 @@
 
 import React, { Component } from 'react';
 import LeftCustomer from "../../Components/LeftCustomer.component";
-
-import {Button,Card, CardDeck} from 'react-bootstrap';
+import {Button, Card, CardDeck, FormControl, Container} from 'react-bootstrap';
+import { Form, FormGroup,  Input, Col} from 'reactstrap';
 import '../../App.css';
 import axios from 'axios';
 import Upper from "../../Components/Upper.component";
-//import SignUpCatering from '../../Components/Auth/RegisterCateringModal';
-// import catering from '../../Images/catering.jpg';
-import img1 from '../../Images/Customer/dj.jpg';
-//const type = props =>props.signupcustomer.signup_type;
 
 const SignUpCustomer = props => (
-    <div>
-        
-            
-        <Card  bg="light" text="black" style={{ width: '18rem'  }}>
-            
-        <Card.Img variant="top" src={img1} />
+    <div>   
+        <Card  bg="light" text="black" style={{ width: '20rem'  }}>   
+        <Card.Img variant="top" height="240" src={props.signupcustomer.businessImg} />
         <Card.Header><center>Are you from around {props.signupcustomer.signup_city}?</center></Card.Header>
             <Card.Body>
             <Card.Title><center>{props.signupcustomer.signup_company}</center></Card.Title>
-            <Card.Text>
+            <Card.Text >
                 Owner : {props.signupcustomer.signup_firstName} {props.signupcustomer.signup_lastName}<br/>
                 Contact Number : {props.signupcustomer.signup_number}<br/>
                 Location : {props.signupcustomer.signup_city}<br/>
@@ -107,13 +100,15 @@ const SignUpCustomer = props => (
             </Card.Text>
             <center><Button variant="dark">Go somewhere</Button></center>
             </Card.Body>
-        </Card>  
-        
-         
+        </Card>     
     </div>
 )
 
 export default class Dj extends Component {
+
+    state = {
+        location: ''
+      };
 
     constructor(props) {
         super(props);
@@ -128,37 +123,52 @@ export default class Dj extends Component {
             .catch(function (error){
                 console.log(error);
             })
+        
     }
 
-    UserList() {
-        return this.state.users.map(function(currentSignUpCustomer, i){
-            if(currentSignUpCustomer.signup_type === "2" && currentSignUpCustomer.signup_category === "Dj"){
-            return <SignUpCustomer signupcustomer={currentSignUpCustomer} key={i} />;
-            }
-
-            return null;
-        })
+    onChange = e => {
+        this.setState({ location: e.target.value.toLowerCase()});
+        
+    };
+   
+    UserList () {
+        const local = this.state.location;
+        if(local ==null || local==""){
+            return this.state.users.map(function(currentSignUpCustomer, i){
+                if(currentSignUpCustomer.signup_type === "2" && currentSignUpCustomer.signup_category === "Dj"){
+                return <SignUpCustomer signupcustomer={currentSignUpCustomer} key={i} />;
+                }
+                return null;
+            })
+        }
+        else{
+            return this.state.users.map(function(currentSignUpCustomer, i){
+                if(currentSignUpCustomer.signup_type === "2" && currentSignUpCustomer.signup_category === "Dj" && currentSignUpCustomer.signup_city.toLowerCase() === local ){
+                return <SignUpCustomer signupcustomer={currentSignUpCustomer} key={i} />;
+                }
+                return null;
+            })
+        }
     }
 
     render() {
-
-        
         return (
             <div>
                 <LeftCustomer/>
                 <div className="right">
                     <Upper/>
                     <div>
-                        
+                        <Form>
+                            <FormGroup>
+                                <Input type="location" name="location" id="location" placeholder="Search Location / City here" onChange={this.onChange}/>
+                            </FormGroup>
+                        </Form>
                         
                           <div  className="row card_ss">
                           <CardDeck>
                             { this.UserList() } 
                             </CardDeck>
-                            </div>   
-                        
-                        
-                         
+                            </div>                
                     </div>
                 </div>
             </div>   
