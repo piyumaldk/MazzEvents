@@ -15,6 +15,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { register } from '../../Actions/authActions';
 import { clearErrors } from '../../Actions/errorActions';
+import AccountCircleSharpIcon from '@material-ui/icons/AccountCircle';
 class SignUp extends Component {
 
   state = {
@@ -98,6 +99,7 @@ class SignUp extends Component {
 
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>Register</ModalHeader>
+          <center><AccountCircleSharpIcon style={{ fontSize: 80 }} /></center>
           <ModalBody>
             <Form onSubmit={this.onSubmit}>
               <FormGroup>

@@ -15,6 +15,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { login } from '../../Actions/authActions';
 import { clearErrors } from '../../Actions/errorActions';
+import AccountCircleSharpIcon from '@material-ui/icons/AccountCircle';
 class LogIn extends Component {
   state = {
     modal: false,
@@ -85,6 +86,7 @@ class LogIn extends Component {
 
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>Log In</ModalHeader>
+          <center><AccountCircleSharpIcon style={{ fontSize: 80 }} /></center>
           <ModalBody>
             <Form onSubmit={this.onSubmit}>
               <FormGroup>

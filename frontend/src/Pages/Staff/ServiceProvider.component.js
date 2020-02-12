@@ -7,11 +7,10 @@ import { Link } from 'react-router-dom';
 import SignUpCatering from '../../Components/Auth/RegisterCateringModal';
 import SignUpDj from '../../Components/Auth/RegisterDjModal';
 import SignUpFlowers from '../../Components/Auth/RegisterFlowersModal';
-import SignUpHotels from '../../Components/Auth/RegisterHotelModal';
 import SignUpMusic from '../../Components/Auth/RegisterMusicModal';
 import SignUpPhotography from '../../Components/Auth/RegisterPhotographyModal';
 import SignUpVehicles from '../../Components/Auth/RegisterVehiclesModal';
-
+import SignUpHalls from '../../Components/Auth/RegisterHallsModal';
 
 
 const SignUpCustomer = props => (
@@ -93,10 +92,10 @@ export default class StaffServiceProvider extends Component {
                                 <th><SignUpCatering/></th>
                                 <th><SignUpDj/></th>
                                 <th><SignUpFlowers/></th>
-                                <th><SignUpHotels/></th>
                                 <th><SignUpMusic/></th>
                                 <th><SignUpPhotography/></th>
                                 <th><SignUpVehicles/></th>
+                                <th><SignUpHalls/></th>
                             </tr>
                             </tbody>
                         </table>
