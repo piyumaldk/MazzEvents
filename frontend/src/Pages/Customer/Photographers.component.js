@@ -7,9 +7,6 @@ import axios from 'axios';
 import Upper from "../../Components/Upper.component";
 import company from '../../Images/Profile/company.png';
 
-
-
-
 const Star = ({ starId, rating, onMouseEnter, onMouseLeave, onClick }) => {
     let styleClass = "star-rating-blank";
     if (rating && rating >= starId) {
@@ -38,7 +35,35 @@ const Star = ({ starId, rating, onMouseEnter, onMouseLeave, onClick }) => {
       </div>
     );
   };
-  const stars = [1, 2, 3, 4, 5];
+
+  function StarFunction() {
+    const [rating, setRating] = useState(0);
+    const [hoverRating, setHoverRating] = useState(0);
+    const stars = [1, 2, 3, 4, 5];
+  
+    return (
+      <div>
+        
+        <CardDeck>
+          {stars.map((star, i) => (
+              
+            <Star
+              key={i}
+              starId={i}
+              rating={hoverRating || rating}
+              onMouseEnter={() => setHoverRating(i)}
+              onMouseLeave={() => setHoverRating(0)}
+              onClick={() => setRating(i)}
+            />
+           
+          ))}
+         </CardDeck>
+      </div>
+    );
+  }
+  
+
+
 const SignUpCustomer = props => (
     <div>   
         
@@ -50,13 +75,10 @@ const SignUpCustomer = props => (
                 
             <Card.Title><center>{props.signupcustomer.signup_company}</center></Card.Title>
             <Card.Text >
-                
-            <CardDeck>
-            {stars.map((star, i) => (
-                <Star key={i} starId={i} /*rating={hoverRating || rating}//onMouseEnter={() => setHoverRating(i)}//onMouseLeave={() => setHoverRating(0)}//onClick={() => setRating(i)}*//>
-                
-                ))}
-                </CardDeck>
+            
+            
+            {StarFunction()}
+               
                 Owner : {props.signupcustomer.signup_firstName} {props.signupcustomer.signup_lastName}<br/>
                 Contact Number : {props.signupcustomer.signup_number}<br/>
                 Location : {props.signupcustomer.signup_city}<br/>
