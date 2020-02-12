@@ -8,7 +8,7 @@ export default class ServiceProviderEventCalendar extends Component {
                 <LeftSeriveProvider/>
                 <div className="right">
                 <Upper/>
-                This is Serivce Proivder - Event Calendar
+                
                 </div>
             </div>   
         )
