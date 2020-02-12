@@ -6,63 +6,7 @@ import '../../App.css';
 import axios from 'axios';
 import Upper from "../../Components/Upper.component";
 import company from '../../Images/Profile/company.png';
-
-const Star = ({ starId, rating, onMouseEnter, onMouseLeave, onClick }) => {
-    let styleClass = "star-rating-blank";
-    if (rating && rating >= starId) {
-      styleClass = "star-rating-filled";
-    }
-  
-    return (
-      <div
-        className="star"
-        onMouseEnter={onMouseEnter}
-        onMouseLeave={onMouseLeave}
-        onClick={onClick}
-      >
-        <svg
-          height="55px"
-          width="53px"
-          class={styleClass}
-          viewBox="0 0 25 23"
-          data-rating="1"
-        >
-          <polygon
-            stroke-width="0"
-            points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78"
-          />
-        </svg>
-      </div>
-    );
-  };
-
-  function StarFunction() {
-    const [rating, setRating] = useState(0);
-    const [hoverRating, setHoverRating] = useState(0);
-    const stars = [1, 2, 3, 4, 5];
-  
-    return (
-      <div>
-        
-        <CardDeck>
-          {stars.map((star, i) => (
-              
-            <Star
-              key={i}
-              starId={i}
-              rating={hoverRating || rating}
-              onMouseEnter={() => setHoverRating(i)}
-              onMouseLeave={() => setHoverRating(0)}
-              onClick={() => setRating(i)}
-            />
-           
-          ))}
-         </CardDeck>
-      </div>
-    );
-  }
-  
-
+import { Link } from 'react-router-dom';
 
 const SignUpCustomer = props => (
     <div>   
@@ -75,16 +19,12 @@ const SignUpCustomer = props => (
                 
             <Card.Title><center>{props.signupcustomer.signup_company}</center></Card.Title>
             <Card.Text >
-            
-            
-            {StarFunction()}
-               
                 Owner : {props.signupcustomer.signup_firstName} {props.signupcustomer.signup_lastName}<br/>
                 Contact Number : {props.signupcustomer.signup_number}<br/>
                 Location : {props.signupcustomer.signup_city}<br/>
                 Address : {props.signupcustomer.signup_address2}<br/>
             </Card.Text>
-            <center><Button variant="dark">Go somewhere</Button></center>
+            <center><Link to={"/customer/more/"+props.signupcustomer._id}>Visit More</Link></center>
             </Card.Body>
         </Card>     
     </div>
@@ -162,9 +102,7 @@ export default class Photgraphers extends Component {
                             { this.UserList() } 
                             </CardDeck>
 
-                            <div class="flex-container">
-        
-      </div>
+                          
                             </div>                
                     </div>
                 </div>
