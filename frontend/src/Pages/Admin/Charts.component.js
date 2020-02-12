@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
+import {LineChart,BarChart, Bar,Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
 import LeftAdmin from "../../Components/LeftAdmin.component";
 import Upper from "../../Components/Upper.component";
 import axios from 'axios';
@@ -99,17 +99,17 @@ componentDidMount() {
     return (
         <div><center>
                  <LeftAdmin/>
-                 <div class="right">
+                 <div >
                <Upper/>
-      <LineChart width={700} height={500} data={this.state.data}>
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" padding={{ left: 30, right: 30 }} />
-        <YAxis />
-        <Tooltip />
-        <Legend />
-        <Line type="monotone" dataKey="users" stroke="#8884d8" activeDot={{ r: 8 }} />
-        {/* <Line type="monotone" dataKey="uv" stroke="#82ca9d" /> */}
-      </LineChart>
+
+
+          <BarChart width={900} height={500} data={this.state.data}>
+            <XAxis dataKey="name" stroke="#8884d8" />
+            <YAxis />
+            <Tooltip />
+            <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
+            <Bar type="monotone" dataKey="users" fill="#8884d8" barSize={30} />
+          </BarChart>
       
       </div> 
       </center></div> 
