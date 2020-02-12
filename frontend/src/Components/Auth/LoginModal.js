@@ -16,6 +16,11 @@ import PropTypes from 'prop-types';
 import { login } from '../../Actions/authActions';
 import { clearErrors } from '../../Actions/errorActions';
 import AccountCircleSharpIcon from '@material-ui/icons/AccountCircle';
+import EmailIcon from '@material-ui/icons/Email';
+import LockIcon from '@material-ui/icons/Lock';
+
+
+
 class LogIn extends Component {
   state = {
     modal: false,
@@ -91,10 +96,32 @@ class LogIn extends Component {
             <Form onSubmit={this.onSubmit}>
               <FormGroup>
                 <Label for='email'>Email Address</Label>
-                <Input type="email" name="signup_email" id="signup_email" placeholder="Email Address" className="mb-3" onChange={this.onChange}/>
+
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-1">
+                        <EmailIcon style={{ fontSize: 30 }} />
+                  </div>
+                        <div className="col-md-11">
+                        <Input type="email" class="fontAwesome" name="signup_email" id="signup_email" placeholder="Email Address" className="mb-3" onChange={this.onChange}/>
+                  </div>
+                    </div>
+
+                </div>
 
                 <Label for='password'>Password</Label>
-                <Input type="password" name="signup_password" id="signup_password" placeholder="Password" className="mb-3" onChange={this.onChange}/>
+
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-1">
+                        <LockIcon style={{ fontSize: 30 }} />
+                  </div>
+                        <div className="col-md-11">
+                        <Input type="password" name="signup_password" id="signup_password" placeholder="Password" className="mb-3" onChange={this.onChange}/>
+                  </div>
+                    </div>
+
+                </div>
 
                 { this.state.msg ? (<Alert color="danger">{ this.state.msg }</Alert>) : null }
 
