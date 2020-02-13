@@ -9,7 +9,7 @@ const userSchema = new Schema({
         type: String
     },
     rate: {
-        type: String
+        type: Number
     },
 })
 
