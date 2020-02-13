@@ -63,6 +63,9 @@ class More extends Component {
         console.log(this.state.rating);
         const data = {
             customerId : this.props.id,
+            customerFName : this.props.fName,
+            customerLName : this.props.lName,
+            customerEmail : this.props.email,
             spId : this.props.match.params.id,
             rating : nextValue
         }

@@ -5,6 +5,15 @@ const userSchema = new Schema({
     customerId: {
         type: String
     },
+    customerFName: {
+        type: String
+    },
+    customerLName: {
+        type: String
+    },
+    customerEmail: {
+        type: String
+    },
     spId: {
         type: String
     },

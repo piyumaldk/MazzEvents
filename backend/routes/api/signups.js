@@ -147,7 +147,7 @@ router.route('/addrating').post(function(req, res) {
   Rating.findOne({customerId: req.body.customerId, spId: req.body.spId},function(err, rating) {
     if(!rating){
       console.log("Not yet")
-      var rating = new Rating({ customerId: req.body.customerId, spId: req.body.spId, rate: req.body.rating });
+      var rating = new Rating({ customerId: req.body.customerId, customerFName: req.body.customerFName, customerLName: req.body.customerLName, customerEmail: req.body.customerEmail, spId: req.body.spId, rate: req.body.rating });
       rating.save()
         .then(rating=> {
           res.status(200).json({ 'Rating':'Rating added successfully'});
