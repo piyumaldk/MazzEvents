@@ -3,6 +3,9 @@ import LeftCustomer from "../../Components/LeftCustomer.component";
 import Upper from "../../Components/Upper.component";
 import axios from 'axios';
 import { connect } from 'react-redux';
+import {Card, Button} from 'react-bootstrap';
+import company from '../../Images/Profile/company.png';
+import normal from '../../Images/Profile/normal.png';
 
 class More extends Component {
     constructor(props) {
@@ -52,13 +55,57 @@ class More extends Component {
             <div>
                 <LeftCustomer/>
                 <div className="right">
-                <Upper/>
-                This is More
+                    <div className="background">
+                    
+            <Upper/>
+
+             {/* This is More
                 My mail is {this.state.signup_email}
                 Customer Id = {this.props.id}
-                Service provider Id = {this.props.match.params.id}
+                Service provider Id = {this.props.match.params.id} */}
+            
+                <div className="rightMore">
+                    <div className="moretop">
+                        Ratings
+                    </div>
                 </div>
-            </div>   
+
+                <div className="rightmore">
+                    <div className="morebottomleft">
+                        <div class="cardAlignRight">     
+                        <Card style={{ width: '18rem' },{height:'27rem'}}>
+                        <Card.Img variant="top" height="240" src={!this.state.businessPic ? company:this.state.businessPic} />
+                            <Card.Body>
+                                <Card.Title>{this.state.signup_company}</Card.Title>
+                                <Card.Text>
+                                Owner : {this.state.signup_firstName} {this.state.signup_lastName}<br/>
+                                Location : {this.state.signup_city}<br/>
+                                Address 1 : {this.state.signup_address}<br/>
+                                </Card.Text>
+                            </Card.Body>
+                            </Card>
+                        </div>
+                    </div>
+
+                    <div className="morebottomright">
+                        <div class="cardAlignLeft">    
+                        <Card style={{ width: '18rem' } ,{height:'27rem'}}>
+                        <Card.Img variant="top" height="240" src={!this.state.profilePic ? normal:this.state.profilePic} />
+                            <Card.Body>
+                                <Card.Title>{this.state.signup_firstName} {this.state.signup_lastName}</Card.Title>
+                                <Card.Text>
+                                Contact Number : {this.state.signup_number}<br/>
+                                Address 2: {this.state.signup_address2}<br/>
+                                State : {this.state.signup_state}
+                                </Card.Text>
+                            </Card.Body>
+                        </Card>
+                        </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+</div>
         )
     }
 }

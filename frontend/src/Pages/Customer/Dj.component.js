@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import LeftCustomer from "../../Components/LeftCustomer.component";
 import {Button, Card, CardDeck, FormControl, Container} from 'react-bootstrap';
 import { Form, FormGroup,  Input, Col} from 'reactstrap';
@@ -6,13 +6,17 @@ import '../../App.css';
 import axios from 'axios';
 import Upper from "../../Components/Upper.component";
 import company from '../../Images/Profile/company.png';
+import { Link } from 'react-router-dom';
 
 const SignUpCustomer = props => (
     <div>   
+        
         <Card  bg="light" text="black" style={{ width: '20rem'  }}>   
         <Card.Img variant="top" height="240" src={!props.signupcustomer.businessImg ? company :props.signupcustomer.businessImg} />
         <Card.Header><center>Are you from around {props.signupcustomer.signup_city}?</center></Card.Header>
             <Card.Body>
+            
+                
             <Card.Title><center>{props.signupcustomer.signup_company}</center></Card.Title>
             <Card.Text >
                 Owner : {props.signupcustomer.signup_firstName} {props.signupcustomer.signup_lastName}<br/>
@@ -20,7 +24,7 @@ const SignUpCustomer = props => (
                 Location : {props.signupcustomer.signup_city}<br/>
                 Address : {props.signupcustomer.signup_address2}<br/>
             </Card.Text>
-            <center><Button variant="dark">Go somewhere</Button></center>
+            <center><Link to={"/customer/more/"+props.signupcustomer._id}>Visit More</Link></center>
             </Card.Body>
         </Card>     
     </div>
@@ -36,6 +40,8 @@ export default class Dj extends Component {
         super(props);
         this.state = {users: []};
     }
+
+ 
 
     componentDidMount() {
         axios.get('http://localhost:4000/mazzevents/')
@@ -73,9 +79,14 @@ export default class Dj extends Component {
         }
     }
 
+    
     render() {
+        
+//const [rating, setRating] = useState(0);
+//const [hoverRating, setHoverRating] = useState(0);
         return (
             <div>
+                
                 <LeftCustomer/>
                 <div className="right">
                     <Upper/>
@@ -90,6 +101,8 @@ export default class Dj extends Component {
                           <CardDeck>
                             { this.UserList() } 
                             </CardDeck>
+
+                          
                             </div>                
                     </div>
                 </div>
