@@ -101,9 +101,9 @@ class SignUp3 extends Component {
   render() {
     return (
         <div>
-            <NavLink onClick={this.toggle} href="#">
+            <Button onClick={this.toggle} href="#">
                 Staff+
-            </NavLink>
+            </Button>
 
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>Register a Staff Member</ModalHeader>
