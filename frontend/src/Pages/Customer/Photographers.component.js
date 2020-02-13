@@ -7,6 +7,7 @@ import axios from 'axios';
 import Upper from "../../Components/Upper.component";
 import company from '../../Images/Profile/company.png';
 import { Link } from 'react-router-dom';
+import StarRatingComponent from 'react-star-rating-component';
 
 const SignUpCustomer = props => (
     <div>   
@@ -16,6 +17,15 @@ const SignUpCustomer = props => (
         <Card.Header><center>Are you from around {props.signupcustomer.signup_city}?</center></Card.Header>
             <Card.Body>
             
+            <center>
+                <h1>
+                    <StarRatingComponent 
+                        name="rate1" 
+                        starCount={5}
+                        value={props.signupcustomer.sumRate/props.signupcustomer.rateTime}
+                    />
+                </h1>
+            </center>
                 
             <Card.Title><center>{props.signupcustomer.signup_company}</center></Card.Title>
             <Card.Text >

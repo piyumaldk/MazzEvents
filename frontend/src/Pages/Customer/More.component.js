@@ -97,14 +97,19 @@ class More extends Component {
                 <div className="right">
                     <Upper/>
                     <div className="background">
-                        <div className="rightMore">
-                            <div className="moretop">
+                        <center>
+                            <h1>
                                 <StarRatingComponent 
                                     name="rate1" 
                                     starCount={5}
                                     value={rating}
                                     onStarClick={this.onStarClick.bind(this)}
                                 />
+                            </h1>
+                        </center>
+                        <div className="rightMore">
+                            <div className="moretop">
+                                
                             </div>
                         </div>
 
