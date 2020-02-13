@@ -25,6 +25,8 @@ class More extends Component {
             signup_city: '',
             signup_state: '',
             signup_zip: '',
+            sumRate: '',
+            rateTime: '',
             rating: 1,
             signup_completed: false
         }
@@ -46,6 +48,8 @@ class More extends Component {
                     signup_company: response.data.signup_company,
                     businessPic: response.data.businessImg,
                     profilePic: response.data.profileImg,
+                    sumRate: response.data.sumRate,
+                    rateTime: response.data.rateTime,
                     signup_completed: response.data.signup_completed
                 })
             })
@@ -67,7 +71,22 @@ class More extends Component {
         axios.post('http://localhost:4000/mazzevents/addrating', data)
             .then(res => {
                 console.log(res.data)
-            });       
+            }); 
+        console.log(this.state.sumRate)  
+        const sumRate = this.state.sumRate + nextValue;
+        const rateTime = this.state.rateTime + 1;
+        
+        const data2 = {
+            spId : this.props.match.params.id,
+            sumRate : sumRate,
+            rateTime : rateTime
+        }
+        console.log(data2)
+        axios.post('http://localhost:4000/mazzevents/addrating2', data2)
+            .then(res => {
+                console.log(res.data)
+        }); 
+
     }
 
     render() {
