@@ -70,7 +70,8 @@
 
 /*Right Component*/
 .right{
-background-image: url("Images/rightbackground.jpg"); 
+/*background-image: url("Images/rightbackground.jpg");*/
+
 position: absolute;
 right: 0px;
 width: 85%;

@@ -6,11 +6,14 @@ import '../../App.css';
 import axios from 'axios';
 import Upper from "../../Components/Upper.component";
 import company from '../../Images/Profile/company.png';
+import '../../Components/Cads/card-style.css'
 
 const SignUpCustomer = props => (
     <div>   
-        <Card  bg="light" text="black" style={{ width: '20rem'  }}>   
-        <Card.Img variant="top" height="240" src={!props.signupcustomer.businessImg ? company :props.signupcustomer.businessImg} />
+        <Card  bg="light" text="black" style={{ width: '20rem'  }} className="card text-center shadow mycard">
+        <div className="overflow">  
+        <Card.Img variant="top" height="240" src={!props.signupcustomer.businessImg ? company :props.signupcustomer.businessImg} alt="" className="card-img-top"/>
+        </div> 
         <Card.Header><center>Are you from around {props.signupcustomer.signup_city}?</center></Card.Header>
             <Card.Body>
             <Card.Title><center>{props.signupcustomer.signup_company}</center></Card.Title>
