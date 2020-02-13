@@ -26,8 +26,8 @@ export default class ServiceProviderEventCalendar extends Component {
 
     getUnavailableDates=()=>{
         console.log("----------------dedde")
-        var token = localStorage.getItem('id');
-        axios.get('http://localhost:4000/mazzevents/'+token)
+        var token = localStorage.getItem('_id');
+        axios.get('http://localhost:4000/mazzevents/users/'+token)
         .then(response => {
             console.log(response.data.profile_data.UnavailableDates)
             
@@ -104,7 +104,7 @@ export default class ServiceProviderEventCalendar extends Component {
         var token = localStorage.getItem('id');
         console.log(dateobj);
 
-        axios.post('http://localhost:4000/mazzevents/' + token, { date: this.state.date }, { headers: headers })
+        axios.post('http://localhost:4000/mazzevents/users/unavailabedates' + token, { date: this.state.date }, { headers: headers })
             .then(response => {
 
                 console.log(response.data.profile_data.UnavailableDates.length)
