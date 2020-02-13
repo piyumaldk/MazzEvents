@@ -3,6 +3,8 @@ import LeftCustomer from "../../Components/LeftCustomer.component";
 import Upper from "../../Components/Upper.component";
 import axios from 'axios';
 import { connect } from 'react-redux';
+import ReactDOM from 'react-dom';
+import StarRatingComponent from 'react-star-rating-component';
 
 class More extends Component {
     constructor(props) {
@@ -20,6 +22,7 @@ class More extends Component {
             signup_city: '',
             signup_state: '',
             signup_zip: '',
+            rating: 1,
             signup_completed: false
         }
     }
@@ -47,21 +50,57 @@ class More extends Component {
                 console.log(error)
             })
     }
+
+    onStarClick(nextValue, prevValue, name){
+        this.setState({rating: nextValue});
+        console.log(this.state.rating);
+        const data = {
+            customerId : this.props.id,
+            spId : this.props.match.params.id,
+            rating : nextValue
+        }
+        console.log(data)
+
+        axios.post('http://localhost:4000/mazzevents/addrating', data)
+            .then(res => {
+                console.log(res.data)
+            });
+            
+    }
+
+
     render() {
+        const { rating } = this.state;
+
         return (
             <div>
                 <LeftCustomer/>
                 <div className="right">
                 <Upper/>
+                {/*
                 This is More
                 My mail is {this.state.signup_email}
                 Customer Id = {this.props.id}
                 Service provider Id = {this.props.match.params.id}
+                */}
+                <StarRatingComponent 
+                    name="rate1" 
+                    starCount={5}
+                    value={rating}
+                    onStarClick={this.onStarClick.bind(this)}
+                />
+                
+                rate = {this.state.rating}
                 </div>
             </div>   
         )
     }
 }
+
+// ReactDOM.render(
+//      <More/>, 
+//     document.getElementById('app')
+// );
 
 const mapStateToProps = state => ({
     id: state.auth.id,
