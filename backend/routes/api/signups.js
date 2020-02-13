@@ -5,6 +5,7 @@ const config = require('config');
 const jwt = require('jsonwebtoken');
 //Signup Model
 let SignUpCustomer = require('../../models/signupcustomer.model');
+let Rating = require('../../models/rating');
 
 
 router.route('/').get(function(req, res) {
@@ -130,7 +131,6 @@ router.route('/updatecustomer/:id').post(function(req, res) {
           })
           .catch(err => {
               res.status(400).send("Update not possible");
-              console.log("ded");
           });
   });
 });
@@ -140,5 +140,34 @@ router.delete('/removecustomer/:id',function(req, res, next){
     res.send(signupcustomer);
   });
 });
+
+router.post('/addrating/:id', (req, res, next)=>{
+       //const url = req.protocol+'://'+req.get('host')
+       let customerId = req.params.id;
+           Rating.findOne({customerId: customerId}, function(err, rating){
+               if(!rating){
+                   //new
+                   console.log("Added!");
+                   const rating = new Rating({
+                      _id: new mongoose.Types.ObjectId(),
+                      customerId: req.params.id,
+                      rate: req.body.rate
+                   }); 
+                   Rating.save().then(result => {})
+                   .catch(err => {
+                       console.log("Error"),
+                       res.status(500).json({
+                       error: err
+                       });
+                   })
+               }
+               else{
+                   console.log("Update!");
+                   rating.customerId = req.params.id;
+                   rating.rate = req.body.rate;
+                   rating.save().then(rating => {})  
+               }
+           });   
+       })
 
 module.exports = router;

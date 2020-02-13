@@ -124,7 +124,7 @@ router.get('/pass',async(req,res)=>{
         for(i;i<=c;i++){
            newarry[i]= bothyear[i]
 
-           console.log(newarry);
+        //    console.log(newarry);
         }
         let info=newarry;
         res.json(info)
@@ -142,5 +142,16 @@ router.get('/pass',async(req,res)=>{
      })
      .catch()
 })
+
+router.route('/getusr').get(function(req, res) {
+    users.find(function(err, users) {
+        if (err) {
+            console.log(err);
+        } else {
+            res.json(users);
+            // console.log(res);
+        }
+    });
+  });
 
 module.exports= router;
