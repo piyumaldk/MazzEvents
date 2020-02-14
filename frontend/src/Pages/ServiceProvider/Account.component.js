@@ -147,11 +147,11 @@ class ServiceProviderAccount extends Component {
                 <LeftServiceProvider/>
                 <div className="right">
                     <Upper/>
-
                     <div className="left">
-                        <Card style={{ width: '18rem' }}>
+                    <Card style={{ width: '18rem'}}>
+                        <div className="overflow"> 
                             <Card.Img variant="top" src={!this.state.profilePic ? normal :this.state.profilePic}/>
-                            
+                         </div>   
                             <Card.Body>
                             <Card.Title><center>{this.state.signup_firstName} {this.state.signup_lastName}</center></Card.Title>
                             <Card.Text>
@@ -168,6 +168,7 @@ class ServiceProviderAccount extends Component {
                     </div>    
 
                     <div className="rightAccount">
+                        
                         <h3>Update My details</h3>
                         <Form onSubmit={this.onSubmit}>
                             <Form.Row>

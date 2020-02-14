@@ -119,8 +119,10 @@ class StaffAccount extends Component {
                 <Upper/>
                     <div className="left">
                     
-                        <Card style={{ width: '18rem' }}>
+                        <Card style={{ width: '18rem', height:'32rem' }}>
+                        <div className="overflow">  
                             <Card.Img variant="top" src={!this.state.profilePic ? normal :this.state.profilePic} />
+                        </div>    
                             <Card.Body>
                             <Card.Title><center>{this.state.signup_firstName} {this.state.signup_lastName}</center></Card.Title>
                             <Card.Text>

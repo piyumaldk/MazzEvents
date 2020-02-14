@@ -179,7 +179,9 @@ onChangeSignupText(e){
 
                   <div className="left">
                       <Card style={{ width: '18rem' }}>
+                      <div className="overflow">  
                           <Card.Img variant="top" src={!this.state.businessPic ? company :this.state.businessPic} />
+                       </div>   
                           <Card.Body>
                           <Card.Title><center>{this.state.signup_firstName} {this.state.signup_lastName}</center></Card.Title>
                           <Card.Text>

@@ -101,7 +101,7 @@ class More extends Component {
                 <div className="right">
                     <Upper/>
                     <div className="background">
-                        <center>
+                    <center>
                             <h1>
                                 <StarRatingComponent 
                                     name="rate1" 
@@ -111,9 +111,10 @@ class More extends Component {
                                 />
                             </h1>
                         </center>
+
                         <div className="rightMore">
                             <div className="moretop">
-                                
+                            
                             </div>
                         </div>
 

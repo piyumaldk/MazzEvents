@@ -126,7 +126,7 @@ class CustomerAccount extends Component {
                     <Upper/>
 
                     <div className="left">
-                        <Card style={{ width: '18rem' }}>
+                        <Card style={{ width: '18rem'}}>
                             <Card.Img variant="top" src={!this.state.profilePic ? customer :this.state.profilePic} />
                             <Card.Body>
                             <Card.Title><center>{this.state.signup_firstName} {this.state.signup_lastName}</center></Card.Title>
