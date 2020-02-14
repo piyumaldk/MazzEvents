@@ -39,6 +39,7 @@ router.post('/', (req, res) => {
                             if(err) throw err;
                                 res.json({
                                     token,
+                                    chatToken,
                                     signupcustomer: {
                                         id: signupcustomer.id,
                                         type: signupcustomer.signup_type,
