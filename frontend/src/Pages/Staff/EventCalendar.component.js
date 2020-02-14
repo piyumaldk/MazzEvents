@@ -70,7 +70,7 @@ export default class StaffEventCalendar extends Component {
             event_completed: this.state.event_completed
         };
 
-        axios.post('http://localhost:4000/mazzevents/addevent',obj)
+        axios.post('http://localhost:4000/events/addevent',obj)
         .then(res => console.log(res.data));
 
     this.props.history.push('/staff/account');

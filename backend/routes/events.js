@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken');
 
 const Events = require('../models/event.model');
 
-router.route('/getevent').get(function(req, res) {
+router.route('/').get(function(req, res) {
     Events.find(function(err, event) {
         if (err) {
             console.log(err);

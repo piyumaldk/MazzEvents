@@ -6,27 +6,22 @@ import {Button, Card, CardDeck} from 'react-bootstrap';
 import axios from 'axios';
 import catering from '../Images/catering.jpg';
 
-const SignUpCustomer = props => (
-    <div>
-        
-            
-        <Card  bg="light" text="black" style={{ width: '18rem'  }}>
-            
-        <Card.Img variant="top" src={catering} />
-        <Card.Header><center>Are you from around {props.signupcustomer.signup_city}?</center></Card.Header>
+const Events = props => (
+    <div>   
+        <Card  bg="light" text="black" style={{ width: '20rem'  }}>   
+        {/* <Card.Img variant="top" height="240" src={company} /> */}
+        <Card.Header><center>Upcoming Event</center></Card.Header>
             <Card.Body>
-            <Card.Title><center>{props.signupcustomer.signup_company}</center></Card.Title>
-            <Card.Text>
-                Owner : {props.signupcustomer.signup_firstName} {props.signupcustomer.signup_lastName}<br/>
-                Contact Number : {props.signupcustomer.signup_number}<br/>
-                Location : {props.signupcustomer.signup_city}<br/>
-                Address : {props.signupcustomer.signup_address2}<br/>
+            <Card.Title><center>Redda</center></Card.Title>
+            <Card.Text >
+                {props.events.eventName}<br/>
+                {props.events.location}<br/>
+                {props.events.time}<br/>
+                <br/>
             </Card.Text>
-            <center><Button variant="dark">Go somewhere</Button></center>
+            <center><Button variant="dark" href={props.events.link}>Go somewhere</Button></center>
             </Card.Body>
-        </Card>  
-        
-         
+        </Card>     
     </div>
 )
 
@@ -38,23 +33,22 @@ export default class Home extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:4000/mazzevents/getevent')
+        axios.get('http://localhost:4000/events')
             .then(response => {
                 this.setState({ users: response.data });
+                console.log(this.state.users);
             })
             .catch(function (error){
                 console.log(error);
             })
+            
     }
 
-    // UserList() {
-    //     return this.state.users.map(function(currentSignUpCustomer, i){
-    //         if(currentSignUpCustomer.signup_type === "2"){
-    //         return <SignUpCustomer signupcustomer={currentSignUpCustomer} key={i} />;
-    //         }
-    //         return null;
-    //     })
-    // }
+    UserList() {
+        return this.state.users.map(function(currentEvents, i){
+            return <Events events={currentEvents} key={i} />;
+        })
+    }
 
     render() {
         return (
@@ -96,14 +90,10 @@ export default class Home extends Component {
                     <div>
                     <div>
                         
+                    <CardDeck>
+                    {this.UserList()}
                         
-                          {/* <div  className="row card_ss">
-                          <CardDeck>
-                            { this.UserList() } 
-                            </CardDeck>
-                            </div>    */}
-                        
-                        
+                        </CardDeck>
                          
                     </div>
             </div>   
