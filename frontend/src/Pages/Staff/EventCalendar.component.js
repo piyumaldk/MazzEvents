@@ -11,12 +11,14 @@ export default class StaffEventCalendar extends Component {
         this.onChangeEventName = this.onChangeEventName.bind(this);
         this.onChangeLocation= this.onChangeLocation.bind(this);
         this.onChangeTime= this.onChangeTime.bind(this);
+        this.onChangeLink= this.onChangeLink.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
         eventName: '',
         location: '',
         time: '',
+        link: '',
         event_completed: false
     }
 
@@ -52,6 +54,11 @@ export default class StaffEventCalendar extends Component {
             time: e.target.value
         });
     }
+    onChangeLink(e){
+        this.setState({
+            link: e.target.value
+        });
+    }
 
     onSubmit(e) {
         e.preventDefault();
@@ -59,10 +66,11 @@ export default class StaffEventCalendar extends Component {
             eventName: this.state.eventName, 
             location: this.state.location,
             time: this.state.time,
+            link: this.state.link,
             event_completed: this.state.event_completed
         };
 
-        axios.post('http://localhost:4000/mazzevents/addevent',obj)
+        axios.post('http://localhost:4000/events/addevent',obj)
         .then(res => console.log(res.data));
 
     this.props.history.push('/staff/account');
@@ -95,7 +103,7 @@ export default class StaffEventCalendar extends Component {
                         <input  type="text"
                                 className="form-control"
                                // value={this.state.location}
-                                onChange={this.onLocation}
+                                onChange={this.onChangeLocation}
                                 />
                     </div>
                     <div className="form-group">
@@ -103,10 +111,17 @@ export default class StaffEventCalendar extends Component {
                         <input  type="text"
                                 className="form-control"
                                 //value={this.state.time}
-                                onChange={this.onTime}
+                                onChange={this.onChangeTime}
                                 />
                     </div>
-
+                    <div className="form-group">
+                        <label>Link</label>
+                        <input  type="text"
+                                className="form-control"
+                                //value={this.state.time}
+                                onChange={this.onChangeLink}
+                                />
+                    </div>
                     <div className="form-group">
                         <br/>
                         <input type="submit" value="Add Event" className="btn btn-primary" />    

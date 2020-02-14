@@ -7,18 +7,18 @@ const jwt = require('jsonwebtoken');
 
 const Events = require('../models/event.model');
 
-router.route('/getevent').get(function(req, res) {
+router.route('/').get(function(req, res) {
     Events.find(function(err, event) {
         if (err) {
             console.log(err);
         } else {
             res.json(event);
         }
-    });
+    }).sort({$natural:-1}).limit(5);
   });
 
 router.post('/addevent', (req, res) => {
-    const {eventName, location, time} = req.body;
+    const {eventName, location, time, link} = req.body;
     //Simple Validation (Emty Form)
     
     //add to model
