@@ -8,6 +8,7 @@ import StarRatingComponent from 'react-star-rating-component';
 import {Card, Button} from 'react-bootstrap';
 import company from '../../Images/Profile/company.png';
 import normal from '../../Images/Profile/normal.png';
+import '../../Components/Cads/card-style.css'
 
 class More extends Component {
     constructor(props) {
@@ -120,7 +121,9 @@ class More extends Component {
                             <div className="morebottomleft">
                                 <div class="cardAlignRight">     
                                     <Card style={{ width: '18rem' },{height:'27rem'}}>
+                                    <div className="overflow">     
                                     <Card.Img variant="top" height="240" src={!this.state.businessPic ? company:this.state.businessPic} />
+                                    </div>
                                     <Card.Body>
                                         <Card.Title>{this.state.signup_company}</Card.Title>
                                         <Card.Text>
@@ -136,7 +139,9 @@ class More extends Component {
                             <div className="morebottomright">
                                 <div class="cardAlignLeft">    
                                     <Card style={{ width: '18rem' } ,{height:'27rem'}}>
+                                <div className="overflow">     
                                     <Card.Img variant="top" height="240" src={!this.state.profilePic ? normal:this.state.profilePic} />
+                                </div>
                                         <Card.Body>
                                             <Card.Title>{this.state.signup_firstName} {this.state.signup_lastName}</Card.Title>
                                             <Card.Text>
