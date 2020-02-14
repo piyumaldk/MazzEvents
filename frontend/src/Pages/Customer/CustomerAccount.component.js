@@ -8,6 +8,7 @@ import AddImage from "../../Components/AddCustomerImage.component";
 import Delete from "../../Components/Delete.component";
 import customer from '../../Images/Profile/customer.jpg';
 
+
 class CustomerAccount extends Component {
 
     constructor(props) {
@@ -167,9 +168,19 @@ class CustomerAccount extends Component {
                                     <Form.Control  type="text" className="form-control" value={this.state.signup_number} onChange={this.onChangeSignupNumber}/>
                                 </Form.Group>
                             </Form.Row>
+                            <div className="row">
+                                <div className="col-md-6">
                             <Button variant="primary" type="submit"  value="Update">
                                 Update
                             </Button>
+                                </div>
+                                <div className="col-md-6">
+                            <Button variant="primary"   value="Update" href="/customer/repassword">
+                                Change password
+                            </Button>
+                                </div>
+                            </div>
+                          
                         </Form>
                         
                     </div>
