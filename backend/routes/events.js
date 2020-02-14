@@ -18,7 +18,7 @@ router.route('/getevent').get(function(req, res) {
   });
 
 router.post('/addevent', (req, res) => {
-    const {eventName, location, time} = req.body;
+    const {eventName, location, time, link} = req.body;
     //Simple Validation (Emty Form)
     
     //add to model
