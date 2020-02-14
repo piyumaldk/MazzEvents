@@ -71,7 +71,7 @@ class More extends Component {
         }
         console.log(data)
 
-        axios.post('http://localhost:4000/mazzevents/addrating', data)
+        axios.post('http://localhost:4000/rating/addrating', data)
             .then(res => {
                 console.log(res.data)
             }); 
@@ -85,7 +85,7 @@ class More extends Component {
             rateTime : rateTime
         }
         console.log(data2)
-        axios.post('http://localhost:4000/mazzevents/addrating2', data2)
+        axios.post('http://localhost:4000/rating/addrating2', data2)
             .then(res => {
                 console.log(res.data)
         }); 

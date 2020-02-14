@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import '../../App.css';
 import axios from 'axios';
-import LeftStaff from "../../Components/LeftStaff.component";
 import Upper from "../../Components/Upper.component";
 import { Link } from 'react-router-dom';
 import SignUpCatering from '../../Components/Auth/RegisterCateringModal';
 import StarRatingComponent from 'react-star-rating-component';
 import { connect } from 'react-redux';
+import LeftServiceProvider from '../../Components/LeftServiceProvider.component';
 const Rating = props => (
     <tr>
         <td>{props.rating.customerFName} {props.rating.customerLName}</td>
@@ -21,15 +21,11 @@ const Rating = props => (
     </tr>
 )
 
-
-
 class ServiceProviderReviews extends Component {
-
     constructor(props) {
         super(props);
         this.state = {users: []};
-    }
-    
+    }   
     componentDidMount() {
         console.log("test");
         axios.get('http://localhost:4000/rating/')
@@ -42,15 +38,15 @@ class ServiceProviderReviews extends Component {
                 console.log(error);
             })
             
-    }
-    
+    };
+
      UserList() {
-         
+        const id = this.props.id;
          return this.state.users.map(function(currentRating, i){
-            //if(currentRating.spId === "r"){
+            if(currentRating.spId === id){
              return <Rating rating={currentRating} key={i} />;
-            //}
-            //return null;            
+            }
+            return null;            
          })
      }
 
@@ -59,7 +55,7 @@ class ServiceProviderReviews extends Component {
         
         return (
             <div>
-                <LeftStaff/>
+                <LeftServiceProvider/>
                 <div className="right">
                     <Upper/>
 
@@ -79,9 +75,7 @@ class ServiceProviderReviews extends Component {
                                 { this.UserList() }
                             </tbody>
                         </table>
-                        {this.props.id}
                     </div>
-
                 </div>
             </div>   
         )

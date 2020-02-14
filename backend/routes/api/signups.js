@@ -7,8 +7,7 @@ const jwt = require('jsonwebtoken');
 let SignUpCustomer = require('../../models/signupcustomer.model');
 let Rating = require('../../models/rating');
 
-
- router.route('/').get(function(req, res) {
+router.route('/').get(function(req, res) {
    SignUpCustomer.find(function(err, signupcustomer) {
        if (err) {
           console.log(err);
@@ -17,6 +16,7 @@ let Rating = require('../../models/rating');
       }
   });
 });
+
 router.route('/:id').get(function(req, res) {
     let id = req.params.id;
     SignUpCustomer.findById(id, function(err, signupcustomer) {
@@ -142,84 +142,5 @@ router.delete('/removecustomer/:id',function(req, res, next){
     res.send(signupcustomer);
   });
 });
-
-router.route('/addrating').post(function(req, res) {
-  Rating.findOne({customerId: req.body.customerId, spId: req.body.spId},function(err, rating) {
-    if(!rating){
-      console.log("Not yet")
-      var rating = new Rating({ customerId: req.body.customerId, customerFName: req.body.customerFName, customerLName: req.body.customerLName, customerEmail: req.body.customerEmail, spId: req.body.spId, rate: req.body.rating });
-      rating.save()
-        .then(rating=> {
-          res.status(200).json({ 'Rating':'Rating added successfully'});
-        })
-        // res.status(200).send({
-        //   already: false
-        // })
-        .catch(err=> {
-          res.status(400).send(
-            "Unable"
-          );
-        });
-      }
-    else{
-      console.log("Already there");
-      rating.rate = req.body.rating;
-      rating.save().then(rating => {        
-      })
-      // res.status(200).send({
-      //   already: true
-      // })
-      .catch(err => {
-        res.status(400).send("Update not possible");
-      });
-    }
-  })
-});
-
-router.route('/addrating2').post(function(req, res) {
-  SignUpCustomer.findOne({ _id: req.body.spId},function(err, user) {
-    if(user){
-      console.log("Okay");
-      user.sumRate = req.body.sumRate;
-      user.rateTime = req.body.rateTime;
-      user.save().then(user => {        
-      })
-      .catch(err => {
-        res.status(400).send("Update not possible");
-      });
-    }
-  })
-});
-
-              //  if(!rating){
-              //      //new
-              //      console.log("Added!");
-                   
-              //      const rating = new Rating({
-              //         _id: new mongoose.Types.ObjectId(),
-              //         customerId: req.body.customerId,
-              //         spId: req.body.spId,
-              //         rate: req.body.rate
-              //      }); 
-              //      Rating.save().then(rating => {})
-              //      .catch(err => {
-              //          console.log("Error"),
-              //          res.status(500).json({
-              //          error: err
-              //          });
-              //      })
-              //  }
-              //  else{
-              //   // Rating.findOne({customerId: req.body.customerId, spId: req.body.spId}, function(err, rating){
-
-              //   // })
-
-              //     //  console.log("Update!");
-              //     //  rating.customerId = req.params.id;
-              //     //  rating.rate = req.body.rate;
-              //     //  rating.save().then(rating => {})  
-      //         //  }
-      //      });   
-      //  })
 
 module.exports = router;
