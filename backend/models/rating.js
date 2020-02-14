@@ -1,17 +1,25 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const userSchema = new Schema({
-    _id: mongoose.Schema.Types.ObjectId,
+let RatingSchema = new Schema({
     customerId: {
+        type: String
+    },
+    customerFName: {
+        type: String
+    },
+    customerLName: {
+        type: String
+    },
+    customerEmail: {
         type: String
     },
     spId: {
         type: String
     },
     rate: {
-        type: String
+        type: Number
     },
 })
 
-module.exports = mongoose.model('Rating', userSchema)
+module.exports = Rating = mongoose.model('Rating', RatingSchema)

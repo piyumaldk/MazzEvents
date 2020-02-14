@@ -106,6 +106,12 @@ let SignUpSchema = new Schema({
     businessImg: {
         type: String
     },
+    sumRate: {
+        type: Number
+    },
+    rateTime: {
+        type: Number
+    },
     signup_date: {
         type: Date,
         default: Date.now
