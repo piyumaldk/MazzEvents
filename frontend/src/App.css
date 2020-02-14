@@ -249,7 +249,7 @@ padding: 10px;
 
    .caro{
      width: 100%;
-     max-height: fit-content;
+     max-height: 90%;
    }
 
    .frm{
@@ -308,4 +308,9 @@ padding: 10px;
     to {
       transform: rotate(360deg);
     }
+  }
+
+  .sachin{
+    border-radius: 4px;
+    
   }
