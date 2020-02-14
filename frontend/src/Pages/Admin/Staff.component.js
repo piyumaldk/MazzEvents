@@ -4,15 +4,7 @@ import axios from 'axios';
 import LeftAdmin from "../../Components/LeftAdmin.component";
 import Upper from "../../Components/Upper.component";
 import { Link } from 'react-router-dom';
-import SignUpCatering from '../../Components/Auth/RegisterCateringModal';
 import SignUp3 from '../../Components/Auth/RegisterStaffModal';
-import SignUpDj from '../../Components/Auth/RegisterDjModal';
-import SignUpFlowers from '../../Components/Auth/RegisterFlowersModal';
-import SignUpMusic from '../../Components/Auth/RegisterMusicModal';
-import SignUpPhotography from '../../Components/Auth/RegisterPhotographyModal';
-import SignUpVehicles from '../../Components/Auth/RegisterVehiclesModal';
-import SignUpHalls from '../../Components/Auth/RegisterHallsModal';
-
 
 const SignUpCustomer = props => (
     <tr>

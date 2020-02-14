@@ -3,9 +3,8 @@ import LeftCustomer from "../../Components/LeftCustomer.component";
 import Upper from "../../Components/Upper.component";
 import axios from 'axios';
 import { connect } from 'react-redux';
-import ReactDOM from 'react-dom';
 import StarRatingComponent from 'react-star-rating-component';
-import {Card, Button} from 'react-bootstrap';
+import {Card} from 'react-bootstrap';
 import company from '../../Images/Profile/company.png';
 import normal from '../../Images/Profile/normal.png';
 import '../../Components/Cads/card-style.css'
@@ -121,7 +120,7 @@ class More extends Component {
                         <div className="rightmore">
                             <div className="morebottomleft">
                                 <div class="cardAlignRight">     
-                                    <Card style={{ width: '18rem' },{height:'27rem'}}>
+                                    <Card style={{ width: '18rem', height:'27rem'}}>
                                     <div className="overflow">     
                                     <Card.Img variant="top" height="240" src={!this.state.businessPic ? company:this.state.businessPic} />
                                     </div>
@@ -139,7 +138,7 @@ class More extends Component {
 
                             <div className="morebottomright">
                                 <div class="cardAlignLeft">    
-                                    <Card style={{ width: '18rem' } ,{height:'27rem'}}>
+                                    <Card style={{ width: '18rem', height:'27rem'}}>
                                 <div className="overflow">     
                                     <Card.Img variant="top" height="240" src={!this.state.profilePic ? normal:this.state.profilePic} />
                                 </div>

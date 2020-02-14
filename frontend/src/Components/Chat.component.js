@@ -35,7 +35,7 @@ const ChatComponent = (props) => {
 
  const filters = { type: 'messaging'};
 const sort = { last_message_at: -1 };
-const channels = client.queryChannels(filters, sort);
+// const channels = client.queryChannels(filters, sort);
 
 
 

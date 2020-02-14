@@ -2,15 +2,13 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import {
-    Input,
     Label,
     Button,
     Modal,
     ModalHeader,
     ModalBody
   } from 'reactstrap';
-  import {LOGOUT_SUCCESS} from "../Actions/types";
-  import { logout } from '../Actions/authActions';
+
 class Delete extends Component {
 
     constructor(props) {
