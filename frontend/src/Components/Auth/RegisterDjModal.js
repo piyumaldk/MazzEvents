@@ -34,6 +34,8 @@ class SignUpCatering extends Component {
     signup_city: '',
     signup_state: '',
     signup_zip: '',
+    sumRate: 0,
+    rateTime: 0,
     msg: null
   };
 
@@ -79,7 +81,7 @@ class SignUpCatering extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    const { signup_type, signup_firstName, signup_lastName, signup_email, signup_password, signup_aPassword, signup_category, signup_number, signup_address, signup_text, signup_daymax, signup_nightmax, signup_company, signup_address2, signup_city, signup_state, signup_zip } = this.state;
+    const { signup_type, signup_firstName, signup_lastName, signup_email, signup_password, signup_aPassword, signup_category, signup_number, signup_address, signup_text, signup_daymax, signup_nightmax, signup_company, signup_address2, signup_city, signup_state, signup_zip, sumRate, rateTime} = this.state;
     //Create user object
     const newSignUpServiceProvider = {
       signup_type,
@@ -98,7 +100,9 @@ class SignUpCatering extends Component {
       signup_address2,
       signup_city,
       signup_state,
-      signup_zip
+      signup_zip,
+      sumRate,
+      rateTime
     };
 
     //Attempt to Register
@@ -121,7 +125,9 @@ class SignUpCatering extends Component {
       signup_address2: "",
       signup_city: "",
       signup_state: "",
-      signup_zip: ""
+      signup_zip: "",
+      sumRate: 0,
+      rateTime: 0
     });
   }
 
