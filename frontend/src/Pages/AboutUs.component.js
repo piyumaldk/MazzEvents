@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import Upper from "../Components/Upper.component";
+import {Card} from 'react-bootstrap';
+
 export default class AboutUs extends Component {
     render() {
         return (
             <div>
+            <div className="background">
              <Upper/>
               <div className="leftAboutUs">
-                 <h1><font color="blue"><b>About Us</b></font></h1>
+                 <h1><b>About Us</b></h1>
                     <h3>We are MazzEvents</h3>
                     <p>
                     Mazz Event is a professional event management company in Galle.
@@ -27,34 +30,30 @@ export default class AboutUs extends Component {
 
                 <div className="rightAboutUs">
                     <div className="aboutustop">
-                    <h2><font color="#00ffff">Our Location</font></h2>
-                    <h3><font color="black">Map</font></h3>
+
+                    <center><Card>
+                        <Card.Img variant="top" height="240" src={'../../Images/logo.png'}/>
+                            <Card.Body>
+                                <Card.Title></Card.Title>
+                                <Card.Text>
+                                <b>Address</b><br/> 
+                                MazzEvents, 9 Rampart Street, Fort, Gale<br/><br/>
+                                <b>Email Addtress</b><br/>
+                                <a href>mazzEvents@gmail.com</a><br/><br/>
+                                <b>Contact No</b><br/>
+                                0770523682<br/>
+
+                               
+                                </Card.Text>
+                            </Card.Body>
+                        </Card></center>
+                
+
                     </div>
-                </div>
-
-                <div className="rightAboutUs">
-                    <div className="aboutusbottomleft">
-
-                    <h2><font text-align= "center" color="white"><b>Contact Us</b></font></h2>
-
-                    <p><font text-align="center" color="white"><ul>
-                    <li><b>Owner</b> : Mr.Ilthizam Imtiyas</li>
-                    <li><b>Address</b> : MazzEvents, 9 Rampart Street, Fort, Gale</li>
-                    <li><b>Email Addtress</b> : <a href>mazzEvents@gmail.com</a></li>
-                    <li><b>Contact No</b> : 0770523682</li>
-                    </ul></font>
-                </p>
-
-                    </div>
-
-                    <div className="aboutusbottomright">
-
-                        <h2><font text-align= "center" color="white"><b>Our Logo</b></font></h2>
-
-                        </div>
 
                     
                 </div>
+            </div>
             </div>
         )
     } }

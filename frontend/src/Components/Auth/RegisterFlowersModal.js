@@ -43,7 +43,8 @@ class SignUpFlowers extends Component {
     signup_package3text: '',
     signup_package3price: '',
     signup_max3: '',
-
+    sumRate: 0,
+    rateTime: 0,
     msg: null
   };
 
@@ -89,7 +90,7 @@ class SignUpFlowers extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    const { signup_type, signup_firstName, signup_lastName, signup_email, signup_password, signup_aPassword, signup_category, signup_number, signup_address, signup_address2, signup_city, signup_state, signup_zip,signup_package1name,signup_package1text,signup_package1price,signup_max1,signup_package2name,signup_package2text,signup_package2price,signup_max2,signup_package3name,signup_package3text,signup_package3price,signup_max3 } = this.state;
+    const { signup_type, signup_firstName, signup_lastName, signup_email, signup_password, signup_aPassword, signup_category, signup_number, signup_address, signup_address2, signup_city, signup_state, signup_zip,signup_package1name,signup_package1text,signup_package1price,signup_max1,signup_package2name,signup_package2text,signup_package2price,signup_max2,signup_package3name,signup_package3text,signup_package3price,signup_max3, sumRate, rateTime  } = this.state;
     //Create user object
     const newSignUpServiceProvider = {
       signup_type,
@@ -116,7 +117,9 @@ class SignUpFlowers extends Component {
       signup_package3name,
       signup_package3text,
       signup_package3price,
-      signup_max3
+      signup_max3,
+      sumRate,
+      rateTime
 
     };
 
@@ -148,7 +151,9 @@ class SignUpFlowers extends Component {
       signup_package3name: "",
       signup_package3text: "",
       signup_package3price: "",
-      signup_max3: ""
+      signup_max3: "",
+      sumRate: 0,
+      rateTime: 0
 
 
     });
