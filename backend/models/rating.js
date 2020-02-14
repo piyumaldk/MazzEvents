@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const userSchema = new Schema({
+let RatingSchema = new Schema({
     customerId: {
         type: String
     },
@@ -22,4 +22,4 @@ const userSchema = new Schema({
     },
 })
 
-module.exports = mongoose.model('Rating', userSchema)
+module.exports = Rating = mongoose.model('Rating', RatingSchema)

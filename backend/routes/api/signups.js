@@ -8,12 +8,12 @@ let SignUpCustomer = require('../../models/signupcustomer.model');
 let Rating = require('../../models/rating');
 
 
-router.route('/').get(function(req, res) {
-  SignUpCustomer.find(function(err, signupcustomer) {
-      if (err) {
+ router.route('/').get(function(req, res) {
+   SignUpCustomer.find(function(err, signupcustomer) {
+       if (err) {
           console.log(err);
-      } else {
-          res.json(signupcustomer);
+       } else {
+           res.json(signupcustomer);
       }
   });
 });
@@ -191,15 +191,6 @@ router.route('/addrating2').post(function(req, res) {
   })
 });
 
-router.route('/getrating').get(function(req, res) {
-  Rating.findOne({customerId: req.body.customerId, spId: req.body.spId},function(err, rating) {
-      if (err) {
-          console.log(err);
-      } else {
-          res.json(rating);
-      }
-  });
-});
               //  if(!rating){
               //      //new
               //      console.log("Added!");
