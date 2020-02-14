@@ -57,8 +57,8 @@ export default class Home extends Component {
                     <Upper/>
                     </div>
                    {/* ccd {props.event.eventName} */}
-                     <div className="caro">
-                        <Carousel>
+                     <div >
+                        <Carousel >
                             <Carousel.Item>
                                 <img className="d-block w-100" src="https://cdn.pixabay.com/photo/2015/05/15/14/50/concert-768722_960_720.jpg" alt="First slide"/>
                                 <Carousel.Caption>
