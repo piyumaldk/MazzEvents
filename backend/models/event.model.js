@@ -5,11 +5,17 @@ const Schema = mongoose.Schema;
 let eventSchema = new Schema({
     eventName: {
         type: String
-    },location: {
+    },
+    location: {
         type: String
-    },time: {
+    },
+    time: {
         type: String
-    },event_completed: {
+    },
+    link: {
+        type: String
+    },
+    event_completed: {
         type: Boolean
     }
 });

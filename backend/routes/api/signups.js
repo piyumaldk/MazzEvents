@@ -5,17 +5,18 @@ const config = require('config');
 const jwt = require('jsonwebtoken');
 //Signup Model
 let SignUpCustomer = require('../../models/signupcustomer.model');
-
+let Rating = require('../../models/rating');
 
 router.route('/').get(function(req, res) {
-  SignUpCustomer.find(function(err, signupcustomer) {
-      if (err) {
+   SignUpCustomer.find(function(err, signupcustomer) {
+       if (err) {
           console.log(err);
-      } else {
-          res.json(signupcustomer);
+       } else {
+           res.json(signupcustomer);
       }
   });
 });
+
 router.route('/:id').get(function(req, res) {
     let id = req.params.id;
     SignUpCustomer.findById(id, function(err, signupcustomer) {
@@ -26,7 +27,7 @@ router.route('/:id').get(function(req, res) {
 //@desc     Add a new Customer : Any
 //@access   Public
 router.post('/addcustomer', (req, res) => {
-    const {signup_type, signup_firstName, signup_lastName, signup_email, signup_password, signup_aPassword, signup_category, signup_number,signup_location, signup_address, signup_text, signup_daymax, signup_nightmax, signup_company, signup_address2, signup_city, signup_state, signup_zip,signup_package1name,signup_package1text,signup_package1price,signup_max1,signup_package2name,signup_package2text,signup_package2price,signup_max2,signup_package3name,signup_package3text,signup_package3price,signup_max3 } = req.body;
+    const {signup_type, signup_firstName, signup_lastName, signup_email, signup_password, signup_aPassword, signup_category, signup_number,signup_location, signup_address, signup_text, signup_daymax, signup_nightmax, signup_company, signup_address2, signup_city, signup_state, signup_zip,signup_package1name,signup_package1text,signup_package1price,signup_max1,signup_package2name,signup_package2text,signup_package2price,signup_max2,signup_package3name,signup_package3text,signup_package3price,signup_max3,sumRate, rateTime } = req.body;
     //Simple Validation (Emty Form)
          
     if(signup_password !== signup_aPassword){
@@ -37,7 +38,7 @@ router.post('/addcustomer', (req, res) => {
         .then(signupcustomer => {
             if(signupcustomer) return res.status(400).json({ msg: 'An user with this email already exists'});
             const newSignUpCustomer = new SignUpCustomer({
-              signup_type, signup_firstName, signup_lastName, signup_email, signup_password, signup_aPassword, signup_category, signup_number, signup_location, signup_address, signup_text, signup_daymax, signup_nightmax, signup_company, signup_address2, signup_city, signup_state, signup_zip,signup_package1name,signup_package1text,signup_package1price,signup_max1,signup_package2name,signup_package2text,signup_package2price,signup_max2,signup_package3name,signup_package3text,signup_package3price,signup_max3
+              signup_type, signup_firstName, signup_lastName, signup_email, signup_password, signup_aPassword, signup_category, signup_number, signup_location, signup_address, signup_text, signup_daymax, signup_nightmax, signup_company, signup_address2, signup_city, signup_state, signup_zip,signup_package1name,signup_package1text,signup_package1price,signup_max1,signup_package2name,signup_package2text,signup_package2price,signup_max2,signup_package3name,signup_package3text,signup_package3price,signup_max3,sumRate, rateTime
             });
             
             //Create salt & Hash (Need Decryption here)
@@ -85,6 +86,8 @@ router.post('/addcustomer', (req, res) => {
                               signup_package3text: signupcustomer.signup_package3text,
                               package3price: signupcustomer.signup_package3price,
                               max3: signupcustomer.signup_max3,
+                              sumRate: signupcustomer.sumRate,
+                              rateTime: signupcustomer.rateTime
                             }
                           });
                         }
@@ -130,7 +133,6 @@ router.route('/updatecustomer/:id').post(function(req, res) {
           })
           .catch(err => {
               res.status(400).send("Update not possible");
-              console.log("ded");
           });
   });
 });

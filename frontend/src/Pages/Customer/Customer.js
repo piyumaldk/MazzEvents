@@ -13,6 +13,7 @@ import Rating from "./Rating.component";
 import Photographers from "./Photographers.component";
 import Halls from "./ReceptionHalls.component";
 import ResetPassword from "./ResetPassword";
+import More from "./More.component";
 
 export default class Customer extends Component {
     render() {
@@ -32,6 +33,8 @@ export default class Customer extends Component {
                     <Route path="/customer/rating" component={Rating} />
                     <Route path="/customer/halls" component={Halls} />
                     <Route path="/customer/repassword" component={ResetPassword} />
+                    <Route path="/customer/more/:id" component={More} />
+
                 </Router>
             </div>
         )

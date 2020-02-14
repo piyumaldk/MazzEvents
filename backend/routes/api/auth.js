@@ -7,6 +7,7 @@ const auth = require('../../middleware/auth');
 //Signup Model
 const SignUpCustomer = require('../../models/signupcustomer.model');
 let SignUpServiceProvider = require('../../models/signupserviceprovider.model');
+const StreamChat = require('stream-chat').StreamChat;
 
 //@route    POST api/auth
 //@desc     Auth Customer : Any
@@ -26,6 +27,12 @@ router.post('/', (req, res) => {
             bcrypt.compare(signup_password, signupcustomer.signup_password)
                 .then(isMatch => {
                     if(!isMatch) return res.status(400).json({ msg: 'Check your password again!'});
+                    
+                    var n = signup_email.indexOf("@");
+                    var name = signup_email.slice(0, n);
+
+                    const client = new StreamChat('', 'tfsrg5j8wfxsmempavenh3fztd2ju48vazsyeensazma5tmxmnntzwdycs4rqf6z');
+                    const chatToken = client.createToken(name);
 
                     jwt.sign(
                         { id: signupcustomer.id },
@@ -35,6 +42,7 @@ router.post('/', (req, res) => {
                             if(err) throw err;
                                 res.json({
                                     token,
+                                    chatToken,
                                     signupcustomer: {
                                         id: signupcustomer.id,
                                         type: signupcustomer.signup_type,

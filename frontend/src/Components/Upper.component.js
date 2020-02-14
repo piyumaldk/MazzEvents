@@ -4,7 +4,6 @@ import Logo from '../Images/logo.jpg';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import SignUp from './Auth/RegisterModal';
-import SignUp3 from './Auth/RegisterStaffModal';
 import LogIn from './Auth/LoginModal';
 import Logout from './Auth/LogOut';
 
@@ -20,8 +19,6 @@ class Upper extends Component {
         <span className='navbar-text mr-3'>
           <strong>{this.props.fName ? `Hi ${this.props.fName}!` : ``}</strong>
         </span>
-        
-        <SignUp3/>
         
       </Fragment>
     );
