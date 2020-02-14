@@ -28,8 +28,8 @@ router.post('/', (req, res) => {
                 .then(isMatch => {
                     if(!isMatch) return res.status(400).json({ msg: 'Check your password again!'});
                     
-                    var n = email.indexOf("@");
-                    var name = email.slice(0, n);
+                    var n = signup_email.indexOf("@");
+                    var name = signup_email.slice(0, n);
 
                     const client = new StreamChat('', 'tfsrg5j8wfxsmempavenh3fztd2ju48vazsyeensazma5tmxmnntzwdycs4rqf6z');
                     const chatToken = client.createToken(name);
