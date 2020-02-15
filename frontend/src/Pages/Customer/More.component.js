@@ -144,13 +144,47 @@ class More extends Component {
         const { rating } = this.state;
         return (
             <div>
-                
                 <LeftCustomer/>
                 <div className="right">
                     <Upper/>
-                    <div className="background">
-                    <Message/>
-                        <center>
+                    <div className="background"> 
+
+                        <div className="row card_ss">
+                            <div className="col-md-4">   
+                                <Card style={{ width: '18rem', height:'27rem'}}>
+                                    <div className="overflow">     
+                                    <Card.Img variant="top" height="240" src={!this.state.businessPic ? company:this.state.businessPic} />
+                                    </div>
+                                    <Card.Body>
+                                        <center><Card.Title>{this.state.signup_company}</Card.Title></center>
+                                        <Card.Text>
+                                            Email : {this.state.signup_email}<br/>
+                                            Location : {this.state.signup_city}<br/>
+                                            Text : {this.state.signup_text}<br/>
+                                        </Card.Text>
+                                    </Card.Body>
+                                </Card><br/>
+                            </div>
+
+
+                    <div className="col-md-4">
+                        <Card style={{ width: '18rem', height:'27rem'}}>
+                            <div className="overflow">     
+                                <Card.Img variant="top" height="240" src={!this.state.profilePic ? normal:this.state.profilePic} />
+                            </div>
+                            <Card.Body>
+                                <center><Card.Title>{this.state.signup_firstName} {this.state.signup_lastName}</Card.Title></center>
+                                    <Card.Text>
+                                        Contact Number : {this.state.signup_number}<br/>
+                                        Address 1 : {this.state.signup_address}<br/>
+                                        Address 2: {this.state.signup_address2}<br/>
+                                    </Card.Text>
+                            </Card.Body>
+                        </Card><br/>
+                    </div>
+
+                    <div className="col-md-4">
+                                <center>
                             <h1>
                                 <StarRatingComponent 
                                     name="rate1" 
@@ -159,91 +193,53 @@ class More extends Component {
                                     onStarClick={this.onStarClick.bind(this)}
                                 />
                             </h1>
-                        </center>
+                        </center><br/>
 
-            
-                        <div className="rightMore">
-                            <div className="moretop">
-                            
-                            </div>
-                        </div>
+                        Text : {this.state.signup_text}<br/><br/>
 
-                        <div className="rightmore">
-                            <div className="morebottomleft">
-                                <div class="cardAlignRight">     
-                                    <Card style={{ width: '18rem', height:'27rem'}}>
-                                    <div className="overflow">     
-                                    <Card.Img variant="top" height="240" src={!this.state.businessPic ? company:this.state.businessPic} />
+                        <center><h3>Request</h3></center>
+                            <Form onSubmit={this.onSubmit}>
+                                <Form.Row>
+                                    <Form.Group as={Col} controlId="formGridFirstName">
+                                        <Form.Label>Name</Form.Label>
+                                        <Form.Control type="text" className="form-control" onChange={this.onChangeName}/>
+                                    </Form.Group>
+                                    <Form.Group as={Col} controlId="formGridLastName">
+                                        <Form.Label>Subject</Form.Label>
+                                        <Form.Control type="textfield" className="form-control" onChange={this.onChangeSubject}/>
+                                    </Form.Group>
+                                </Form.Row>
+                                <Form.Row>
+                                    <Form.Group as={Col} controlId="formGridEmail">
+                                        <Form.Label>Text</Form.Label>
+                                        <Input type="textarea" name="signup_text" id="signup_text" placeholder="text" className="mb-3" onChange={this.onChangeText}/>
+                                    </Form.Group>
+                                </Form.Row>
+
+                                <div className="row">
+                                    <div className="col-md-6">
+                                        <Button disabled={!this.state.name || !this.state.subject || !this.state.text} variant="dark" type="submit"  value="Update">
+                                            Send Request
+                                        </Button>
                                     </div>
-                                    <Card.Body>
-                                        <Card.Title>{this.state.signup_company}</Card.Title>
-                                        <Card.Text>
-                                        Owner : {this.state.signup_firstName} {this.state.signup_lastName}<br/>
-                                        Location : {this.state.signup_city}<br/>
-                                        Address 1 : {this.state.signup_address}<br/>
-                                        </Card.Text>
-                                    </Card.Body>
-                                    </Card>
+                                    <div className="col-md-6">
+                                        <Message/>
+                                    </div>
+                                
                                 </div>
-                            </div>
+                            
+                            </Form><br/>
+                            {/* <Card bg="secondary" text="white" style={{ width: '23rem'}}>
+  <Card.Body>This is some text within a card body.</Card.Body>
+</Card> */}
 
-                            <div className="morebottomright">
-                                <div class="cardAlignLeft">    
-                                    <Card style={{ width: '18rem', height:'27rem'}}>
-                                <div className="overflow">     
-                                    <Card.Img variant="top" height="240" src={!this.state.profilePic ? normal:this.state.profilePic} />
-                                </div>
-                                        <Card.Body>
-                                            <Card.Title>{this.state.signup_firstName} {this.state.signup_lastName}</Card.Title>
-                                            <Card.Text>
-                                            Contact Number : {this.state.signup_number}<br/>
-                                            Address 2: {this.state.signup_address2}<br/>
-                                            State : {this.state.signup_state}
-                                            </Card.Text>
-                                        </Card.Body>
-                                    </Card>
-                                </div>
-                            </div>
                         </div>
 
-                        {/* ddddddddddddddddddddddddddddddddddddddddddddd */}
-
-            <h3>Request</h3>
-                        <Form onSubmit={this.onSubmit}>
-                            <Form.Row>
-                                <Form.Group as={Col} controlId="formGridFirstName">
-                                    <Form.Label>Name</Form.Label>
-                                    <Form.Control type="text" className="form-control" onChange={this.onChangeName}/>
-                                </Form.Group>
-                                <Form.Group as={Col} controlId="formGridLastName">
-                                    <Form.Label>Subject</Form.Label>
-                                    <Form.Control type="textfield" className="form-control" onChange={this.onChangeSubject}/>
-                                </Form.Group>
-                            </Form.Row>
-                            <Form.Row>
-                                <Form.Group as={Col} controlId="formGridEmail">
-                                    <Form.Label>Text</Form.Label>
-                                    <Input type="textarea" name="signup_text" id="signup_text" placeholder="text" className="mb-3" onChange={this.onChangeText}/>
-                                </Form.Group>
-                            </Form.Row>
-
-                            <div className="row">
-                                <div className="col-md-6">
-                            <Button disabled={!this.state.name || !this.state.subject || !this.state.text} variant="dark" type="submit"  value="Update">
-                                Send Request
-                            </Button>
-                                </div>
-                               
-                            </div>
-                          
-                        </Form>
-            {/* dddddddddddddddddddddddddddddddddddddddddddddd */}
-
-            
-            
-                    </div> 
-                </div>
-            </div>
+                        
+                    </div>
+            </div>     
+        </div>
+    </div>
         )
     }
 }
