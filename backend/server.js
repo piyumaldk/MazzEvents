@@ -75,12 +75,12 @@ app.use('/events', require('./routes/events'));
 app.use('/rating', require('./routes/rating'));
 app.use('/request', require('./routes/request'));
 
-app.use((req, res, next) => {
-    // Error goes via `next()` method
-    setImmediate(() => {
-        next(new Error('Something went wrong'));
-    });
-});
+// app.use((req, res, next) => {
+//     // Error goes via `next()` method
+//     setImmediate(() => {
+//         next(new Error('Something went wrong'));
+//     });
+// });
 
 app.use(function (err, req, res, next) {
     console.error(err.message);

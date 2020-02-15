@@ -11,6 +11,7 @@ import SignUpMusic from '../../Components/Auth/RegisterMusicModal';
 import SignUpPhotography from '../../Components/Auth/RegisterPhotographyModal';
 import SignUpVehicles from '../../Components/Auth/RegisterVehiclesModal';
 import SignUpHalls from '../../Components/Auth/RegisterHallsModal';
+import {Button, Card, Form, Col} from 'react-bootstrap';
 
 
 const SignUpCustomer = props => (
@@ -25,8 +26,14 @@ const SignUpCustomer = props => (
         <td>{props.signupcustomer.signup_state}</td>
         <td>{props.signupcustomer.signup_zip}</td>
         <td>
-            <Link to={"/staff/editserviceprovider/"+props.signupcustomer._id}>Edit</Link>
+            <Link to={"/staff/editserviceprovider/" + props.signupcustomer._id}>Edit</Link>
         </td>
+        <td>
+            <div>
+                {/* <Button onClick={this.deleteUser.bind(this)}>Delete</Button> */}
+            </div>
+        </td>
+
     </tr>
 )
 
@@ -34,39 +41,44 @@ export default class StaffServiceProvider extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {users: []};
+        this.state = { users: [] };
+        // this.deleteUser = this.deleteUser.bind(this);
     }
 
     componentDidMount() {
         axios.get('http://localhost:4000/mazzevents/')
             .then(response => {
                 this.setState({ users: response.data });
+                // console.log(this.state.users);
+
             })
-            .catch(function (error){
+            .catch(function (error) {
                 console.log(error);
             })
     }
+    
 
     UserList() {
-        return this.state.users.map(function(currentSignUpCustomer, i){
-            if(currentSignUpCustomer.signup_type === "2"){
-            return <SignUpCustomer signupcustomer={currentSignUpCustomer} key={i} />;
+        return this.state.users.map(function (currentSignUpCustomer, i) {
+            if (currentSignUpCustomer.signup_type == "2") {
+                return <SignUpCustomer signupcustomer={currentSignUpCustomer} key={i} />;
             }
+
             return null;
         })
     }
 
     render() {
 
-        
+
         return (
             <div>
-                <LeftStaff/>
+                <LeftStaff />
                 <div className="right">
-                    <Upper/>
+                    <Upper />
 
                     <div>
-                    <h3>List of Our Service Providers</h3>
+                        <h3>List of Our Service Providers</h3>
                         <table className="table table-striped" style={{ marginTop: 20 }} >
                             <thead>
                                 <tr>
@@ -82,27 +94,26 @@ export default class StaffServiceProvider extends Component {
                                 </tr>
                             </thead>
                             <tbody>
-                                
-                                { this.UserList() }
+                                {this.UserList()}
                             </tbody>
                         </table>
                         <table>
                             <tbody>
-                            <tr>
-                                <th><SignUpCatering/></th>
-                                <th><SignUpDj/></th>
-                                <th><SignUpFlowers/></th>
-                                <th><SignUpMusic/></th>
-                                <th><SignUpPhotography/></th>
-                                <th><SignUpVehicles/></th>
-                                <th><SignUpHalls/></th>
-                            </tr>
+                                <tr>
+                                    <th><SignUpCatering /></th>
+                                    <th><SignUpDj /></th>
+                                    <th><SignUpFlowers /></th>
+                                    <th><SignUpMusic /></th>
+                                    <th><SignUpPhotography /></th>
+                                    <th><SignUpVehicles /></th>
+                                    <th><SignUpHalls /></th>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
 
                 </div>
-            </div>   
+            </div>
         )
     }
 }
