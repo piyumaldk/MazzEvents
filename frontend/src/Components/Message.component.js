@@ -30,9 +30,9 @@ class Message extends Component {
         //Clear messages
         this.setState({
           modal: !this.state.modal,
-          profileImg: '',
-          upload: '',
         });
+        
+        //this.props.history.push('/customer/chat');
     };
 
   
@@ -73,11 +73,11 @@ class Message extends Component {
 
         return (
 <div>
-<Button className="btn btn-dark" onClick={this.toggle} href="#">
+<Button className="btn btn-dark" onClick={this.toggle} >
                 Message
             </Button>
             <Modal isOpen={this.state.modal} toggle={this.toggle}>
-        <ModalHeader toggle={this.toggle}>Header {this.props.spEmail}</ModalHeader>
+        <ModalHeader toggle={this.toggle}>{this.props.spEmail}</ModalHeader>
           <ModalBody>
           <div className="container">
                 <div className="row">
