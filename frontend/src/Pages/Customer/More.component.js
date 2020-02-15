@@ -63,6 +63,8 @@ class More extends Component {
                     rateTime: response.data.rateTime,
                     signup_completed: response.data.signup_completed
                 })
+                console.log(this.state.signup_email);
+                localStorage.setItem("spEmail",this.state.signup_email);
             })
             .catch(function(error) {
                 console.log(error)
