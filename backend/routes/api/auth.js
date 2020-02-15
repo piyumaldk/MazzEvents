@@ -33,7 +33,8 @@ router.post('/', (req, res) => {
 
                     const client = new StreamChat('', 'tfsrg5j8wfxsmempavenh3fztd2ju48vazsyeensazma5tmxmnntzwdycs4rqf6z');
                     const chatToken = client.createToken(name);
-
+                    console.log("chat token");
+                    console.log(chatToken);
                     jwt.sign(
                         { id: signupcustomer.id },
                         config.get('jwtSecret'),

@@ -59,14 +59,24 @@ const sort = { last_message_at: -1 };
   
 };
 
-const mapStateToProps = state => {
-  return {
-      email: state.email,
-      token: state.token,
-      chatToken: state.chatToken,
-      profilePic: state.profilePicUrl
+const mapStateToProps = state => ({
+  id: state.auth.id,
+  fName: state.auth.fName,
+  lName: state.auth.lName,
+  email: state.auth.email,
+  token: state.auth.token,
+  chatToken: state.auth.chatToken,
+  number: state.auth.number
+});
+
+// const mapStateToProps = state => {
+//   return {
+//       email: state.email,
+//       token: state.token,
+//       chatToken: state.chatToken,
+//       profilePic: state.profilePicUrl
       
-  }
-}
+//   }
+// }
 
 export default connect(mapStateToProps,null)(ChatComponent);
