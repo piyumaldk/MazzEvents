@@ -153,6 +153,7 @@ import { Button, Card, Form, Col } from 'react-bootstrap';
 
     deleteUser(e) {
         e.preventDefault();
+        alert("Are you sure?")
         console.log("abc")
         var id = localStorage.getItem('spId');
         console.log(id);

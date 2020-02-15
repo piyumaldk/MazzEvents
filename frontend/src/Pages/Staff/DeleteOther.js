@@ -157,6 +157,7 @@ import normal from '../../Images/Profile/normal.png';
 
     deleteUser(e) {
         e.preventDefault();
+        alert("Are you sure?")
         console.log("abc")
         var id = localStorage.getItem('spId');
         console.log(id);
@@ -235,6 +236,7 @@ import normal from '../../Images/Profile/normal.png';
                                 </div> */}
                                 <div className="col-md-6">
                                 <Button onClick={this.deleteUser}>Delete</Button>
+                                        
                                 </div>
                                 
                             </div>
