@@ -196,7 +196,7 @@ onChangeSignupText(e){
                       </Card>
                   </div>
 
-                  <div className="rightAccount">
+                  <div className="rightAccountSP">
                       <h3>My Service</h3>
                       <Form onSubmit={this.onSubmit}>
                           <Form.Row>
@@ -227,7 +227,7 @@ onChangeSignupText(e){
                                     <Form.Control type="text" className="form-control" value={this.state.signup_address2} onChange={this.onChangeSignupAddress2}/>
                                 </Form.Group>
                           </Form.Row>
-                          <Button variant="primary" type="submit"  value="Update">
+                          <Button variant="dark" type="submit"  value="Update">
                               Update
                           </Button>
                       </Form>

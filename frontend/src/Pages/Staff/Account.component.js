@@ -6,6 +6,7 @@ import Upper from "../../Components/Upper.component";
 import { connect } from 'react-redux';
 import AddImage from "../../Components/AddStaffImage.component";
 import normal from '../../Images/Profile/normal.png';
+import Delete from "../../Components/Delete.component";
 
 class StaffAccount extends Component {
 
@@ -108,8 +109,16 @@ class StaffAccount extends Component {
         axios.post('http://localhost:4000/mazzevents/updatecustomer/' + this.props.id, obj)
             .then(res => console.log(res.data));
 
-        this.props.history.push('/staff/serviceprovider');
-    }
+            const obj2 = {
+                signup_password: this.state.signup_password,
+                signup_completed: this.state.signup_completed
+            };
+            if(this.state.signup_password){
+                axios.post('http://localhost:4000/mazzevents/updatepassword/'+this.props.id, obj2)
+                    .then(res => console.log(res.data));
+            }
+            //this.props.history.push('/customer/photo');
+        }
 
     render() {
         return (
@@ -163,9 +172,16 @@ class StaffAccount extends Component {
                                     <Form.Control type="text" className="form-control" value={this.state.signup_number} onChange={this.onChangeSignupNumber} />
                                 </Form.Group>
                             </Form.Row>
-                            <Button variant="primary" type="submit" value="Update">
-                                Update
-                            </Button>
+                            <div className="row">
+                                <div className="col-md-6">
+                                    <Button variant="dark" type="submit"  value="Update">
+                                        Update
+                                    </Button>
+                                </div>
+                                <div className="col-md-6">
+                                    <Delete/>
+                                </div>
+                            </div>
                         </Form>
                     </div>
                    
