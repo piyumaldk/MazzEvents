@@ -16,6 +16,8 @@ import StaffCatering from "./Catering.component";
 import StaffDj from "./Dj.component";
 import StaffMusic from "./Music.component";
 import StaffPhotographers from "./Photography.component";
+import DeleteOther from "./DeleteOther";
+
 
 export default class Staff extends Component {
     render() {
@@ -38,6 +40,7 @@ export default class Staff extends Component {
                     <Route path="/staff/music" component={StaffMusic}/>
                     <Route path="/staff/photographer" component={StaffPhotographers}/>
                     <Route path="/staff/editserviceprovider/:id" component={EditServiceProvider} />
+                    <Route path="/staff/deleteserviceprovider/:id" component={DeleteOther} />
                 </Router>
             </div>
         )
