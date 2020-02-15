@@ -10,13 +10,16 @@ import 'stream-chat-react/dist/css/index.css';
 
 const ChatComponent = (props) => {
   //client = stream.connect('dmr78d6h89rt', null, '68343');
-  const client = new StreamChat("fxzc4u2qjgd9");
+  const client = new StreamChat("rc877bcxcrne");
   const userToken = props.chatToken;
+  console.log(userToken);
+  
 
   const email = props.email;
   var n = email.indexOf("@");
   var name = email.slice(0, n);
   console.log(name);
+  
 
   //client.disconnect();
   client.setUser(
