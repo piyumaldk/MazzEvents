@@ -54,7 +54,7 @@ class Delete extends Component {
         return (
             <div>
                 <Button className="btn btn-dark" onClick={this.toggle} href="#">
-                    Delete
+                    Delete My Account
                 </Button>
                 <Modal isOpen={this.state.modal} toggle={this.toggle}>
                     <ModalHeader toggle={this.toggle}>Select a Picture</ModalHeader>

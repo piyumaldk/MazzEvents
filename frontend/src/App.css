@@ -377,6 +377,14 @@ padding: 10px;
     height:60%;
     }
 
+  .rightAccountSP{
+      position: absolute;
+      top: 158px;
+      right: 50px;
+      width: 50%;
+      height:60%;
+      }
+
     /*Right Component(piyumal)*/
 /* .left{
   

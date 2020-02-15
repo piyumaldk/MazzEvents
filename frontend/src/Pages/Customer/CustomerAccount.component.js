@@ -104,8 +104,6 @@ class CustomerAccount extends Component {
             signup_firstName: this.state.signup_firstName, 
             signup_lastName: this.state.signup_lastName,
             signup_email: this.state.signup_email,
-            //signup_password: this.state.signup_password,
-            signup_aPassword: this.state.signup_aPassword,
             signup_number: this.state.signup_number,
             signup_location: this.state.signup_location,
             signup_completed: this.state.signup_completed
@@ -119,21 +117,10 @@ class CustomerAccount extends Component {
             signup_completed: this.state.signup_completed
         };
         if(this.state.signup_password){
-            console.log("redda");
             axios.post('http://localhost:4000/mazzevents/updatepassword/'+this.props.id, obj2)
                 .then(res => console.log(res.data));
         }
         //this.props.history.push('/customer/photo');
-    }
-
-    onSubmit2(e) {
-        e.preventDefault();
-       
-        console.log(this.state.signup_password);
-        // axios.post('http://localhost:4000/mazzevents/updatepassword/'+this.props.id, obj)
-        //     .then(res => console.log(res.data));
-
-        //this.props.history.push('/');
     }
     
     render() {
@@ -142,10 +129,11 @@ class CustomerAccount extends Component {
                 <LeftCustomer/>
                 <div className="right">
                     <Upper/>
-
                     <div className="left">
                         <Card style={{ width: '18rem'}}>
+                        <div className="overflow"> 
                             <Card.Img variant="top" src={!this.state.profilePic ? customer :this.state.profilePic} />
+                        </div>    
                             <Card.Body>
                             <Card.Title><center>{this.state.signup_firstName} {this.state.signup_lastName}</center></Card.Title>
                             <Card.Text>
@@ -156,7 +144,6 @@ class CustomerAccount extends Component {
                             <br/>
                             <center>
                         <AddImage/> 
-                        <Delete/>
                         </center>
                             </Card.Body>
                         </Card>
@@ -195,41 +182,18 @@ class CustomerAccount extends Component {
 
                             <div className="row">
                                 <div className="col-md-6">
-                            <Button variant="primary" type="submit"  value="Update">
-                                Update
-                            </Button>
+                                    <Button variant="dark" type="submit"  value="Update">
+                                        Update
+                                    </Button>
                                 </div>
                                 <div className="col-md-6">
-                            {/* <Button variant="primary"   value="Update" href="/customer/repassword">
-                                Change password
-                            </Button> */}
+                                    <Delete/>
                                 </div>
                             </div>
-                          
                         </Form>
-                        
-
-                        {/* <Form onSubmit={this.onSubmit2}>
-                            <Form.Row>
-                                <Form.Group as={Col} controlId="formGridFirstName">
-                                    <Form.Label>Password</Form.Label>
-                                    <Form.Control type="password" className="form-control" onChange={this.onChangeSignupPassword}/>
-                                </Form.Group>
-                            </Form.Row>
-                            
-                            <div className="row">
-                                <div className="col-md-6">
-                            <Button disabled={!this.state.signup_password} variant="primary" type="submit"  value="Update">
-                                Update
-                            </Button>
-                                </div>
-                            {this.state.signup_password}
-                            </div>
-                          
-                        </Form> */}
                     </div>
                 </div>
-             </div>
+            </div>
         )
     }
 }

@@ -58,7 +58,7 @@ class ServiceProviderReviews extends Component {
                     <Upper/>
 
                     <div>
-                    <h3>List of Our Service Providers</h3>
+                    <h3>Ratings</h3>
                         <table className="table table-striped" style={{ marginTop: 20 }} >
                             <thead>
                                 <tr>
