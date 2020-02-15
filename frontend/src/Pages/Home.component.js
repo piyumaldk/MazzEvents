@@ -7,19 +7,19 @@ import axios from 'axios';
 
 const Events = props => (
     <div>   
-        <Card  bg="light" text="black" style={{ width: '20rem'  }}>   
+        <Card  bg="dark" text="white" style={{ width: '15rem'}}>   
         {/* <Card.Img variant="top" height="240" src={company} /> */}
-        <Card.Header><center>Upcoming Event</center></Card.Header>
+       <center><Card.Header><b>{props.events.eventName}</b></Card.Header>
             <Card.Body>
-            <Card.Title><center>Redda</center></Card.Title>
+            {/* <Card.Title></Card.Title> */}
             <Card.Text >
-                {props.events.eventName}<br/>
-                {props.events.location}<br/>
-                {props.events.time}<br/>
-                <br/>
-            </Card.Text>
-            <center><Button variant="dark" href={props.events.link}>Go somewhere</Button></center>
-            </Card.Body>
+                Event Name:{props.events.eventName}<br/>
+                Location:{props.events.location}<br/>
+                Time:{props.events.time}<br/>
+                    <br/>
+             </Card.Text>
+            <center><Button variant="light" href={props.events.link}>Learn More</Button></center>
+            </Card.Body></center>
         </Card>     
     </div>
 )
@@ -83,21 +83,20 @@ export default class Home extends Component {
                             </Carousel.Item>
                         </Carousel> 
                         </div>
-                        <div >
-                    <p>Upcoming events</p>
+                    <div >
+                        <center><h3><b>Upcoming events</b></h3></center>
 
-                    <div>
-                    <div>
-                        
-                    <CardDeck>
-                    {this.UserList()}
-                        
-                        </CardDeck>
-                         
+                        <div>
+                            <div>
+                                    
+                                <CardDeck>
+                                {this.UserList()}
+                                    
+                                    </CardDeck>
+                            </div>
+                        </div>   
+
                     </div>
-            </div>   
-
-                </div>
                 
                     
                 </div>  
