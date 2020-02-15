@@ -8,6 +8,7 @@ import {Button, Card, Form, Col} from 'react-bootstrap';
 import company from '../../Images/Profile/company.png';
 import normal from '../../Images/Profile/normal.png';
 import {Input} from 'reactstrap';
+import Message from "../../Components/Message.component";
 
 import '../../Components/Cads/card-style.css';
 
@@ -141,10 +142,12 @@ class More extends Component {
         const { rating } = this.state;
         return (
             <div>
+                
                 <LeftCustomer/>
                 <div className="right">
                     <Upper/>
                     <div className="background">
+                    <Message/>
                         <center>
                             <h1>
                                 <StarRatingComponent 
@@ -233,6 +236,8 @@ class More extends Component {
                           
                         </Form>
             {/* dddddddddddddddddddddddddddddddddddddddddddddd */}
+
+            
             
                     </div> 
                 </div>
