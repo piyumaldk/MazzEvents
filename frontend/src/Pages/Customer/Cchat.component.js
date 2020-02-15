@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import LeftCustomer from "../../Components/LeftCustomer.component";
 import Upper from "../../Components/Upper.component";
+import Chat from "../../Components/Chat.component";
 
 export default class Cchat extends Component {
     render() {
@@ -11,8 +12,9 @@ export default class Cchat extends Component {
                 <LeftCustomer/>
                 <div className="right">
                 <Upper/> 
+                <Chat/>
                
-                This is LeftCustomer - Chat
+                
                     
                 </div>
             </div>   

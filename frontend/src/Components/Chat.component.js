@@ -10,13 +10,16 @@ import 'stream-chat-react/dist/css/index.css';
 
 const ChatComponent = (props) => {
   //client = stream.connect('dmr78d6h89rt', null, '68343');
-  const client = new StreamChat("fxzc4u2qjgd9");
+  const client = new StreamChat("rc877bcxcrne");
   const userToken = props.chatToken;
+  console.log(userToken);
+  
 
   const email = props.email;
   var n = email.indexOf("@");
   var name = email.slice(0, n);
   console.log(name);
+  
 
   //client.disconnect();
   client.setUser(
@@ -59,14 +62,24 @@ const sort = { last_message_at: -1 };
   
 };
 
-const mapStateToProps = state => {
-  return {
-      email: state.email,
-      token: state.token,
-      chatToken: state.chatToken,
-      profilePic: state.profilePicUrl
+const mapStateToProps = state => ({
+  id: state.auth.id,
+  fName: state.auth.fName,
+  lName: state.auth.lName,
+  email: state.auth.email,
+  token: state.auth.token,
+  chatToken: state.auth.chatToken,
+  number: state.auth.number
+});
+
+// const mapStateToProps = state => {
+//   return {
+//       email: state.email,
+//       token: state.token,
+//       chatToken: state.chatToken,
+//       profilePic: state.profilePicUrl
       
-  }
-}
+//   }
+// }
 
 export default connect(mapStateToProps,null)(ChatComponent);

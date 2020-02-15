@@ -11,6 +11,7 @@ import {
   
   const initialState = {
     token: localStorage.getItem('token'),
+    chatToken: localStorage.getItem('chatToken'),
     isAuthenticated: null,
     isLoading: false,
     id: null,
@@ -38,7 +39,7 @@ import {
         return {
           ...state,
           isAuthenticated: state.token !== null,
-          
+          isAuthenticated: state.chatToken !== null,
           isLoading: false,
           type: localStorage.getItem('type'),
           id: localStorage.getItem('id'),
@@ -56,6 +57,7 @@ import {
       case LOGIN_SUCCESS:
       case REGISTER_SUCCESS:
         localStorage.setItem('token', action.payload.token);
+        localStorage.setItem('chatToken', action.payload.chatToken);
         localStorage.setItem('id', action.payload.signupcustomer.id);
         localStorage.setItem('type', action.payload.signupcustomer.type);
         localStorage.setItem('email', action.payload.signupcustomer.email);
@@ -72,6 +74,7 @@ import {
         return {
           ...state,
           token: action.payload.token,
+          chatToken: action.payload.chatToken,
           isAuthenticated: true,
           isLoading: false,
           id: action.payload.signupcustomer.id,
@@ -93,6 +96,7 @@ import {
           localStorage.removeItem('id');
           localStorage.removeItem('type');
           localStorage.removeItem('token');
+          localStorage.removeItem('chatToken');
           localStorage.removeItem('email');
           localStorage.removeItem('fName');
           localStorage.removeItem('lName');
@@ -107,6 +111,7 @@ import {
             id: null,
             type: null,
             token: null,
+            chatToken: null,
             isAuthenticated: false,
             isLoading: false,
             fName: null,
@@ -124,6 +129,7 @@ import {
         localStorage.removeItem('id');
         localStorage.removeItem('type');
         localStorage.removeItem('token');
+        localStorage.removeItem('chatToken');
         localStorage.removeItem('email');
         localStorage.removeItem('fName');
         localStorage.removeItem('lName');
@@ -137,6 +143,7 @@ import {
         return {
           ...state,
           token: null,
+          chatToken: null,
           user: null,
           isAuthenticated: false,
           isLoading: false
