@@ -103,7 +103,7 @@ class LogIn extends Component {
                         <EmailIcon style={{ fontSize: 30 }} />
                   </div>
                         <div className="col-md-11">
-                        <Input type="email" class="fontAwesome" name="signup_email" id="signup_email" placeholder="Email Address" className="mb-3" onChange={this.onChange}/>
+                        <Input type="email" className="fontAwesome" name="signup_email" id="signup_email" placeholder="Email Address" className="mb-3" onChange={this.onChange}/>
                   </div>
                     </div>
 

@@ -4,7 +4,6 @@ import Upper from "../Components/Upper.component";
 
 import {Button, Card, CardDeck} from 'react-bootstrap';
 import axios from 'axios';
-import catering from '../Images/catering.jpg';
 
 const Events = props => (
     <div>   

@@ -1,12 +1,12 @@
 import React, { PureComponent } from 'react';
-import { LineChart, BarChart, Bar, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
-import { PieChart, Pie, Sector, Cell, } from 'recharts';
+import {BarChart, Bar,XAxis, YAxis, CartesianGrid, Tooltip} from 'recharts';
+import { PieChart, Pie, Sector} from 'recharts';
 import LeftAdmin from "../../Components/LeftAdmin.component";
 import Upper from "../../Components/Upper.component";
 import axios from 'axios';
 
 
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
+// const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
 const renderActiveShape = (props) => {
   const RADIAN = Math.PI / 180;
@@ -102,7 +102,7 @@ export default class Charts extends PureComponent {
         var j = d.getMonth();
         var m = new Array();
         while (n < 11) {
-          if (j == -1) {
+          if (j === -1) {
             j = 11;
           }
           m[i] = month[j];

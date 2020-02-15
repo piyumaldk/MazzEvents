@@ -6,7 +6,7 @@ export default class AdminAuthentication extends Component {
         return (
             <div>
               
-                <div class="right">
+                <div className="right">
                     <Upper/>
                     This is Admin - Authentication
                 </div> 

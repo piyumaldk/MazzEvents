@@ -3,16 +3,23 @@ import LeftCustomer from "../../Components/LeftCustomer.component";
 import Upper from "../../Components/Upper.component";
 import axios from 'axios';
 import { connect } from 'react-redux';
-import ReactDOM from 'react-dom';
 import StarRatingComponent from 'react-star-rating-component';
-import {Card, Button} from 'react-bootstrap';
+import {Button, Card, Form, Col} from 'react-bootstrap';
 import company from '../../Images/Profile/company.png';
 import normal from '../../Images/Profile/normal.png';
-import '../../Components/Cads/card-style.css'
+import {Input} from 'reactstrap';
+import Message from "../../Components/Message.component";
+
+import '../../Components/Cads/card-style.css';
 
 class More extends Component {
     constructor(props) {
         super(props);
+
+        this.onChangeName = this.onChangeName.bind(this);
+        this.onChangeSubject = this.onChangeSubject.bind(this);
+        this.onChangeText = this.onChangeText.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
             signup_firstName: '',
@@ -29,6 +36,9 @@ class More extends Component {
             sumRate: '',
             rateTime: '',
             rating: 1,
+            name: '',
+            subject: '',
+            text: '',
             signup_completed: false
         }
     }
@@ -57,6 +67,22 @@ class More extends Component {
             .catch(function(error) {
                 console.log(error)
             })
+    }
+
+    onChangeName(e){
+        this.setState({
+            name: e.target.value
+        });
+    }
+    onChangeSubject(e){
+        this.setState({
+            subject: e.target.value
+        });
+    }
+    onChangeText(e){
+        this.setState({
+            text: e.target.value
+        });
     }
 
     onStarClick(nextValue, prevValue, name){
@@ -93,14 +119,35 @@ class More extends Component {
 
     }
 
+    onSubmit(e) {
+        e.preventDefault();
+        const obj = {
+            customerId : this.props.id,
+            customerFName : this.props.fName,
+            customerLName : this.props.lName,
+            customerEmail : this.props.email,
+            spId : this.props.match.params.id,
+            name: this.state.name, 
+            subject: this.state.subject,
+            text: this.state.text,
+            //signup_completed: this.state.signup_completed
+        };
+        console.log(obj);
+        axios.post('http://localhost:4000/request/addrequest/', obj)
+            .then(res => console.log(res.data));
+
+        //this.props.history.push('/customer/photo');
+    }
     render() {
         const { rating } = this.state;
         return (
             <div>
+                
                 <LeftCustomer/>
                 <div className="right">
                     <Upper/>
                     <div className="background">
+                    <Message/>
                         <center>
                             <h1>
                                 <StarRatingComponent 
@@ -111,16 +158,18 @@ class More extends Component {
                                 />
                             </h1>
                         </center>
+
+            
                         <div className="rightMore">
                             <div className="moretop">
-                                
+                            
                             </div>
                         </div>
 
                         <div className="rightmore">
                             <div className="morebottomleft">
                                 <div class="cardAlignRight">     
-                                    <Card style={{ width: '18rem' },{height:'27rem'}}>
+                                    <Card style={{ width: '18rem', height:'27rem'}}>
                                     <div className="overflow">     
                                     <Card.Img variant="top" height="240" src={!this.state.businessPic ? company:this.state.businessPic} />
                                     </div>
@@ -138,7 +187,7 @@ class More extends Component {
 
                             <div className="morebottomright">
                                 <div class="cardAlignLeft">    
-                                    <Card style={{ width: '18rem' } ,{height:'27rem'}}>
+                                    <Card style={{ width: '18rem', height:'27rem'}}>
                                 <div className="overflow">     
                                     <Card.Img variant="top" height="240" src={!this.state.profilePic ? normal:this.state.profilePic} />
                                 </div>
@@ -154,6 +203,42 @@ class More extends Component {
                                 </div>
                             </div>
                         </div>
+
+                        {/* ddddddddddddddddddddddddddddddddddddddddddddd */}
+
+            <h3>Request</h3>
+                        <Form onSubmit={this.onSubmit}>
+                            <Form.Row>
+                                <Form.Group as={Col} controlId="formGridFirstName">
+                                    <Form.Label>Name</Form.Label>
+                                    <Form.Control type="text" className="form-control" onChange={this.onChangeName}/>
+                                </Form.Group>
+                                <Form.Group as={Col} controlId="formGridLastName">
+                                    <Form.Label>Subject</Form.Label>
+                                    <Form.Control type="textfield" className="form-control" onChange={this.onChangeSubject}/>
+                                </Form.Group>
+                            </Form.Row>
+                            <Form.Row>
+                                <Form.Group as={Col} controlId="formGridEmail">
+                                    <Form.Label>Text</Form.Label>
+                                    <Input type="textarea" name="signup_text" id="signup_text" placeholder="text" className="mb-3" onChange={this.onChangeText}/>
+                                </Form.Group>
+                            </Form.Row>
+
+                            <div className="row">
+                                <div className="col-md-6">
+                            <Button disabled={!this.state.name || !this.state.subject || !this.state.text} variant="dark" type="submit"  value="Update">
+                                Send Request
+                            </Button>
+                                </div>
+                               
+                            </div>
+                          
+                        </Form>
+            {/* dddddddddddddddddddddddddddddddddddddddddddddd */}
+
+            
+            
                     </div> 
                 </div>
             </div>

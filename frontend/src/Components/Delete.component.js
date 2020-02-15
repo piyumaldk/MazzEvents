@@ -2,15 +2,13 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import {
-    Input,
     Label,
     Button,
     Modal,
     ModalHeader,
     ModalBody
   } from 'reactstrap';
-  import {LOGOUT_SUCCESS} from "../Actions/types";
-  import { logout } from '../Actions/authActions';
+
 class Delete extends Component {
 
     constructor(props) {
@@ -56,7 +54,7 @@ class Delete extends Component {
         return (
             <div>
                 <Button className="btn btn-dark" onClick={this.toggle} href="#">
-                    Delete
+                    Delete My Account
                 </Button>
                 <Modal isOpen={this.state.modal} toggle={this.toggle}>
                     <ModalHeader toggle={this.toggle}>Select a Picture</ModalHeader>

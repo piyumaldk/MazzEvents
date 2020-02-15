@@ -84,24 +84,6 @@ height: 100%;
   width: 100%;
   height: 100%;
 }
-/*Right Component*/
-.left{
-  
-  position: absolute;
-  left: 0px;
-  width: 20%;
-  height: 100%;
-  }
-
-.rightAccount{
-  position: absolute;
-  top: 100px;
-  right: 50px;
-  width: 50%;
-  height: 100%;
-  }
-  
-
 
 /*About us left*/
 .leftAboutUs{
@@ -378,3 +360,46 @@ padding: 10px;
     text-align: center;
     background-color: #f1f1f1;
   }
+
+   /*Right Component(nipuni)*/
+  .left{
+    top:130px;
+    position: absolute;
+    left: 150px;
+    width: 50%;
+    height: 60%;
+    }
+  
+  .rightAccount{
+    position: absolute;
+    top: 200px;
+    right: 50px;
+    width: 50%;
+    height:60%;
+    }
+
+  .rightAccountSP{
+      position: absolute;
+      top: 158px;
+      right: 50px;
+      width: 50%;
+      height:60%;
+      }
+
+    /*Right Component(piyumal)*/
+/* .left{
+  
+  position: absolute;
+  left: 0px;
+  width: 20%;
+  height: 100%;
+  }
+
+.rightAccount{
+  position: absolute;
+  top: 100px;
+  right: 50px;
+  width: 50%;
+  height: 100%;
+  } */
+  

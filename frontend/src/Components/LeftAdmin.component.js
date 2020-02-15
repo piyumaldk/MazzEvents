@@ -5,8 +5,8 @@ export default class LeftServiceProvider extends Component {
     render() {
         return (
             <div> 
-                <nav class="sidenav">
-                    <ul class="list-unstyled components">
+                <nav className="sidenav">
+                    <ul className="list-unstyled components">
                         <h>Administrator Dashboard</h>
                         <p>Components</p>
                         <li><a href="/admin/staff">Staff +</a></li>

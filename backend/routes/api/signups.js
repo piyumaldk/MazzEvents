@@ -98,6 +98,38 @@ router.post('/addcustomer', (req, res) => {
         })
 });
 
+
+// bcrypt.genSalt(10, (err, salt) => {
+//   bcrypt.hash(signupcustomer.signup_password, salt, (err, hash) => {
+//     if(err) throw err;
+//     signupcustomer.signup_password = hash;
+//     signupcustomer.save()
+//   })
+// })
+
+
+
+
+router.route('/updatepassword/:id').post(function(req, res) {
+  SignUpCustomer.findById(req.params.id, function(err, signupcustomer) {
+      if (!signupcustomer){
+          res.status(404).send("data is not found");
+      }
+      else
+      console.log("hure");
+        var password = req.body.signup_password;
+        bcrypt.hash(password, 10, function(err, hash) {
+          password = hash;
+          signupcustomer.signup_password = password;
+                signupcustomer.save().then(signupcustomer => {})
+                  .catch(err => {
+                    res.status(400).send("Update not possible");
+                  });
+        });
+        
+  });
+});
+
 router.route('/updatecustomer/:id').post(function(req, res) {
   SignUpCustomer.findById(req.params.id, function(err, signupcustomer) {
       if (!signupcustomer){

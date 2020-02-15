@@ -1,7 +1,7 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, { Component} from 'react';
 import LeftCustomer from "../../Components/LeftCustomer.component";
-import {Button, Card, CardDeck, FormControl, Container} from 'react-bootstrap';
-import { Form, FormGroup,  Input, Col} from 'reactstrap';
+import {Card, CardDeck} from 'react-bootstrap';
+import { Form, FormGroup,  Input} from 'reactstrap';
 import '../../App.css';
 import axios from 'axios';
 import Upper from "../../Components/Upper.component";
@@ -74,7 +74,7 @@ export default class Photgraphers extends Component {
    
     UserList () {
         const local = this.state.location;
-        if(local ==null || local==""){
+        if(local ==null || local===""){
             return this.state.users.map(function(currentSignUpCustomer, i){
                 if(currentSignUpCustomer.signup_type === "2" && currentSignUpCustomer.signup_category === "Vehicles"){
                 return <SignUpCustomer signupcustomer={currentSignUpCustomer} key={i} />;

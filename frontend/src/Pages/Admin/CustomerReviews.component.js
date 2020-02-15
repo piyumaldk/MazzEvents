@@ -6,7 +6,7 @@ export default class AdminCoustomerReviews extends Component {
         return (
             <div>
                 <LeftAdmin/>
-                <div class="right">
+                <div className="right">
                 <Upper/>
                     This is Admin - Customer Reviews
                 </div> 

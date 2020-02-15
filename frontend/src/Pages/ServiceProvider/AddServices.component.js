@@ -66,14 +66,14 @@ class ServiceProviderAddServices extends Component {
               })
           })
 
-          axios.get('http://localhost:4000/mazzevents/getprofileimg/'+this.props.id)
-            .then(response => {
-                console.log("testing");
-                this.setState({
-                    ownerId: response.data.ownerId,
-                    businessPic: response.data.businessImg
-                })
-            })
+        //   axios.get('http://localhost:4000/mazzevents/getprofileimg/'+this.props.id)
+        //     .then(response => {
+        //         console.log("testing");
+        //         this.setState({
+        //             ownerId: response.data.ownerId,
+        //             businessPic: response.data.businessImg
+        //         })
+        //     })
 
           .catch(function(error) {
               console.log(error)
@@ -179,7 +179,9 @@ onChangeSignupText(e){
 
                   <div className="left">
                       <Card style={{ width: '18rem' }}>
+                      <div className="overflow">  
                           <Card.Img variant="top" src={!this.state.businessPic ? company :this.state.businessPic} />
+                       </div>   
                           <Card.Body>
                           <Card.Title><center>{this.state.signup_firstName} {this.state.signup_lastName}</center></Card.Title>
                           <Card.Text>
@@ -194,7 +196,7 @@ onChangeSignupText(e){
                       </Card>
                   </div>
 
-                  <div className="rightAccount">
+                  <div className="rightAccountSP">
                       <h3>My Service</h3>
                       <Form onSubmit={this.onSubmit}>
                           <Form.Row>
@@ -225,7 +227,7 @@ onChangeSignupText(e){
                                     <Form.Control type="text" className="form-control" value={this.state.signup_address2} onChange={this.onChangeSignupAddress2}/>
                                 </Form.Group>
                           </Form.Row>
-                          <Button variant="primary" type="submit"  value="Update">
+                          <Button variant="dark" type="submit"  value="Update">
                               Update
                           </Button>
                       </Form>

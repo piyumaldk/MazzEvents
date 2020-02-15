@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import '../../App.css';
 import axios from 'axios';
 import Upper from "../../Components/Upper.component";
-import { Link } from 'react-router-dom';
-import SignUpCatering from '../../Components/Auth/RegisterCateringModal';
 import StarRatingComponent from 'react-star-rating-component';
 import { connect } from 'react-redux';
 import LeftServiceProvider from '../../Components/LeftServiceProvider.component';
@@ -60,7 +58,7 @@ class ServiceProviderReviews extends Component {
                     <Upper/>
 
                     <div>
-                    <h3>List of Our Service Providers</h3>
+                    <h3>Ratings</h3>
                         <table className="table table-striped" style={{ marginTop: 20 }} >
                             <thead>
                                 <tr>
