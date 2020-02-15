@@ -73,6 +73,7 @@ app.use('/mazzevents', require('./routes/api/services'));
 app.use('/mazzevents/graph', require('./routes/graph'));
 app.use('/events', require('./routes/events'));
 app.use('/rating', require('./routes/rating'));
+app.use('/request', require('./routes/request'));
 
 app.use((req, res, next) => {
     // Error goes via `next()` method
