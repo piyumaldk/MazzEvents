@@ -35,6 +35,9 @@ router.post('/', (req, res) => {
                     const chatToken = client.createToken(name);
                     console.log("chat token");
                     console.log(chatToken);
+                    
+                   
+
                     jwt.sign(
                         { id: signupcustomer.id },
                         config.get('jwtSecret'),
