@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
+import { StreamChat } from 'stream-chat';
+import { Chat, Channel, ChannelHeader, Thread, Window, MessageList, MessageInput, conversation } from 'stream-chat-react';
 import {
     Input,
     Label,
@@ -29,50 +31,66 @@ class Message extends Component {
         this.setState({
           modal: !this.state.modal,
           profileImg: '',
-          upload: ''
+          upload: '',
         });
     };
 
-    // onFileChange(e) {
-    //     this.setState({ profileImg: e.target.files[0] })
-        
-    // }
-
-    // onSubmit(e) {
-    //     e.preventDefault()
-    //     const formData = new FormData()
-    //     formData.append('profileImg', this.state.profileImg)
-    //     axios.post("http://localhost:4000/mazzevents/addprofileimg/"+this.props.id, formData, {
-    //     }).then(res => {
-    //         console.log(res)
-    //     })
-    //     this.setState({ upload: 1 })
-    // }
+  
 
 
     render() {
+
+        const client = new StreamChat("rc877bcxcrne");
+        const userToken = this.props.chatToken;
+        console.log(this.props.chatToken);
+        const customeremail = this.props.email;
+        var n = customeremail.indexOf("@");
+        var customername = customeremail.slice(0, n);
+        console.log(localStorage.getItem('spEmail'));
+        
+        const workeremail = localStorage.getItem('spEmail');
+        var m = workeremail.indexOf("@");
+        var workername = workeremail.slice(0, m);
+        console.log(customeremail);
+        var channelName = customername.concat('-',workername);
+        console.log(channelName);
+
+        //client.disconnect();
+        client.setUser(
+            {
+                id: customername,
+                name: customername,
+                //image: props.profilePicUrl,
+            },
+            userToken,
+        );
+
+        const conversation = client.channel('messaging', channelName, {
+            name: channelName,
+           // image: 'http://bit.ly/2O35mws',
+            members: [customername, workername]
+        });
+
         return (
 <div>
 <Button className="btn btn-dark" onClick={this.toggle} href="#">
                 Message
             </Button>
             <Modal isOpen={this.state.modal} toggle={this.toggle}>
-          <ModalHeader toggle={this.toggle}>Header</ModalHeader>
+        <ModalHeader toggle={this.toggle}>Header {this.props.spEmail}</ModalHeader>
           <ModalBody>
           <div className="container">
                 <div className="row">
-                    {/* <form onSubmit={this.onSubmit}>
-                        <div className="form-group">
-                            <Label for="avatar">Choose a profile picture</Label>
-                            <Input className="btn btn-dark" type="file" id="avatar" onChange={this.onFileChange} />
-                        </div>
-                        <div className="form-group">
-                            <Button className="btn btn-dark" disabled={!this.state.profileImg || this.state.upload===1} type="submit">Upload</Button>
-                            <div className="float-right">
-                            <Button className="btn btn-dark" disabled={!this.state.profileImg || !this.state.upload} href="/admin/account">Save</Button>
-                            </div>
-                        </div>
-                    </form> */}
+                chatWindow = <Chat client={client} theme={'messaging light'}>
+                        <Channel channel={conversation}>
+                            <Window>
+                            <ChannelHeader />
+                            <MessageList />
+                            <MessageInput />
+                            </Window>
+                            <Thread />
+                        </Channel>
+                    </Chat>
                 </div>
             </div>
           </ModalBody>
@@ -87,7 +105,10 @@ const mapStateToProps = state => ({
     fName: state.auth.fName,
     lName: state.auth.lName,
     email: state.auth.email,
-    number: state.auth.number
+    number: state.auth.number,
+    token: state.auth.token,
+    chatToken: state.auth.chatToken,
+    spEmail: state.spEmail
 });
 
 export default connect(mapStateToProps,null)(Message);
