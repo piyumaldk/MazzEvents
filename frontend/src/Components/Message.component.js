@@ -31,7 +31,9 @@ class Message extends Component {
         this.setState({
           modal: !this.state.modal,
         });
-        
+        if(this.state.modal){
+            window.location.reload();
+        }
         //this.props.history.push('/customer/chat');
     };
 
