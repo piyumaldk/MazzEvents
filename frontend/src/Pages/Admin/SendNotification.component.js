@@ -6,7 +6,7 @@ export default class AdminSendNotification extends Component {
         return (
             <div>
                 <LeftAdmin/>
-                <div class="right">
+                <div className="right">
                 <Upper/>
                     This is Admin - SendNotification
                 </div> 

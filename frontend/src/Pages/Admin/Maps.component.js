@@ -6,7 +6,7 @@ export default class AdminMaps extends Component {
         return (
             <div>
                 <LeftAdmin/>
-                <div class="right">
+                <div className="right">
                 <Upper/>
                     This is Admin - Maps
                 </div> 

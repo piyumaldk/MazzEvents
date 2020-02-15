@@ -49,16 +49,17 @@ class CustomerAccount extends Component {
                 })
             })
 
-            axios.get('http://localhost:4000/mazzevents/getprofileimg/'+this.props.id)
-            .then(response => {
-                console.log("testing");
-                this.setState({
-                    ownerId: response.data.ownerId,
-                    profilePic: response.data.profileImg
-                })
-            })
+            // axios.get('http://localhost:4000/mazzevents/getprofileimg/'+this.props.id)
+            // .then(response => {
+            //     console.log("testing");
+            //     this.setState({
+            //         ownerId: response.data.ownerId,
+            //         profilePic: response.data.profileImg
+            //     })
+            // })
 
             .catch(function(error) {
+                console.log("Gon");
                 console.log(error)
             })
     }

@@ -66,14 +66,14 @@ class ServiceProviderAddServices extends Component {
               })
           })
 
-          axios.get('http://localhost:4000/mazzevents/getprofileimg/'+this.props.id)
-            .then(response => {
-                console.log("testing");
-                this.setState({
-                    ownerId: response.data.ownerId,
-                    businessPic: response.data.businessImg
-                })
-            })
+        //   axios.get('http://localhost:4000/mazzevents/getprofileimg/'+this.props.id)
+        //     .then(response => {
+        //         console.log("testing");
+        //         this.setState({
+        //             ownerId: response.data.ownerId,
+        //             businessPic: response.data.businessImg
+        //         })
+        //     })
 
           .catch(function(error) {
               console.log(error)

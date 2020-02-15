@@ -81,7 +81,7 @@ export default class StaffEventCalendar extends Component {
         return (
             <div>
                 <LeftStaff/>
-                <div class="right">
+                <div className="right">
                 <Upper/>
                 <div className="frm">
                 <div className="txt">
