@@ -13,7 +13,7 @@ import {
 } from 'reactstrap';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { register } from '../../Actions/authActions';
+import { register2 } from '../../Actions/authActions';
 import { clearErrors } from '../../Actions/errorActions';
 import AccountCircleSharpIcon from '@material-ui/icons/AccountCircle';
 class SignUp extends Component {
@@ -33,14 +33,14 @@ class SignUp extends Component {
   };
 
   static propTypes = {
-    isAuthenticated: PropTypes.bool,
+    added: PropTypes.bool,
     error: PropTypes.object.isRequired,
-    register: PropTypes.func.isRequired,
+    register2: PropTypes.func.isRequired,
     clearErrors: PropTypes.func.isRequired
   };
   //Bring msgs from backend
   componentDidUpdate(prevProps) {
-    const { error, isAuthenticated } = this.props;
+    const { error, added } = this.props;
     if(error !== prevProps.error) {
       //Check signup errors
       if(error.id === 'REGISTER_FAIL') {
@@ -53,7 +53,7 @@ class SignUp extends Component {
     //If modal is open
     if(this.state.modal) {
       //If authenticated
-      if(isAuthenticated){
+      if(added){
         //Closing modal
         this.toggle();
       }
@@ -87,7 +87,17 @@ class SignUp extends Component {
       signup_location
     };
     //Attempt to Register
-    this.props.register(newSignUpCustomer);
+    this.props.register2(newSignUpCustomer);
+    this.setState({
+      signup_type: "1",
+      signup_firstName: "", 
+      signup_lastName: "", 
+      signup_email: "", 
+      signup_password: "", 
+      signup_aPassword: "", 
+      signup_number: "", 
+     signpup_location: "",
+    });
   }
 
   render() {
@@ -141,12 +151,12 @@ class SignUp extends Component {
 }
 
 const mapStateToProps = state => ({
-  isAuthenticated: state.auth.isAuthenticated,
+  added: state.error.added,
   error: state.error
 });
 
 export default connect(
   mapStateToProps,
-  { register, clearErrors }
+  { register2, clearErrors }
 )(SignUp);
 
