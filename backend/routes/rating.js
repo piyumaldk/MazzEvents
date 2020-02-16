@@ -17,12 +17,12 @@ router.route('/').get(function(req, res) {
     });
 });
 //Get with Id
-router.route('/:id').get(function(req, res) {
-    let id = req.params.id;
-    Rating.find({ id: req.body.spId},function(err, rating) {
-        res.json(rating);
-    });
-});
+// router.route('/:id').get(function(req, res) {
+//     let id = req.params.id;
+//     Rating.find({ id: req.body.spId},function(err, rating) {
+//         res.json(rating);
+//     });
+// });
 //Add to rating
 router.route('/addrating').post(function(req, res) {
     Rating.findOne({customerId: req.body.customerId, spId: req.body.spId},function(err, rating) {

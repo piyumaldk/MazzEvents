@@ -40,7 +40,7 @@ export default class Staff extends Component {
                     <Route path="/staff/music" component={StaffMusic}/>
                     <Route path="/staff/photographer" component={StaffPhotographers}/>
                     <Route path="/staff/editserviceprovider/:id" component={EditServiceProvider} />
-                    <Route path="/staff/deleteserviceprovider/:id" component={DeleteOther} />
+                    <Route path="/staff/deletecustomer/:id" component={DeleteOther} />
                 </Router>
             </div>
         )

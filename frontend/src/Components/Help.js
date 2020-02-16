@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
+import '../App.css';
 import { StreamChat } from 'stream-chat';
 import { Chat, Channel, ChannelHeader, Thread, Window, MessageList, MessageInput, conversation } from 'stream-chat-react';
 import {
@@ -12,7 +13,7 @@ import {
     ModalBody
   } from 'reactstrap';
 
-class Message extends Component {
+class Help extends Component {
 
     constructor(props) {
         super(props);
@@ -50,11 +51,11 @@ class Message extends Component {
         var customername = customeremail.slice(0, n);
         console.log(localStorage.getItem('spEmail'));
         
-        const workeremail = localStorage.getItem('spEmail');
-        var m = workeremail.indexOf("@");
-        var workername = workeremail.slice(0, m);
+        const adminemail = "mazzeventsrilanka@gmail.com";
+        var m = adminemail.indexOf("@");
+        var adminname = adminemail.slice(0, m);
         console.log(customeremail);
-        var channelName = workername;
+        var channelName = adminname;
         console.log(channelName);
 
         //client.disconnect();
@@ -70,18 +71,17 @@ class Message extends Component {
         const conversation = client.channel('messaging', channelName, {
             name: channelName,
            // image: 'http://bit.ly/2O35mws',
-            members: [customername, workername]
+            members: [customername, adminname]
         });
 
         return (
 <div>
-<Button className="btn btn-dark" onClick={this.toggle} >
-                Message
-            </Button>
+
+            <a onClick={this.toggle} color="white">Help</a>
             <Modal isOpen={this.state.modal} toggle={this.toggle}>
         <ModalHeader toggle={this.toggle}>{this.props.spEmail}</ModalHeader>
           <ModalBody>
-          <div>
+          <div >
                 
                 <Chat client={client} theme={'messaging light'}>
                         <Channel channel={conversation}>
@@ -110,7 +110,7 @@ const mapStateToProps = state => ({
     number: state.auth.number,
     token: state.auth.token,
     chatToken: state.auth.chatToken,
-    spEmail: state.spEmail
+    // spEmail: state.spEmail
 });
 
-export default connect(mapStateToProps,null)(Message);
+export default connect(mapStateToProps,null)(Help);

@@ -15,7 +15,7 @@ const SignUpCustomer = props => (
         <td>{props.signupcustomer.signup_number}</td>
         <td>{props.signupcustomer.signup_location}</td>
         <td>
-            <Link to={"/staff/deleteserviceprovider/"+props.signupcustomer._id}>Delete</Link>
+            <Link to={"/staff/deletecustomer/"+props.signupcustomer._id}>Delete</Link>
         </td>
     </tr>
 )
