@@ -55,7 +55,7 @@ class Help extends Component {
         var m = adminemail.indexOf("@");
         var adminname = adminemail.slice(0, m);
         console.log(customeremail);
-        var channelName = customername.concat('-',adminname);
+        var channelName = adminname;
         console.log(channelName);
 
         //client.disconnect();

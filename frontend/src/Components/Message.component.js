@@ -54,7 +54,7 @@ class Message extends Component {
         var m = workeremail.indexOf("@");
         var workername = workeremail.slice(0, m);
         console.log(customeremail);
-        var channelName = customername.concat('-',workername);
+        var channelName = workername;
         console.log(channelName);
 
         //client.disconnect();

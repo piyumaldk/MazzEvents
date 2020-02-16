@@ -3,6 +3,8 @@ import axios from 'axios';
 import Upper from "../../Components/Upper.component";
 import { connect } from 'react-redux';
 import LeftServiceProvider from "../../Components/LeftServiceProvider.component";
+import { StreamChat } from 'stream-chat';
+import { Chat, Channel, ChannelHeader, Thread, Window, MessageList, MessageInput, conversation } from 'stream-chat-react';
 class Respond extends Component {
 
     constructor(props) {
@@ -16,8 +18,8 @@ class Respond extends Component {
             subject: '',
             text: '',
             spId: '',
-            customerId: '',
-            customerEmail: ''
+            serviceproviderId: '',
+            serviceproviderEmail: ''
         }
     }
 
@@ -33,11 +35,11 @@ class Respond extends Component {
                     subject: response.data.subject,
                     text: response.data.text,
                     spId: response.data.spId,
-                    customerId: response.data.customerId,
-                    customerEmail: response.data.customerEmail
+                    serviceproviderId: response.data.serviceproviderId,
+                    serviceproviderEmail: response.data.serviceproviderEmail
                 })  
                 console.log(response.data.spId);
-                console.log(response.data.customerId);    
+                console.log(response.data.serviceproviderId);    
             })
             .catch(function(error) {
                 console.log(error)
@@ -45,6 +47,37 @@ class Respond extends Component {
     }
 
     render() {
+        const client = new StreamChat("rc877bcxcrne");
+        const userToken = this.props.chatToken;
+       
+        const serviceprovideremail = this.props.email;
+        var n = serviceprovideremail.indexOf("@");
+        var serviceprovidername = serviceprovideremail.slice(0, n);
+        
+        
+        const customeremail = this.state.serviceproviderEmail;
+        var m = customeremail.indexOf("@");
+        var customername = customeremail.slice(0, m);
+        
+        var channelName = customername;
+        
+
+        //client.disconnect();
+        client.setUser(
+            {
+                id: serviceprovidername,
+                name: serviceprovidername,
+                //image: props.profilePicUrl,
+            },
+            userToken,
+        );
+
+        const conversation = client.channel('messaging', channelName, {
+            name: channelName,
+           // image: 'http://bit.ly/2O35mws',
+            members: [serviceprovidername, customername]
+        });
+
         return (
             <div>
                 <LeftServiceProvider/>
@@ -52,9 +85,7 @@ class Respond extends Component {
                     <Upper/>
                     <div>
                     
-                    {this.state.customerEmail}
-
-                    {this.props.email}
+                    
                     </div>
                 </div>
              </div>
