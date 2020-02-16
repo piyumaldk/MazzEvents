@@ -135,31 +135,52 @@ class NurseCalendar extends Component {
             <div>
                 {/* <ProfileNavbar /> */}
 
-                <div className="container">
-                    <FullCalendar
-                        defaultView="dayGridMonth"
-                        plugins={[dayGridPlugin, interactionPlugin]}
-                        // themeSystem={{bootstrap}}
-                        header={{
-                            left: "prev,next today",
-                            center: "title",
-                        }}
-                        events={this.state.unavailableDates}
-                        dateClick={this.dateClick}
-                        defaultAllDayEventDuration={{'days':1}}
-                    />
+                <div class="container-flud">
+                    <div className="row">
+                        <div className="col-4 calendarback calendarbacktext">
+                            <div class="row">
+                                <div class="mx-auto banner text-center">
+                                    <h1 class="text-capitalize">
+                                        <strong class="banner-title">Change</strong>
+                                    </h1>
+                                    <h1 class="text-capitalize">
+                                        <strong class="banner-title">Your</strong>
+                                    </h1>
+                                    <h1 class="text-capitalize">
+                                        <strong class="banner-title">availabilty</strong>
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-7">
+                            <FullCalendar
+                            defaultView="dayGridMonth"
+                            plugins={[dayGridPlugin, interactionPlugin]}
+                            // themeSystem={{bootstrap}}
+                            header={{
+                                left: "prev,next today",
+                                center: "title",
+                            }}
+                            events={this.state.unavailableDates}
+                            dateClick={this.dateClick}
+                            defaultAllDayEventDuration={{'days':1}}
+                            />
+                            {/* Deactivate Modal*/ }
+                            <Modal visible={this.state.visible} width="25%" height="20%" effect="fadeInUp" onClickAway={() => this.closeDateModal()}>
+                                <h5 align="center">Change availabilty on {this.state.date}</h5>
+                                <center>
+                                    {/* <Button variant="btn btn-danger" type="submit" onClick={() => this.logout()}>LogOut</Button> */}
+                                    <input type="button" class="btn btn-danger" value="Unavailable" onClick={() => this.addUnavailableDates()} />
+                                    <input type="button" class="btn btn-info" value="Cancel" onClick={() => this.closeDateModal()} />
+                                </center>
+                            </Modal>
+                        </div>
+                        <div className="col-1 calendarback">
 
-
-                    <Modal visible={this.state.visible} width="25%" height="20%" effect="fadeInUp" onClickAway={() => this.closeDateModal()}>
-                        <h5 align="center">Change availabilty on {this.state.date}</h5>
-                        <center>
-                            {/* <Button variant="btn btn-danger" type="submit" onClick={() => this.logout()}>LogOut</Button> */}
-                            <input type="button" class="btn btn-danger" value="Unavailable" onClick={() => this.addUnavailableDates()} />
-                            <input type="button" class="btn btn-info" value="Cancel" onClick={() => this.closeDateModal()} />
-                        </center>
-                    </Modal>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </div>            
         )
     }
 }
