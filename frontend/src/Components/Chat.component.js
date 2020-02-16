@@ -26,7 +26,7 @@ const ChatComponent = (props) => {
     {
         id: name,
         name: name,
-        image: 'https://i.imgur.com/fR9Jz14.png',
+      //  image: 'https://i.imgur.com/fR9Jz14.png',
     },
     userToken,
   );
