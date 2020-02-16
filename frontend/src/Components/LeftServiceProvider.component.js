@@ -13,6 +13,7 @@ export default class LeftServiceProvider extends Component {
                 <a href="/serviceprovider/chat">Chat</a>
                 <a href="/serviceprovider/mailbox">Mail Box</a>
                 <a href="/serviceprovider/eventcalendar">Event Calendar</a>
+                <a href="/serviceprovider/testing">test</a>
                 <a href="/serviceprovider/charts">Charts</a>
                 <a href="/serviceprovider/viewservices">View Services</a>
                 <a href="/serviceprovider/reviews">Reviews and Ratings</a>

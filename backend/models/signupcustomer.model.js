@@ -118,6 +118,10 @@ let SignUpSchema = new Schema({
     },
     signup_completed: {
         type: Boolean
+    },
+    unavailableDates: {
+        type: [String],
+        default: []
     }
 });
 
