@@ -19,7 +19,9 @@ class More extends Component {
         this.onChangeName = this.onChangeName.bind(this);
         this.onChangeSubject = this.onChangeSubject.bind(this);
         this.onChangeText = this.onChangeText.bind(this);
+        this.onChangeComment = this.onChangeComment.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
+        this.onClick = this.onClick.bind(this);
 
         this.state = {
             signup_firstName: '',
@@ -39,6 +41,7 @@ class More extends Component {
             name: '',
             subject: '',
             text: '',
+            comment: '',
             signup_completed: false
         }
     }
@@ -84,6 +87,12 @@ class More extends Component {
     onChangeText(e){
         this.setState({
             text: e.target.value
+        });
+    }
+
+    onChangeComment(e){
+        this.setState({
+            comment: e.target.value
         });
     }
 
@@ -139,6 +148,24 @@ class More extends Component {
             .then(res => console.log(res.data));
 
         //this.props.history.push('/customer/photo');
+    }
+
+    onClick(e){
+        // this.setState({rating: nextValue});
+        // console.log(this.state.rating);
+        const data = {
+            customerId : this.props.id,
+            customerFName : this.props.fName,
+            customerLName : this.props.lName,
+            customerEmail : this.props.email,
+            spId : this.props.match.params.id,
+            comment : this.state.comment
+        }
+        console.log(data)
+            axios.post('http://localhost:4000/rating/addcomment', data)
+                .then(res => {
+                    console.log(res.data)
+                }); 
     }
     render() {
         const { rating } = this.state;
@@ -229,10 +256,8 @@ class More extends Component {
                                 </div>
                             
                             </Form><br/>
-                            {/* <Card bg="secondary" text="white" style={{ width: '23rem'}}>
-  <Card.Body>This is some text within a card body.</Card.Body>
-</Card> */}
-
+                            <Input type="textarea" name="comment" id="comment" placeholder="Comment" className="mb-3" onChange={this.onChangeComment}/>
+                            <Button disabled={!this.state.comment} onClick={this.onClick}>Comment on him</Button>
                         </div>
 
                         
