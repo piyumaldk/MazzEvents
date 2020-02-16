@@ -17,14 +17,15 @@ router.route('/').get(function(req, res) {
     });
 });
 //Get with Id
-// router.route('/:id').get(function(req, res) {
-//     let id = req.params.id;
-//     console.log(id);
-//     console.log(res.body.spId);
-//     Request.find({ id: req.body.spId},function(err, request) {
-//         res.json(request);
-//     });
-// });
+router.route('/:id').get(function(req, res) {
+    let id = req.params.id;
+    //console.log(id);
+    Request.findById(req.params.id, function (err, request) {
+        res.json(request);
+        console.log(request);
+    });
+});
+
 //Add to request
 router.route('/addrequest').post(function(req, res) {
     // Request.findOne({customerId: req.body.customerId, spId: req.body.spId},function(err, request) {
