@@ -2,7 +2,6 @@ import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import React, { Component } from 'react';
 import '../App.css';
 import Help from './Help';
-import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import PhotoCameraIcon from '@material-ui/icons/PhotoCamera';
 import LibraryMusicIcon from '@material-ui/icons/LibraryMusic';
 import MusicNoteIcon from '@material-ui/icons/MusicNote';
@@ -15,6 +14,7 @@ import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
 import StarIcon from '@material-ui/icons/Star';
 import HelpIcon from '@material-ui/icons/Help';
+import RestaurantMenuIcon from '@material-ui/icons/RestaurantMenu';
 
 export default class LeftCustomer extends Component {
     render(){
@@ -52,7 +52,7 @@ export default class LeftCustomer extends Component {
                 </div>
 
                 <div className="row">
-                    <div className="col-md-1"><a href="/admin/staff"><SupervisorAccountIcon  style={{ fontSize: 22}}/></a></div>
+                    <div className="col-md-1"><a href="/admin/staff"><RestaurantMenuIcon style={{ fontSize: 22}}/></a></div>
                     <div className="col-md-10">
                     <a href="/customer/halls">Reception Halls</a>
                     </div>

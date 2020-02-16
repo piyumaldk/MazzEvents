@@ -7,7 +7,7 @@ import axios from 'axios';
 
 const Events = props => (
     <div>   
-        <Card  bg="dark" text="white" style={{ width: '18.5rem', height:'15rem', borderRadius:'8'}}>   
+        <Card  bg="dark" text="white" style={{ width: '14.9rem', height:'18rem', borderRadius:'8'}}>   
         {/* <Card.Img variant="top" height="240" src={company} /> */}
        <center><Card.Header><b>{props.events.eventName}</b></Card.Header>
             <Card.Body>
