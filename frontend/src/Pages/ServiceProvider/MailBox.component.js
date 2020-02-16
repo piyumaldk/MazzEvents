@@ -2,7 +2,7 @@
     import React, { Component } from 'react';
     import { connect } from 'react-redux';
     import Upper from "../../Components/Upper.component";
-    import { Table, Nav, Form, Col, Button, Modal, Alert } from 'react-bootstrap';
+    import { Table, Nav, Form, Col, Button,Card, Modal, Alert } from 'react-bootstrap';
     import LeftSeriveProvider from "../../Components/LeftServiceProvider.component";
     
     
@@ -36,44 +36,46 @@
         const textArea = {
           borderRadius: 8
         }
+        
         return (
     
-          <div className="row">
-            <div className="col-md-2">
-              <LeftSeriveProvider />
-            </div>
-            <div className="col-md-10">
-              <div >
-                <Upper />
-    
-                <div className="App">
+          <div>
+        <LeftSeriveProvider />
+          <div className="right">
+            <div className="background"> 
+              <Upper/>
+          <div className="centerMail">
+            <div className="left">
+              <Card style={{ width: '55rem' }}>
+                <Card.Body>
                   <div style={{ marginTop: 10 }} >
                     <h2> Send Email </h2>
-                    <form>
-                      <label> Recipient </label>
-                      <br />
-                      <input value={email.recipient} style={{ width: 800 }} className="bodr"
-                        onChange={e => this.setState({ email: { ...email, recipient: e.target.value } })} />
-                      <div style={spacer} />
-                      <label> Subject </label>
-                      <br />
-                      <input value={email.subject} style={{ width: 800 }} className="bodr"
-                        onChange={e => this.setState({ email: { ...email, subject: e.target.value } })} />
-                      <div style={spacer} />
-                      <label> Message </label>
-                      <br />
-                      <textarea rows={3} value={email.text} style={textArea} style={{ width: 800 }}
-                        onChange={e => this.setState({ email: { ...email, text: e.target.value } })} />
-                    </form>
+                      <form>
+                        <label> Recipient </label>
+                        <br />
+                        <input value={email.recipient} style={{ width: 800 }} className="bodr"
+                          onChange={e => this.setState({ email: { ...email, recipient: e.target.value } })} />
+                        <div style={spacer} />
+                        <label> Subject </label>
+                        <br />
+                        <input value={email.subject} style={{ width: 800 }} className="bodr"
+                          onChange={e => this.setState({ email: { ...email, subject: e.target.value } })} />
+                        <div style={spacer} />
+                        <label> Message </label>
+                        <br />
+                        <textarea rows={3} value={email.text} style={textArea} style={{ width: 800 }}
+                          onChange={e => this.setState({ email: { ...email, text: e.target.value } })} />
+                      </form>
                     <div style={spacer} />
                     <Button onClick={this.sendEmail}> Send Email </Button>
                   </div>
-                </div>
-    
-              </div>
+                </Card.Body>
+              </Card>
             </div>
-    
+           </div>
           </div>
+        </div>
+      </div>
         )
       }
     }
