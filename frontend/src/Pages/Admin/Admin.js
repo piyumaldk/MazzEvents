@@ -13,6 +13,8 @@ import AdminServiceProvider from "./ServiceProvider.component";
 import AdminStaff from "./Staff.component";
 import LeftAdmin from "../../Components/LeftAdmin.component";
 import EditStaff from "./EditStaff";
+import EditNotification from "./EditNotification";
+import ANotification from "./Notification";
 
 export default class Admin extends Component {
     render() {
@@ -33,6 +35,8 @@ export default class Admin extends Component {
                     <Route path="/admin/serviceprovider" component={AdminServiceProvider}/>
                     <Route path="/admin/staff" component={AdminStaff}/>
                     <Route path="/admin/editstaff/:id" component={EditStaff}/>
+                    <Route path="/admin/editnotification/:id" component={EditNotification}/>
+                    <Route path="/admin/notification/" component={ANotification}/>
                     
                     
                 </Router>

@@ -2,7 +2,7 @@ import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import React, { Component } from 'react';
 import '../App.css';
 
-export default class LeftServiceProvider extends Component {
+export default class LeftStaff extends Component {
     render() {
         return (
             <div className="sidenav">
