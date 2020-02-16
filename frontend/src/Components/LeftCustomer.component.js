@@ -1,7 +1,7 @@
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import React, { Component } from 'react';
 import '../App.css';
-
+import Help from './Help'
 export default class LeftCustomer extends Component {
     render(){
         return(
@@ -22,6 +22,10 @@ export default class LeftCustomer extends Component {
                 <a href="/customer/eventscl">Events Calendar</a>
                 <a href="/customer/account">My Account</a>
                 <a href="/customer/rating">Rating</a>
+                <div class="help">
+                    <Help/>
+                </div>
+                    
             </div>
         )
     }

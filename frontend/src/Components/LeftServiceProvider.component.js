@@ -1,6 +1,7 @@
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import React, { Component } from 'react';
 import '../App.css';
+import Help from './Help'
 
 export default class LeftServiceProvider extends Component {
     render() {
@@ -19,7 +20,9 @@ export default class LeftServiceProvider extends Component {
                 <a href="/serviceprovider/viewbookings">View Bookings</a>
                 <p>More Pages</p>
                 <a href="/serviceprovider/account">Account</a>
-                <a href="/serviceprovider/help">Help</a>
+                <div class="help">
+                    <Help/>
+                </div>
             </div>
         )
     }
