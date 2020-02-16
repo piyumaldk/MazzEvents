@@ -169,16 +169,17 @@ class NurseCalendar extends Component {
                             <Modal visible={this.state.visible} width="25%" height="20%" effect="fadeInUp" onClickAway={() => this.closeDateModal()}>
                                 <div class="modal-content">
                                     <div className="modal-header"><h4 align="center"><i className="fa fa-calendar-alt mr-2"></i>Change availabilty on </h4></div>
-                                    <div className="modal-footer"><Button classname="btn btn-danger btn-block" type="submit" onClick={() => this.logout()}>LogOut</Button> </div>
+                                    {/* <div className="modal-footer"><Button classname="btn btn-danger btn-block" type="submit" onClick={() => this.logout()}>LogOut</Button> </div> */}
+                                    <center>
+                                    <Button variant="btn btn-danger" type="submit" onClick={() => this.logout()}>LogOut</Button> 
+                                    <input type="button" class="btn btn-danger" value="Unavailable" onClick={() => this.addUnavailableDates()} />
+                                    <input type="button" class="btn btn-info" value="Cancel" onClick={() => this.closeDateModal()} />
+                                    </center>
                                 </div>
                                 
                                 
                                 
-                                {/* <center>
-                                    <Button variant="btn btn-danger" type="submit" onClick={() => this.logout()}>LogOut</Button> 
-                                    <input type="button" class="btn btn-danger" value="Unavailable" onClick={() => this.addUnavailableDates()} />
-                                    <input type="button" class="btn btn-info" value="Cancel" onClick={() => this.closeDateModal()} />
-                                </center> */}
+                                
                             </Modal>
                         </div>
                         <div className="col-1 calendarback">
