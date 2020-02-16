@@ -12,6 +12,8 @@ import ServiceProviderMailbox from "./MailBox.component";
 import ServiceProviderReviews from "./Reviews.component";
 import ServiceProviderViewBookings from "./ViewBookings.component";
 import ServiceProviderViewServices from "./ViewServices.component";
+import Respond from "./Respond.component";
+
 export default class ServiceProvider extends Component {
     render() {
         return (
@@ -29,6 +31,8 @@ export default class ServiceProvider extends Component {
                     <Route path="/serviceprovider/reviews" component={ServiceProviderReviews}/>
                     <Route path="/serviceprovider/viewbookings" component={ServiceProviderViewBookings}/>
                     <Route path="/serviceprovider/viewservices" component={ServiceProviderViewServices}/>
+                    <Route path="/serviceprovider/respond/:id" component={Respond}/>
+                    
                 </Router>
             </div>
         )

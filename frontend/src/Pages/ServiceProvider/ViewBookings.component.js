@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import LeftServiceProvider from "../../Components/LeftServiceProvider.component";
 import {Table} from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import Upper from "../../Components/Upper.component";
 import axios from 'axios';
 import { connect } from 'react-redux';
@@ -8,12 +9,13 @@ import { connect } from 'react-redux';
 
 const Request = props => (
   <tr>
+    
       <td>{props.request.customerFName} {props.request.customerLName}</td>
       <td>{props.request.customerEmail}</td>
       <td>{props.request.name}</td>
       <td>{props.request.subject}</td>
       <td>{props.request.text}</td>
-  
+      <td><Link to={"/serviceprovider/respond/"+props.request._id}>Respond</Link></td>
   </tr>
 )
 
@@ -67,6 +69,7 @@ class ServiceProviderViewBookings extends Component {
                                   <th>Request Name</th>
                                   <th>Subject</th>
                                   <th>Text</th>
+                                  <th></th>
                               </tr>
                           </thead>
                           <tbody>
