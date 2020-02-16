@@ -6,12 +6,12 @@ let Request = require('../models/request');
 
 //Get 
 router.route('/').get(function(req, res) {
-    console.log("Rating requested");
-    Rating.find(function(err, rating) {
+    console.log("Request requested");
+    Request.find(function(err, request) {
         if (err) {
             console.log(err);
         } else {
-            res.json(rating);
+            res.json(request);
             
         }
     });
@@ -19,18 +19,21 @@ router.route('/').get(function(req, res) {
 //Get with Id
 router.route('/:id').get(function(req, res) {
     let id = req.params.id;
-    Rating.find({ id: req.body.spId},function(err, rating) {
-        res.json(rating);
+    //console.log(id);
+    Request.findById(req.params.id, function (err, request) {
+        res.json(request);
+        console.log(request);
     });
 });
-//Add to rating
+
+//Add to request
 router.route('/addrequest').post(function(req, res) {
-    // Rating.findOne({customerId: req.body.customerId, spId: req.body.spId},function(err, rating) {
-      // if(!rating){
+    // Request.findOne({customerId: req.body.customerId, spId: req.body.spId},function(err, request) {
+      // if(!request){
       //   console.log("Not yet")
         var request = new Request({ customerId: req.body.customerId, customerFName: req.body.customerFName, customerLName: req.body.customerLName, customerEmail: req.body.customerEmail, spId: req.body.spId, name: req.body.name, subject: req.body.subject, text: req.body.text });
         request.save()
-          .then(rating=> {
+          .then(request=> {
             res.status(200).json({ 'Request':'Request added successfully'});
           })
           // res.status(200).send({
