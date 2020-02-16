@@ -15,7 +15,7 @@ import InsertChartIcon from '@material-ui/icons/InsertChart';
 import MoodIcon from '@material-ui/icons/Mood';
 import RestaurantMenuIcon from '@material-ui/icons/RestaurantMenu';
 
-export default class LeftServiceProvider extends Component {
+export default class LeftStaff extends Component {
     render() {
         return (
             <div>

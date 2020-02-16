@@ -1,9 +1,7 @@
 let express = require('express'),
     mongoose = require('mongoose'),
     cors = require('cors'),
-    bodyParser = require('body-parser'),
-    dbConfig = require('./database/db'),
-    config = require('config');
+    bodyParser = require('body-parser');
 
 const sgMail = require('@sendgrid/mail');
 
@@ -13,6 +11,7 @@ const photo = require('../backend/routes/photo.routes');
 const graph = require('../backend/routes/graph');
 const app = express();
 const db = require('./config/keys').mongoURI;
+
 // MongoDB Configuration
 mongoose.Promise = global.Promise;
 mongoose.connect(db, {
@@ -26,19 +25,16 @@ mongoose.connect(db, {
     }
 )
 
-
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
 }));
+
 app.use(cors());
 
-app.get('/send-email', (req,res) => {
-    
+app.get('/send-email', (req,res) => {   
     //Get Variables from query string in the search bar
     const { recipient, sender, topic, text } = req.query; 
-
     //Sendgrid Data Requirements
     const msg = {
         to: recipient, 
@@ -46,27 +42,15 @@ app.get('/send-email', (req,res) => {
         subject: topic,
         text: text,
     }
-
     //Send Email
     sgMail.send(msg)
     .then((msg) => console.log(text));
 });
 
-
+//Use Routes
 app.use('/public', express.static('public'));
 app.use('/mazzevents', photo);
 app.use('mazzevents/graph', graph);
-
-
-const port = process.env.PORT || 4000;
-
-
-
-const server = app.listen(port, () => {
-    console.log("Server is running on Port: " + port);
-})
-
-//Use Routes
 app.use('/mazzevents', require('./routes/api/signups'));
 app.use('/mazzevents/auth', require('./routes/api/auth'));
 app.use('/mazzevents', require('./routes/api/services'));
@@ -76,13 +60,13 @@ app.use('/notifications', require('./routes/notifications'));
 app.use('/rating', require('./routes/rating'));
 app.use('/comment', require('./routes/comment'));
 app.use('/request', require('./routes/request'));
+app.use('/user', require('./routes/calendar'));
 
-// app.use((req, res, next) => {
-//     // Error goes via `next()` method
-//     setImmediate(() => {
-//         next(new Error('Something went wrong'));
-//     });
-// });
+const port = process.env.PORT || 4000;
+
+const server = app.listen(port, () => {
+    console.log("Server is running on Port: " + port);
+})
 
 app.use(function (err, req, res, next) {
     console.error(err.message);

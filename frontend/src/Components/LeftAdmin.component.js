@@ -10,13 +10,23 @@ import RateReviewIcon from '@material-ui/icons/RateReview';
 import RoomIcon from '@material-ui/icons/Room';
 
 
-export default class LeftServiceProvider extends Component {
+export default class LeftAdmin extends Component {
     render() {
         return (
             <div> 
                 <nav className="sidenav">
                     <ul className="list-unstyled components">
                         <h>Administrator Dashboard</h>
+                        <p>Components</p>
+                        <li><a href="/admin/staff">Staff +</a></li>
+                        <li><a href="/admin/chat">Chat</a></li>
+                        <li><a href="/admin/mailbox">Mail Box</a></li>
+                        <li><a href="/admin/eventcalendar">Event Calendar</a></li>
+                        <li><a href="/admin/charts">Charts</a></li>
+                        <li><a href="/admin/sendnotification">Send Notification</a></li>
+                        <li><a href="/admin/notification">Notification</a></li>
+                        <li><a href="/admin/serviceprovider">Service Provider +</a></li>
+                        <li><a href="/admin/customer">Customer +</a></li>
                         <div className="row">
                         <div className="col-md-1"><a href="/admin/staff"><PersonAddIcon  style={{ fontSize: 22}}/></a></div>
                         <div className="col-md-10">
