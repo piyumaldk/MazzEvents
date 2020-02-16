@@ -14,22 +14,6 @@ export default class LeftServiceProvider extends Component {
             <div className="sidenav">
                 
                 <p>Components</p>
-<<<<<<< HEAD
-                <a href="/serviceprovider/addservices">My service</a>
-                <a href="/serviceprovider/chat">Chat</a>
-                <a href="/serviceprovider/mailbox">Mail Box</a>
-                <a href="/serviceprovider/eventcalendar">Event Calendar</a>
-                <a href="/serviceprovider/testing">test</a>
-                <a href="/serviceprovider/charts">Charts</a>
-                <a href="/serviceprovider/viewservices">View Services</a>
-                <a href="/serviceprovider/reviews">Reviews and Ratings</a>
-                <a href="/serviceprovider/adddiscountoffers">Add Discount Offers +</a>
-                <a href="/serviceprovider/viewbookings">View Bookings</a>
-                <p>More Pages</p>
-                <a href="/serviceprovider/account">Account</a>
-                <div class="help">
-                    <Help/>
-=======
 
                 <div className="row">
                     <div className="col-md-1"><a href="/admin/staff"><PersonAddIcon  style={{ fontSize: 22}}/></a></div>
@@ -108,7 +92,6 @@ export default class LeftServiceProvider extends Component {
                         <Help/>
                     </div>
                     </div>
->>>>>>> b6c65fcb5a39f7ced9232072ba144a760cfec9fe
                 </div>
             </div>
         )
