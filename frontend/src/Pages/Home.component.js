@@ -7,7 +7,7 @@ import axios from 'axios';
 
 const Events = props => (
     <div>   
-        <Card  bg="dark" text="white" style={{ width: '15rem'}}>   
+        <Card  bg="dark" text="white" style={{ width: '18.5rem', height:'15rem', borderRadius:'8'}}>   
         {/* <Card.Img variant="top" height="240" src={company} /> */}
        <center><Card.Header><b>{props.events.eventName}</b></Card.Header>
             <Card.Body>
@@ -26,13 +26,13 @@ const Events = props => (
 
 const Notifications = props => (
     <div>   
-        <Card  border="primary" text="black" style={{ width: '15rem'}}>   
+        <Card  border="primary" text="black" style={{ width: '18.5rem', height:'15rem', borderRadius:'8'}}>   
         {/* <Card.Img variant="top" height="240" src={company} /> */}
        <center><Card.Header><b>{props.notifications.topic}</b></Card.Header>
             <Card.Body>
             {/* <Card.Title></Card.Title> */}
             <Card.Text >
-                Date:{props.notifications.time }<br/>
+                Date:{props.notifications.time}<br/>
                 Detail:{props.notifications.detail}<br/>
                 <br/>
              </Card.Text>
@@ -78,7 +78,8 @@ export default class Home extends Component {
     }
     UserList2() {
         return this.state.notifi.map(function(currentNotifications, i){
-            return <Notifications notifications={currentNotifications} key={i} />;
+            return <Notifications notifications={currentNotifications} key={i}
+             />;
         })
     }
 
@@ -142,6 +143,28 @@ export default class Home extends Component {
                                     </CardDeck>
                             </div>
                         </div>   
+
+                    </div>
+                    <div >
+                        
+                        
+                            <div className="container-fluid">
+                            <div className="row bg-primary text-white" >
+                                <div col-md-3>
+
+                                </div> 
+                                <div col-md-3>
+
+                                </div>
+                                <div col-md-3>
+
+                                </div>
+                                <div col-md-3>
+
+                                </div>      
+                            </div>   
+                            </div>
+                           
 
                     </div>
                 

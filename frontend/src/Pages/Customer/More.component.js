@@ -9,7 +9,7 @@ import company from '../../Images/Profile/company.png';
 import normal from '../../Images/Profile/normal.png';
 import {Input} from 'reactstrap';
 import Message from "../../Components/Message.component";
-
+import CommentSection from "./Comment.component";
 import '../../Components/Cads/card-style.css';
 
 class More extends Component {
@@ -68,6 +68,7 @@ class More extends Component {
                 })
                 console.log(this.state.signup_email);
                 localStorage.setItem("spEmail",this.state.signup_email);
+                localStorage.setItem("spId",this.props.match.params.id);
             })
             .catch(function(error) {
                 console.log(error)
@@ -162,7 +163,7 @@ class More extends Component {
             comment : this.state.comment
         }
         console.log(data)
-            axios.post('http://localhost:4000/rating/addcomment', data)
+            axios.post('http://localhost:4000/comment/addcomment', data)
                 .then(res => {
                     console.log(res.data)
                 }); 
@@ -260,7 +261,7 @@ class More extends Component {
                             <Button disabled={!this.state.comment} onClick={this.onClick}>Comment on him</Button>
                         </div>
 
-                        
+                        <CommentSection/>
                     </div>
             </div>     
         </div>

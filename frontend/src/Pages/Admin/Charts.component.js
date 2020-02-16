@@ -81,7 +81,8 @@ export default class Charts extends PureComponent {
     axios.get('http://localhost:4000/mazzevents/graph/pass')
       .then(response => {
         this.setState({ usersCount: response.data });
-        // console.log(this.state.usersCount[12])
+        console.log(this.state.usersCount[13]);
+        console.log(response.data);
 
         var d = new Date();
         var month = new Array();
@@ -116,34 +117,34 @@ export default class Charts extends PureComponent {
         this.setState({
           data: [
             {
-              name: m[0], users: this.state.usersCount[3],
+              name: m[0], users: this.state.usersCount[2],
             },
             {
-              name: m[1], users: this.state.usersCount[4],
+              name: m[1], users: this.state.usersCount[3],
             },
             {
-              name: m[2], users: this.state.usersCount[5],
+              name: m[2], users: this.state.usersCount[4],
             },
             {
-              name: m[3], users: this.state.usersCount[6],
+              name: m[3], users: this.state.usersCount[5],
             },
             {
-              name: m[4], users: this.state.usersCount[7],
+              name: m[4], users: this.state.usersCount[6],
             },
             {
-              name: m[5], users: this.state.usersCount[8],
+              name: m[5], users: this.state.usersCount[7],
             },
             {
-              name: m[6], users: this.state.usersCount[9],
+              name: m[6], users: this.state.usersCount[8],
             },
             {
-              name: m[7], users: this.state.usersCount[10],
+              name: m[7], users: this.state.usersCount[11],
             },
             {
-              name: m[8], users: this.state.usersCount[11],
+              name: m[8], users: this.state.usersCount[12],
             },
             {
-              name: m[9], users: this.state.usersCount[12],
+              name: m[9], users: this.state.usersCount[13],
             },
           ]
         });
@@ -259,22 +260,22 @@ export default class Charts extends PureComponent {
 
 
           <BarChart width={900} height={500} data={this.state.data}>
-            <XAxis dataKey="name" stroke="#8884d8" />
+              <XAxis dataKey="name" stroke="#0088FE" />
             <YAxis />
             <Tooltip />
             <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-            <Bar type="monotone" dataKey="users" fill="#8884d8" barSize={30} />
+            <Bar type="monotone" dataKey="users" fill="#0088FE" barSize={20} />
           </BarChart>
 
         </div>
         
         <div>
           <BarChart width={900} height={500} data={this.state.sur}>
-            <XAxis dataKey="name" stroke="#8884d8" />
+            <XAxis dataKey="name" stroke="#0088FE" />
             <YAxis />
             <Tooltip />
             <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-            <Bar type="monotone" dataKey="users" fill="#8884d8" barSize={30} />
+            <Bar type="monotone" dataKey="users" fill="#0088FE" barSize={20} />
           </BarChart>
         </div>
 
@@ -288,7 +289,7 @@ export default class Charts extends PureComponent {
           cy={200}
           innerRadius={60}
           outerRadius={80}
-          fill="#8884d8"
+          fill="#0088FE"
           dataKey="value"
           onMouseEnter={this.onPieEnter}
         />
