@@ -16,13 +16,7 @@ router.route('/').get(function(req, res) {
         }
     });
 });
-//Get with Id
-// router.route('/:id').get(function(req, res) {
-//     let id = req.params.id;
-//     Rating.find({ id: req.body.spId},function(err, rating) {
-//         res.json(rating);
-//     });
-// });
+
 //Add to rating
 router.route('/addrating').post(function(req, res) {
     Rating.findOne({customerId: req.body.customerId, spId: req.body.spId},function(err, rating) {
@@ -56,6 +50,7 @@ router.route('/addrating').post(function(req, res) {
       }
     })
 });
+
 //Add to user
 router.route('/addrating2').post(function(req, res) {
     SignUpCustomer.findOne({ _id: req.body.spId},function(err, user) {

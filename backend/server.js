@@ -74,6 +74,7 @@ app.use('/mazzevents/graph', require('./routes/graph'));
 app.use('/events', require('./routes/events'));
 app.use('/notifications', require('./routes/notifications'));
 app.use('/rating', require('./routes/rating'));
+app.use('/comment', require('./routes/comment'));
 app.use('/request', require('./routes/request'));
 
 // app.use((req, res, next) => {

@@ -128,6 +128,7 @@ import { Button, Card, Form, Col } from 'react-bootstrap';
 
     onSubmit(e) {
         e.preventDefault();
+
         const obj = {
             _id: this.state._id,
             signup_firstName: this.state.signup_firstName,
@@ -146,7 +147,11 @@ import { Button, Card, Form, Col } from 'react-bootstrap';
         axios.post('http://localhost:4000/mazzevents/updatecustomer/' + this.props.match.params.id, obj)
             .then(res => console.log(res.data));
 
-        // this.props.history.push('/staff/serviceprovider');
+        this.props.history.push('/staff/serviceprovider');
+        window.location.reload();
+        alert("Updated successfully")
+
+
 
 
     }

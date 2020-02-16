@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import LeftStaff from "../../Components/LeftStaff.component";
+import LeftAdmin from "../../Components/LeftAdmin.component";
 import Upper from "../../Components/Upper.component";
 import { Button, Card, Form, Col } from 'react-bootstrap';
-import AddImage from "../../Components/AddStaffImage.component";
-import normal from '../../Images/Profile/normal.png';
-// import Delete from "../../Components/Delete.component";
 
- class DeleteOther extends Component {
+ class EditStaff extends Component {
+     
 
     constructor(props) {
         super(props);
@@ -39,7 +37,8 @@ import normal from '../../Images/Profile/normal.png';
             signup_state: '',
             signup_zip: '',
             signup_completed: false,
-            _id: ''
+            _id: '',
+            profile_data:''
         }
     }
     
@@ -47,7 +46,6 @@ import normal from '../../Images/Profile/normal.png';
         axios.get('http://localhost:4000/mazzevents/' + this.props.match.params.id)
             .then(response => {
                 this.setState({
-                    profile_data: response.data,
                     signup_firstName: response.data.signup_firstName,
                     signup_lastName: response.data.signup_lastName,
                     signup_email: response.data.signup_email,
@@ -62,8 +60,8 @@ import normal from '../../Images/Profile/normal.png';
                     signup_completed: response.data.signup_completed,
                     _id: response.data._id
                 })
-
-                // console.log(this.state.profile_data)
+            console.log(this.state.signup_firstName);
+            
             })
             .catch(function (error) {
                 console.log(error)
@@ -131,6 +129,7 @@ import normal from '../../Images/Profile/normal.png';
 
     onSubmit(e) {
         e.preventDefault();
+
         const obj = {
             _id: this.state._id,
             signup_firstName: this.state.signup_firstName,
@@ -149,8 +148,11 @@ import normal from '../../Images/Profile/normal.png';
         axios.post('http://localhost:4000/mazzevents/updatecustomer/' + this.props.match.params.id, obj)
             .then(res => console.log(res.data));
 
-        this.props.history.push('/staff/customer');
+        this.props.history.push('/admin/staff/');
         window.location.reload();
+        alert("Updated successfully")
+
+
 
 
     }
@@ -166,7 +168,7 @@ import normal from '../../Images/Profile/normal.png';
         axios.delete('http://localhost:4000/mazzevents/removecustomer/' + id, {})
             .then(res => console.log(res));
 
-        this.props.history.push('/staff/customer');
+        this.props.history.push('/admin/staff/');
         window.location.reload();
     }
 
@@ -174,76 +176,15 @@ import normal from '../../Images/Profile/normal.png';
         localStorage.setItem("spId", this.state._id);
         return (
             <div>
-                <LeftStaff />
+                <LeftAdmin />
                 <div class="right">
                     <Upper />
                     <div className="frm">
-                        {/* <div className="txt">
-                            <h3 >Update Service Provider</h3>
-                        </div> */}
+                        <div className="txt">
+                            <h3 >Update  Staff Member</h3>
+                        </div>
 
-                        <div className="left">
-                    
-                        <Card style={{ width: '18rem', height:'32rem' }}>
-                        <div className="overflow">  
-                            <Card.Img variant="top" src={!this.state.profilePic ? normal :this.state.profilePic} />
-                        </div>    
-                            <Card.Body>
-                            <Card.Title><center>{this.state.signup_firstName} {this.state.signup_lastName}</center></Card.Title>
-                            <Card.Text>
-                                Email Address: {this.state.signup_email}<br/>
-                                Contact Number: {this.state.signup_number}<br/>
-                            
-                            </Card.Text>
-                            <br/>
-                            <center>
-                        <AddImage/> 
-                        </center>
-                            </Card.Body>
-                        </Card>
-                        
-                    </div>
-                    
-
-                    <div className="rightAccount">
-                        <h3>Update Customer details</h3>
-                        <Form onSubmit={this.onSubmit}>
-                            <Form.Row>
-                                <Form.Group as={Col} controlId="formGridFirstName">
-                                    <Form.Label>First Name</Form.Label>
-                                    <Form.Control type="text" className="form-control" value={this.state.signup_firstName} onChange={this.onChangeSignupFirstName} />
-                                </Form.Group>
-                                <Form.Group as={Col} controlId="formGridLastName">
-                                    <Form.Label>Last Name</Form.Label>
-                                    <Form.Control type="text" className="form-control" value={this.state.signup_lastName} onChange={this.onChangeSignupLastName} />
-                                </Form.Group>
-                            </Form.Row>
-                            <Form.Row>
-                                <Form.Group as={Col} controlId="formGridEmail">
-                                    <Form.Label>Email</Form.Label>
-                                    <Form.Control type="text" className="form-control" value={this.state.signup_email} onChange={this.onChangeSignupEmail} />
-                                </Form.Group>
-                                <Form.Group controlId="ContactNumber">
-                                    <Form.Label>Contact Number</Form.Label>
-                                    <Form.Control type="text" className="form-control" value={this.state.signup_number} onChange={this.onChangeSignupNumber} />
-                                </Form.Group>
-                            </Form.Row>
-                            <div className="row">
-                                {/* <div className="col-md-6">
-                                    <Button variant="dark" type="submit"  value="Update">
-                                        Update
-                                    </Button>
-                                </div> */}
-                                <div className="col-md-6">
-                                <Button onClick={this.deleteUser}>Delete</Button>
-                                        
-                                </div>
-                                
-                            </div>
-                        </Form>
-                    </div>
-
-                        {/* <form onSubmit={this.onSubmit} >
+                        <form onSubmit={this.onSubmit} >
 
                             <div className="form-group">
                                 <label>First name</label>
@@ -277,7 +218,7 @@ import normal from '../../Images/Profile/normal.png';
                                     onChange={this.onChangeSignupNumber}
                                 />
                             </div>
-                            <div className="form-group">
+                            {/* <div className="form-group">
                                 <label>Address</label>
                                 <input type="text"
                                     className="form-control"
@@ -316,7 +257,7 @@ import normal from '../../Images/Profile/normal.png';
                                     value={this.state.signup_zip}
                                     onChange={this.onChangeSignupZip}
                                 />
-                            </div>
+                            </div> */}
 
                             <div className="form-group">
                                 <br />
@@ -324,10 +265,10 @@ import normal from '../../Images/Profile/normal.png';
                             </div>
                             
 
-                        </form> */}
-                            {/* <div>
+                        </form>
+                            <div>
                                 <Button onClick={this.deleteUser}>Delete</Button>
-                            </div> */}
+                            </div>
 
                     </div>
 
@@ -339,4 +280,4 @@ import normal from '../../Images/Profile/normal.png';
         )
     }
 }
-export default (DeleteOther);
+export default (EditStaff);

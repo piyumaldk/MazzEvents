@@ -1,23 +1,10 @@
 import React, { Component } from 'react';
-import {Form, Button} from 'react-bootstrap';
 import '../../App.css';
 import axios from 'axios';
 import LeftStaff from "../../Components/LeftStaff.component";
-import {Alert} from 'reactstrap';
 import Upper from "../../Components/Upper.component";
 import { Link } from 'react-router-dom';
-import SignUpCatering from '../../Components/Auth/RegisterCateringModal';
-import SignUpDj from '../../Components/Auth/RegisterDjModal';
-import SignUpFlowers from '../../Components/Auth/RegisterFlowersModal';
-import SignUpHotels from '../../Components/Auth/RegisterHotelModal';
-import SignUpMusic from '../../Components/Auth/RegisterMusicModal';
-import SignUpPhotography from '../../Components/Auth/RegisterPhotographyModal';
 import SignUpVehicles from '../../Components/Auth/RegisterVehiclesModal';
-
-
-const type = props =>props.signupcustomer.signup_type;
-
-
 
 const SignUpCustomer = props => (
     <tr>
@@ -36,7 +23,7 @@ const SignUpCustomer = props => (
     </tr>
 )
 
-export default class StaffServiceProvider extends Component {
+export default class StaffCatering extends Component {
 
     constructor(props) {
         super(props);
@@ -55,9 +42,10 @@ export default class StaffServiceProvider extends Component {
 
     UserList() {
         return this.state.users.map(function(currentSignUpCustomer, i){
-            if(currentSignUpCustomer.signup_type == "2"){
+            if(currentSignUpCustomer.signup_type === "2" && currentSignUpCustomer.signup_category === "Vehicles"){
             return <SignUpCustomer signupcustomer={currentSignUpCustomer} key={i} />;
             }
+            return null;
         })
     }
 
@@ -67,7 +55,7 @@ export default class StaffServiceProvider extends Component {
         return (
             <div>
                 <LeftStaff/>
-                <div class="right">
+                <div className="right">
                     <Upper/>
 
                     <div>
@@ -92,15 +80,12 @@ export default class StaffServiceProvider extends Component {
                             </tbody>
                         </table>
                         <table>
-                            <tr>
-                                <th><SignUpCatering/></th>
-                                <th><SignUpDj/></th>
-                                <th><SignUpFlowers/></th>
-                                <th><SignUpHotels/></th>
-                                <th><SignUpMusic/></th>
-                                <th><SignUpPhotography/></th>
-                                <th><SignUpVehicles/></th>
-                            </tr>
+                            <tbody>
+                                <tr>
+                                    <th><SignUpVehicles/></th>
+                                
+                                </tr>
+                            </tbody>
                         </table>
                     </div>
 
@@ -109,4 +94,5 @@ export default class StaffServiceProvider extends Component {
         )
     }
 }
+
 

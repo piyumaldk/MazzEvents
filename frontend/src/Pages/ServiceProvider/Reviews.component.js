@@ -29,28 +29,24 @@ class ServiceProviderReviews extends Component {
         axios.get('http://localhost:4000/rating/')
             .then(response => {
                 this.setState({ users: response.data });
-                console.log(this.state.users);
-                
+                console.log(this.state.users);    
             })
             .catch(function (error){
                 console.log(error);
-            })
-            
+            })        
     };
 
-     UserList() {
+    UserList() {
         const id = this.props.id;
          return this.state.users.map(function(currentRating, i){
             if(currentRating.spId === id){
              return <Rating rating={currentRating} key={i} />;
             }
             return null;            
-         })
-     }
+        })
+    }
 
     render() {
-
-        
         return (
             <div>
                 <LeftServiceProvider/>

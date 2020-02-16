@@ -4,7 +4,9 @@ import axios from 'axios';
 import LeftStaff from "../../Components/LeftStaff.component";
 import Upper from "../../Components/Upper.component";
 import { Link } from 'react-router-dom';
-import SignUpFlowers from '../../Components/Auth/RegisterFlowersModal';
+import SignUpHalls from '../../Components/Auth/RegisterHallsModal';
+
+
 
 const SignUpCustomer = props => (
     <tr>
@@ -42,7 +44,7 @@ export default class StaffCatering extends Component {
 
     UserList() {
         return this.state.users.map(function(currentSignUpCustomer, i){
-            if(currentSignUpCustomer.signup_type === "2" && currentSignUpCustomer.signup_category === "Flowers"){
+            if(currentSignUpCustomer.signup_type === "2" && currentSignUpCustomer.signup_category === "Halls"){
             return <SignUpCustomer signupcustomer={currentSignUpCustomer} key={i} />;
             }
             return null;
@@ -82,7 +84,7 @@ export default class StaffCatering extends Component {
                         <table>
                             <tbody>
                                 <tr>
-                                    <th><SignUpFlowers/></th>
+                                    <th><SignUpHalls/></th>
                                 
                                 </tr>
                             </tbody>
@@ -94,5 +96,4 @@ export default class StaffCatering extends Component {
         )
     }
 }
-
 

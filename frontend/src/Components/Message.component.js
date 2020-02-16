@@ -75,28 +75,28 @@ class Message extends Component {
 
         return (
 <div>
-<Button className="btn btn-dark" onClick={this.toggle} >
+            <Button className="btn btn-dark" onClick={this.toggle} >
                 Message
             </Button>
             <Modal isOpen={this.state.modal} toggle={this.toggle}>
-        <ModalHeader toggle={this.toggle}>{this.props.spEmail}</ModalHeader>
-          <ModalBody>
-          <div>
-                
-                <Chat client={client} theme={'messaging light'}>
-                        <Channel channel={conversation}>
-                            <Window>
-                            <ChannelHeader />
-                            <MessageList />
-                            <MessageInput />
-                            </Window>
-                            <Thread />
-                        </Channel>
-                    </Chat>
-                
-            </div>
-          </ModalBody>
-          </Modal>
+            <ModalHeader toggle={this.toggle}>{this.props.spEmail}</ModalHeader>
+                <ModalBody>
+                <div>
+                        
+                        <Chat client={client} theme={'messaging light'}>
+                                <Channel channel={conversation}>
+                                    <Window>
+                                    <ChannelHeader />
+                                    <MessageList />
+                                    <MessageInput />
+                                    </Window>
+                                    <Thread />
+                                </Channel>
+                            </Chat>
+                        
+                    </div>
+                </ModalBody>
+            </Modal>
           </div>          
         )
     }
