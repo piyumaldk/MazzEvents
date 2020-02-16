@@ -8,14 +8,17 @@ import StaffCharts from "./Charts.component";
 import StaffSendNotification from "./SendNotification.component";
 import StaffServiceProvider from "./ServiceProvider.component";
 import StaffCustomer from "./Customer.component";
-import StaffCustomerReviews from "./CustomerReviews.component";
-import StaffAuthentication from "./Authentication.component";
-import StaffMaps from "./Maps.component";
 import EditServiceProvider from "./EditServiceProvider.component";
+
 import StaffCatering from "./Catering.component";
 import StaffDj from "./Dj.component";
 import StaffMusic from "./Music.component";
 import StaffPhotographers from "./Photography.component";
+import StaffVehicles from "./Vehicles.component";
+import StaffReceptionHalls from "./ReceptionHalls.component";
+import StaffFlowers from "./Flowers.component";
+
+//import RegisterVehiclesModal from "../../Components/Auth/RegisterVehiclesModal";
 
 
 
@@ -32,14 +35,15 @@ export default class Staff extends Component {
                     <Route path="/staff/sendnotification" component={StaffSendNotification}/>
                     <Route path="/staff/serviceprovider" component={StaffServiceProvider}/>
                     <Route path="/staff/customer" component={StaffCustomer}/>
-                    <Route path="/staff/customerreviews" component={StaffCustomerReviews}/>
-                    <Route path="/staff/authentication" component={StaffAuthentication}/>
-                    <Route path="/staff/maps" component={StaffMaps}/>
+                    <Route path="/staff/editserviceprovider/:id" component={EditServiceProvider} />
+
                     <Route path="/staff/catering" component={StaffCatering}/>
                     <Route path="/staff/dj" component={StaffDj}/>
                     <Route path="/staff/music" component={StaffMusic}/>
                     <Route path="/staff/photographer" component={StaffPhotographers}/>
-                    <Route path="/staff/editserviceprovider/:id" component={EditServiceProvider} />
+                    <Route path="/staff/vehicles" component={StaffVehicles}/>
+                    <Route path="/staff/receptionhalls" component={StaffReceptionHalls}/>
+                    <Route path="/staff/flowers" component={StaffFlowers}/>
                     
                 </Router>
             </div>

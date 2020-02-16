@@ -15,15 +15,15 @@ export default class LeftServiceProvider extends Component {
                 <a href="/staff/charts">Charts</a>
                 <a href="/staff/sendnotification">Send Notification</a>
                 <a href="/staff/serviceprovider">Service Provider +</a>
-                <a href="/staff/catering">Catering +</a>
-                <a href="/staff/dj">Dj +</a>
-                <a href="/staff/music">Music +</a>
-                <a href="/staff/photographer">Photographers +</a>
-                <a href="/staff/customer">Customer +</a>
-                <p>More Pages</p>
-                <a href="/staff/customerreviews">Customer Reviews</a>
-                <a href="/staff/authentication">Authentication</a>
-                <a href="/staff/maps">Maps</a>
+                <a href="/staff/customer">Customer</a>
+                <p>Our Service Providers</p>
+                <a href="/staff/catering">Catering</a>
+                <a href="/staff/dj">Dj</a>
+                <a href="/staff/music">Music</a>
+                <a href="/staff/photographer">Photographers</a>
+                <a href="/staff/flowers">Flowers</a>
+                <a href="/staff/vehicles">vehicles</a>
+                <a href="/staff/receptionhalls">Reception Halls</a>
             </div>
         )
     }
