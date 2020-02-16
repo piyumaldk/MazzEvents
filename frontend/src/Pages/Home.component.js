@@ -24,12 +24,31 @@ const Events = props => (
     </div>
 )
 
+const Notifications = props => (
+    <div>   
+        <Card  border="primary" text="black" style={{ width: '15rem'}}>   
+        {/* <Card.Img variant="top" height="240" src={company} /> */}
+       <center><Card.Header><b>{props.notifications.topic}</b></Card.Header>
+            <Card.Body>
+            {/* <Card.Title></Card.Title> */}
+            <Card.Text >
+                Date:{props.notifications.time }<br/>
+                Detail:{props.notifications.detail}<br/>
+                <br/>
+             </Card.Text>
+            </Card.Body></center>
+        </Card>     
+    </div>
+)
+
 export default class Home extends Component {
+    
 
     constructor(props) {
         super(props);
-        this.state = {users: []};
+        this.state = {users: [], notifi:[]};
     }
+    
 
     componentDidMount() {
         axios.get('http://localhost:4000/events')
@@ -40,12 +59,26 @@ export default class Home extends Component {
             .catch(function (error){
                 console.log(error);
             })
+
+            axios.get('http://localhost:4000/notifications')
+            .then(response => {
+                this.setState({ notifi: response.data });
+                console.log(this.state.notifi);
+            })
+            .catch(function (error){
+                console.log(error);
+            })
             
     }
 
-    UserList() {
+    UserList1() {
         return this.state.users.map(function(currentEvents, i){
             return <Events events={currentEvents} key={i} />;
+        })
+    }
+    UserList2() {
+        return this.state.notifi.map(function(currentNotifications, i){
+            return <Notifications notifications={currentNotifications} key={i} />;
         })
     }
 
@@ -87,10 +120,24 @@ export default class Home extends Component {
                         <center><h3><b>Upcoming events</b></h3></center>
 
                         <div>
-                            <div>
+                            <div className="container-fluid">
                                     
                                 <CardDeck>
-                                {this.UserList()}
+                                {this.UserList1()}
+                                    
+                                    </CardDeck>
+                            </div>
+                        </div>   
+
+                    </div>
+                    <div >
+                        <center><h3><b>Notifications</b></h3></center>
+
+                        <div>
+                            <div className="container-fluid">
+                                    
+                                <CardDeck>
+                                {this.UserList2()}
                                     
                                     </CardDeck>
                             </div>

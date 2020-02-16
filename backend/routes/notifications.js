@@ -21,9 +21,7 @@ router.post('/addnotification', (req, res) => {
     console.log("bhagya");
     
     const {time, topic, detail} = req.body;
-    //Simple Validation (Emty Form)
     
-    //add to model
     
       let notification = new Notifications(req.body);
       notification.save()

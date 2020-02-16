@@ -55,7 +55,7 @@ export default class AdminSendNotification extends Component {
                         <Upper/>
                         <div className="frm">
                         <div className="txt">
-                        <h3 >Add Events</h3>
+                        <h3 >Add Notification</h3>
                         </div>
                         
                         <form onSubmit={this.onSubmit} >
@@ -70,7 +70,7 @@ export default class AdminSendNotification extends Component {
                             </div>
                             <div className="form-group">
                                 <label>Detail</label>
-                                <input  type="text"
+                                <textarea  type="text"
                                         className="form-control"
                                        // value={this.state.location}
                                         onChange={this.onChangeDetail}
