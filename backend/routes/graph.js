@@ -124,7 +124,7 @@ router.get('/pass',async(req,res)=>{
         for(i;i<=c;i++){
            newarry[i]= bothyear[i]
 
-        //    console.log(newarry);
+           console.log(newarry);
         }
         let info=newarry;
         res.json(info)
