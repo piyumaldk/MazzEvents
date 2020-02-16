@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 
-export default class LeftServiceProvider extends Component {
+export default class LeftAdmin extends Component {
     render() {
         return (
             <div> 
@@ -15,6 +15,7 @@ export default class LeftServiceProvider extends Component {
                         <li><a href="/admin/eventcalendar">Event Calendar</a></li>
                         <li><a href="/admin/charts">Charts</a></li>
                         <li><a href="/admin/sendnotification">Send Notification</a></li>
+                        <li><a href="/admin/notification">Notification</a></li>
                         <li><a href="/admin/serviceprovider">Service Provider +</a></li>
                         <li><a href="/admin/customer">Customer +</a></li>
                         
