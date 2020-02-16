@@ -18,7 +18,7 @@ export default class LeftAdmin extends Component {
                     <ul className="list-unstyled components">
                         <h>Administrator Dashboard</h>
                         <p>Components</p>
-                        <li><a href="/admin/notification">Notification</a></li>
+
                         <div className="row">
                         <div className="col-md-1"><a href="/admin/staff"><PersonAddIcon  style={{ fontSize: 22}}/></a></div>
                         <div className="col-md-10">
@@ -56,8 +56,14 @@ export default class LeftAdmin extends Component {
 
                         <div className="row">
                         <div className="col-md-1"><a href="/admin/staff"><NotificationsActiveIcon style={{ fontSize: 22}} /></a></div>
+                        <div className="col-md-10"><li><a href="/admin/notification">Notification</a></li></div>
+                        </div>
+
+                        <div className="row">
+                        <div className="col-md-1"><a href="/admin/staff"><NotificationsActiveIcon style={{ fontSize: 22}} /></a></div>
                         <div className="col-md-10"><li><a href="/admin/sendnotification">Send Notification</a></li></div>
                         </div>
+
 
                         <div className="row">
                         <div className="col-md-1"><a href="/admin/staff"><PersonAddIcon style={{ fontSize: 22}} /></a></div>
