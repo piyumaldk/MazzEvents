@@ -24,21 +24,6 @@ export default class StaffEventCalendar extends Component {
 
     }
 
-    // componentDidMount() {
-    //     axios.get('http://localhost:4000/mazzevents/'+this.props.match.params.id)
-    //         .then(response => {
-    //             this.setState({
-    //                 eventName: response.data.eventName,
-    //                 location: response.data.location,
-    //                 time: response.data.time,
-    //                 event_completed: response.data.event_completed
-    //             })
-    //         })
-    //         .catch(function(error) {
-    //             console.log(error)
-    //         })
-    // }
-
     onChangeEventName(e){
         this.setState({
             eventName: e.target.value
@@ -73,7 +58,8 @@ export default class StaffEventCalendar extends Component {
         axios.post('http://localhost:4000/events/addevent',obj)
         .then(res => console.log(res.data));
 
-    this.props.history.push('/staff/account');
+        window.location.reload(false);
+    //this.props.history.push('/staff/account');
 }
 
 

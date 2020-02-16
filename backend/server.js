@@ -76,6 +76,7 @@ app.use('/notifications', require('./routes/notifications'));
 app.use('/rating', require('./routes/rating'));
 app.use('/comment', require('./routes/comment'));
 app.use('/request', require('./routes/request'));
+app.use('/user', require('./routes/calendar'));
 
 // app.use((req, res, next) => {
 //     // Error goes via `next()` method

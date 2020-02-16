@@ -19,8 +19,6 @@ import AccountCircleSharpIcon from '@material-ui/icons/AccountCircle';
 import EmailIcon from '@material-ui/icons/Email';
 import LockIcon from '@material-ui/icons/Lock';
 
-
-
 class LogIn extends Component {
   state = {
     modal: false,
