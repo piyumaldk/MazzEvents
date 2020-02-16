@@ -11,7 +11,7 @@ export default class LeftServiceProvider extends Component {
                 <a href="/staff/account">Staff Account</a>
                 <a href="/staff/chat">Chat</a>
                 <a href="/staff/mailbox">Mail Box</a>
-                <a href="/staff/eventcalendar">Event Calendar</a>
+                <a href="/staff/eventcalendar">Publicize Events</a>
                 <a href="/staff/charts">Charts</a>
                 <a href="/staff/customer">Customers</a>
                 <p>Our Service Providers</p>
