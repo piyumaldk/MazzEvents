@@ -72,6 +72,7 @@ app.use('/mazzevents/auth', require('./routes/api/auth'));
 app.use('/mazzevents', require('./routes/api/services'));
 app.use('/mazzevents/graph', require('./routes/graph'));
 app.use('/events', require('./routes/events'));
+app.use('/notifications', require('./routes/notifications'));
 app.use('/rating', require('./routes/rating'));
 app.use('/request', require('./routes/request'));
 
