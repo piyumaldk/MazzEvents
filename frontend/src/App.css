@@ -432,3 +432,11 @@ padding: 10px;
       height: 20%;
       padding: 10px;
       }
+
+    .centerMail{
+      text-align: center;
+      /* justify-content: center; */
+      align-items: center;
+      right:18rem;
+      left:55rem;
+    } 
