@@ -30,7 +30,7 @@ class NurseCalendar extends Component {
 
     }
 
-    getUnavailableDates=()=>{
+    getUnavailableDates = () => {
         console.log("----------------dedde")
         var token = this.props.id;
         axios.get('http://localhost:4000/user/userdata/unavailableDates/'+token)
@@ -135,7 +135,7 @@ class NurseCalendar extends Component {
             <div>
                 {/* <ProfileNavbar /> */}
 
-                <div class="container-flud">
+                <div class="container-fluid">
                     <div className="row">
                         <div className="col-4 calendarback calendarbacktext">
                             <div class="row">
@@ -167,12 +167,18 @@ class NurseCalendar extends Component {
                             />
                             {/* Deactivate Modal*/ }
                             <Modal visible={this.state.visible} width="25%" height="20%" effect="fadeInUp" onClickAway={() => this.closeDateModal()}>
-                                <h5 align="center">Change availabilty on {this.state.date}</h5>
-                                <center>
-                                    {/* <Button variant="btn btn-danger" type="submit" onClick={() => this.logout()}>LogOut</Button> */}
+                                <div class="modal-content">
+                                    <div className="modal-header"><h4 align="center"><i className="fa fa-calendar-alt mr-2"></i>Change availabilty on </h4></div>
+                                    <div className="modal-footer"><Button classname="btn btn-danger btn-block" type="submit" onClick={() => this.logout()}>LogOut</Button> </div>
+                                </div>
+                                
+                                
+                                
+                                {/* <center>
+                                    <Button variant="btn btn-danger" type="submit" onClick={() => this.logout()}>LogOut</Button> 
                                     <input type="button" class="btn btn-danger" value="Unavailable" onClick={() => this.addUnavailableDates()} />
                                     <input type="button" class="btn btn-info" value="Cancel" onClick={() => this.closeDateModal()} />
-                                </center>
+                                </center> */}
                             </Modal>
                         </div>
                         <div className="col-1 calendarback">
