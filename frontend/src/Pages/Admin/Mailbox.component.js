@@ -24,7 +24,9 @@ class AdminMailbox extends Component {
     fetch(`http://127.0.0.1:4000/send-email?recipient=${email.recipient}&sender=${email.sender}&topic=${email.subject}&text=${email.text}`) //query string url
         .catch(err => console.error(err))
 
-    this.props.history.push('/staff/mailbox');
+    this.props.history.push('/admin/mailbox');
+    window.location.reload();
+    alert("Sent successfully")
     }
 
     render() {

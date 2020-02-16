@@ -25,6 +25,8 @@ class StaffMailbox extends Component {
       .catch(err => console.error(err))
 
     this.props.history.push('/staff/mailbox');
+    window.location.reload();
+    alert("Sent successfully")
   }
 
   render() {

@@ -5,6 +5,14 @@ import { connect } from 'react-redux';
 import LeftServiceProvider from "../../Components/LeftServiceProvider.component";
 import { StreamChat } from 'stream-chat';
 import { Chat, Channel, ChannelHeader, Thread, Window, MessageList, MessageInput, conversation } from 'stream-chat-react';
+import {
+    Input,
+    Label,
+    Button,
+    Modal,
+    ModalHeader,
+    ModalBody
+  } from 'reactstrap';
 class Respond extends Component {
 
     constructor(props) {
@@ -18,8 +26,8 @@ class Respond extends Component {
             subject: '',
             text: '',
             spId: '',
-            serviceproviderId: '',
-            serviceproviderEmail: ''
+            customerId: '',
+            customerEmail: ''
         }
     }
 
@@ -35,57 +43,95 @@ class Respond extends Component {
                     subject: response.data.subject,
                     text: response.data.text,
                     spId: response.data.spId,
-                    serviceproviderId: response.data.serviceproviderId,
-                    serviceproviderEmail: response.data.serviceproviderEmail
+                    customerId: response.data.customerId,
+                    customerEmail: response.data.customerEmail
                 })  
                 console.log(response.data.spId);
-                console.log(response.data.serviceproviderId);    
+                console.log(response.data.customerId);    
             })
             .catch(function(error) {
                 console.log(error)
             })
     }
 
+    toggle = () => {
+        //Clear messages
+        this.setState({
+          modal: !this.state.modal,
+        });
+        if(this.state.modal){
+            window.location.reload();
+        }
+        //this.props.history.push('/customer/chat');
+    };
+
     render() {
+
         const client = new StreamChat("rc877bcxcrne");
         const userToken = this.props.chatToken;
-       
-        const serviceprovideremail = this.props.email;
-        var n = serviceprovideremail.indexOf("@");
-        var serviceprovidername = serviceprovideremail.slice(0, n);
+        const workeremail = this.props.email;
+        var m = workeremail.indexOf("@");
+        var workername = workeremail.slice(0, m);
+        console.log(workeremail);
+        var channelName = workername;
+        console.log(workername);
+        
+        console.log(this.props.chatToken);
+        const customeremail = this.state.customerEmail;
+        console.log(customeremail);
+        var n = customeremail.indexOf("@");
+        var customername = customeremail.slice(0, n);
+        console.log(customername);
         
         
-        const customeremail = this.state.serviceproviderEmail;
-        var m = customeremail.indexOf("@");
-        var customername = customeremail.slice(0, m);
-        
-        var channelName = customername;
         
 
-        //client.disconnect();
-        client.setUser(
-            {
-                id: serviceprovidername,
-                name: serviceprovidername,
-                //image: props.profilePicUrl,
-            },
-            userToken,
-        );
+        
+        // client.setUser(
+        //     {
+        //         id: workername,
+        //         name: workername,
+        //     },
+        //     userToken,
+        // );
 
-        const conversation = client.channel('messaging', channelName, {
-            name: channelName,
-           // image: 'http://bit.ly/2O35mws',
-            members: [serviceprovidername, customername]
-        });
-
+        // const conversation = client.channel('messaging', channelName, {
+        //     name: channelName,
+        //    // image: 'http://bit.ly/2O35mws',
+        //     members: [workername, customername]
+        // });
         return (
             <div>
                 <LeftServiceProvider/>
                 <div className="right">
                     <Upper/>
                     <div>
+                    {/* <Button className="btn btn-dark" onClick={this.toggle} >
+                        Message
+                    </Button>
+                    <Modal isOpen={this.state.modal} toggle={this.toggle}>
+                    <ModalHeader toggle={this.toggle}>{this.props.spEmail}</ModalHeader>
+                        <ModalBody>
+                        <div>
+                                
+                                <Chat client={client} theme={'messaging light'}>
+                                        <Channel channel={conversation}>
+                                            <Window>
+                                            <ChannelHeader />
+                                            <MessageList />
+                                            <MessageInput />
+                                            </Window>
+                                            <Thread />
+                                        </Channel>
+                                    </Chat>
+                                
+                            </div>
+                        </ModalBody>
+                    </Modal> */}
                     
-                    
+                    {this.state.customerEmail}
+
+                    {this.props.email}
                     </div>
                 </div>
              </div>
