@@ -7,12 +7,10 @@ export default class ServiceProviderChat extends Component {
         return (
             <div>
                 <LeftSeriveProvider/>
-                <div className="chatright">
+                <div className="right">
                 <Upper/>
                 <Chat/>  
-
-                </div>
-                
+            </div>  
             </div>   
         )
     }

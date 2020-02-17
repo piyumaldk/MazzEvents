@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import LeftStaff from "../../Components/LeftStaff.component";
 import Upper from "../../Components/Upper.component";
+import{Card} from 'react-bootstrap';
+import StarIcon from '@material-ui/icons/Star';
 
 export default class StaffEventCalendar extends Component {
 
@@ -68,16 +70,20 @@ export default class StaffEventCalendar extends Component {
             <div>
                 <LeftStaff/>
                 <div className="right">
+                <div className="background">
                 <Upper/>
+                <div className="centerEvent">
                 <div className="frm">
+                <Card style={{ width: '40rem', top:'0.6rem', height:'35rem'}}>
                 <div className="txt">
-                <h3 >Add Events</h3>
+                <center><h3 >Add Events</h3></center>
                 </div>
                 
+                <Card.Body>
                 <form onSubmit={this.onSubmit} >
                     
                     <div className="form-group">
-                        <label>Event Name</label>
+                        <label><StarIcon/>Event Name</label>
                         <input  type="text"
                                 className="form-control"
                                 //value={this.state.signup_eventName}
@@ -85,7 +91,7 @@ export default class StaffEventCalendar extends Component {
                                 />
                     </div>
                     <div className="form-group">
-                        <label>Location</label>
+                        <label><StarIcon/>Location</label>
                         <input  type="text"
                                 className="form-control"
                                // value={this.state.location}
@@ -93,7 +99,7 @@ export default class StaffEventCalendar extends Component {
                                 />
                     </div>
                     <div className="form-group">
-                        <label>Time</label>
+                        <label><StarIcon/>Time</label>
                         <input  type="text"
                                 className="form-control"
                                 //value={this.state.time}
@@ -101,7 +107,7 @@ export default class StaffEventCalendar extends Component {
                                 />
                     </div>
                     <div className="form-group">
-                        <label>Link</label>
+                        <label><StarIcon/>Link</label>
                         <input  type="text"
                                 className="form-control"
                                 //value={this.state.time}
@@ -110,12 +116,16 @@ export default class StaffEventCalendar extends Component {
                     </div>
                     <div className="form-group">
                         <br/>
-                        <input type="submit" value="Add Event" className="btn btn-primary" />    
+                        <center><input type="submit" value="Add Event" className="btn btn-dark"/></center>   
                     </div>
                    
                 </form>
+                </Card.Body>
+                </Card>
+
                 </div>
-                
+                </div>
+                </div>
             </div>
                 
                 

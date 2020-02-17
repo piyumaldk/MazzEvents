@@ -253,34 +253,35 @@ export default class Charts extends PureComponent {
 
   render() {
     return (
-      <div><center>
+      <div>
         <LeftAdmin />
+        <div className="right">
         <div >
           <Upper />
 
 
-          <BarChart width={900} height={500} data={this.state.data}>
+          <div><center><BarChart width={900} height={500} data={this.state.data}>
               <XAxis dataKey="name" stroke="#0088FE" />
             <YAxis />
             <Tooltip />
             <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
             <Bar type="monotone" dataKey="users" fill="#0088FE" barSize={20} />
-          </BarChart>
+          </BarChart></center></div>
 
         </div>
         
         <div>
-          <BarChart width={900} height={500} data={this.state.sur}>
+          <center><BarChart width={900} height={500} data={this.state.sur}>
             <XAxis dataKey="name" stroke="#0088FE" />
             <YAxis />
             <Tooltip />
             <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
             <Bar type="monotone" dataKey="users" fill="#0088FE" barSize={20} />
-          </BarChart>
+          </BarChart></center>
         </div>
 
         <div>
-        <PieChart width={400} height={400}>
+        <center><PieChart width={400} height={400}>
         <Pie
           activeIndex={this.state.activeIndex}
           activeShape={renderActiveShape}
@@ -293,9 +294,10 @@ export default class Charts extends PureComponent {
           dataKey="value"
           onMouseEnter={this.onPieEnter}
         />
-      </PieChart>
+      </PieChart></center>
         </div>
-      </center></div>
+        </div>
+     </div>
     );
   }
 }
