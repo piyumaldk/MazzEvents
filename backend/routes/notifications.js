@@ -25,14 +25,19 @@ router.route('/').get(function(req, res) {
     });
   });
 
-router.post('/addnotification', (req, res) => {
-    console.log("bhagya");
+router.post('/addnotification', (req, res) => {    
     
-    const {time, topic, detail} = req.body;
-    
-    
-      let notification = new Notifications(req.body);
-      notification.save()
+      let dt = new Date();
+      let timeNow = dt.getFullYear()+'/'+dt.getMonth()+1+'/'+dt.getDate()+' '+dt.getHours()+':'+dt.getMinutes()+':'+dt.getSeconds()
+      // let timeNow = new Date(Date.now);
+      const NoticeObject = new Notifications({
+        time : timeNow,
+        topic : req.body.topic,
+        detail : req.body.detail
+      })
+      console.log(NoticeObject);
+      
+      NoticeObject.save()
         .then(notification => {
             res.status(200).json({'Notification': 'Notification added successfully'});
         })

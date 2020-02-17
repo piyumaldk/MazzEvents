@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
-import {BarChart, Bar,XAxis, YAxis, CartesianGrid, Tooltip} from 'recharts';
-import { PieChart, Pie, Sector} from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
+import { PieChart, Pie, Sector } from 'recharts';
 import LeftAdmin from "../../Components/LeftAdmin.component";
 import Upper from "../../Components/Upper.component";
 import axios from 'axios';
@@ -256,56 +256,60 @@ export default class Charts extends PureComponent {
       <div>
         <LeftAdmin />
         <div className="right">
-        <div >
-          <Upper />
-        </div>
+          <div >
+            <Upper />
+          </div>
 
           <div className="row">
-          <div className="col-3"><center><h3 className="header a">All the Users in the Last Ten Months</h3></center></div>
-          <div className="col-9"><center>
-            <BarChart width={900} height={500} data={this.state.data}>
-              <XAxis dataKey="name" stroke="#0088FE" />
-            <YAxis />
-            <Tooltip />
-            <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-            <Bar type="monotone" dataKey="users" fill="#0088FE" barSize={20} />
-          </BarChart></center>
-          </div></div>
+            <h3 className="lTenM_topic">All the Users in the Last Ten Months</h3>
+            <div className="lTenM_graph">
+              <BarChart width={1300} height={500} data={this.state.data}>
+                <XAxis dataKey="name" stroke="#0088FE" />
+                <YAxis />
+                <Tooltip />
+                <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
+                <Bar type="monotone" dataKey="users" fill="#0088FE" barSize={100} />
+              </BarChart>
+            </div>
+          </div>
 
-        
-        
-        <div className="row">
-          <div className="col-3"><center><h3 className="header a">Service Providers</h3></center></div>
-          <div className="col-9"><center>
-            <BarChart width={900} height={500} data={this.state.sur}>
-            <XAxis dataKey="name" stroke="#0088FE" />
-            <YAxis />
-            <Tooltip />
-            <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-            <Bar type="monotone" dataKey="users" fill="#0088FE" barSize={20} />
-          </BarChart></center>
-          </div></div>
+
 
           <div className="row">
-          <div className="col-3"><center><h3 className="header a">Service Providers & Customers</h3></center></div>
-          <div className="col-9"><center>
-          <PieChart width={400} height={400}>
-        <Pie
-          activeIndex={this.state.activeIndex}
-          activeShape={renderActiveShape}
-          data={this.state.cus}
-          cx={200}
-          cy={200}
-          innerRadius={60}
-          outerRadius={80}
-          fill="#0088FE"
-          dataKey="value"
-          onMouseEnter={this.onPieEnter}
-        />
-      </PieChart></center>
-          </div></div>
+            <h3 className="lTenM_topic">Service Providers</h3>
+            <div className="lTenM_graph">
+
+              <BarChart width={1300} height={500} data={this.state.sur}>
+                <XAxis dataKey="name" stroke="#0088FE" />
+                <YAxis />
+                <Tooltip />
+                <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
+                <Bar type="monotone" dataKey="users" fill="#0088FE" barSize={100} />
+              </BarChart>
+            </div>
+          </div>
+          <div className="row">
+            <h3 className="lTenM_topic">Service Providers & Customers</h3>
+            <div className="lTenM_graph">
+
+              <PieChart width={400} height={400}>
+                <Pie
+                  activeIndex={this.state.activeIndex}
+                  activeShape={renderActiveShape}
+                  data={this.state.cus}
+                  cx={200}
+                  cy={200}
+                  innerRadius={60}
+                  outerRadius={80}
+                  fill="#0088FE"
+                  dataKey="value"
+                  onMouseEnter={this.onPieEnter}
+                />
+              </PieChart>
+            </div>
+          </div>
         </div>
-     </div>
+      </div>
     );
   }
 }
