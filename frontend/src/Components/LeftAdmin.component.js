@@ -56,7 +56,7 @@ export default class LeftAdmin extends Component {
 
                         <div className="row">
                         <div className="col-md-1"><a href="/admin/staff"><NotificationsActiveIcon style={{ fontSize: 22}} /></a></div>
-                        <div className="col-md-10"><li><a href="/admin/notification">Notification</a></li></div>
+                        <div className="col-md-10"><li><a href="/admin/notification">Notifications</a></li></div>
                         </div>
 
                         <div className="row">
