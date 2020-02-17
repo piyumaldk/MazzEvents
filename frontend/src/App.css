@@ -498,6 +498,10 @@ body {
     font-variant: dark;
 }
 
+.text1 {
+    font-style: oblique;
+}
+
 /* Card css settings */
 
 .flip-box-front {
@@ -613,19 +617,16 @@ body {
   right: 0px;
   background-size: auto;
 }
-<<<<<<< HEAD
 
-/* .background{
-    background-image: url("Images/rightbackground.jpg");
+.eventBackground{
+    background-image: url("Images/event1.jpg");
     position: absolute;
     right: 0px;
     width: 100%;
     height: 100%;
-    /* background-size: auto; */
+}
   
 
-=======
->>>>>>> 6a1d005daf5f3e89b26fd8d6c50242a76e3d1455
 .Not_date{
     margin-top: -19px;
     font-size: 14px;
