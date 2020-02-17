@@ -8,8 +8,10 @@ import img1 from './../Images/floral.jpg'
 import img2 from './../Images/floral2.jpg'
 
 const Events = props => (
-    <div>   
-        <Card  bg="dark" text="white" style={{ width: '14.9rem', height:'18rem', borderRadius:'8'}}>   
+    
+    <div className="col-md-3">   
+    <br/><br/>
+        <Card  bg="Danger" text="black" style={{ width: '14.9rem', height:'25rem', borderRadius:'8'}}>   
         {/* <Card.Img variant="top" height="240" src={company} /> */}
        <center><Card.Header><b>{props.events.eventName}</b></Card.Header>
             <Card.Body>
@@ -28,14 +30,11 @@ const Events = props => (
 
 
 export default class Home extends Component {
-    
-
     constructor(props) {
         super(props);
         this.state = {users: [],};
     }
     
-
     componentDidMount() {
         axios.get('http://localhost:4000/events')
             .then(response => {
@@ -90,7 +89,8 @@ export default class Home extends Component {
                         </Carousel> 
                         </div>
                     <div >
-                        <center><h3><b>Upcoming events</b></h3></center>
+                        <br/><Card style={{width:"100%"}}><center><h3><b>Upcoming events</b></h3></center></Card>
+                        
 
                         <div>
                             <div className="container-fluid">
