@@ -8,7 +8,7 @@ export default class AdminChat extends Component {
         return (
             <div>
                 <LeftAdmin/>
-                <div className="chatright">
+                <div className="right">
                 <Upper/>
                 <Chat/>
 

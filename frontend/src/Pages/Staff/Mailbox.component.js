@@ -44,6 +44,7 @@ class StaffMailbox extends Component {
             <div className="background"> 
               <Upper/>
           <div className="centerMail">
+          <div className="left">
               <Card style={{ width: '55rem' }}>
                 <Card.Body>
                   <div style={{ marginTop: 10 }} >
@@ -69,6 +70,7 @@ class StaffMailbox extends Component {
                   </div>
                 </Card.Body>
               </Card>
+              </div>
             </div>
            </div>
           </div>

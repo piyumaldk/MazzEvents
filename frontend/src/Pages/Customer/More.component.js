@@ -202,13 +202,13 @@ class More extends Component {
             <div>
                 <LeftCustomer />
                 <div className="right">
-                    <Upper />
-                    <div className="background">
+                    <Upper/>
+                    <div className="background1"> 
 
                         <div className="row card_ss">
                             <div className="col-md-4">
 
-                                <Card style={{ width: '27rem', height: '27rem' }}>
+                                <Card style={{ width: '18rem', height: '27rem' }}>
                                     <div className="overflow">
                                         <Card.Img variant="top" height="240" src={!this.state.businessPic ? company : this.state.businessPic} />
                                     </div>
@@ -229,7 +229,7 @@ class More extends Component {
                                 <div className="flip-box1 ">
                                     <div className="flip-box-inner1 ">
                                         <div className="flip-box-front1 ">
-                                            <Card style={{ width: '27rem', height: '27rem' }}>
+                                            <Card style={{ width: '18rem', height: '27rem' }}>
                                                 <div className="overflow">
                                                     <Card.Img variant="top" height="240" src={!this.state.profilePic ? normal : this.state.profilePic} />
                                                 </div>
@@ -256,7 +256,6 @@ class More extends Component {
                                 </div>
 
                             </div>
-                            <p>{this.state.signup_text}</p>
                             {/* <div className="col-md-4">
                         <Card style={{ width: '18rem', height:'27rem'}}>
                             <div className="overflow">     
@@ -330,7 +329,7 @@ class More extends Component {
                             </div>
                             <CommentSection />
                         </div>
-                    </div>
+                </div>
                 </div>
             </div>
         )
