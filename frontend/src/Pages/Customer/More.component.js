@@ -66,7 +66,6 @@ class More extends Component {
                     rateTime: response.data.rateTime,
                     signup_completed: response.data.signup_completed
                 })
-                console.log(this.state.signup_email);
                 localStorage.setItem("spEmail",this.state.signup_email);
                 localStorage.setItem("spId",this.props.match.params.id);
             })
@@ -99,7 +98,6 @@ class More extends Component {
 
     onStarClick(nextValue, prevValue, name){
         this.setState({rating: nextValue});
-        console.log(this.state.rating);
         const data = {
             customerId : this.props.id,
             customerFName : this.props.fName,
@@ -108,28 +106,57 @@ class More extends Component {
             spId : this.props.match.params.id,
             rating : nextValue
         }
-        console.log(data)
-
-        axios.post('http://localhost:4000/rating/addrating', data)
-            .then(res => {
-                console.log(res.data)
-            }); 
-        console.log(this.state.sumRate)  
-        const sumRate = this.state.sumRate + nextValue;
-        const rateTime = this.state.rateTime + 1;
         
-        const data2 = {
-            spId : this.props.match.params.id,
-            sumRate : sumRate,
-            rateTime : rateTime
-        }
-        console.log(data2)
-        axios.post('http://localhost:4000/rating/addrating2', data2)
+        axios.post('http://localhost:4000/rating/checkrating', data)
             .then(res => {
-                console.log(res.data)
-        }); 
-
-    }
+                if(res.data.success){
+                    //thibboth
+                    console.log("Thiyenawa");
+                    axios.post('http://localhost:4000/rating/addrating', data)
+                        .then(res => {
+                            console.log(res.data)
+                        });  
+                    const sumRate = this.state.sumRate + nextValue - res.data.response_body.rate;
+                    const rateTime = this.state.rateTime;
+                    
+                    const data2 = {
+                        spId : this.props.match.params.id,
+                        sumRate : sumRate,
+                        rateTime : rateTime
+                    }
+                    axios.post('http://localhost:4000/rating/addrating2', data2)
+                        .then(res => {
+                            console.log(res.data)
+                    }); 
+                    console.log(sumRate);
+                    console.log(rateTime);
+                    //thibboth
+                }
+                else{
+                    //Na
+                    console.log("Na");
+                    axios.post('http://localhost:4000/rating/addrating', data)
+                        .then(res => {
+                            console.log(res.data)
+                        });  
+                    const sumRate = this.state.sumRate + nextValue;
+                    const rateTime = this.state.rateTime + 1;
+                    
+                    const data2 = {
+                        spId : this.props.match.params.id,
+                        sumRate : sumRate,
+                        rateTime : rateTime
+                    }
+                    axios.post('http://localhost:4000/rating/addrating2', data2)
+                        .then(res => {
+                            console.log(res.data)
+                    }); 
+                    console.log(sumRate);
+                    console.log(rateTime);
+                }
+            })
+            window.location.reload();
+        }
 
     onSubmit(e) {
         e.preventDefault();
@@ -144,7 +171,7 @@ class More extends Component {
             text: this.state.text,
             //signup_completed: this.state.signup_completed
         };
-        console.log(obj);
+        //console.log(obj);
         axios.post('http://localhost:4000/request/addrequest/', obj)
             .then(res => console.log(res.data));
 
@@ -162,7 +189,7 @@ class More extends Component {
             spId : this.props.match.params.id,
             comment : this.state.comment
         }
-        console.log(data)
+        //console.log(data)
             axios.post('http://localhost:4000/comment/addcomment', data)
                 .then(res => {
                     console.log(res.data)

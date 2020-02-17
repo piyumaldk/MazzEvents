@@ -17,6 +17,26 @@ router.route('/').get(function(req, res) {
     });
 });
 
+//Check rating
+router.route('/checkrating').post(function(req, res){
+  Rating.findOne({customerId: req.body.customerId, spId: req.body.spId})
+    .then(response => {
+      if(response){
+        res.status(200).send({
+          success: true,
+          response_body: response,
+          message: "Already have",
+        })
+      }
+      else{
+        console.log("Not there");
+        res.status(200).send({
+          success: false
+        })
+      }
+    })
+});
+
 //Add to rating
 router.route('/addrating').post(function(req, res) {
     Rating.findOne({customerId: req.body.customerId, spId: req.body.spId},function(err, rating) {
