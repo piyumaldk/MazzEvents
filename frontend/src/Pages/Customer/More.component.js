@@ -203,7 +203,7 @@ class More extends Component {
                 <LeftCustomer/>
                 <div className="right">
                     <Upper/>
-                    <div className="background"> 
+                    <div className="background1"> 
 
                         <div className="row card_ss">
                             <div className="col-md-4">   
