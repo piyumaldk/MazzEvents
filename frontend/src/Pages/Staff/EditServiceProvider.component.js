@@ -147,7 +147,7 @@ import { Button, Card, Form, Col } from 'react-bootstrap';
         axios.post('http://localhost:4000/mazzevents/updatecustomer/' + this.props.match.params.id, obj)
             .then(res => console.log(res.data));
 
-        this.props.history.push('/staff/serviceprovider');
+        this.props.history.push('/staff/account');
         window.location.reload();
         alert("Updated successfully")
 
@@ -167,7 +167,7 @@ import { Button, Card, Form, Col } from 'react-bootstrap';
         axios.delete('http://localhost:4000/mazzevents/removecustomer/' + id, {})
             .then(res => console.log(res));
 
-        this.props.history.push('/staff/serviceprovider');
+        this.props.history.push('/staff/account');
         window.location.reload();
     }
 

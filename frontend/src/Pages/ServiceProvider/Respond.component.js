@@ -4,7 +4,7 @@ import Upper from "../../Components/Upper.component";
 import { connect } from 'react-redux';
 import LeftServiceProvider from "../../Components/LeftServiceProvider.component";
 import { StreamChat } from 'stream-chat';
-import { Chat, Channel, ChannelHeader, Thread, Window, MessageList, MessageInput, conversation } from 'stream-chat-react';
+import { Chat, Channel, ChannelHeader, Thread, Window, MessageList, MessageInput} from 'stream-chat-react';
 import {
     Input,
     Label,
@@ -72,41 +72,38 @@ class Respond extends Component {
         const workeremail = this.props.email;
         var m = workeremail.indexOf("@");
         var workername = workeremail.slice(0, m);
-        console.log(workeremail);
-        var channelName = workername;
-        console.log(workername);
         
-        console.log(this.props.chatToken);
+        
+        
         const customeremail = this.state.customerEmail;
-        console.log(customeremail);
         var n = customeremail.indexOf("@");
         var customername = customeremail.slice(0, n);
-        console.log(customername);
         
+        var channelName = workername.concat('-',customername);
         
         
 
         
-        // client.setUser(
-        //     {
-        //         id: workername,
-        //         name: workername,
-        //     },
-        //     userToken,
-        // );
+        client.setUser(
+            {
+                id: workername,
+                name: workername,
+            },
+            userToken,
+        );
 
-        // const conversation = client.channel('messaging', channelName, {
-        //     name: channelName,
-        //    // image: 'http://bit.ly/2O35mws',
-        //     members: [workername, customername]
-        // });
+        const conversation = client.channel('messaging', channelName, {
+            name: channelName,
+           
+            members: [workername, customername]
+        });
         return (
             <div>
                 <LeftServiceProvider/>
                 <div className="right">
                     <Upper/>
                     <div>
-                    {/* <Button className="btn btn-dark" onClick={this.toggle} >
+                    <Button className="btn btn-dark" onClick={this.toggle} >
                         Message
                     </Button>
                     <Modal isOpen={this.state.modal} toggle={this.toggle}>
@@ -127,7 +124,7 @@ class Respond extends Component {
                                 
                             </div>
                         </ModalBody>
-                    </Modal> */}
+                    </Modal>
                     
                     {this.state.customerEmail}
 
