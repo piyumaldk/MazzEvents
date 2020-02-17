@@ -126,9 +126,7 @@ class Respond extends Component {
                         </ModalBody>
                     </Modal>
                     
-                    {this.state.customerEmail}
-
-                    {this.props.email}
+                    
                     </div>
                 </div>
              </div>
@@ -141,7 +139,9 @@ const mapStateToProps = state => ({
     fName: state.auth.fName,
     lName: state.auth.lName,
     email: state.auth.email,
-    number: state.auth.number
+    number: state.auth.number,
+    token: state.auth.token,
+    chatToken: state.auth.chatToken,
   });
 
 export default connect(mapStateToProps,null)(Respond);
