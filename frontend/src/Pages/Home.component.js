@@ -4,6 +4,8 @@ import Upper from "../Components/Upper.component";
 
 import {Button, Card, CardDeck} from 'react-bootstrap';
 import axios from 'axios';
+import img1 from './../Images/floral.jpg'
+import img2 from './../Images/floral2.jpg'
 
 const Events = props => (
     
@@ -26,27 +28,11 @@ const Events = props => (
     </div>
 )
 
-const Notifications = props => (
-    <div>   
-        <Card  border="primary" text="black" style={{ width: '18.5rem', height:'15rem', borderRadius:'8'}}>   
-        {/* <Card.Img variant="top" height="240" src={company} /> */}
-       <center><Card.Header><b>{props.notifications.topic}</b></Card.Header>
-            <Card.Body>
-            {/* <Card.Title></Card.Title> */}
-            <Card.Text >
-                Date:{props.notifications.time}<br/>
-                Detail:{props.notifications.detail}<br/>
-                <br/>
-             </Card.Text>
-            </Card.Body></center>
-        </Card>     
-    </div>
-)
 
 export default class Home extends Component {
     constructor(props) {
         super(props);
-        this.state = {users: [], notifi:[]};
+        this.state = {users: [],};
     }
     
     componentDidMount() {
@@ -54,15 +40,6 @@ export default class Home extends Component {
             .then(response => {
                 this.setState({ users: response.data });
                 console.log(this.state.users);
-            })
-            .catch(function (error){
-                console.log(error);
-            })
-
-            axios.get('http://localhost:4000/notifications')
-            .then(response => {
-                this.setState({ notifi: response.data });
-                console.log(this.state.notifi);
             })
             .catch(function (error){
                 console.log(error);
@@ -75,12 +52,7 @@ export default class Home extends Component {
             return <Events events={currentEvents} key={i} />;
         })
     }
-    UserList2() {
-        return this.state.notifi.map(function(currentNotifications, i){
-            return <Notifications notifications={currentNotifications} key={i}
-             />;
-        })
-    }
+
 
     render() {
         return (
@@ -92,7 +64,7 @@ export default class Home extends Component {
                      <div >
                         <Carousel >
                             <Carousel.Item>
-                                <img className="d-block w-100" src="https://cdn.pixabay.com/photo/2015/05/15/14/50/concert-768722_960_720.jpg" alt="First slide"/>
+                                <img className="d-block w-100" src={img1} alt="First slide"/>
                                 <Carousel.Caption>
                                     <h3>Kasun Kalhara - Musical Night</h3>
                                     <p>5th December : @Nelum Pokuna(7pm onwards)</p>
@@ -100,7 +72,7 @@ export default class Home extends Component {
                             </Carousel.Item>
 
                             <Carousel.Item>
-                                <img className="d-block w-100" src="https://cdn.pixabay.com/photo/2014/05/03/01/02/concert-336695_960_720.jpg" alt="Third slide"/>
+                                <img className="d-block w-100"  src={img2} alt="Third slide"/>
                                 <Carousel.Caption>
                                     <h3>New Year Vibe - 2020</h3>
                                     <p>31th December : @Viharamahadhevi(9pm onwards)</p>
@@ -129,42 +101,6 @@ export default class Home extends Component {
                                     </CardDeck>
                             </div>
                         </div>   
-
-                    </div>
-                    <div >
-                        <center><h3><b>Notifications</b></h3></center>
-
-                        <div>
-                            <div className="container-fluid">
-                                    
-                                <CardDeck>
-                                {this.UserList2()}
-                                    
-                                    </CardDeck>
-                            </div>
-                        </div>   
-
-                    </div>
-                    <div >
-                        
-                        
-                            <div className="container-fluid">
-                            <div className="row bg-primary text-white" >
-                                <div col-md-3>
-
-                                </div> 
-                                <div col-md-3>
-
-                                </div>
-                                <div col-md-3>
-
-                                </div>
-                                <div col-md-3>
-
-                                </div>      
-                            </div>   
-                            </div>
-                           
 
                     </div>
                 

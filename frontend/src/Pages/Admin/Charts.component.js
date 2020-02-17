@@ -258,22 +258,25 @@ export default class Charts extends PureComponent {
         <div className="right">
         <div >
           <Upper />
+        </div>
 
-
-          <div><center><h3 className="header">All the Users in the Last Ten Months</h3>
+          <div className="row">
+          <div className="col-3"><center><h3 className="header a">All the Users in the Last Ten Months</h3></center></div>
+          <div className="col-9"><center>
             <BarChart width={900} height={500} data={this.state.data}>
               <XAxis dataKey="name" stroke="#0088FE" />
             <YAxis />
             <Tooltip />
             <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
             <Bar type="monotone" dataKey="users" fill="#0088FE" barSize={20} />
-          </BarChart>
-          </center></div>
+          </BarChart></center>
+          </div></div>
 
-        </div>
         
-        <div>
-          <center><h3 className="header">Service Providers</h3>
+        
+        <div className="row">
+          <div className="col-3"><center><h3 className="header a">Service Providers</h3></center></div>
+          <div className="col-9"><center>
             <BarChart width={900} height={500} data={this.state.sur}>
             <XAxis dataKey="name" stroke="#0088FE" />
             <YAxis />
@@ -281,10 +284,11 @@ export default class Charts extends PureComponent {
             <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
             <Bar type="monotone" dataKey="users" fill="#0088FE" barSize={20} />
           </BarChart></center>
-        </div>
+          </div></div>
 
-        <div>
-        <center><h3 className="header">Service Providers & Customers</h3>
+          <div className="row">
+          <div className="col-3"><center><h3 className="header a">Service Providers & Customers</h3></center></div>
+          <div className="col-9"><center>
           <PieChart width={400} height={400}>
         <Pie
           activeIndex={this.state.activeIndex}
@@ -299,7 +303,7 @@ export default class Charts extends PureComponent {
           onMouseEnter={this.onPieEnter}
         />
       </PieChart></center>
-        </div>
+          </div></div>
         </div>
      </div>
     );
