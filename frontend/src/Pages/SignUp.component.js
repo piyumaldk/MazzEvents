@@ -4,6 +4,52 @@ import {Form, Button, Col} from 'react-bootstrap';
 import '../App.css';
 import axios from 'axios';
 
+//validating empty fields for client
+// function validate1(signup_email, signup_number) {
+//     return {
+//         signup_email: signup_email.length === 0,
+//         signup_number: signup_number.length === 0,
+//         // NIC: NIC.length === 0
+//     };
+// }
+
+//email syntax
+function validateEmail(email) {
+    const regexp = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return regexp.test(email);
+}
+
+//validate tel
+function validateTel(tel) {
+    // const reg = /^(0)(7)([0-9]{8})$/;
+    const reg = /^(?:0|94|\+94)?(?:(11|21|23|24|25|26|27|31|32|33|34|35|36|37|38|41|45|47|51|52|54|55|57|63|65|66|67|81|912)(0|2|3|4|5|7|9)|7(0|1|2|5|6|7|8)\d)\d{6}$/;
+    return reg.test(tel);
+}
+
+
+
+// //NIC syntax
+// function validateNIC(nic) {
+//     const regex = /^([0-9]{9})(V|v)$/;
+//     const regex2 = /^([0-9]{12})$/;
+
+//     if (regex.test(nic)) {
+//         return regex.test(nic);
+//     }
+
+//     else if (regex2.test(nic)) {
+//         return regex2.test(nic);
+//     }
+// }
+
+
+
+//validate password (minimum 6 characters, atleast one caps and one simple letter, one special character and one number)
+function validatePassword(password) {
+    const regpw = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
+    return regpw.test(password);
+}
+
 export default class SignUp extends Component {
 
     constructor(props){
@@ -96,6 +142,27 @@ export default class SignUp extends Component {
             signup_location: this.state.signup_location,
             signup_completed: this.state.signup_completed
         }
+        //email syntax validation
+        if(!validateEmail(this.state.signup_email)){
+            alert("Enter valid email address");
+        }
+        //Tele syntax validation
+        else if(!validateTel(this.state.signup_number)){
+            alert("Enter valid telephone number");
+        }
+        //Password syntax validation
+        else if(!validatePassword(this.state.signup_password)){
+            alert("Enter valid Password");
+        }
+        else{
+            const headers = {
+                'Content-Type':'application/json'
+            }
+        }
+        // //NIC syntax validation
+        // if(!validateNIC(this.state.Email)){
+        //     alert("Enter valid NIC number");
+        // }
 
         if(this.state.signup_option==="1"){
             axios.post('http://localhost:4000/mazzevents/addserviceprovider', newSignUp)
