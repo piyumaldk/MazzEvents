@@ -28,7 +28,8 @@
   background-color: #343A40;
   overflow-x: hidden;
   padding-top: 15px;
-  min-width: 220px;
+  min-width: 120spx;
+  /* min-width:220px; hri eka */
   min-height: 100vh;
 }
 .sidenav h{
@@ -438,6 +439,13 @@ padding: 10px;
 
     .centerMail{
       text-align: center;
+      /* justify-content: center; */
+      align-items: center;
+      right:18rem;
+      left:18rem;
+    } 
+
+    .centerEvent{
       /* justify-content: center; */
       align-items: center;
       right:18rem;
