@@ -6,14 +6,16 @@ import StarRatingComponent from 'react-star-rating-component';
 import { connect } from 'react-redux';
 import LeftServiceProvider from '../../Components/LeftServiceProvider.component';
 const Comment = props => (
+    <div className="text">
     <tr>
         <tr>
-        <td>{props.comment.customerFName} {props.comment.customerLName}</td>
+        <td><b>{props.comment.customerFName} {props.comment.customerLName}:</b></td>
         </tr>
         <tr>
         <td>{props.comment.comment}</td>
         </tr>
     </tr>
+    </div>
     
 )
 

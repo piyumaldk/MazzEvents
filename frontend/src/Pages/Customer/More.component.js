@@ -198,6 +198,13 @@ class More extends Component {
 
                     <div className="col-md-4">
                         <Card style={{ width: '18rem', height:'27rem'}}>
+                        <center><Card.Header><b>Text</b></Card.Header></center>
+                        <Card.Text>{this.state.signup_text}</Card.Text>
+                        </Card><br/>
+                    </div>
+
+                    {/* <div className="col-md-4">
+                        <Card style={{ width: '18rem', height:'27rem'}}>
                             <div className="overflow">     
                                 <Card.Img variant="top" height="240" src={!this.state.profilePic ? normal:this.state.profilePic} />
                             </div>
@@ -210,7 +217,7 @@ class More extends Component {
                                     </Card.Text>
                             </Card.Body>
                         </Card><br/>
-                    </div>
+                    </div> */}
 
                     <div className="col-md-4">
                                 <center>
@@ -222,11 +229,7 @@ class More extends Component {
                                     onStarClick={this.onStarClick.bind(this)}
                                 />
                             </h1>
-                        </center><br/>
-
-                    <div className= "text">
-                        Text : {this.state.signup_text}<br/><br/>
-                    </div>    
+                        </center><br/> 
 
                         <center><h3>Request</h3></center>
                             <Form onSubmit={this.onSubmit}>
@@ -271,8 +274,7 @@ class More extends Component {
                                     </div>
                             </div>
                         </div>
-
-                        <b><CommentSection/></b>
+                        <CommentSection/>
                     </div>
             </div>     
         </div>
