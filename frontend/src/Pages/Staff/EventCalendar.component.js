@@ -4,6 +4,8 @@ import LeftStaff from "../../Components/LeftStaff.component";
 import Upper from "../../Components/Upper.component";
 import{Card} from 'react-bootstrap';
 import StarIcon from '@material-ui/icons/Star';
+import ScheduleIcon from '@material-ui/icons/Schedule';
+import LinkIcon from '@material-ui/icons/Link';
 
 export default class StaffEventCalendar extends Component {
 
@@ -99,7 +101,7 @@ export default class StaffEventCalendar extends Component {
                                 />
                     </div>
                     <div className="form-group">
-                        <label><StarIcon/>Time</label>
+                        <label><ScheduleIcon/>Time</label>
                         <input  type="text"
                                 className="form-control"
                                 //value={this.state.time}
@@ -107,7 +109,7 @@ export default class StaffEventCalendar extends Component {
                                 />
                     </div>
                     <div className="form-group">
-                        <label><StarIcon/>Link</label>
+                        <label><LinkIcon/>Link</label>
                         <input  type="text"
                                 className="form-control"
                                 //value={this.state.time}
