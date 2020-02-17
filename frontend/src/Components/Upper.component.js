@@ -54,7 +54,7 @@ class Upper extends Component {
             { isAuthenticated === true && type ==="2"  ? <Nav.Link href="/serviceprovider/addservices">Service Provider Dashboard</Nav.Link> : null }
             { isAuthenticated === true && type ==="3"  ? <Nav.Link href="/staff/account">Staff Member Dashboard</Nav.Link> : null }
             { isAuthenticated === true && type ==="4"  ? <Nav.Link href="/admin/staff">Administrator Dashboard</Nav.Link> : null }
-            <Nav.Link href="/aboutus">About us</Nav.Link> 
+            <Nav.Link href="#about_us">About us</Nav.Link> 
             {/* <Nav.Link href="/notification">Notifications</Nav.Link> */}
             {/* <a href="/notification"><Icon.Bell color="WHITE" size={40}  /></a> */}
             <Notification/>
