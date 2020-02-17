@@ -208,7 +208,7 @@ class More extends Component {
                         <div className="row card_ss">
                             <div className="col-md-4">
 
-                                <Card style={{ width: '18rem', height: '27rem' }}>
+                                <Card style={{ width: '27rem', height: '27rem' }}>
                                     <div className="overflow">
                                         <Card.Img variant="top" height="240" src={!this.state.businessPic ? company : this.state.businessPic} />
                                     </div>
