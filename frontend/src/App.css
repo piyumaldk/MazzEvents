@@ -613,6 +613,7 @@ body {
   right: 0px;
   background-size: auto;
 }
+<<<<<<< HEAD
 
 /* .background{
     background-image: url("Images/rightbackground.jpg");
@@ -623,6 +624,8 @@ body {
     /* background-size: auto; */
   
 
+=======
+>>>>>>> 6a1d005daf5f3e89b26fd8d6c50242a76e3d1455
 .Not_date{
     margin-top: -19px;
     font-size: 14px;

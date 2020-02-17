@@ -86,12 +86,12 @@ export default class LeftCustomer extends Component {
                     </div>
                 </div>
 
-                <div className="row">
+                {/* <div className="row">
                     <div className="col-md-1"><a href="/admin/staff"><CalendarTodayIcon  style={{ fontSize: 22}}/></a></div>
                     <div className="col-md-10">
                     <a href="/customer/eventscl">Events Calendar</a>
                     </div>
-                </div>
+                </div> */}
 
                 <div className="row">
                     <div className="col-md-1"><a href="/admin/staff"><AccountBoxIcon  style={{ fontSize: 22}}/></a></div>

@@ -14,7 +14,7 @@ router.route('/').get(function (req, res) {
     } else {
       res.json(signupcustomer);
     }
-  });
+  }).sort({signup_firstName: 1});;
 });
 
 router.route('/:id').get(function (req, res) {
@@ -117,7 +117,6 @@ router.route('/updatepassword/:id').post(function (req, res) {
       res.status(404).send("data is not found");
     }
     else
-      console.log("hure");
     var password = req.body.signup_password;
     bcrypt.hash(password, 10, function (err, hash) {
       password = hash;

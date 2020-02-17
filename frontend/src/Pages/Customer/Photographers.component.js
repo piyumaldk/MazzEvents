@@ -37,6 +37,7 @@ const SignUpCustomer = props => (
                 Address : {props.signupcustomer.signup_address2}<br/>
             </Card.Text>
             <center><Link to={"/customer/more/"+props.signupcustomer._id}>Visit More</Link></center>
+            {props.signupcustomer.number}
             </Card.Body>
         </Card>     
     </div>
@@ -74,6 +75,8 @@ export default class Photgraphers extends Component {
     UserList () {
         const local = this.state.location;
         if(local ==null || local===""){
+            this.state.users.sort((a,b) => (a.fName > b.fName) ? 1: -1);
+            console.log(this.state.users);
             return this.state.users.map(function(currentSignUpCustomer, i){
                 if(currentSignUpCustomer.signup_type === "2" && currentSignUpCustomer.signup_category === "Photographer"){
                 return <SignUpCustomer signupcustomer={currentSignUpCustomer} key={i} />;
