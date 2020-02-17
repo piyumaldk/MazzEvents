@@ -202,13 +202,8 @@ class More extends Component {
             <div>
                 <LeftCustomer />
                 <div className="right">
-<<<<<<< HEAD
-                    <Upper/>
-                    <div className="background1"> 
-=======
                     <Upper />
                     <div className="background">
->>>>>>> d67c4a8959926a28e04fd819045448dd037c6592
 
                         <div className="row card_ss">
                             <div className="col-md-4">
