@@ -45,7 +45,7 @@ export default class EventList extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:4000/events')
+        axios.get('http://localhost:4000/events/all')
             .then(response => {
                 this.setState({ users: response.data });
                 console.log(this.state.users);

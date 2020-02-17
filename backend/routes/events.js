@@ -17,7 +17,7 @@ router.route('/').get(function(req, res) {
     }).sort({$natural:-1}).limit(8);
 });
 
-router.route('/dfdf').get(function(req, res) {
+router.route('/all').get(function(req, res) {
     Events.find(function(err, event) {
         if (err) {
             console.log(err);
