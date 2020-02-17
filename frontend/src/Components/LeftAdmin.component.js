@@ -16,7 +16,7 @@ export default class LeftAdmin extends Component {
             <div> 
                 <nav className="sidenav">
                     <ul className="list-unstyled components">
-                        <h>Administrator Dashboard</h>
+                        <center><h>Administrator Dashboard</h></center>
                         <p>Components</p>
 
                         <div className="row">
