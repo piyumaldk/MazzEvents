@@ -229,7 +229,7 @@ class More extends Component {
                                 <div className="flip-box1 ">
                                     <div className="flip-box-inner1 ">
                                         <div className="flip-box-front1 ">
-                                            <Card style={{ width: '18rem', height: '27rem' }}>
+                                            <Card style={{ width: '27rem', height: '27rem' }}>
                                                 <div className="overflow">
                                                     <Card.Img variant="top" height="240" src={!this.state.profilePic ? normal : this.state.profilePic} />
                                                 </div>
