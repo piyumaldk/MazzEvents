@@ -45,7 +45,7 @@ export default class LeftServiceProvider extends Component {
                 <div className="row">
                     <div className="col-md-1"><a href="/admin/staff"><CalendarTodayIcon  style={{ fontSize: 22}}/></a></div>
                     <div className="col-md-10">
-                    <a href="/serviceprovider/eventcalendar">Event Calendar</a>
+                    <a href="/serviceprovider/calendar">My Calendar</a>
                     </div>
                 </div>
 

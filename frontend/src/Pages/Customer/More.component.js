@@ -260,7 +260,7 @@ class More extends Component {
                             </Form><br/>
                             <Input type="textarea" name="comment" id="comment" placeholder="Comment" className="mb-3" onChange={this.onChangeComment}/>
                             <Button disabled={!this.state.comment} onClick={this.onClick}>Comment on him</Button>
-                            <Button href="http://localhost:3000/customer/testing">Check Available Dates</Button>
+                            <Button href="http://localhost:3000/customer/calendar">Check Available Dates</Button>
                         </div>
 
                         <CommentSection/>
