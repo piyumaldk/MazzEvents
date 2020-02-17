@@ -167,6 +167,7 @@ class More extends Component {
                 .then(res => {
                     console.log(res.data)
                 }); 
+                window.location.reload();
     }
     render() {
         const { rating } = this.state;
@@ -258,7 +259,15 @@ class More extends Component {
                             
                             </Form><br/>
                             <Input type="textarea" name="comment" id="comment" placeholder="Comment" className="mb-3" onChange={this.onChangeComment}/>
-                            <Button disabled={!this.state.comment} onClick={this.onClick}>Comment on him</Button>
+                            <div className="row">
+                                    <div className="col-md-6">
+                                        <Button disabled={!this.state.comment} onClick={this.onClick}>Comment on him</Button>
+                                    </div>
+
+                                    <div className="col-md-6">
+                                        <Button href="http://localhost:3000/customer/calendar">Check Availability</Button>
+                                    </div>
+                            </div>
                         </div>
 
                         <CommentSection/>

@@ -55,7 +55,7 @@ class Help extends Component {
         var m = adminemail.indexOf("@");
         var adminname = adminemail.slice(0, m);
         console.log(customeremail);
-        var channelName = adminname;
+        var channelName = customername.concat('-',adminname);
         console.log(channelName);
 
         //client.disconnect();
@@ -75,7 +75,7 @@ class Help extends Component {
         });
 
         return (
-<div>
+    <div>
 
             <a onClick={this.toggle} color="white">Help</a>
             <Modal isOpen={this.state.modal} toggle={this.toggle}>

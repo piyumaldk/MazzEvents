@@ -6,14 +6,13 @@ import ServiceProviderAccount from "./Account.component";
 import ServiceProviderAddDiscountOffers from "./AddDiscountOffers.component";
 import ServiceProviderCharts from "./Charts.component";
 import ServiceProviderChat from "./Chat.component";
-import ServiceProviderEventCalendar from "./EventCalendar.component";
 import ServiceProviderHelp from "./Help.component";
 import ServiceProviderMailbox from "./MailBox.component";
 import ServiceProviderReviews from "./Reviews.component";
 import ServiceProviderViewBookings from "./ViewBookings.component";
 import ServiceProviderViewServices from "./ViewServices.component";
 import Respond from "./Respond.component";
-import NurseCalendar from "./testing";
+import Calendar from "./Calendar.component";
 
 export default class ServiceProvider extends Component {
     render() {
@@ -26,14 +25,13 @@ export default class ServiceProvider extends Component {
                     <Route path="/serviceprovider/adddiscountoffers" component={ServiceProviderAddDiscountOffers}/>
                     <Route path="/serviceprovider/charts" component={ServiceProviderCharts}/>
                     <Route path="/serviceprovider/chat" component={ServiceProviderChat}/>
-                    <Route path="/serviceprovider/eventcalendar" component={ServiceProviderEventCalendar}/>
                     <Route path="/serviceprovider/help" component={ServiceProviderHelp}/>
                     <Route path="/serviceprovider/mailbox" component={ServiceProviderMailbox}/>
                     <Route path="/serviceprovider/reviews" component={ServiceProviderReviews}/>
                     <Route path="/serviceprovider/viewbookings" component={ServiceProviderViewBookings}/>
                     <Route path="/serviceprovider/viewservices" component={ServiceProviderViewServices}/>
                     <Route path="/serviceprovider/respond/:id" component={Respond}/>
-                    <Route path="/serviceprovider/testing" component={NurseCalendar}/>
+                    <Route path="/serviceprovider/calendar" component={Calendar}/>
                     
                 </Router>
             </div>

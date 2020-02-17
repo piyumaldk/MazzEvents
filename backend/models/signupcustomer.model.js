@@ -119,7 +119,7 @@ let SignUpSchema = new Schema({
     signup_completed: {
         type: Boolean
     },
-    unavailableDates: {
+    UnavailableDates: {
         type: [String],
         default: []
     }

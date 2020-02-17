@@ -14,7 +14,7 @@ import Photographers from "./Photographers.component";
 import Halls from "./ReceptionHalls.component";
 import ResetPassword from "./ResetPassword";
 import More from "./More.component";
-
+import CustomerCalendar from "./CustomerCalendar.component";
 export default class Customer extends Component {
     render() {
         return (
@@ -34,7 +34,7 @@ export default class Customer extends Component {
                     <Route path="/customer/halls" component={Halls} />
                     <Route path="/customer/repassword" component={ResetPassword} />
                     <Route path="/customer/more/:id" component={More} />
-
+                    <Route path="/customer/calendar" component={CustomerCalendar} />
                 </Router>
             </div>
         )

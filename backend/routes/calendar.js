@@ -3,7 +3,7 @@ const router = express.Router();
 
 let SignUpCustomer = require('../models/signupcustomer.model');
 
-router.route('/userdata/unavailableDates/:id').get(function(req, res){
+router.route('/:id').get(function(req, res){
     SignUpCustomer.findById(req.params.id)
         .then(response => {
             res.status(200).send({
@@ -11,11 +11,11 @@ router.route('/userdata/unavailableDates/:id').get(function(req, res){
                 message: "User data success",
                 profile_data: response
             })
-            console.log("mithia");
+            console.log("Get Calendar");
         })
 });
 
-router.route('/userdata/unavailableDates/:id').post(function(req, res){
+router.route('/addcalendar/:id').post(function(req, res){
     SignUpCustomer.findByIdAndUpdate(req.params.id, {$push: {"UnavailableDates":req.body.date}},(err,doc)=>{
         if (err){
             res.send(err)
