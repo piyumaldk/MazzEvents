@@ -17,12 +17,12 @@ import {
     <div>  
         <br/><br/> 
         <Card  border="primary" text="black" style={{ width: '25rem', height:'15em', borderRadius:'8'}}>   
-       <center><Card.Header><b>{props.notifications.topic}</b></Card.Header>
+       <center><Card.Header><p className="Not_Head">{props.notifications.topic}</p></Card.Header>
             <Card.Body>
             {/* <Card.Title></Card.Title> */}
             <Card.Text >
-                Date:{props.notifications.time}<br/>
-                Detail:{props.notifications.detail}<br/>
+                {props.notifications.time}<br/>
+                {props.notifications.detail}<br/>
                 <br/>
              </Card.Text>
             </Card.Body></center>
