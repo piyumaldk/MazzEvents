@@ -28,12 +28,12 @@ export default class LeftServiceProvider extends Component {
                     </div>
                 </div>
 
-                <div className="row">
+                {/* <div className="row">
                     <div className="col-md-1"><a href="/admin/staff"><ChatIcon  style={{ fontSize: 22}}/></a></div>
                     <div className="col-md-10">
                         <a href="/serviceprovider/chat">Chat</a>
                     </div>
-                </div>
+                </div> */}
 
                 <div className="row">
                     <div className="col-md-1"><a href="/admin/staff"><MailIcon style={{ fontSize: 22}}/></a></div>
@@ -49,33 +49,33 @@ export default class LeftServiceProvider extends Component {
                     </div>
                 </div>
 
-                <div className="row">
+                {/* <div className="row">
                     <div className="col-md-1"><a href="/admin/staff"><InsertChartIcon  style={{ fontSize: 22}}/></a></div>
                     <div className="col-md-10">
                     <a href="/serviceprovider/charts">Charts</a>
                     </div>
-                </div>
+                </div> */}
 
-                <div className="row">
+                {/* <div className="row">
                     <div className="col-md-1"><a href="/admin/staff"><DashboardIcon  style={{ fontSize: 22}}/></a></div>
                     <div className="col-md-10">
                     <a href="/serviceprovider/viewservices">View Services</a>
                     </div>
-                </div>
+                </div> */}
 
                 <div className="row">
                     <div className="col-md-1"><a href="/admin/staff"><StarIcon  style={{ fontSize: 22}}/></a></div>
                     <div className="col-md-10">
-                    <a href="/serviceprovider/reviews">Reviews and Ratings</a>
+                    <a href="/serviceprovider/reviews">Ratings</a>
                     </div>
                 </div>
 
-                <div className="row">
+                {/* <div className="row">
                     <div className="col-md-1"><a href="/admin/staff"><PersonAddIcon  style={{ fontSize: 22}}/></a></div>
                     <div className="col-md-10">
                     <a href="/serviceprovider/adddiscountoffers">Add Discount Offers +</a>
                     </div>
-                </div>
+                </div> */}
 
                 <div className="row">
                     <div className="col-md-1"><a href="/admin/staff"><ViewAgendaIcon style={{ fontSize: 22}}/></a></div>
