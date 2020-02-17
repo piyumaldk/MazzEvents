@@ -224,7 +224,9 @@ class More extends Component {
                             </h1>
                         </center><br/>
 
+                    <div className= "text">
                         Text : {this.state.signup_text}<br/><br/>
+                    </div>    
 
                         <center><h3>Request</h3></center>
                             <Form onSubmit={this.onSubmit}>
@@ -261,16 +263,16 @@ class More extends Component {
                             <Input type="textarea" name="comment" id="comment" placeholder="Comment" className="mb-3" onChange={this.onChangeComment}/>
                             <div className="row">
                                     <div className="col-md-6">
-                                        <Button disabled={!this.state.comment} onClick={this.onClick}>Comment on him</Button>
+                                        <Button disabled={!this.state.comment} onClick={this.onClick} variant="dark">Comment on him</Button>
                                     </div>
 
                                     <div className="col-md-6">
-                                        <Button href="http://localhost:3000/customer/calendar">Check Availability</Button>
+                                        <Button href="http://localhost:3000/customer/calendar" variant="dark">Check Availability</Button>
                                     </div>
                             </div>
                         </div>
 
-                        <CommentSection/>
+                        <b><CommentSection/></b>
                     </div>
             </div>     
         </div>
