@@ -6,7 +6,8 @@ import {
     LOGIN_FAIL,
     LOGOUT_SUCCESS,
     REGISTER_SUCCESS,
-    REGISTER_FAIL
+    REGISTER_FAIL,
+    SET_SP
   } from '../Actions/types';
   
   const initialState = {
@@ -26,6 +27,8 @@ import {
     city: null,
     state: null,
     zip: null,
+    spId: null,
+    spEmail: null
   };
   
   export default function(state = initialState, action) {
@@ -53,6 +56,9 @@ import {
           city: localStorage.getItem('city'),
           state: localStorage.getItem('state'),
           zip: localStorage.getItem('zip'),
+          spId: null,
+          spEmail: null
+
         };
       case LOGIN_SUCCESS:
       case REGISTER_SUCCESS:
@@ -70,6 +76,8 @@ import {
         localStorage.setItem('city', action.payload.signupcustomer.city);
         localStorage.setItem('state', action.payload.signupcustomer.state);
         localStorage.setItem('zip', action.payload.signupcustomer.zip);
+        localStorage.setItem('spId', action.payload.signupcustomer.zip);
+        localStorage.setItem('spEmail', action.payload.signupcustomer.zip);
         console.log(action.payload);
         return {
           ...state,
@@ -89,6 +97,8 @@ import {
           city: action.payload.signupcustomer.city,
           state: action.payload.signupcustomer.state,
           zip: action.payload.signupcustomer.zip,
+          spId: action.payload.signupcustomer.zip,
+          spEmail: action.payload.signupcustomer.zip,
         };
       case AUTH_ERROR:
       case LOGIN_FAIL:
@@ -107,6 +117,8 @@ import {
           localStorage.removeItem('city');
           localStorage.removeItem('state');
           localStorage.removeItem('zip');
+          localStorage.removeItem('spId');
+          localStorage.removeItem('spEmail');
           return {
             id: null,
             type: null,
@@ -124,7 +136,16 @@ import {
             city: null,
             state: null,
             zip: null,
+            spId: null,
+            spEmail: null
           }
+          // case SET_SP:
+          //   localStorage.setItem('spId', bla);
+          //   localStorage.setItem('spEmail', bla);
+          //   return {
+          //     spId: bla,
+          //     spEmail: bla
+          //   };
       case REGISTER_FAIL:
         localStorage.removeItem('id');
         localStorage.removeItem('type');
@@ -140,6 +161,8 @@ import {
         localStorage.removeItem('city');
         localStorage.removeItem('state');
         localStorage.removeItem('zip');
+        localStorage.removeItem('spId');
+        localStorage.removeItem('spEmail');
         return {
           ...state,
           token: null,
