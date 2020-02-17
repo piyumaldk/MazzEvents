@@ -18,7 +18,7 @@ const SignUpCustomer = props => (
         <td>{props.signupcustomer.signup_state}</td>
         <td>{props.signupcustomer.signup_zip}</td>
         <td>
-            <Link to={"/staff/editserviceprovider/"+props.signupcustomer._id}>Edit</Link>
+            <Link to={"/staff/editserviceprovider/" + props.signupcustomer._id}>Edit</Link>
         </td>
     </tr>
 )
@@ -27,7 +27,7 @@ export default class StaffCatering extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {users: []};
+        this.state = { users: [] };
     }
 
     componentDidMount() {
@@ -35,15 +35,15 @@ export default class StaffCatering extends Component {
             .then(response => {
                 this.setState({ users: response.data });
             })
-            .catch(function (error){
+            .catch(function (error) {
                 console.log(error);
             })
     }
 
     UserList() {
-        return this.state.users.map(function(currentSignUpCustomer, i){
-            if(currentSignUpCustomer.signup_type === "2" && currentSignUpCustomer.signup_category === "Flowers"){
-            return <SignUpCustomer signupcustomer={currentSignUpCustomer} key={i} />;
+        return this.state.users.map(function (currentSignUpCustomer, i) {
+            if (currentSignUpCustomer.signup_type === "2" && currentSignUpCustomer.signup_category === "Flowers") {
+                return <SignUpCustomer signupcustomer={currentSignUpCustomer} key={i} />;
             }
             return null;
         })
@@ -51,15 +51,15 @@ export default class StaffCatering extends Component {
 
     render() {
 
-        
+
         return (
             <div>
-                <LeftStaff/>
+                <LeftStaff />
                 <div className="right">
-                    <Upper/>
+                    <Upper />
 
-                    <div>
-                    <h3>List of Our Service Providers</h3>
+                    <h3 className="sp_head">List of Our Service Providers</h3>
+                    <div className="sp_table">
                         <table className="table table-striped" style={{ marginTop: 20 }} >
                             <thead>
                                 <tr>
@@ -72,25 +72,25 @@ export default class StaffCatering extends Component {
                                     <th>City</th>
                                     <th>State</th>
                                     <th>Zip</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                
-                                { this.UserList() }
+
+                                {this.UserList()}
                             </tbody>
                         </table>
                         <table>
                             <tbody>
                                 <tr>
-                                    <th><SignUpFlowers/></th>
-                                
+                                    <th><SignUpFlowers /></th>
+
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-
                 </div>
-            </div>   
+            </div>
         )
     }
 }
