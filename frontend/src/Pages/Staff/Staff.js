@@ -17,9 +17,9 @@ import StaffReceptionHalls from "./ReceptionHalls.component";
 import StaffFlowers from "./Flowers.component";
 import EditEvent from "./EditEvent.component";
 import EventList from "./EventList.component";
+import DeleteCustomer from "./Delete.component";
 
 //import RegisterVehiclesModal from "../../Components/Auth/RegisterVehiclesModal";
-
 
 
 export default class Staff extends Component {
@@ -44,6 +44,7 @@ export default class Staff extends Component {
                     <Route path="/staff/flowers" component={StaffFlowers}/>
                     <Route path="/staff/editevent/:id" component={EditEvent}/>
                     <Route path="/staff/eventlist" component={EventList}/>
+                    <Route path="/staff/deletecustomer/:id" component={DeleteCustomer}/>
                 </Router>
             </div>
         )
