@@ -596,7 +596,6 @@ body {
     text-align: justify;
     font-family: sans-serif;
 }
-<<<<<<< HEAD
     .text {
       font-style: oblique;
       font-size: 12pt;
@@ -610,10 +609,20 @@ body {
 .background1{
   background-image: url("Images/rightbackground.jpg");
   position: absolute;
+  width: 100%;
   right: 0px;
   background-size: auto;
 }
-=======
+
+/* .background{
+    background-image: url("Images/rightbackground.jpg");
+    position: absolute;
+    right: 0px;
+    width: 100%;
+    height: 100%;
+    /* background-size: auto; */
+  
+
 .Not_date{
     margin-top: -19px;
     font-size: 14px;
@@ -654,4 +663,3 @@ body {
     margin-left: 50px;
     margin-bottom: 50px;
 }
->>>>>>> d67c4a8959926a28e04fd819045448dd037c6592
