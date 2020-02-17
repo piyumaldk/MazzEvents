@@ -18,7 +18,7 @@ const Events = props => (
         <div className="flip-box ">
             <div className="flip-box-inner ">
                 <div className="flip-box-front ">
-                    <Card bg="dark" text="black" style={{ width: '100%', height: '25rem', borderRadius: '8' }}>
+                    <Card bg="dark" text="light" style={{ width: '100%', height: '25rem', borderRadius: '8' }}>
                         {/* <Card.Img variant="top" height="240" src={company} /> */}
                         <center><Card.Header><b>{props.events.eventName}</b></Card.Header>
                             <Card.Body>

@@ -40,12 +40,12 @@ export default class LeftAdmin extends Component {
                         </div>
                         </div>
                     
-                        <div className="row">
+                        {/* <div className="row">
                         <div className="col-md-1"><a href="/admin/staff"><CalendarTodayIcon style={{ fontSize: 22}} /></a></div>
                         <div className="col-md-10">
                             <li><a href="/admin/eventcalendar">Event Calendar</a></li>
                         </div>
-                        </div>
+                        </div> */}
 
                         <div className="row">
                         <div className="col-md-1"><a href="/admin/staff"><InsertChartIcon style={{ fontSize: 22}} /></a></div>
@@ -75,7 +75,7 @@ export default class LeftAdmin extends Component {
                         <div className="col-md-10"><li><a href="/admin/customer">Customer</a></li></div>
                         </div>
 
-                        <div className="row">
+                        {/* <div className="row">
                         <div className="col-md-1"><a href="/admin/staff"><RateReviewIcon  style={{ fontSize: 22}} /></a></div>
                         <div className="col-md-10"><li><a href="/admin/customerreviews">Customer Reviews</a></li></div>
                         </div>
@@ -88,7 +88,7 @@ export default class LeftAdmin extends Component {
                         <div className="row">
                         <div className="col-md-1"><a href="/admin/staff"><RoomIcon style={{ fontSize: 22}} /></a></div>
                         <div className="col-md-10"><li><a href="/admin/maps">Maps</a></li></div>
-                        </div>
+                        </div> */}
                     </ul>      
                 </nav>
             </div>

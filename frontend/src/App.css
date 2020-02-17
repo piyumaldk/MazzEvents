@@ -596,6 +596,22 @@ body {
     text-align: justify;
     font-family: sans-serif;
 }
+    .text {
+      font-style: oblique;
+      font-size: 12pt;
+      font-variant: dark;
+    }
+
+.comments{
+  text-align: center;
+}
+
+.background1{
+  background-image: url("Images/rightbackground.jpg");
+  position: absolute;
+  right: 0px;
+  background-size: auto;
+}
 .Not_date{
     margin-top: -19px;
     font-size: 14px;
