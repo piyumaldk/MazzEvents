@@ -104,7 +104,7 @@ class Respond extends Component {
                     <Upper/>
                     <div>
                     <Button className="btn btn-dark" onClick={this.toggle} >
-                        Message
+                        Response Message
                     </Button>
                     <Modal isOpen={this.state.modal} toggle={this.toggle}>
                     <ModalHeader toggle={this.toggle}>{this.props.spEmail}</ModalHeader>
