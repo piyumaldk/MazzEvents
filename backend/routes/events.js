@@ -14,7 +14,7 @@ router.route('/').get(function(req, res) {
         } else {
             res.json(event);
         }
-    }).sort({$natural:-1}).limit(5);
+    }).sort({$natural:-1}).limit(8);
   });
 
 router.post('/addevent', (req, res) => {
