@@ -11,7 +11,7 @@ const Events = props => (
     
     <div className="col-md-3">   
     <br/><br/>
-        <Card  bg="Danger" text="black" style={{ width: '14.9rem', height:'25rem', borderRadius:'8'}}>   
+        <Card  bg="secondary" text="white" style={{ width: '14.9rem', height:'25rem', borderRadius:'8'}}>   
         {/* <Card.Img variant="top" height="240" src={company} /> */}
        <center><Card.Header><b>{props.events.eventName}</b></Card.Header>
             <Card.Body>
