@@ -15,7 +15,7 @@ const Request = props => (
       <td>{props.request.name}</td>
       <td>{props.request.subject}</td>
       <td>{props.request.text}</td>
-      <td><Link to={"/serviceprovider/respond/"+props.request._id}>Respond</Link></td>
+      <td><Link to={"/serviceprovider/respond/"+props.request._id}>view more</Link></td>
   </tr>
 )
 

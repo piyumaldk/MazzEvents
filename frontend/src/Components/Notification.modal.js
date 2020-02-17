@@ -14,7 +14,8 @@ import {
 
 
   const Notifications = props => (
-    <div>   
+    <div>  
+        <br/><br/> 
         <Card  border="primary" text="black" style={{ width: '25rem', height:'15em', borderRadius:'8'}}>   
        <center><Card.Header><b>{props.notifications.topic}</b></Card.Header>
             <Card.Body>
