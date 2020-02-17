@@ -167,6 +167,7 @@ class More extends Component {
                 .then(res => {
                     console.log(res.data)
                 }); 
+                window.location.reload();
     }
     render() {
         const { rating } = this.state;
