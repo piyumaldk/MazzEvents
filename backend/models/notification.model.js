@@ -4,8 +4,7 @@ const Schema = mongoose.Schema;
 //Create Schema
 let notificationSchema = new Schema({
     time: {
-        type: Date,
-        default: Date.now
+        type: String
     },
     topic: {
         type: String
@@ -13,7 +12,7 @@ let notificationSchema = new Schema({
     detail: {
         type: String
     },
-    
+
 });
 
 module.exports = Notifications = mongoose.model('notification', notificationSchema);
