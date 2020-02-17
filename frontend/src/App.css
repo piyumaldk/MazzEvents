@@ -94,12 +94,13 @@
     height: 100%;
 }
 
-.background {
-    background-image: url("Images/rightbackground.jpg");
-    position: absolute;
-    right: 0px;
-    width: 100%;
-    height: 100%;
+.background{
+  background-image: url("Images/rightbackground.jpg");
+  position: absolute;
+  right: 0px;
+  /* width: 100%;
+  height: 100%; */
+  background-size: auto;
 }
 
 
@@ -554,3 +555,8 @@ body {
 .not_card {
     width: 100%;
 }
+    .text {
+      font-style: oblique;
+      font-size: 12pt;
+      font-variant: dark;
+    }
