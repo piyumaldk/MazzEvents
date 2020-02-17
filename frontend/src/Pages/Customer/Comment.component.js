@@ -5,11 +5,12 @@ import Upper from "../../Components/Upper.component";
 import StarRatingComponent from 'react-star-rating-component';
 import { connect } from 'react-redux';
 import LeftServiceProvider from '../../Components/LeftServiceProvider.component';
+import PersonIcon from '@material-ui/icons/Person';
 const Comment = props => (
     <div className="text">
     <tr>
         <tr>
-        <td><b>{props.comment.customerFName} {props.comment.customerLName}:</b></td>
+        <td><PersonIcon/><b>{props.comment.customerFName} {props.comment.customerLName}:</b></td>
         </tr>
         <tr>
         <td>{props.comment.comment}</td>
