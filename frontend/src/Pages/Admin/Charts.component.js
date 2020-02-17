@@ -260,18 +260,21 @@ export default class Charts extends PureComponent {
           <Upper />
 
 
-          <div><center><BarChart width={900} height={500} data={this.state.data}>
+          <div><center><h3 className="header">All the Users in the Last Ten Months</h3>
+            <BarChart width={900} height={500} data={this.state.data}>
               <XAxis dataKey="name" stroke="#0088FE" />
             <YAxis />
             <Tooltip />
             <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
             <Bar type="monotone" dataKey="users" fill="#0088FE" barSize={20} />
-          </BarChart></center></div>
+          </BarChart>
+          </center></div>
 
         </div>
         
         <div>
-          <center><BarChart width={900} height={500} data={this.state.sur}>
+          <center><h3 className="header">Service Providers</h3>
+            <BarChart width={900} height={500} data={this.state.sur}>
             <XAxis dataKey="name" stroke="#0088FE" />
             <YAxis />
             <Tooltip />
@@ -281,7 +284,8 @@ export default class Charts extends PureComponent {
         </div>
 
         <div>
-        <center><PieChart width={400} height={400}>
+        <center><h3 className="header">Service Providers & Customers</h3>
+          <PieChart width={400} height={400}>
         <Pie
           activeIndex={this.state.activeIndex}
           activeShape={renderActiveShape}
