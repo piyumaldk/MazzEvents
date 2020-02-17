@@ -174,8 +174,8 @@ export default class Home extends Component {
                                             <Card.Text>
                                             <b>Address</b><br/> 
                                             MazzEvents, 9 Rampart Street, Fort, Gale<br/><br/>
-                                            <b>Email Addtress</b><br/>
-                                            <a href>mazzEvents@gmail.com</a><br/><br/>
+                                            <b>Email Address</b><br/>
+                                            <a href>mazzeventsrilanka@gmail.com</a><br/><br/>
                                             <b>Contact No</b><br/>
                                             0770523682<br/>
 
