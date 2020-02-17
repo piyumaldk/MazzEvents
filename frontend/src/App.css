@@ -458,3 +458,9 @@ padding: 10px;
       background-color: #ddd;
       color: black;
     }
+
+    .text {
+      font-style: oblique;
+      font-size: 14pt;
+      font-variant: dark;
+    }
