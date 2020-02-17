@@ -4,9 +4,12 @@ import Upper from "../Components/Upper.component";
 
 import { Button, Card, CardDeck } from 'react-bootstrap';
 import axios from 'axios';
-import img1 from './../Images/floral.jpg'
-import img2 from './../Images/floral2.jpg'
-
+import img1 from './../Images/flower.jpeg';
+import img3 from './../Images/photo.jpg';
+import img4 from './../Images/car.jpeg';
+import img5 from './../Images/hall.jpeg';
+import img6 from './../Images/dj.jpeg';
+import img7 from './../Images/catering.jpeg';
 const Events = props => (
 
     <div className="col-md-3 ">
@@ -78,7 +81,7 @@ export default class Home extends Component {
                         </Carousel.Item>
 
                         <Carousel.Item>
-                            <img className="d-block w-100" src={img2} alt="Third slide" />
+                            <img className="d-block w-100" src={img3} alt="Third slide" />
                             <Carousel.Caption>
                                 <h3>New Year Vibe - 2020</h3>
                                 <p>31th December : @Viharamahadhevi(9pm onwards)</p>
@@ -86,12 +89,39 @@ export default class Home extends Component {
                         </Carousel.Item>
 
                         <Carousel.Item>
-                            <img className="d-block w-100" src="https://cdn.pixabay.com/photo/2015/09/02/13/04/marriage-918864_960_720.jpg" alt="Third slide" />
+                            <img className="d-block w-100" src={img4} alt="forth slide" />
                             <Carousel.Caption>
-                                <h3>Mithila n Sumanawathi's Big day</h3>
-                                <p>18th December : @AvenraNegombo(5pm onwards)</p>
+                                {/* <h3>Mithila n Sumanawathi's Big day</h3>
+                                <p>18th December : @AvenraNegombo(5pm onwards)</p> */}
                             </Carousel.Caption>
                         </Carousel.Item>
+
+                        <Carousel.Item>
+                            <img className="d-block w-100" src={img5} alt="fifth slide" />
+                            <Carousel.Caption>
+                                {/* <h3>Mithila n Sumanawathi's Big day</h3>
+                                <p>18th December : @AvenraNegombo(5pm onwards)</p> */}
+                            </Carousel.Caption>
+                        </Carousel.Item>
+
+                        <Carousel.Item>
+                            <img className="d-block w-100" src={img6} alt="sixth slide" />
+                            <Carousel.Caption>
+                                {/* <h3>Mithila n Sumanawathi's Big day</h3>
+                                <p>18th December : @AvenraNegombo(5pm onwards)</p> */}
+                            </Carousel.Caption>
+                        </Carousel.Item>
+
+                        <Carousel.Item>
+                            <img className="d-block w-100" src={img7} alt="seventh slide" />
+                            <Carousel.Caption>
+                                {/* <h3>Mithila n Sumanawathi's Big day</h3>
+                                <p>18th December : @AvenraNegombo(5pm onwards)</p> */}
+                            </Carousel.Caption>
+                        </Carousel.Item>
+
+                        
+
                     </Carousel>
                 </div>
                 <div >
