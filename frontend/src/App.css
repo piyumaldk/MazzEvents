@@ -589,6 +589,9 @@ body {
     width: 100%;
     backface-visibility: hidden;
   }
+  .cardwdth{
+      width:25%
+  }
 
 
 
@@ -611,10 +614,10 @@ body {
 }
 
 .background1{
-  background-image: url("Images/rightbackground.jpg");
-  position: absolute;
+ background-image: url("Images/rightbackground.jpg");
+  /* position: absolute;
   width: 100%;
-  right: 0px;
+  right: 0px;  */
   background-size: auto;
 }
 

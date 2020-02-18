@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import LeftServiceProvider from "../../Components/LeftServiceProvider.component";
 import { StreamChat } from 'stream-chat';
 import { Chat, Channel, ChannelHeader, Thread, Window, MessageList, MessageInput} from 'stream-chat-react';
+import{Card} from 'react-bootstrap';
 import {
     Input,
     Label,
@@ -36,15 +37,14 @@ class Respond extends Component {
             .then(response => {
                 this.setState({
                     profile_data: response.data,
-                    signup_firstName: response.data.signup_firstName,
-                    signup_lastName: response.data.signup_lastName,
-                    signup_email: response.data.signup_email,
                     name: response.data.name,
                     subject: response.data.subject,
                     text: response.data.text,
                     spId: response.data.spId,
                     customerId: response.data.customerId,
-                    customerEmail: response.data.customerEmail
+                    customerEmail: response.data.customerEmail,
+                    customerFName:response.data.customerFName,
+                    customerLName:response.data.customerLName,
                 })  
                 console.log(response.data.spId);
                 console.log(response.data.customerId);    
@@ -102,10 +102,30 @@ class Respond extends Component {
                 <LeftServiceProvider/>
                 <div className="right">
                     <Upper/>
+                <div className="background1">
                     <div>
-                    <Button className="btn btn-dark" onClick={this.toggle} >
+                    <div className="txt">
+                <center><h3 >Responds</h3></center><br/>
+                </div>
+                
+                    <center><Card style={{width: '28rem',height:'28rem'}}>
+                    <div align-text="left">
+                        <b>Name :</b> {this.state.name}<br/><br/>
+                        <b>Subject :</b> {this.state.subject}<br/><br/>
+                        <b>Text :</b> {this.state.text}<br/><br/>
+                        <b>Service Provider ID :</b> {this.state.spId}<br/><br/>
+                        <b>Customer ID :</b> {this.state.customerId}<br/><br/>
+                        <b>Customer Email :</b> {this.state.customerEmail}<br/><br/>
+                        <b>Customer First Name :</b> {this.state.customerFName}<br/><br/>
+                        <b>Customer Last Name :</b> {this.state.customerLName}<br/><br/>
+                        </div>
+                    </Card></center><br/>
+                    
+                    </div>
+                    <div>
+                    <center><Button className="btn btn-dark" onClick={this.toggle} >
                         Response Message
-                    </Button>
+                    </Button></center>
                     <Modal isOpen={this.state.modal} toggle={this.toggle}>
                     <ModalHeader toggle={this.toggle}>{this.props.spEmail}</ModalHeader>
                         <ModalBody>
@@ -127,6 +147,7 @@ class Respond extends Component {
                     </Modal>
                     
                     
+                    </div>
                     </div>
                 </div>
              </div>
