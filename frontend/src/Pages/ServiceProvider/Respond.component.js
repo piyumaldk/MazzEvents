@@ -36,15 +36,14 @@ class Respond extends Component {
             .then(response => {
                 this.setState({
                     profile_data: response.data,
-                    signup_firstName: response.data.signup_firstName,
-                    signup_lastName: response.data.signup_lastName,
-                    signup_email: response.data.signup_email,
                     name: response.data.name,
                     subject: response.data.subject,
                     text: response.data.text,
                     spId: response.data.spId,
                     customerId: response.data.customerId,
-                    customerEmail: response.data.customerEmail
+                    customerEmail: response.data.customerEmail,
+                    customerFName:response.data.customerFName,
+                    customerLName:response.data.customerLName,
                 })  
                 console.log(response.data.spId);
                 console.log(response.data.customerId);    
@@ -102,6 +101,8 @@ class Respond extends Component {
                 <LeftServiceProvider/>
                 <div className="right">
                     <Upper/>
+                    {this.state.customerEmail}
+                    {this.state.customerFName}
                     <div>
                     <Button className="btn btn-dark" onClick={this.toggle} >
                         Response Message
