@@ -207,10 +207,10 @@ class More extends Component {
                     <div className="background1"> 
 
                         <div className="row card_ss">
-                            <div className="col-md-3">
-                                <div className="cardwdth">
+                            <div className="col-md-4">
+                                {/* <div className="cardwdth"> */}
 
-                                <Card style={{  height: '27rem' }}>
+                                <Card style={{  width:'27rem', height: '27rem' }}>
                                     <div className="overflow">
                                         <Card.Img variant="top" height="240" src={!this.state.businessPic ? company : this.state.businessPic} />
                                     </div>
@@ -223,17 +223,17 @@ class More extends Component {
                                         </Card.Text>
                                     </Card.Body>
                                 </Card>
-                                </div>
+                                {/* </div> */}
                                 <br />
                             </div>
 
 
-                            <div className="col-md-3">
+                            <div className="col-md-4">
                                 <div className="flip-box1 ">
                                     <div className="flip-box-inner1 ">
                                         <div className="flip-box-front1 ">
-                                        <div className="cardwdth">
-                                            <Card style={{ height: '27rem' }}>
+                                        {/* <div className="cardwdth"> */}
+                                            <Card style={{  width:'27rem', height: '27rem' }}>
                                                 <div className="overflow">
                                                     <Card.Img variant="top" height="240" src={!this.state.profilePic ? normal : this.state.profilePic} />
                                                 </div>
@@ -246,7 +246,7 @@ class More extends Component {
                                                     </Card.Text>
                                                 </Card.Body>
                                             </Card>
-                                            </div>
+                                            {/* </div> */}
                                         </div>
                                         <div class="flip-box-back1">
                                             <center>
@@ -277,7 +277,7 @@ class More extends Component {
                         </Card><br/>
                     </div> */}
 
-                            <div className="col-md-6">
+                            <div className="col-md-4">
                                 <center>
                                     <h1>
                                         <StarRatingComponent
