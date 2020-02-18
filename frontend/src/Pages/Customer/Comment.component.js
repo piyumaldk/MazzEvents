@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Card } from 'react-bootstrap';
 import '../../App.css';
 import axios from 'axios';
 import Upper from "../../Components/Upper.component";
@@ -60,7 +61,7 @@ class CommentSection extends Component {
                     
 
                     <div>
-                    <h3>Comment section</h3>
+                    <Card bg="dark" text="white" style={{ width: "100%" }}><center><h3><b><div className="text1">CommentSection</div></b></h3></center></Card>
                         <table style={{ marginTop: 20 }} >
                             <thead>
                                 <tr>
@@ -70,8 +71,8 @@ class CommentSection extends Component {
                                 </tr>
                             </thead>
                             <tbody>
+                            <Card bg="white" text="black" style={{ width: "100%" }}>{ this.UserList() }</Card><br/>
                                 
-                                { this.UserList() }
                             </tbody>
                         </table>
                     </div>
