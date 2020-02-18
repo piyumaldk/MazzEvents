@@ -17,14 +17,17 @@ import StarIcon from '@material-ui/icons/Star';
 export default class LeftServiceProvider extends Component {
     render() {
         return (
-            <div className="sidenav">
-                
+            <div> 
+                <nav className="sidenav">
+                <ul className="list-unstyled components">
+
+                <center><h>Service Provider Dashboard</h></center>
                 <p>Components</p>
 
                 <div className="row">
                     <div className="col-md-1"><a href="/admin/staff"><ContactsIcon  style={{ fontSize: 22}}/></a></div>
                     <div className="col-md-10">
-                        <a href="/serviceprovider/addservices">My service</a>
+                        <li><a href="/serviceprovider/addservices">My service</a></li>
                     </div>
                 </div>
 
@@ -38,14 +41,14 @@ export default class LeftServiceProvider extends Component {
                 <div className="row">
                     <div className="col-md-1"><a href="/admin/staff"><MailIcon style={{ fontSize: 22}}/></a></div>
                     <div className="col-md-10">
-                    <a href="/serviceprovider/mailbox">Mail Box</a>
+                    <li><a href="/serviceprovider/mailbox">Mail Box</a></li>
                     </div>
                 </div>
 
                 <div className="row">
                     <div className="col-md-1"><a href="/admin/staff"><CalendarTodayIcon  style={{ fontSize: 22}}/></a></div>
                     <div className="col-md-10">
-                    <a href="/serviceprovider/calendar">My Calendar</a>
+                    <li><a href="/serviceprovider/calendar">My Calendar</a></li>
                     </div>
                 </div>
 
@@ -66,7 +69,7 @@ export default class LeftServiceProvider extends Component {
                 <div className="row">
                     <div className="col-md-1"><a href="/admin/staff"><StarIcon  style={{ fontSize: 22}}/></a></div>
                     <div className="col-md-10">
-                    <a href="/serviceprovider/reviews">Ratings</a>
+                    <li><a href="/serviceprovider/reviews">Ratings</a></li>
                     </div>
                 </div>
 
@@ -80,25 +83,27 @@ export default class LeftServiceProvider extends Component {
                 <div className="row">
                     <div className="col-md-1"><a href="/admin/staff"><ViewAgendaIcon style={{ fontSize: 22}}/></a></div>
                     <div className="col-md-10">
-                    <a href="/serviceprovider/viewbookings">View Bookings</a>
+                    <li><a href="/serviceprovider/viewbookings">View Bookings</a></li>
                     </div>
                 </div>
                
                 <div className="row">
                     <div className="col-md-1"><a href="/admin/staff"><AccountBoxIcon  style={{ fontSize: 22}}/></a></div>
                     <div className="col-md-10">
-                    <a href="/serviceprovider/account">Account</a>
+                    <li><a href="/serviceprovider/account">Account</a></li>
                     </div>
                 </div>
 
                 <div className="row">
                     <div className="col-md-1"><a href="/admin/staff"><HelpIcon  style={{ fontSize: 22}}/></a></div>
                     <div className="col-md-10">
-                    <div class="help">
-                        <Help/>
-                    </div>
+                    <li><div class="help">
+                    <Help/>
+                    </div></li>
                     </div>
                 </div>
+                </ul>
+                </nav>
             </div>
         )
     }

@@ -5,6 +5,7 @@ import LeftStaff from "../../Components/LeftStaff.component";
 import Upper from "../../Components/Upper.component";
 import { Link } from 'react-router-dom';
 import SignUpVehicles from '../../Components/Auth/RegisterVehiclesModal';
+import { Form, FormGroup,Input} from 'reactstrap';
 
 const SignUpCustomer = props => (
     <tr>
@@ -40,13 +41,29 @@ export default class StaffCatering extends Component {
             })
     }
 
+    onChange = e => {
+        this.setState({ signup_email: e.target.value.toLowerCase()});
+        
+    };
+
     UserList() {
-        return this.state.users.map(function(currentSignUpCustomer, i){
-            if(currentSignUpCustomer.signup_type === "2" && currentSignUpCustomer.signup_category === "Vehicles"){
-            return <SignUpCustomer signupcustomer={currentSignUpCustomer} key={i} />;
-            }
-            return null;
-        })
+        const email = this.state.signup_email;
+        if(email ==null || email===""){
+            return this.state.users.map(function(currentSignUpCustomer, i){
+                if(currentSignUpCustomer.signup_type === "2" && currentSignUpCustomer.signup_category === "Vehicles"){
+                return <SignUpCustomer signupcustomer={currentSignUpCustomer} key={i} />;
+                }
+                return null;
+            })
+        }
+        else{
+            return this.state.users.map(function(currentSignUpCustomer, i){
+                if(currentSignUpCustomer.signup_type === "2" && currentSignUpCustomer.signup_category === "vehicles" && currentSignUpCustomer.signup_email.toLowerCase() === email ){
+                return <SignUpCustomer signupcustomer={currentSignUpCustomer} key={i} />;
+                }
+                return null;
+            })
+        }
     }
 
     render() {
@@ -59,7 +76,12 @@ export default class StaffCatering extends Component {
                     <Upper/>
 
                     <div>
-                    <h3>List of Our Service Providers</h3>
+                    <h3>List of Registered Vehicle Providers</h3>
+                    <Form>
+                        <FormGroup>
+                            <Input type="signup_email" name="signup_email" id="signup_email" placeholder="Search Email here" onChange={this.onChange}/>
+                        </FormGroup>
+                    </Form>
                         <table className="table table-striped" style={{ marginTop: 20 }} >
                             <thead>
                                 <tr>
