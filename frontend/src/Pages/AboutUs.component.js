@@ -6,9 +6,10 @@ export default class AboutUs extends Component {
     render() {
         return (
             <div>
-            <div className="background">
+            
              <Upper/>
               <div className="leftAboutUs">
+                  <Card>
                  <h1><b>About Us</b></h1>
                     <h3>We are MazzEvents</h3>
                     <p>
@@ -26,13 +27,16 @@ export default class AboutUs extends Component {
                     </p>
                     
                     <h3>Join with our website and make your event AWESOME!!!</h3>
+                    </Card>
                 </div>
 
                 <div className="rightAboutUs">
                     <div className="aboutustop">
 
                     <center><Card>
+                    <div className="overflow">
                         <Card.Img variant="top" height="240" src={'../../Images/logo.png'}/>
+                    </div>    
                             <Card.Body>
                                 <Card.Title></Card.Title>
                                 <Card.Text>
@@ -53,7 +57,6 @@ export default class AboutUs extends Component {
 
                     
                 </div>
-            </div>
             </div>
         )
     } }

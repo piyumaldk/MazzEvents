@@ -13,7 +13,7 @@ const Comment = props => (
         <td><PersonIcon/><b>{props.comment.customerFName} {props.comment.customerLName}:</b></td>
         </tr>
         <tr>
-        <td>{props.comment.comment}</td>
+        <br/><td>{props.comment.comment}</td>
         </tr>
     </tr>
     </div>

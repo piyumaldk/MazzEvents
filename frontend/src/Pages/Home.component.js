@@ -18,7 +18,7 @@ const Events = props => (
         <div className="flip-box ">
             <div className="flip-box-inner ">
                 <div className="flip-box-front ">
-                    <Card bg="dark" text="black" style={{ width: '100%', height: '25rem', borderRadius: '8' }}>
+                    <Card className="eventBackground" text="light" style={{ width: '100%', height: '25rem', borderRadius: '8' }}>
                         {/* <Card.Img variant="top" height="240" src={company} /> */}
                         <center><Card.Header><b>{props.events.eventName}</b></Card.Header>
                             <Card.Body>
@@ -125,8 +125,10 @@ export default class Home extends Component {
 
                     </Carousel>
                 </div>
+
+                <div className="background1">
                 <div >
-                    <br /><Card style={{ width: "100%" }}><center><h3><b>Upcoming events</b></h3></center></Card>
+                    <br/><Card bg="dark" text="white" style={{ width: "100%" }}><center><h3><b><div className="text1">Upcoming events</div></b></h3></center></Card>
 
 
                     <div>
@@ -142,31 +144,37 @@ export default class Home extends Component {
                 </div>
 
                 <section id = "about_us">
-                    <div className="background">
-                
-                        <div className="leftAboutUs">
-                            <h1><b>About Us</b></h1>
-                                <h3>We are MazzEvents</h3>
+                <div className="row card_ss">
+                        <div className="col-md-9">
+                            <Card className="background2" style={{ width: '58rem',height: '33rem'}}>
+                            <center><h1><b>About Us</b></h1><br/>
+                                <h3>We are MazzEvents</h3><br/><br/>
                                 <p>
                                 Mazz Event is a professional event management company in Galle.
-                                Which specializes in planning & coordinating various events from weddings,
+                                Which specializes in planning and coordinating various events from weddings,
                                 birthday parties,private functions to kids parties and much more.
-                                
+
+                                </p><br/>
+                                <p>
                                 Our website connect <b>service providers</b> that provide event related services with the 
                                 <b>customers</b> who want to make their event a successful one.
-                                
+                                </p><br/>
+                                <p>
+
                                 Both service providers and customers can have a conversation with our <b>live chat</b> 
                                 option online about their services
-                                </p>
+                                </p><br/><br/>
                                 
-                                
-                            </div>
+                                <h3>Join with our website and make your event AWESOME!!!</h3></center>
+                                </Card>
+                                </div>
 
-                            <div className="rightAboutUs">
-                                <div className="aboutustop">
+                                <div className="col-md-3">
 
                                 <center><Card>
+                                <div className="overflow">
                                     <Card.Img variant="top" height="240" src={img8}/>
+                                    </div>
                                         <Card.Body>
                                             <Card.Title></Card.Title>
                                             <Card.Text>
@@ -181,15 +189,15 @@ export default class Home extends Component {
                                             </Card.Text>
                                         </Card.Body>
                                     </Card></center>
-                            
+                                    </div>
 
                                 </div>
+                                
 
                                 
-                            </div>
-                        </div>
+                            
                 </section>
-
+                </div>
 
             </div>
         )
