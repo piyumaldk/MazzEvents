@@ -204,13 +204,12 @@ class More extends Component {
                 
                 <div className="right ">
                     <Upper/>
-                    <div className="background1"> 
-
+                    <div className="background"> 
                         <div className="row card_ss">
                             <div className="col-md-4">
                                 {/* <div className="cardwdth"> */}
 
-                                <Card style={{  width:'27rem', height: '27rem' }}>
+                                <Card style={{  width:'20rem', height: '27rem' }}>
                                     <div className="overflow">
                                         <Card.Img variant="top" height="240" src={!this.state.businessPic ? company : this.state.businessPic} />
                                     </div>
@@ -233,7 +232,7 @@ class More extends Component {
                                     <div className="flip-box-inner1 ">
                                         <div className="flip-box-front1 ">
                                         {/* <div className="cardwdth"> */}
-                                            <Card style={{  width:'27rem', height: '27rem' }}>
+                                            <Card style={{  width:'20rem', height: '27rem' }}>
                                                 <div className="overflow">
                                                     <Card.Img variant="top" height="240" src={!this.state.profilePic ? normal : this.state.profilePic} />
                                                 </div>
