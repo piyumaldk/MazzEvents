@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import LeftServiceProvider from "../../Components/LeftServiceProvider.component";
 import { StreamChat } from 'stream-chat';
 import { Chat, Channel, ChannelHeader, Thread, Window, MessageList, MessageInput} from 'stream-chat-react';
+import{Card} from 'react-bootstrap';
 import {
     Input,
     Label,
@@ -101,8 +102,26 @@ class Respond extends Component {
                 <LeftServiceProvider/>
                 <div className="right">
                     <Upper/>
-                    {this.state.customerEmail}
-                    {this.state.customerFName}
+                    <div>
+                    <Card style={{ width: '60rem', top:'0.6rem', height:'30rem'}}>
+                    <div className="txt">
+                <center><h3 >Add Events</h3></center>
+                </div>
+                <center>
+                <Card.Body>
+                    <div align="left">
+                        <b>Name :</b> {this.state.name}<br/>
+                        <b>Subject :</b> {this.state.subject}<br/>
+                        <b>Text :</b> {this.state.text}<br/>
+                        <b>Service Provider ID :</b> {this.state.spId}<br/>
+                        <b>Customer ID :</b> {this.state.customerId}<br/>
+                        <b>Customer Email :</b> {this.state.customerEmail}<br/>
+                        <b>Customer First Name :</b> {this.state.customerFName}<br/>
+                        <b>Customer Last Name :</b> {this.state.customerLName}<br/>
+                    </div>
+                </Card.Body></center>
+                    </Card>
+                    </div>
                     <div>
                     <Button className="btn btn-dark" onClick={this.toggle} >
                         Response Message
