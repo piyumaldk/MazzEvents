@@ -67,12 +67,14 @@ export default class StaffCustomer extends Component {
                     <Upper/>
 
                     <div>
-                    <h3>List of Our Customers</h3>
+                    <h3 className="sp_head">List of Our Customers</h3>
                     <Form>
                         <FormGroup>
                             <Input type="signup_email" name="signup_email" id="signup_email" placeholder="Search Email here" onChange={this.onChange}/>
                         </FormGroup>
                     </Form>
+                    <div className="sp_table">
+
                         <table className="table table-striped" style={{ marginTop: 20 }} >
                             <thead>
                                 <tr>
@@ -91,7 +93,8 @@ export default class StaffCustomer extends Component {
                     </div>
 
                 </div>
-            </div>   
+            </div> 
+            </div>  
         )
     }
 }
