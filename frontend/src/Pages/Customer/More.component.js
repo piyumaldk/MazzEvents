@@ -155,7 +155,7 @@ class More extends Component {
                     console.log(rateTime);
                 }
             })
-        window.location.reload();
+        //window.location.reload();
     }
 
     onSubmit(e) {

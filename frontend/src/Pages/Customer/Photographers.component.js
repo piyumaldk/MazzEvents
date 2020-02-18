@@ -1,12 +1,12 @@
 import React, { Component} from 'react';
 import LeftCustomer from "../../Components/LeftCustomer.component";
 import {Card, CardDeck} from 'react-bootstrap';
-import { Form, FormGroup,  Input} from 'reactstrap';
+import { Form, FormGroup,  Input,} from 'reactstrap';
 import '../../App.css';
 import axios from 'axios';
 import Upper from "../../Components/Upper.component";
 import company from '../../Images/Profile/company.png';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import StarRatingComponent from 'react-star-rating-component';
 import '../../Components/Cads/card-style.css'
 
@@ -77,7 +77,7 @@ export default class Photgraphers extends Component {
     UserList () {
         const local = this.state.location;
         if(local ==null || local===""){
-            this.state.users.sort((a,b) => (a.sumRate/a.rateTime < b.sumRate/b.rateTime) ? 1: -1);
+           
             console.log(this.state.users);
             return this.state.users.map(function(currentSignUpCustomer, i){
                 if(currentSignUpCustomer.signup_type === "2" && currentSignUpCustomer.signup_category === "Photographer"){
@@ -93,6 +93,20 @@ export default class Photgraphers extends Component {
                 }
                 return null;
             })
+        }
+    }
+
+    sortItems = (event) => {
+        let users = this.state.users;
+        const selector = event.target.value;
+
+        if(selector === "1"){
+            //
+        }
+        else if(selector =="2"){
+            console.log("Test");
+            users.sort((a,b) => (a.sumRate/a.rateTime < b.sumRate/b.rateTime) ? 1: -1);
+            this.setState({users: users});
         }
     }
 
@@ -113,6 +127,14 @@ export default class Photgraphers extends Component {
                                 <Input type="location" name="location" id="location" placeholder="Search Location / City here" onChange={this.onChange}/>
                             </FormGroup>
                         </Form>
+
+                        
+                                <select onChange={(event)=>this.sortItems(event)}>
+                                    <option value={1}>Normal</option>
+                                    <option value={2}>Rating</option>
+                                </select>
+                            
+
                         
                           <div  className="row card_ss">
                           <CardDeck>
