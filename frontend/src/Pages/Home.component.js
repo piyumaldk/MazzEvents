@@ -204,7 +204,7 @@ export default class Home extends Component {
                     <div class="container">
                     <div class="row">
                         <div class="col">
-                        <p>Copyright &copy;
+                        <p>©2020 All rights reserved by &copy;
                             <span id="year"></span> MazzEvents</p>
                         </div>
                     </div>
