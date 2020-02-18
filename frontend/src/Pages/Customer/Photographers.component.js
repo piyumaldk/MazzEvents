@@ -13,6 +13,7 @@ import '../../Components/Cads/card-style.css'
 const SignUpCustomer = props => (
     <div>   
         <br/>
+        <div className="col-md-4">
         <Card  bg="light" text="black" style={{ width: '20rem'  }} className="card text-center shadow mycard">
         <div className="overflow">    
         <Card.Img variant="top" height="240" src={!props.signupcustomer.businessImg ? company :props.signupcustomer.businessImg} alt="" className="card-img-top" />
@@ -39,7 +40,8 @@ const SignUpCustomer = props => (
             <center><Link to={"/customer/more/"+props.signupcustomer._id}>Visit More</Link></center>
             {props.signupcustomer.number}
             </Card.Body>
-        </Card>     
+        </Card>
+        </div>     
     </div>
 )
 
@@ -105,7 +107,6 @@ export default class Photgraphers extends Component {
                 <LeftCustomer/>
                 <div className="right">
                     <Upper/>
-                    <div className="background"> 
                     <div>
                         <Form>
                             <FormGroup>
@@ -118,7 +119,6 @@ export default class Photgraphers extends Component {
                             { this.UserList() } 
                             </CardDeck>
                         </div>                
-                    </div>
                     </div>
                 </div>
             </div>   
