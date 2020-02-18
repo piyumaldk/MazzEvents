@@ -81,12 +81,14 @@ export default class StaffServiceProvider extends Component {
                     <Upper/>
 
                     <div>
-                    <h3>List of Our Service Providers</h3>
+                    <h3 className="sp_head">List of Our Service Providers</h3>
                     <Form>
                         <FormGroup>
                             <Input type="signup_email" name="signup_email" id="signup_email" placeholder="Search Email here" onChange={this.onChange}/>
                         </FormGroup>
                     </Form>
+                    <div className="sp_table">
+
                         <table className="table table-striped" style={{ marginTop: 20 }} >
                             <thead>
                                 <tr>
@@ -106,6 +108,7 @@ export default class StaffServiceProvider extends Component {
                                 { this.UserList() }
                             </tbody>
                         </table>
+                        </div>
                         <table>
                             <tbody>
                             <tr>
@@ -119,10 +122,11 @@ export default class StaffServiceProvider extends Component {
                             </tr>
                             </tbody>
                         </table>
+                        </div>
                     </div>
 
                 </div>
-            </div>   
+              
         )
     }
 }

@@ -76,16 +76,16 @@ export default class Home extends Component {
                         <Carousel.Item>
                             <img className="d-block w-100" src={img1} alt="First slide" />
                             <Carousel.Caption>
-                                <h3>Kasun Kalhara - Musical Night</h3>
-                                <p>5th December : @Nelum Pokuna(7pm onwards)</p>
+                                {/* <h3>Kasun Kalhara - Musical Night</h3>
+                                <p>5th December : @Nelum Pokuna(7pm onwards)</p> */}
                             </Carousel.Caption>
                         </Carousel.Item>
 
                         <Carousel.Item>
                             <img className="d-block w-100" src={img3} alt="Third slide" />
                             <Carousel.Caption>
-                                <h3>New Year Vibe - 2020</h3>
-                                <p>31th December : @Viharamahadhevi(9pm onwards)</p>
+                                {/* <h3>New Year Vibe - 2020</h3>
+                                <p>31th December : @Viharamahadhevi(9pm onwards)</p> */}
                             </Carousel.Caption>
                         </Carousel.Item>
 
@@ -125,10 +125,9 @@ export default class Home extends Component {
 
                     </Carousel>
                 </div>
-
-                <div className="background1">
-                <div >
-                    <br/><Card bg="dark" text="white" style={{ width: "100%" }}><center><h3><b><div className="text1">Upcoming events</div></b></h3></center></Card>
+                <section id="upcomming_eve">
+             
+                <div ><Card bg="dark" text="white" style={{ width: "100%" }}><center><h3><b><div className="text1">Upcoming events</div></b></h3></center></Card>
 
 
                     <div>
@@ -142,31 +141,34 @@ export default class Home extends Component {
                     </div>
 
                 </div>
-
+                </section>
                 <section id = "about_us">
+                <Card bg="dark" text="white" style={{ width: "100%" }}><center><h3><b><div className="text1">About Us</div></b></h3></center></Card>
                 <div className="row card_ss">
                         <div className="col-md-9">
-                            <Card className="background2" style={{ width: '58rem',height: '33rem'}}>
-                            <center><h1><b>About Us</b></h1><br/>
-                                <h3>We are MazzEvents</h3><br/><br/>
-                                <p>
-                                Mazz Event is a professional event management company in Galle.
-                                Which specializes in planning and coordinating various events from weddings,
-                                birthday parties,private functions to kids parties and much more.
+                            
+                                <center>
+                                    <h3>We are MazzEvents</h3><br/><br/>
+                                    <p>
+                                    Mazz Event is a professional event management company in Galle.
+                                    Which specializes in planning and coordinating various events from weddings,
+                                    birthday parties,private functions to kids parties and much more.
 
-                                </p><br/>
-                                <p>
-                                Our website connect <b>service providers</b> that provide event related services with the 
-                                <b>customers</b> who want to make their event a successful one.
-                                </p><br/>
-                                <p>
+                                    <br/>
+                                    
+                                    Our website connect <b>service providers</b> that provide event related services with the 
+                                    <b>customers</b> who want to make their event a successful one.
+                                    <br/>
+                                    
 
-                                Both service providers and customers can have a conversation with our <b>live chat</b> 
-                                option online about their services
-                                </p><br/><br/>
+                                    Both service providers and customers can have a conversation with our <b>live chat</b> 
+                                    option online about their services
+                                    </p><br/><br/>
+                                </center>
                                 
-                                <h3>Join with our website and make your event AWESOME!!!</h3></center>
-                                </Card>
+                                
+                                
+                                
                                 </div>
 
                                 <div className="col-md-3">
@@ -189,17 +191,29 @@ export default class Home extends Component {
                                             </Card.Text>
                                         </Card.Body>
                                     </Card></center>
-                                    </div>
+                                     </div>
 
-                                </div>
+                    </div>
                                 
 
                                 
                             
                 </section>
+
+                <footer id="main-footer" class="text-center p-4">
+                    <div class="container">
+                    <div class="row">
+                        <div class="col">
+                        <p>©2020 All rights reserved by &copy;
+                            <span id="year"></span> MazzEvents</p>
+                        </div>
+                    </div>
+                    </div>
+                </footer>
+
                 </div>
 
-            </div>
+            
         )
     }
 }
