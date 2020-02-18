@@ -683,5 +683,18 @@ body {
 #main-footer {
     background: #000;
     color: #fff;
-  }
+}
   
+
+#main-footer1 {
+    background: rgb(170, 170, 170);
+    color: rgb(0, 0, 0);
+}
+
+.about_us{
+    color: #fff;
+}
+
+.justify{
+    text-align : justify;
+}
