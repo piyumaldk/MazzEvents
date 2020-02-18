@@ -5,6 +5,7 @@ import LeftStaff from "../../Components/LeftStaff.component";
 import Upper from "../../Components/Upper.component";
 import { Link } from 'react-router-dom';
 import SignUpFlowers from '../../Components/Auth/RegisterFlowersModal';
+import { Form, FormGroup,Input} from 'reactstrap';
 
 const SignUpCustomer = props => (
     <tr>
@@ -40,13 +41,30 @@ export default class StaffCatering extends Component {
             })
     }
 
+    onChange = e => {
+        this.setState({ signup_email: e.target.value.toLowerCase()});
+        
+    };
+
+    //Flowers
     UserList() {
-        return this.state.users.map(function (currentSignUpCustomer, i) {
-            if (currentSignUpCustomer.signup_type === "2" && currentSignUpCustomer.signup_category === "Flowers") {
+        const email = this.state.signup_email;
+        if(email ==null || email===""){
+            return this.state.users.map(function(currentSignUpCustomer, i){
+                if(currentSignUpCustomer.signup_type === "2" && currentSignUpCustomer.signup_category === "Flowers"){
                 return <SignUpCustomer signupcustomer={currentSignUpCustomer} key={i} />;
-            }
-            return null;
-        })
+                }
+                return null;
+            })
+        }
+        else{
+            return this.state.users.map(function(currentSignUpCustomer, i){
+                if(currentSignUpCustomer.signup_type === "2" && currentSignUpCustomer.signup_category === "Flowers" && currentSignUpCustomer.signup_email.toLowerCase() === email ){
+                return <SignUpCustomer signupcustomer={currentSignUpCustomer} key={i} />;
+                }
+                return null;
+            })
+        }
     }
 
     render() {
@@ -58,7 +76,12 @@ export default class StaffCatering extends Component {
                 <div className="right">
                     <Upper />
 
-                    <h3 className="sp_head">List of Our Service Providers</h3>
+                    <h3 className="sp_head">List of Registered Flower service Providers</h3>
+                    <Form>
+                        <FormGroup>
+                            <Input type="signup_email" name="signup_email" id="signup_email" placeholder="Search Email here" onChange={this.onChange}/>
+                        </FormGroup>
+                    </Form>
                     <div className="sp_table">
                         <table className="table table-striped" style={{ marginTop: 20 }} >
                             <thead>

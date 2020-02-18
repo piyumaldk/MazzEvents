@@ -21,27 +21,10 @@ function validateEmail(email) {
 
 //validate tel
 function validateTel(tel) {
-    // const reg = /^(0)(7)([0-9]{8})$/;
-    const reg = /^(?:0|94|\+94)?(?:(11|21|23|24|25|26|27|31|32|33|34|35|36|37|38|41|45|47|51|52|54|55|57|63|65|66|67|81|912)(0|2|3|4|5|7|9)|7(0|1|2|5|6|7|8)\d)\d{6}$/;
+     const reg = /^(0)(7)([0-9]{8})$/;
+    //const reg = /^(?:0|94|\+94)?(?:(11|21|23|24|25|26|27|31|32|33|34|35|36|37|38|41|45|47|51|52|54|55|57|63|65|66|67|81|912)(0|2|3|4|5|7|9)|7(0|1|2|5|6|7|8)\d)\d{6}$/;
     return reg.test(tel);
 }
-
-
-
-// //NIC syntax
-// function validateNIC(nic) {
-//     const regex = /^([0-9]{9})(V|v)$/;
-//     const regex2 = /^([0-9]{12})$/;
-
-//     if (regex.test(nic)) {
-//         return regex.test(nic);
-//     }
-
-//     else if (regex2.test(nic)) {
-//         return regex2.test(nic);
-//     }
-// }
-
 
 
 //validate password (minimum 6 characters, atleast one caps and one simple letter, one special character and one number)
@@ -158,35 +141,31 @@ export default class SignUp extends Component {
             const headers = {
                 'Content-Type':'application/json'
             }
-        }
-        // //NIC syntax validation
-        // if(!validateNIC(this.state.Email)){
-        //     alert("Enter valid NIC number");
-        // }
 
-        if(this.state.signup_option==="1"){
-            axios.post('http://localhost:4000/mazzevents/addserviceprovider', newSignUp)
-                .then(res => console.log(res.data));
+            if(this.state.signup_option==="1"){
+                axios.post('http://localhost:4000/mazzevents/addserviceprovider', newSignUp)
+                    .then(res => console.log(res.data));
+            }
+            else{
+                axios.post('http://localhost:4000/mazzevents/addcustomer', newSignUp)
+                    .then(res => console.log(res.data));
+            }
+    
+            // axios.post('http://localhost:4001/mazzevent/customers', newSignUp)
+            //         .then(res => console.log(res.data));
+            
+            this.setState({
+                signup_firstName: '',
+                signup_lastName: '',
+                singup_option: '',
+                signup_email: '',
+                signup_password: '',
+                signup_aPassword: '',
+                signup_number: '',
+                signup_location: '',
+                signup_completed: false
+            })
         }
-        else{
-            axios.post('http://localhost:4000/mazzevents/addcustomer', newSignUp)
-                .then(res => console.log(res.data));
-        }
-
-        // axios.post('http://localhost:4001/mazzevent/customers', newSignUp)
-        //         .then(res => console.log(res.data));
-        
-        this.setState({
-            signup_firstName: '',
-            signup_lastName: '',
-            singup_option: '',
-            signup_email: '',
-            signup_password: '',
-            signup_aPassword: '',
-            signup_number: '',
-            signup_location: '',
-            signup_completed: false
-        })
     }
     
     render() {
