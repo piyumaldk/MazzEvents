@@ -151,14 +151,16 @@ export default class Home extends Component {
                                 <h3>We are MazzEvents</h3><br/><br/>
                                 <p>
                                 Mazz Event is a professional event management company in Galle.
-                                Which specializes in planning & coordinating various events from weddings,
+                                Which specializes in planning and coordinating various events from weddings,
                                 birthday parties,private functions to kids parties and much more.
+
                                 </p><br/>
                                 <p>
                                 Our website connect <b>service providers</b> that provide event related services with the 
                                 <b>customers</b> who want to make their event a successful one.
                                 </p><br/>
                                 <p>
+
                                 Both service providers and customers can have a conversation with our <b>live chat</b> 
                                 option online about their services
                                 </p><br/><br/>

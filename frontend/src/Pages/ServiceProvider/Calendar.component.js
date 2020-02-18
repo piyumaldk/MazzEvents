@@ -101,22 +101,11 @@ class Calendar extends Component {
                     <Upper/>
                     <div class="container-fluid">
                         <div className="row">
-                            <div className="col-4 calendarback calendarbacktext">
-                                <div class="row">
-                                    <div class="mx-auto banner text-center">
-                                        <h1 class="text-capitalize">
-                                            <strong class="banner-title">Change</strong>
-                                        </h1>
-                                        <h1 class="text-capitalize">
-                                            <strong class="banner-title">Your</strong>
-                                        </h1>
-                                        <h1 class="text-capitalize">
-                                            <strong class="banner-title">availabilty</strong>
-                                        </h1>
-                                    </div>
-                                </div>
-                            </div>
+                        <center>
+                            <h2>Set unavailable dates<br/>on</h2>
                             <div className="col-7">
+                            
+                                
                                 <FullCalendar
                                 defaultView="dayGridMonth"
                                 plugins={[dayGridPlugin, interactionPlugin]}
@@ -128,14 +117,16 @@ class Calendar extends Component {
                                 dateClick={this.dateClick}
                                 defaultAllDayEventDuration={{'days':1}}
                                 />
+                                
                                 <Modal visible={this.state.visible} width="25%" height="20%" effect="fadeInUp" onClickAway={() => this.closeDateModal()}>
                                     <div class="modal-content">
-                                        <div className="modal-header"><h4 align="center"><i className="fa fa-calendar-alt mr-2"></i>Change availabilty on </h4></div>
-                                        <div className="modal-footer"><Button classname="btn btn-danger btn-block" type="submit" onClick={() => this.addUnavailableDates()}>Set as unavailable</Button> </div>
+                                        <div className="modal-header"><h4 align="center"><i ></i>Change availabilty</h4></div>
+                                        <center><div className="modal-footer"><Button  type="submit" onClick={() => this.addUnavailableDates()}>Set as unavailable</Button> </div></center>
                                     </div>   
                                 </Modal>
                             </div>
-                            <div className="col-1 calendarback"></div>
+                            </center>
+                            
                         </div>
                     </div>
                 </div>

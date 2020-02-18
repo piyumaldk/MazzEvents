@@ -4,8 +4,7 @@ import axios from 'axios';
 import LeftStaff from "../../Components/LeftStaff.component";
 import Upper from "../../Components/Upper.component";
 import { Link } from 'react-router-dom';
-
-
+import { Form, FormGroup,Input} from 'reactstrap';
 
 const SignUpCustomer = props => (
     <tr>
@@ -37,13 +36,29 @@ export default class StaffCustomer extends Component {
             })
     }
 
+    onChange = e => {
+        this.setState({ signup_email: e.target.value.toLowerCase()});
+        
+    };
+
     UserList() {
-        return this.state.users.map(function(currentSignUpCustomer, i){
-            if(currentSignUpCustomer.signup_type === "1"){
-            return <SignUpCustomer signupcustomer={currentSignUpCustomer} key={i} />;
-            }
-            return null;
-        })
+        const email = this.state.signup_email;
+        if(email ==null || email===""){
+            return this.state.users.map(function(currentSignUpCustomer, i){
+                if(currentSignUpCustomer.signup_type === "1"){
+                return <SignUpCustomer signupcustomer={currentSignUpCustomer} key={i} />;
+                }
+                return null;
+            })
+        }
+        else{
+            return this.state.users.map(function(currentSignUpCustomer, i){
+                if(currentSignUpCustomer.signup_type === "1" && currentSignUpCustomer.signup_email.toLowerCase() === email ){
+                return <SignUpCustomer signupcustomer={currentSignUpCustomer} key={i} />;
+                }
+                return null;
+            })
+        }
     }
 
     render() {
@@ -57,6 +72,11 @@ export default class StaffCustomer extends Component {
 
                     <div>
                     <h3>List of Our Customers</h3>
+                    <Form>
+                        <FormGroup>
+                            <Input type="signup_email" name="signup_email" id="signup_email" placeholder="Search Email here" onChange={this.onChange}/>
+                        </FormGroup>
+                    </Form>
                         <table className="table table-striped" style={{ marginTop: 20 }} >
                             <thead>
                                 <tr>

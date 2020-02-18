@@ -30,12 +30,12 @@ export default class LeftStaff extends Component {
                         </div>
                         </div>
 
-                        <div className="row">
+                        {/* <div className="row">
                         <div className="col-md-1"><a href="/staff/chat"><ChatIcon  style={{ fontSize: 22}}/></a></div>
                         <div className="col-md-9">
                             <li><a href="/staff/chat">Chat</a></li>
                         </div>
-                        </div>
+                        </div> */}
 
                         <div className="row">
                         <div className="col-md-1"><a href="/staff/mailbox"><MailIcon  style={{ fontSize: 22}}/></a></div>
