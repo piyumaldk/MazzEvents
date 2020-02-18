@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Carousel } from 'react-bootstrap';
 import Upper from "../Components/Upper.component";
+import { SocialIcon } from 'react-social-icons';
 
 import { Button, Card, CardDeck } from 'react-bootstrap';
 import axios from 'axios';
@@ -11,7 +12,12 @@ import img5 from './../Images/hall.jpeg';
 import img6 from './../Images/dj.jpeg';
 import img7 from './../Images/catering.jpeg';
 import img8 from './../Images/logo.jpg';
+import img9 from './../Images/about.jfif';
+
+
 const Events = props => (
+    
+    
 
     <div className="col-md-3 ">
         <br /><br/>
@@ -29,7 +35,7 @@ const Events = props => (
                                     Time:{props.events.time}<br />
                                     <br />
                                 </Card.Text>
-                                <center><Button variant="light" href={props.events.link}>Learn More</Button></center>
+                                <center><Button variant="light" href={props.events.link}>View More</Button></center>
                             </Card.Body></center>
                     </Card>
                 </div>
@@ -65,6 +71,7 @@ export default class Home extends Component {
 
 
     render() {
+
         return (
             <div>
                 <div className="navb">
@@ -144,61 +151,59 @@ export default class Home extends Component {
                 </section>
                 <section id = "about_us">
                 <Card bg="dark" text="white" style={{ width: "100%" }}><center><h3><b><div className="text1">About Us</div></b></h3></center></Card>
-                <div className="row card_ss">
-                        <div className="col-md-9">
-                            
+                <div className="row">
+                        <div className="col">
+                            <div id= "justify">
                                 <center>
                                     <h3>We are MazzEvents</h3><br/><br/>
-                                    <p>
+                                    <p >
                                     Mazz Event is a professional event management company in Galle.
                                     Which specializes in planning and coordinating various events from weddings,
                                     birthday parties,private functions to kids parties and much more.
-
-                                    <br/>
-                                    
-                                    Our website connect <b>service providers</b> that provide event related services with the 
-                                    <b>customers</b> who want to make their event a successful one.
-                                    <br/>
-                                    
-
-                                    Both service providers and customers can have a conversation with our <b>live chat</b> 
+                                    Our website connect service providers that provide event related services with the 
+                                    customers who want to make their event a successful one.
+                                    Both service providers and customers can have a conversation with our live chat 
                                     option online about their services
                                     </p><br/><br/>
                                 </center>
-                                
-                                
-                                
-                                
-                                </div>
+                            </div>
 
-                                <div className="col-md-3">
+                         </div>
 
-                                <center><Card>
-                                <div className="overflow">
-                                    <Card.Img variant="top" height="240" src={img8}/>
-                                    </div>
-                                        <Card.Body>
-                                            <Card.Title></Card.Title>
-                                            <Card.Text>
-                                            <b>Address</b><br/> 
-                                            MazzEvents, 9 Rampart Street, Fort, Gale<br/><br/>
-                                            <b>Email Address</b><br/>
-                                            <a href>mazzeventsrilanka@gmail.com</a><br/><br/>
-                                            <b>Contact No</b><br/>
-                                            0770523682<br/>
+                         <div className="col">
+                            
+                         </div>
 
-                                        
-                                            </Card.Text>
-                                        </Card.Body>
-                                    </Card></center>
-                                     </div>
+                         <div className="col">
+                            
+                         </div>
+
+                    </div>         
+                </section>
+
+                <footer id="main-footer1">
+                    <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <br/>
+                                <img align = "left" width = "40%" src = {img8}/>
+                            <br/>
+                            
+                            
+                        </div>
+                        <div class="col" >
+                            <br/>
+                            <h2>Contact Us</h2>
+                            0770523682<br/><br/>
+                            <b>Address</b><br/> 
+                            MazzEvents, 9 Rampart Street, Fort, Gale<br/><br/>
+                            <b>Email Address</b><br/>
+                            <a href>mazzeventsrilanka@gmail.com</a><br/><br/>
+                        </div>
 
                     </div>
-                                
-
-                                
-                            
-                </section>
+                    </div>
+                </footer>
 
                 <footer id="main-footer" class="text-center p-4">
                     <div class="container">
