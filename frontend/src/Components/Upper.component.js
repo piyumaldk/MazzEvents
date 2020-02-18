@@ -8,6 +8,7 @@ import LogIn from './Auth/LoginModal';
 import Logout from './Auth/LogOut';
 import * as Icon from 'react-feather';
 import Notification from './Notification.modal';
+import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive';
 
 class Upper extends Component {
   static propTypes = {
@@ -57,8 +58,11 @@ class Upper extends Component {
             <Nav.Link href="#about_us">About us</Nav.Link> 
             {/* <Nav.Link href="/notification">Notifications</Nav.Link> */}
             {/* <a href="/notification"><Icon.Bell color="WHITE" size={40}  /></a> */}
-            <Notification/>
+            
           </Nav>
+          
+          <NotificationsActiveIcon/><Notification/>
+          
           { isAuthenticated ? logout : login }
         </Navbar>
       </div>
