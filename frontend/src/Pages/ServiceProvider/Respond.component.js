@@ -102,30 +102,30 @@ class Respond extends Component {
                 <LeftServiceProvider/>
                 <div className="right">
                     <Upper/>
+                <div className="background1">
                     <div>
-                    <Card style={{ width: '60rem', top:'0.6rem', height:'30rem'}}>
                     <div className="txt">
-                <center><h3 >Add Events</h3></center>
+                <center><h3 >Responds</h3></center><br/>
                 </div>
-                <center>
-                <Card.Body>
-                    <div align="left">
-                        <b>Name :</b> {this.state.name}<br/>
-                        <b>Subject :</b> {this.state.subject}<br/>
-                        <b>Text :</b> {this.state.text}<br/>
-                        <b>Service Provider ID :</b> {this.state.spId}<br/>
-                        <b>Customer ID :</b> {this.state.customerId}<br/>
-                        <b>Customer Email :</b> {this.state.customerEmail}<br/>
-                        <b>Customer First Name :</b> {this.state.customerFName}<br/>
-                        <b>Customer Last Name :</b> {this.state.customerLName}<br/>
-                    </div>
-                </Card.Body></center>
-                    </Card>
+                
+                    <center><Card style={{width: '28rem',height:'28rem'}}>
+                    <div align-text="left">
+                        <b>Name :</b> {this.state.name}<br/><br/>
+                        <b>Subject :</b> {this.state.subject}<br/><br/>
+                        <b>Text :</b> {this.state.text}<br/><br/>
+                        <b>Service Provider ID :</b> {this.state.spId}<br/><br/>
+                        <b>Customer ID :</b> {this.state.customerId}<br/><br/>
+                        <b>Customer Email :</b> {this.state.customerEmail}<br/><br/>
+                        <b>Customer First Name :</b> {this.state.customerFName}<br/><br/>
+                        <b>Customer Last Name :</b> {this.state.customerLName}<br/><br/>
+                        </div>
+                    </Card></center><br/>
+                    
                     </div>
                     <div>
-                    <Button className="btn btn-dark" onClick={this.toggle} >
+                    <center><Button className="btn btn-dark" onClick={this.toggle} >
                         Response Message
-                    </Button>
+                    </Button></center>
                     <Modal isOpen={this.state.modal} toggle={this.toggle}>
                     <ModalHeader toggle={this.toggle}>{this.props.spEmail}</ModalHeader>
                         <ModalBody>
@@ -147,6 +147,7 @@ class Respond extends Component {
                     </Modal>
                     
                     
+                    </div>
                     </div>
                 </div>
              </div>
