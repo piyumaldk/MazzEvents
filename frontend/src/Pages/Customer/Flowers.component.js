@@ -67,6 +67,20 @@ export default class Photgraphers extends Component {
         
     }
 
+    sortItems = (event) => {
+        let users = this.state.users;
+        const selector = event.target.value;
+
+        if(selector === "1"){
+            window.location.reload();
+        }
+        else if(selector =="2"){
+            console.log("Test");
+            users.sort((a,b) => (a.sumRate/a.rateTime < b.sumRate/b.rateTime) ? 1: -1);
+            this.setState({users: users});
+        }
+    }
+
     onChange = e => {
         this.setState({ location: e.target.value.toLowerCase()});
         
@@ -109,6 +123,11 @@ export default class Photgraphers extends Component {
                                 <Input type="location" name="location" id="location" placeholder="Search Location / City here" onChange={this.onChange}/>
                             </FormGroup>
                         </Form>
+                        Sort By
+                        <select onChange={(event)=>this.sortItems(event)}>
+                                    <option value={1}>Normal</option>
+                                    <option value={2}>Rating</option>
+                                </select>
                         
                           <div  className="row card_ss">
                           <CardDeck>
