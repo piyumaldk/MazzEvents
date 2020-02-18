@@ -102,12 +102,12 @@ export default class LeftCustomer extends Component {
                     </div>
                 </div>
 
-                <div className="row">
+                {/* <div className="row">
                     <div className="col-md-1"><a href="/admin/staff"><StarIcon style={{ fontSize: 22}}/></a></div>
                     <div className="col-md-10">
                     <li><a href="/customer/rating">Rating</a></li>
                     </div>
-                </div>
+                </div> */}
                 
                 <div className="row">
                     <div className="col-md-1"><a href="/admin/staff"><HelpIcon style={{ fontSize: 22}}/></a></div>

@@ -51,10 +51,10 @@ class Upper extends Component {
           <Nav className="mr-auto">
             <Nav.Link href="/">Home</Nav.Link>  
             { isAuthenticated  ? authLinks : guestLinks }
-            { isAuthenticated === true && type ==="1"  ? <Nav.Link href="/customer/photo">Customer Dashboard</Nav.Link> : null }
-            { isAuthenticated === true && type ==="2"  ? <Nav.Link href="/serviceprovider/addservices">Service Provider Dashboard</Nav.Link> : null }
-            { isAuthenticated === true && type ==="3"  ? <Nav.Link href="/staff/account">Staff Member Dashboard</Nav.Link> : null }
-            { isAuthenticated === true && type ==="4"  ? <Nav.Link href="/admin/staff">Administrator Dashboard</Nav.Link> : null }
+            { isAuthenticated === true && type ==="1"  ? <Nav.Link href="/customer/photo">Dashboard</Nav.Link> : null }
+            { isAuthenticated === true && type ==="2"  ? <Nav.Link href="/serviceprovider/addservices">Dashboard</Nav.Link> : null }
+            { isAuthenticated === true && type ==="3"  ? <Nav.Link href="/staff/account">Dashboard</Nav.Link> : null }
+            { isAuthenticated === true && type ==="4"  ? <Nav.Link href="/admin/staff">Dashboard</Nav.Link> : null }
             <Nav.Link href="#about_us">About us</Nav.Link> 
             {/* <Nav.Link href="/notification">Notifications</Nav.Link> */}
             {/* <a href="/notification"><Icon.Bell color="WHITE" size={40}  /></a> */}
