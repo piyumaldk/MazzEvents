@@ -116,7 +116,7 @@ class SignUpHalls extends Component {
       signup_email: "", 
       signup_password: "", 
       signup_aPassword: "", 
-      signup_category: "Music",
+      signup_category: "Halls",
       signup_number: "", 
       signup_address: "",
       signup_text: "",
@@ -150,8 +150,8 @@ class SignUpHalls extends Component {
                 <Label for='lastName'>Last Name</Label>
                 <Input type="text" name="signup_lastName" id="signup_lastName" placeholder="Last Name" className="mb-3" onChange={this.onChange}/>
 
-                <Label for="exampleFile">File</Label>
-                <Input type="file" name="file" id="exampleFile" />
+                {/* <Label for="exampleFile">File</Label>
+                <Input type="file" name="file" id="exampleFile" /> */}
                 
 
                 <Label for='email'>Email Address</Label>

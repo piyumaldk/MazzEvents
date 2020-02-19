@@ -28,8 +28,8 @@ class SignUpCatering extends Component {
     signup_number: '',
     signup_address: '',
     signup_text: "",
-    signup_daymax: "",
-    signup_nightmax: "",
+    signup_daymax: "1",
+    signup_nightmax: "1",
     signup_company: "",
     signup_address2: '',
     signup_city: '',
@@ -82,7 +82,7 @@ class SignUpCatering extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    const { signup_type, signup_firstName, signup_lastName, signup_email, signup_password, signup_aPassword, signup_category, signup_number, signup_address, signup_text, signup_daymax, signup_nightmax, signup_company, signup_address2, signup_city, signup_state, signup_zip, sumRate, rateTime  } = this.state;
+    const { signup_type, signup_firstName, signup_lastName, signup_email, signup_password, signup_aPassword, signup_category, signup_number, signup_address, signup_text, signup_daymax, signup_nightmax, signup_company, signup_address2, signup_city, signup_state, signup_zip, sumRate, rateTime } = this.state;
     //Create user object
     const newSignUpServiceProvider = {
       signup_type,
@@ -120,8 +120,8 @@ class SignUpCatering extends Component {
       signup_number: "", 
       signup_address: "",
       signup_text: "",
-      signup_daymax: "",
-      signup_nightmax: "",
+      signup_daymax: "1",
+      signup_nightmax: "1",
       signup_company: "",
       signup_address2: "",
       signup_city: "",
@@ -149,9 +149,9 @@ class SignUpCatering extends Component {
 
                 <Label for='lastName'>Last Name</Label>
                 <Input type="text" name="signup_lastName" id="signup_lastName" placeholder="Last Name" className="mb-3" onChange={this.onChange}/>
-
+{/* 
                 <Label for="exampleFile">File</Label>
-                <Input type="file" name="file" id="exampleFile" className="mb-3" onChange={this.onChange}/>
+                <Input type="file" name="file" id="exampleFile" /> */}
                 
 
                 <Label for='email'>Email Address</Label>
@@ -203,13 +203,13 @@ class SignUpCatering extends Component {
                 <Label for='text'>Text to display</Label>
                 <Input type="textarea" name="signup_text" id="signup_text" placeholder="text" className="mb-3" onChange={this.onChange}/>
 
-                <Label for='day_max'>Maximum plates for Day</Label>
+                {/* <Label for='day_max'>Maximum plates for Day</Label>
                 <Input type="text" name="signup_daymax" id="signup_daymax" placeholder="max day" className="mb-3" onChange={this.onChange}/>
 
                 <Label for='night_max'>Maximum plates for Night</Label>
-                <Input type="text" name="signup_nightmax" id="signup_nightmax" placeholder="max night" className="mb-3" onChange={this.onChange}/>
+                <Input type="text" name="signup_nightmax" id="signup_nightmax" placeholder="max night" className="mb-3" onChange={this.onChange}/> */}
 
-                <Label for='address2'>Second Address</Label>
+                <Label for='address2'>Company Address</Label>
                 <Input type="text" name="signup_address2" id="signup_address2" placeholder="Second Address" className="mb-3" onChange={this.onChange}/>
 
                 <Label for='city'>City</Label>

@@ -27,6 +27,10 @@ class SignUpVehicles extends Component {
     signup_category: 'Vehicles',
     signup_number: '',
     signup_address: '',
+    signup_text: "",
+    signup_daymax: "1",
+    signup_nightmax: "1",
+    signup_company: "",
     signup_address2: '',
     signup_city: '',
     signup_state: '',
@@ -78,7 +82,7 @@ class SignUpVehicles extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    const { signup_type, signup_firstName, signup_lastName, signup_email, signup_password, signup_aPassword, signup_category, signup_number, signup_address, signup_address2, signup_city, signup_state, signup_zip, sumRate, rateTime } = this.state;
+    const { signup_type, signup_firstName, signup_lastName, signup_email, signup_password, signup_aPassword, signup_category, signup_number, signup_address, signup_text, signup_daymax, signup_nightmax, signup_company, signup_address2, signup_city, signup_state, signup_zip, sumRate, rateTime } = this.state;
     //Create user object
     const newSignUpServiceProvider = {
       signup_type,
@@ -90,6 +94,10 @@ class SignUpVehicles extends Component {
       signup_category,
       signup_number, 
       signup_address,
+      signup_text,
+      signup_daymax,
+      signup_nightmax,
+      signup_company,
       signup_address2,
       signup_city,
       signup_state,
@@ -111,6 +119,10 @@ class SignUpVehicles extends Component {
       signup_category: "Vehicles",
       signup_number: "", 
       signup_address: "",
+      signup_text: "",
+      signup_daymax: "1",
+      signup_nightmax: "1",
+      signup_company: "",
       signup_address2: "",
       signup_city: "",
       signup_state: "",
@@ -132,11 +144,15 @@ class SignUpVehicles extends Component {
           <ModalBody>
             <Form onSubmit={this.onSubmit}>
               <FormGroup>
-                <Label for='firstName'>First Name</Label>
+              <Label for='firstName'>First Name</Label>
                 <Input type="text" name="signup_firstName" id="signup_firstName" placeholder="First Name" className="mb-3" onChange={this.onChange}/>
 
                 <Label for='lastName'>Last Name</Label>
                 <Input type="text" name="signup_lastName" id="signup_lastName" placeholder="Last Name" className="mb-3" onChange={this.onChange}/>
+{/* 
+                <Label for="exampleFile">File</Label>
+                <Input type="file" name="file" id="exampleFile" /> */}
+                
 
                 <Label for='email'>Email Address</Label>
                 <Input type="email" name="signup_email" id="signup_email" placeholder="Email Address" className="mb-3" onChange={this.onChange}/>
@@ -147,25 +163,53 @@ class SignUpVehicles extends Component {
                 <Label for='aPassword'>Confirm Password</Label>
                 <Input type="password" name="signup_aPassword" id="signup_aPassword" placeholder="Confirm Password" className="mb-3" onChange={this.onChange}/>
 
-                <Label for='Category'>Category</Label>
-                <Input type="select" name="signup_category" id="signup_category"  className="mb-3" onChange={this.onChange}>
-                  <option>Photography</option>
-                  <option>DJ</option>
-                  <option>Music</option>
-                  <option>Catering</option>
-                  <option>Reception Halls</option>
-                  <option>Hotels</option>
-                  <option>Fowers</option>
-                  <option>Vehicles</option>
-                </Input>
-
                 <Label for='number'>Contact Number</Label>
                 <Input type="number" name="signup_number" id="signup_number" placeholder="Contact Number" className="mb-3" onChange={this.onChange}/>
 
                 <Label for='address'>Address</Label>
                 <Input type="text" name="signup_address" id="signup_address" placeholder="Address" className="mb-3" onChange={this.onChange}/>
 
-                <Label for='address2'>Second Address</Label>
+                <Label for='address'>Company</Label>
+                <Input type="text" name="signup_company" id="signup_company" placeholder="Company Name" className="mb-3" onChange={this.onChange}/>
+{/*
+                <Label for='address'>Package 1 Name</Label>
+                <Input type="text" name="signup_package1name" id="signup_package1name" placeholder="1st Package" className="mb-3" onChange={this.onChange}/>
+
+                <Label for='package1text'>Package 1 Text</Label>
+                <Input type="textarea" name="package1text" id="package1text" />
+                
+                <Label for='package1'>Package 1 Price</Label>
+                <Input type="number" name="signup_package1price" id="signup_package1price" placeholder="1st Package" className="mb-3" onChange={this.onChange}/>
+
+
+                <Label for='address'>Package 2 Name</Label>
+                <Input type="text" name="signup_package2name" id="signup_package2name" placeholder="2nd Package" className="mb-3" onChange={this.onChange}/>
+
+                <Label for='package1'>Package 2 Price</Label>
+                <Input type="number" name="signup_package1price" id="signup_package1price" placeholder="1st Package" className="mb-3" onChange={this.onChange}/>
+
+                <Label for='package2text'>Package 2 Text</Label>
+                <Input type="textarea" name="package2text" id="package2text" />
+
+                <Label for='address'>Package 3 Name</Label>
+                <Input type="text" name="signup_package3name" id="signup_package3name" placeholder="3rd Package" className="mb-3" onChange={this.onChange}/>
+
+                <Label for='package3text'>Package 3 Text</Label>
+                <Input type="textarea" name="package3text" id="package3text" />
+
+                <Label for='package3price'>Package 3 Price</Label>
+                <Input type="number" name="signup_package3price" id="signup_package3price" placeholder="3rd Package" className="mb-3" onChange={this.onChange}/>
+*/}
+                <Label for='text'>Text to display</Label>
+                <Input type="textarea" name="signup_text" id="signup_text" placeholder="text" className="mb-3" onChange={this.onChange}/>
+
+                {/* <Label for='day_max'>Maximum plates for Day</Label>
+                <Input type="text" name="signup_daymax" id="signup_daymax" placeholder="max day" className="mb-3" onChange={this.onChange}/>
+
+                <Label for='night_max'>Maximum plates for Night</Label>
+                <Input type="text" name="signup_nightmax" id="signup_nightmax" placeholder="max night" className="mb-3" onChange={this.onChange}/> */}
+
+                <Label for='address2'>Company Address</Label>
                 <Input type="text" name="signup_address2" id="signup_address2" placeholder="Second Address" className="mb-3" onChange={this.onChange}/>
 
                 <Label for='city'>City</Label>

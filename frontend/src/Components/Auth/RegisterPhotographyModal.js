@@ -149,9 +149,9 @@ class SignUpPhotographer extends Component {
 
                 <Label for='lastName'>Last Name</Label>
                 <Input type="text" name="signup_lastName" id="signup_lastName" placeholder="Last Name" className="mb-3" onChange={this.onChange}/>
-
+{/* 
                 <Label for="exampleFile">File</Label>
-                <Input type="file" name="file" id="exampleFile" />
+                <Input type="file" name="file" id="exampleFile" /> */}
                 
 
                 <Label for='email'>Email Address</Label>
