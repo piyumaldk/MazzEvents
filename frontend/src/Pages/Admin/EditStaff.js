@@ -197,7 +197,7 @@ import { Button, Card, Form, Col } from 'react-bootstrap';
 
                             <div className="form-group">
                                 <br />
-                                <input type="submit" value="Update SignUpCustomer" className="btn btn-primary" />
+                                <input type="submit" value="Update Staff Member" className="btn btn-primary" />
                             </div>
                             
 
