@@ -86,7 +86,7 @@ import { Button, Card, Form, Col } from 'react-bootstrap';
 
         this.props.history.push('/admin/staff/');
         window.location.reload();
-        alert("Updated successfully")
+        
 
 
 
