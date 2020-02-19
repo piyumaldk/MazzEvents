@@ -12,7 +12,7 @@ const SignUpCustomer = props => (
         <td>{props.signupcustomer.signup_lastName}</td>
         <td>{props.signupcustomer.signup_email}</td>
         <td>{props.signupcustomer.signup_number}</td>
-        <td>{props.signupcustomer.signup_location}</td>
+        {/* <td>{props.signupcustomer.signup_location}</td> */}
         <td>
             <Link to={"/staff/deletecustomer/"+props.signupcustomer._id}>Delete</Link>
         </td>
@@ -84,7 +84,7 @@ export default class StaffCustomer extends Component {
                                     <th>Last Name</th>
                                     <th>Email</th>
                                     <th>Number</th>
-                                    <th>Location</th>
+                                    {/* <th>Location</th> */}
                                 </tr>
                             </thead>
                             <tbody>
