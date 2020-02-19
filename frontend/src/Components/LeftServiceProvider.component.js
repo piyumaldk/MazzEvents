@@ -31,12 +31,12 @@ export default class LeftServiceProvider extends Component {
                     </div>
                 </div>
 
-                {/* <div className="row">
+                <div className="row">
                     <div className="col-md-1"><a href="/admin/staff"><ChatIcon  style={{ fontSize: 22}}/></a></div>
                     <div className="col-md-10">
                         <a href="/serviceprovider/chat">Chat</a>
                     </div>
-                </div> */}
+                </div>
 
                 <div className="row">
                     <div className="col-md-1"><a href="/admin/staff"><MailIcon style={{ fontSize: 22}}/></a></div>
