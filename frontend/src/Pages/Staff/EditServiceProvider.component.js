@@ -149,7 +149,7 @@ import { Button, Card, Form, Col } from 'react-bootstrap';
 
         this.props.history.push('/staff/account');
         window.location.reload();
-        alert("Updated successfully")
+        // alert("Updated successfully")
 
 
 

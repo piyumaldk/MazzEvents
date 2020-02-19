@@ -183,7 +183,7 @@ onChangeSignupText(e){
                           <Card.Img variant="top" src={!this.state.businessPic ? company :this.state.businessPic} />
                        </div>   
                           <Card.Body>
-                          <Card.Title><center>{this.state.signup_firstName} {this.state.signup_lastName}</center></Card.Title>
+                          <Card.Title><center>{this.state.signup_company}</center></Card.Title>
                           <Card.Text>
                               Email Address: {this.state.signup_email}<br/>
                               Contact Number: {this.state.signup_number}<br/>
