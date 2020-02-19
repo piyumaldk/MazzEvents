@@ -12,7 +12,7 @@ import img5 from './../Images/hall.jpeg';
 import img6 from './../Images/dj.jpeg';
 import img7 from './../Images/catering.jpeg';
 import img8 from './../Images/logo.jpg';
-import img9 from './../Images/about.jfif';
+import img9 from './../Images/map.PNG';
 
 
 const Events = props => (
@@ -152,31 +152,37 @@ export default class Home extends Component {
                 <section id = "about_us">
                 <Card bg="dark" text="white" style={{ width: "100%" }}><center><h3><b><div className="text1">About Us</div></b></h3></center></Card>
                 <div className="row">
-                        <div className="col">
+                        {/* <div className="col">
+                            
+
+                         </div> */}
+
+                         <div className="col">
+                             
+
+                            <div className="col">
                             <div id= "justify">
                                 <center>
                                     <h3>We are MazzEvents</h3><br/><br/>
                                     <p >
-                                    Mazz Event is a professional event management company in Galle.
-                                    Which specializes in planning and coordinating various events from weddings,
+                                    Mazz Event is a professional event management company in Galle. The company was started on 2018 as 
+                                    a startup company for event management.
+                                    Which now specializes in planning and coordinating various events from weddings,
                                     birthday parties,private functions to kids parties and much more.
-                                    Our website connect service providers that provide event related services with the 
-                                    customers who want to make their event a successful one.
-                                    Both service providers and customers can have a conversation with our live chat 
-                                    option online about their services
+                                    with out being a traditional company  the company is addopting to new digital trends.
                                     </p><br/><br/>
                                 </center>
                             </div>
-
-                         </div>
+                            </div>
+                            
+                        </div>
 
                          <div className="col">
-                            
+                             <br/>
+                                <img width = "90%" height = "90%" src = {img9}/>
                          </div>
 
-                         <div className="col">
-                            
-                         </div>
+                        
 
                     </div>         
                 </section>
