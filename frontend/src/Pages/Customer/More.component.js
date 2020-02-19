@@ -218,7 +218,7 @@ class More extends Component {
                                         <Card.Text>
                                             Email : {this.state.signup_email}<br />
                                             Location : {this.state.signup_city}<br />
-                                            Text : {this.state.signup_text}<br />
+                                            {/* Text : {this.state.signup_text}<br /> */}
                                         </Card.Text>
                                     </Card.Body>
                                 </Card>
@@ -331,8 +331,11 @@ class More extends Component {
                                     </div>
                                 </div>
                             </div>
-                            <CommentSection />
+                            
+                            
                         </div>
+                        <br/><br/><br/><br/>
+                        <CommentSection />
                 </div>
                 </div>
             </div>
