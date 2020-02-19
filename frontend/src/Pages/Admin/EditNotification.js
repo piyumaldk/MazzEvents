@@ -68,7 +68,7 @@ import { Button, Card, Form, Col } from 'react-bootstrap';
 
         this.props.history.push('/admin/notification/');
         window.location.reload();
-        alert("Updated successfully")
+        
 
 
 
