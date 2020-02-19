@@ -79,11 +79,11 @@ class EditNotification extends Component {
         e.preventDefault();
         alert("Are you sure?")
         console.log("abc")
-        var id = localStorage.getItem('spId');
-        console.log(id);
+        // var id = localStorage.getItem('spId');
+        // console.log(id);
 
 
-        axios.delete('http://localhost:4000/notifications/removenotification/' + id, {})
+        axios.delete('http://localhost:4000/notifications/removenotification/' + this.props.match.params.id, {})
             .then(res => console.log(res));
 
         this.props.history.push('/admin/notification/');
@@ -92,7 +92,7 @@ class EditNotification extends Component {
     }
 
     render() {
-        localStorage.setItem("spId", this.state._id);
+        // localStorage.setItem("spId", this.state._id);
         return (
             <div>
                 <LeftAdmin />
