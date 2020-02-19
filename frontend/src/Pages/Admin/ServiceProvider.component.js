@@ -24,9 +24,9 @@ const SignUpCustomer = props => (
         <td>{props.signupcustomer.signup_city}</td>
         <td>{props.signupcustomer.signup_state}</td>
         <td>{props.signupcustomer.signup_zip}</td>
-        {/* <td>
-            <Link to={"/staff/editserviceprovider/"+props.signupcustomer._id}>Edit</Link>
-        </td> */}
+        <td>
+            <Link to={"/admin/editserviceprovider/"+props.signupcustomer._id}>Edit</Link>
+        </td>
     </tr>
 )
 
