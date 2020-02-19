@@ -162,7 +162,7 @@ export default class Charts extends PureComponent {
 
         })
 
-        var cnt1 = 0;
+        // var cnt1 = 0;
         var cnt2 = 0;
         var cnt3 = 0;
         var cnt4 = 0;
@@ -183,9 +183,9 @@ export default class Charts extends PureComponent {
             count2 = count2 + 1;
           }
 
-          if (this.state.cusCount[i].signup_type === "2" && this.state.cusCount[i].signup_category === "Photgrapher") {
-            cnt1 = cnt1 + 1;
-          }
+          // if (this.state.cusCount[i].signup_type === "2" && this.state.cusCount[i].signup_category === "Photgrapher") {
+          //   cnt1 = cnt1 + 1;
+          // }
 
           if (this.state.cusCount[i].signup_type === "2" && this.state.cusCount[i].signup_category === "Dj") {
             cnt2 = cnt2 + 1;
@@ -220,9 +220,9 @@ export default class Charts extends PureComponent {
 
           this.setState({
             sur: [
-              {
-                name: 'Photographers', users: cnt1,
-              },
+              // {
+              //   name: 'Photographers', users: cnt1,
+              // },
               {
                 name: 'Dj', users: cnt2,
               },

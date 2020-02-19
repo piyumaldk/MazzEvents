@@ -15,6 +15,8 @@ import LeftAdmin from "../../Components/LeftAdmin.component";
 import EditStaff from "./EditStaff";
 import EditNotification from "./EditNotification";
 import ANotification from "./Notification";
+import EditServiceProvider from "./EditServiceProvider";
+import DeleteCustomer from "./DeleteCustomer";
 
 export default class Admin extends Component {
     render() {
@@ -37,6 +39,9 @@ export default class Admin extends Component {
                     <Route path="/admin/editstaff/:id" component={EditStaff}/>
                     <Route path="/admin/editnotification/:id" component={EditNotification}/>
                     <Route path="/admin/notification/" component={ANotification}/>
+                    <Route path="/admin/editserviceprovider/:id" component={EditServiceProvider}/>
+                    <Route path="/admin/deletecustomer/" component={DeleteCustomer}/>
+
                     
                     
                 </Router>

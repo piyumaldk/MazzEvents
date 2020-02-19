@@ -4,8 +4,8 @@ import LeftAdmin from "../../Components/LeftAdmin.component";
 import Upper from "../../Components/Upper.component";
 import { Button, Card, Form, Col } from 'react-bootstrap';
 
- class EditStaff extends Component {
-     
+class EditStaff extends Component {
+
 
     constructor(props) {
         super(props);
@@ -23,10 +23,10 @@ import { Button, Card, Form, Col } from 'react-bootstrap';
             signup_email: '',
             signup_number: '',
             _id: '',
-           
+
         }
     }
-    
+
     componentDidMount() {
         axios.get('http://localhost:4000/mazzevents/' + this.props.match.params.id)
             .then(response => {
@@ -37,13 +37,13 @@ import { Button, Card, Form, Col } from 'react-bootstrap';
                     signup_number: response.data.signup_number,
                     _id: response.data._id
                 })
-            console.log(this.state.signup_firstName);
-            
+                console.log(this.state.signup_firstName);
+
             })
             .catch(function (error) {
                 console.log(error)
             })
-            
+
 
 
     }
@@ -68,7 +68,7 @@ import { Button, Card, Form, Col } from 'react-bootstrap';
             signup_number: e.target.value
         });
     }
-   
+
 
     onSubmit(e) {
         e.preventDefault();
@@ -79,14 +79,14 @@ import { Button, Card, Form, Col } from 'react-bootstrap';
             signup_lastName: this.state.signup_lastName,
             signup_email: this.state.signup_email,
             signup_number: this.state.signup_number,
-           
+
         };
         axios.post('http://localhost:4000/mazzevents/updatecustomer/' + this.props.match.params.id, obj)
             .then(res => console.log(res.data));
 
         this.props.history.push('/admin/staff/');
         window.location.reload();
-        
+
 
 
 
@@ -100,7 +100,7 @@ import { Button, Card, Form, Col } from 'react-bootstrap';
         var id = localStorage.getItem('spId');
         console.log(id);
 
-        
+
         axios.delete('http://localhost:4000/mazzevents/removecustomer/' + id, {})
             .then(res => console.log(res));
 
@@ -154,57 +154,18 @@ import { Button, Card, Form, Col } from 'react-bootstrap';
                                     onChange={this.onChangeSignupNumber}
                                 />
                             </div>
-                            {/* <div className="form-group">
-                                <label>Address</label>
-                                <input type="text"
-                                    className="form-control"
-                                    value={this.state.signup_address}
-                                    onChange={this.onChangeSignupAddress}
-                                />
-                            </div>
-                            <div className="form-group">
-                                <label>Second Address</label>
-                                <input type="text"
-                                    className="form-control"
-                                    value={this.state.signup_address2}
-                                    onChange={this.onChangeSignupAddress2}
-                                />
-                            </div>
-                            <div className="form-group">
-                                <label>City</label>
-                                <input type="text"
-                                    className="form-control"
-                                    value={this.state.signup_city}
-                                    onChange={this.onChangeSignupCity}
-                                />
-                            </div>
-                            <div className="form-group">
-                                <label>State</label>
-                                <input type="text"
-                                    className="form-control"
-                                    value={this.state.signup_state}
-                                    onChange={this.onChangeSignupState}
-                                />
-                            </div>
-                            <div className="form-group">
-                                <label>Zip</label>
-                                <input type="text"
-                                    className="form-control"
-                                    value={this.state.signup_zip}
-                                    onChange={this.onChangeSignupZip}
-                                />
-                            </div> */}
+                        
 
                             <div className="form-group">
                                 <br />
                                 <input type="submit" value="Update Staff Member" className="btn btn-primary" />
                             </div>
-                            
+
 
                         </form>
-                            <div>
-                                <Button onClick={this.deleteUser}>Delete</Button>
-                            </div>
+                        <div>
+                            <Button onClick={this.deleteUser}>Delete</Button>
+                        </div>
 
                     </div>
 

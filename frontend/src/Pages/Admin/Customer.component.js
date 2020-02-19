@@ -4,6 +4,8 @@ import axios from 'axios';
 import LeftAdmin from "../../Components/LeftAdmin.component";
 import Upper from "../../Components/Upper.component";
 import { Form, FormGroup,Input} from 'reactstrap';
+import { Link } from 'react-router-dom';
+
 
 const SignUpCustomer = props => (
     <tr>
@@ -12,6 +14,9 @@ const SignUpCustomer = props => (
         <td>{props.signupcustomer.signup_email}</td>
         <td>{props.signupcustomer.signup_number}</td>
         {/* <td>{props.signupcustomer.signup_location}</td> */}
+        <td>
+            <Link to={"/admin/deletecustomer/"+props.signupcustomer._id}>Delete</Link>
+        </td>
     </tr>
 )
 

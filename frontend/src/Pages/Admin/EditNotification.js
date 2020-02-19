@@ -4,8 +4,8 @@ import LeftAdmin from "../../Components/LeftAdmin.component";
 import Upper from "../../Components/Upper.component";
 import { Button, Card, Form, Col } from 'react-bootstrap';
 
- class EditNotification extends Component {
-     
+class EditNotification extends Component {
+
 
     constructor(props) {
         super(props);
@@ -19,10 +19,10 @@ import { Button, Card, Form, Col } from 'react-bootstrap';
             topic: '',
             detail: '',
             _id: '',
-            
+
         }
     }
-    
+
     componentDidMount() {
         axios.get('http://localhost:4000/notifications/' + this.props.match.params.id)
             .then(response => {
@@ -31,13 +31,13 @@ import { Button, Card, Form, Col } from 'react-bootstrap';
                     detail: response.data.detail,
                     _id: response.data._id
                 })
-            console.log(this.state.topic);
-            
+                console.log(this.state.topic);
+
             })
             .catch(function (error) {
                 console.log(error)
             })
-            
+
 
 
     }
@@ -52,7 +52,7 @@ import { Button, Card, Form, Col } from 'react-bootstrap';
             detail: e.target.value
         });
     }
-    
+
 
     onSubmit(e) {
         e.preventDefault();
@@ -61,14 +61,14 @@ import { Button, Card, Form, Col } from 'react-bootstrap';
             _id: this.state._id,
             topic: this.state.topic,
             detail: this.state.detail,
-            
+
         };
         axios.post('http://localhost:4000/notifications/updatenotification/' + this.props.match.params.id, obj)
             .then(res => console.log(res.data));
 
         this.props.history.push('/admin/notification/');
         window.location.reload();
-        
+
 
 
 
@@ -82,7 +82,7 @@ import { Button, Card, Form, Col } from 'react-bootstrap';
         var id = localStorage.getItem('spId');
         console.log(id);
 
-        
+
         axios.delete('http://localhost:4000/notifications/removenotification/' + id, {})
             .then(res => console.log(res));
 
@@ -121,18 +121,18 @@ import { Button, Card, Form, Col } from 'react-bootstrap';
                                     onChange={this.onChangeDetail}
                                 />
                             </div>
-                           
+
 
                             <div className="form-group">
                                 <br />
                                 <input type="submit" value="Update Notification" className="btn btn-primary" />
                             </div>
-                            
+
 
                         </form>
-                            <div>
-                                <Button onClick={this.deleteUser}>Delete</Button>
-                            </div>
+                        <div>
+                            <Button onClick={this.deleteUser}>Delete</Button>
+                        </div>
 
                     </div>
 

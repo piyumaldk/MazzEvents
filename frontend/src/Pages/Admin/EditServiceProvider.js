@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import LeftStaff from "../../Components/LeftStaff.component";
+import LeftAdmin from "../../Components/LeftAdmin.component";
+
 import Upper from "../../Components/Upper.component";
 import { Button, Card, Form, Col } from 'react-bootstrap';
 
- class DeleteCustomer extends Component {
+ class EditServiceProvider extends Component {
 
     constructor(props) {
         super(props);
@@ -147,9 +148,9 @@ import { Button, Card, Form, Col } from 'react-bootstrap';
         axios.post('http://localhost:4000/mazzevents/updatecustomer/' + this.props.match.params.id, obj)
             .then(res => console.log(res.data));
 
-        this.props.history.push('/staff/account');
+        this.props.history.push('/admin/serviceprovider');
         window.location.reload();
-        alert("Updated successfully")
+        // alert("Updated successfully")
 
 
 
@@ -175,12 +176,12 @@ import { Button, Card, Form, Col } from 'react-bootstrap';
         localStorage.setItem("spId", this.state._id);
         return (
             <div>
-                <LeftStaff />
+                <LeftAdmin />
                 <div class="right">
                     <Upper />
                     <div className="frm">
                         <div className="txt">
-                            <h3 >Delete Customer</h3>
+                            <h3 >Update Service Provider</h3>
                         </div>
 
                         <form onSubmit={this.onSubmit} >
@@ -217,12 +218,51 @@ import { Button, Card, Form, Col } from 'react-bootstrap';
                                     onChange={this.onChangeSignupNumber}
                                 />
                             </div>
-                            
+                            <div className="form-group">
+                                <label>Address</label>
+                                <input type="text"
+                                    className="form-control"
+                                    value={this.state.signup_address}
+                                    onChange={this.onChangeSignupAddress}
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label>Second Address</label>
+                                <input type="text"
+                                    className="form-control"
+                                    value={this.state.signup_address2}
+                                    onChange={this.onChangeSignupAddress2}
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label>City</label>
+                                <input type="text"
+                                    className="form-control"
+                                    value={this.state.signup_city}
+                                    onChange={this.onChangeSignupCity}
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label>State</label>
+                                <input type="text"
+                                    className="form-control"
+                                    value={this.state.signup_state}
+                                    onChange={this.onChangeSignupState}
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label>Zip</label>
+                                <input type="text"
+                                    className="form-control"
+                                    value={this.state.signup_zip}
+                                    onChange={this.onChangeSignupZip}
+                                />
+                            </div>
 
-                            {/* <div className="form-group">
+                            <div className="form-group">
                                 <br />
-                                <input type="submit" value="Update SignUpCustomer" className="btn btn-primary" />
-                            </div> */}
+                                <input type="submit" value="Update Service Provider" className="btn btn-primary" />
+                            </div>
                             
 
                         </form>
@@ -240,4 +280,4 @@ import { Button, Card, Form, Col } from 'react-bootstrap';
         )
     }
 }
-export default (DeleteCustomer);
+export default (EditServiceProvider);
