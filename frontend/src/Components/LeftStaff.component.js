@@ -52,6 +52,13 @@ export default class LeftStaff extends Component {
                         </div>
 
                         <div className="row">
+                        <div className="col-md-1"><a href="/staff/eventlist"><EmojiEventsIcon  style={{ fontSize: 22}}/></a></div>
+                        <div className="col-md-9">
+                            <li><a href="/staff/eventlist">Event List</a></li>
+                        </div>
+                        </div>
+
+                        <div className="row">
                         <div className="col-md-1"><a href="/staff/mailbox"><InsertChartIcon  style={{ fontSize: 22}}/></a></div>
                         <div className="col-md-9">
                             <li><a href="/staff/charts">Charts</a></li>

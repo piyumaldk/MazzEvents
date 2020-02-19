@@ -82,7 +82,6 @@ import { Button, Card, Form, Col } from 'react-bootstrap';
 
         this.props.history.push('/staff/eventlist');
         window.location.reload();
-        alert("Updated successfully")
     }
 
     deleteUser(e) {
