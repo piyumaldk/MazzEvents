@@ -52,6 +52,7 @@ class SignUp extends Component {
     signup_location: '',
     sumRate: 0,
     rateTime: 0,
+    rate: 0,
     msg: null
   };
 
@@ -97,7 +98,7 @@ class SignUp extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    const { signup_type, signup_firstName, signup_lastName, signup_email, signup_password, signup_aPassword, signup_number, signup_location, sumRate, rateTime } = this.state;
+    const { signup_type, signup_firstName, signup_lastName, signup_email, signup_password, signup_aPassword, signup_number, signup_location, sumRate, rateTime, rate } = this.state;
     //Create user object
     const newSignUpCustomer = {
       signup_type,
@@ -109,7 +110,8 @@ class SignUp extends Component {
       signup_number, 
       signup_location,
       sumRate,
-      rateTime
+      rateTime,
+      rate
     };
 
     //email syntax validation
@@ -137,7 +139,8 @@ class SignUp extends Component {
       signup_number: "", 
       signpup_location: "",
       sumRate: 0,
-      rateTime: 0
+      rateTime: 0,
+      rate: 0
     });
   }
 }

@@ -25,7 +25,7 @@ const SignUpCustomer = props => (
                     <StarRatingComponent 
                         name="rate1" 
                         starCount={5}
-                        value={props.signupcustomer.sumRate/props.signupcustomer.rateTime}
+                        value={props.signupcustomer.rate}
                     />
                 </h1>
             </center>
@@ -76,7 +76,7 @@ export default class Catering extends Component {
         }
         else if(selector =="2"){
             console.log("Test");
-            users.sort((a,b) => (a.sumRate/a.rateTime < b.sumRate/b.rateTime) ? 1: -1);
+            users.sort((a,b) => (a.rate < b.rate) ? 1: -1);
             this.setState({users: users});
         }
     }

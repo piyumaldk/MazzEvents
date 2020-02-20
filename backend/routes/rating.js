@@ -78,6 +78,7 @@ router.route('/addrating2').post(function(req, res) {
         console.log("Okay");
         user.sumRate = req.body.sumRate;
         user.rateTime = req.body.rateTime;
+        user.rate = req.body.rate;
         user.save().then(user => {        
         })
         .catch(err => {

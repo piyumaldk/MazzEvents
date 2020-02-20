@@ -118,11 +118,13 @@ class More extends Component {
                         });
                     const sumRate = this.state.sumRate + nextValue - res.data.response_body.rate;
                     const rateTime = this.state.rateTime;
+                    const rate = sumRate/rateTime;
 
                     const data2 = {
                         spId: this.props.match.params.id,
                         sumRate: sumRate,
-                        rateTime: rateTime
+                        rateTime: rateTime,
+                        rate: rate
                     }
                     axios.post('http://localhost:4000/rating/addrating2', data2)
                         .then(res => {
@@ -141,11 +143,13 @@ class More extends Component {
                         });
                     const sumRate = this.state.sumRate + nextValue;
                     const rateTime = this.state.rateTime + 1;
+                    const rate = sumRate/rateTime;
 
                     const data2 = {
                         spId: this.props.match.params.id,
                         sumRate: sumRate,
-                        rateTime: rateTime
+                        rateTime: rateTime,
+                        rate: rate
                     }
                     axios.post('http://localhost:4000/rating/addrating2', data2)
                         .then(res => {

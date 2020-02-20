@@ -112,6 +112,9 @@ let SignUpSchema = new Schema({
     rateTime: {
         type: Number
     },
+    rate: {
+        type: Number
+    },
     signup_date: {
         type: Date,
         default: Date.now
