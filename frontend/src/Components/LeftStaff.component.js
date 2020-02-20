@@ -7,7 +7,6 @@ import MusicNoteIcon from '@material-ui/icons/MusicNote';
 import FastfoodIcon from '@material-ui/icons/Fastfood';
 import LocalFloristIcon from '@material-ui/icons/LocalFlorist';
 import AirportShuttleIcon from '@material-ui/icons/AirportShuttle';
-import ChatIcon from '@material-ui/icons/Chat';
 import MailIcon from '@material-ui/icons/Mail';
 import PersonIcon from '@material-ui/icons/Person';
 import EmojiEventsIcon from '@material-ui/icons/EmojiEvents';

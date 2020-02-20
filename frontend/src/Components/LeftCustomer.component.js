@@ -10,9 +10,7 @@ import LocalFloristIcon from '@material-ui/icons/LocalFlorist';
 import AirportShuttleIcon from '@material-ui/icons/AirportShuttle';
 import ChatIcon from '@material-ui/icons/Chat';
 import MailIcon from '@material-ui/icons/Mail';
-import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
-import StarIcon from '@material-ui/icons/Star';
 import HelpIcon from '@material-ui/icons/Help';
 import RestaurantMenuIcon from '@material-ui/icons/RestaurantMenu';
 

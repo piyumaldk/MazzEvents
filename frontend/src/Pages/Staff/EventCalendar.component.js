@@ -3,7 +3,6 @@ import axios from 'axios';
 import LeftStaff from "../../Components/LeftStaff.component";
 import Upper from "../../Components/Upper.component";
 import{Card} from 'react-bootstrap';
-import StarIcon from '@material-ui/icons/Star';
 import ScheduleIcon from '@material-ui/icons/Schedule';
 import LinkIcon from '@material-ui/icons/Link';
 import EmojiEventsIcon from '@material-ui/icons/EmojiEvents';

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Upper from "../../Components/Upper.component";
 import LeftStaff from "../../Components/LeftStaff.component";
-import { Table, Nav, Form, Col, Button, Modal, Alert, Card } from 'react-bootstrap';
+import {  Button, Card } from 'react-bootstrap';
 
 
 class StaffMailbox extends Component {

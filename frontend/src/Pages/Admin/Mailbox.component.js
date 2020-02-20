@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Upper from "../../Components/Upper.component";
-import { Table, Nav, Form, Col, Button, Modal, Card, Alert } from 'react-bootstrap';
+import {Button, Card } from 'react-bootstrap';
 import LeftAdmin from "../../Components/LeftAdmin.component";
 
 

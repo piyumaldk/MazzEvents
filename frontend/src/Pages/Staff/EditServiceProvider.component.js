@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import LeftStaff from "../../Components/LeftStaff.component";
 import Upper from "../../Components/Upper.component";
-import { Button, Card, Form, Col } from 'react-bootstrap';
+import { Button} from 'react-bootstrap';
 
  class EditServiceProvider extends Component {
 

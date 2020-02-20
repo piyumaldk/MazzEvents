@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Carousel } from 'react-bootstrap';
 import Upper from "../Components/Upper.component";
-import { SocialIcon } from 'react-social-icons';
 
 import { Button, Card, CardDeck } from 'react-bootstrap';
 import axios from 'axios';

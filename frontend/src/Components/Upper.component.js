@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import SignUp from './Auth/RegisterModal';
 import LogIn from './Auth/LoginModal';
 import Logout from './Auth/LogOut';
-import * as Icon from 'react-feather';
 import Notification from './Notification.modal';
 import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive';
 

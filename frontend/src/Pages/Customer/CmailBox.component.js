@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Upper from "../../Components/Upper.component";
 import LeftCustomer from "../../Components/LeftCustomer.component";
-import { Table, Nav, Form, Col, Button,Card, Modal, Alert } from 'react-bootstrap';
+import { Button,Card} from 'react-bootstrap';
 
 
 class CmailBox extends Component {
