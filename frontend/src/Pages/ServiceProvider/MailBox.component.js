@@ -2,7 +2,7 @@
     import React, { Component } from 'react';
     import { connect } from 'react-redux';
     import Upper from "../../Components/Upper.component";
-    import { Table, Nav, Form, Col, Button,Card, Modal, Alert } from 'react-bootstrap';
+    import { Button,Card } from 'react-bootstrap';
     import LeftSeriveProvider from "../../Components/LeftServiceProvider.component";
     
     

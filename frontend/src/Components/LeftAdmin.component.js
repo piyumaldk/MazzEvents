@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
-import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import ChatIcon from '@material-ui/icons/Chat';
 import MailIcon from '@material-ui/icons/Mail';
-import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
 import InsertChartIcon from '@material-ui/icons/InsertChart';
 import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
-import RateReviewIcon from '@material-ui/icons/RateReview';
-import RoomIcon from '@material-ui/icons/Room';
-
 
 export default class LeftAdmin extends Component {
     render() {

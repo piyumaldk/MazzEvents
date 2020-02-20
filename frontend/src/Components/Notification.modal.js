@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { connect } from 'react-redux';
 import { Card, CardDeck } from 'react-bootstrap';
 
 import {
-    Input,
-    Label,
     Button,
     Modal,
     ModalHeader,

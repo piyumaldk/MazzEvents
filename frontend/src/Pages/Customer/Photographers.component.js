@@ -76,7 +76,7 @@ export default class Photgraphers extends Component {
         if(selector === "1"){
             window.location.reload();
         }
-        else if(selector =="2"){
+        else if(selector ==="2"){
             console.log("Test");
             users.sort((a,b) => (a.rate < b.rate) ? 1: -1);
             this.setState({users: users});

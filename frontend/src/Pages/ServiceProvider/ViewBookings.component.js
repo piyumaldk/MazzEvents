@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import LeftServiceProvider from "../../Components/LeftServiceProvider.component";
-import {Table} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Upper from "../../Components/Upper.component";
 import axios from 'axios';

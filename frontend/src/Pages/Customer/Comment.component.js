@@ -2,10 +2,7 @@ import React, { Component } from 'react';
 import { Card } from 'react-bootstrap';
 import '../../App.css';
 import axios from 'axios';
-import Upper from "../../Components/Upper.component";
-import StarRatingComponent from 'react-star-rating-component';
 import { connect } from 'react-redux';
-import LeftServiceProvider from '../../Components/LeftServiceProvider.component';
 import PersonIcon from '@material-ui/icons/Person';
 const Comment = props => (
     <div className="text">
