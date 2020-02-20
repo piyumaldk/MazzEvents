@@ -7,7 +7,7 @@ import Flowers from "./Flowers.component";
 import Vehicles from "./Vehicles.component";
 import Cchat from "./Cchat.component";
 import CmailBox from "./CmailBox.component";
-import CeventsCalendar from "./CeventsCalendar.component";
+//import CeventsCalendar from "./CeventsCalendar.component";
 import CustomerAccount from "./CustomerAccount.component";
 import Rating from "./Rating.component";
 import Photographers from "./Photographers.component";
@@ -28,7 +28,7 @@ export default class Customer extends Component {
                     <Route path="/customer/vehicles" component={Vehicles} />
                     <Route path="/customer/chat" component={Cchat} />
                     <Route path="/customer/mail" component={CmailBox} />
-                    <Route path="/customer/eventscl" component={CeventsCalendar} />
+                    {/* <Route path="/customer/eventscl" component={CeventsCalendar} /> */}
                     <Route path="/customer/account" component={CustomerAccount} />
                     <Route path="/customer/rating" component={Rating} />
                     <Route path="/customer/halls" component={Halls} />

@@ -173,18 +173,17 @@ class More extends Component {
             name: this.state.name,
             subject: this.state.subject,
             text: this.state.text,
-            //signup_completed: this.state.signup_completed
+            
         };
-        //console.log(obj);
+        
         axios.post('http://localhost:4000/request/addrequest/', obj)
             .then(res => console.log(res.data));
 
-        //this.props.history.push('/customer/photo');
+        
     }
 
     onClick(e) {
-        // this.setState({rating: nextValue});
-        // console.log(this.state.rating);
+        
         const data = {
             customerId: this.props.id,
             customerFName: this.props.fName,
@@ -193,7 +192,7 @@ class More extends Component {
             spId: this.props.match.params.id,
             comment: this.state.comment
         }
-        //console.log(data)
+        
         axios.post('http://localhost:4000/comment/addcomment', data)
             .then(res => {
                 console.log(res.data)
@@ -264,21 +263,7 @@ class More extends Component {
                                 </div>
 
                             </div>
-                            {/* <div className="col-md-4">
-                        <Card style={{ width: '18rem', height:'27rem'}}>
-                            <div className="overflow">     
-                                <Card.Img variant="top" height="240" src={!this.state.profilePic ? normal:this.state.profilePic} />
-                            </div>
-                            <Card.Body>
-                                <center><Card.Title>{this.state.signup_firstName} {this.state.signup_lastName}</Card.Title></center>
-                                    <Card.Text>
-                                        Contact Number : {this.state.signup_number}<br/>
-                                        Address 1 : {this.state.signup_address}<br/>
-                                        Address 2: {this.state.signup_address2}<br/>
-                                    </Card.Text>
-                            </Card.Body>
-                        </Card><br/>
-                    </div> */}
+                            
 
                             <div className="col-md-4">
                                 <center>
@@ -315,7 +300,7 @@ class More extends Component {
                                         <div className="col-md-6">
                                             <Button disabled={!this.state.name || !this.state.subject || !this.state.text} variant="dark" type="submit" value="Update">
                                                 Send Request
-                                        </Button>
+                                            </Button>
                                         </div>
                                         <div className="col-md-6">
                                             <Message />

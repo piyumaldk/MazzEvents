@@ -107,15 +107,15 @@ class Calendar extends Component {
                             
                                 
                                 <FullCalendar
-                                defaultView="dayGridMonth"
-                                plugins={[dayGridPlugin, interactionPlugin]}
-                                header={{
-                                    left: "prev,next today",
-                                    center: "title",
-                                }}
-                                events={this.state.unavailableDates}
-                                dateClick={this.dateClick}
-                                defaultAllDayEventDuration={{'days':1}}
+                                    defaultView="dayGridMonth"
+                                    plugins={[dayGridPlugin, interactionPlugin]}
+                                    header={{
+                                        left: "prev,next today",
+                                        center: "title",
+                                    }}
+                                    events={this.state.unavailableDates}
+                                    dateClick={this.dateClick}
+                                    defaultAllDayEventDuration={{'days':1}}
                                 />
                                 
                                 <Modal visible={this.state.visible} width="25%" height="20%" effect="fadeInUp" onClickAway={() => this.closeDateModal()}>

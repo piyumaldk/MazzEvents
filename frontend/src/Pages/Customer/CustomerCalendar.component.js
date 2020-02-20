@@ -29,8 +29,8 @@ class CustomerCalendar extends Component {
                 console.log(response.data.profile_data.UnavailableDates)
                 this.setState({
                     profile_data:response.data.profile_data,
-                    nurse_name:response.data.profile_data.FirstName,
-                    nurse_id:response.data.profile_data._id,
+                    sp:response.data.profile_data.FirstName,
+                    sp:response.data.profile_data._id,
 
                     response_dates: response.data.profile_data.UnavailableDates
                 })
@@ -63,30 +63,9 @@ class CustomerCalendar extends Component {
     }
 
     
-    dateClick = (date) => {
-        if ((this.state.response_dates.includes(date.dateStr)===false) && (new Date(date.dateStr).getTime() >= Date.now())) {
-            this.openDateModal();
-            console.log(this.state.profile_data)
-            console.log(this.state.nurse_name)
-            console.log(this.state.nurse_id)          
-        }   
-    }
+    
 
-    openDateModal = () => {
-        this.setState({
-            visible: true
-        });
-    }
-
-    closeDateModal = () => {
-        this.setState({
-            visible: false,
-        });
-    }
-
-    eventClick = (event) => {
-        console.log('Clicked');
-    }
+    
 
     render() {
 
@@ -106,7 +85,7 @@ class CustomerCalendar extends Component {
                         <FullCalendar
                             defaultView="dayGridMonth"
                             plugins={[dayGridPlugin, interactionPlugin]}
-                            // themeSystem={{bootstrap}}
+                            
                             header={{
                                 left: "prev,next today",
                                 center: "title",
@@ -116,14 +95,7 @@ class CustomerCalendar extends Component {
                             eventClick={this.eventClick}
                             defaultAllDayEventDuration={{ 'days': 1 }}
                         />
-                        <Modal visible={this.state.visible} width="25%" height="20%" effect="fadeInUp" onClickAway={() => this.closeDateModal()}>
-                            <h5 align="center">Book Nurse {this.state.date}</h5>
-                            <center>
-                                {/* <Button variant="btn btn-danger" type="submit" onClick={() => this.logout()}>LogOut</Button> */} 
-                                <input type="button" class="btn btn-danger" value="Request the Nurse" onClick={() => this.requestNurse()} />
-                                <input type="button" class="btn btn-info" value="Cancel" onClick={() => this.closeDateModal()} />
-                            </center>
-                        </Modal>   
+                         
                     </div>
                 </div>
             </div>
