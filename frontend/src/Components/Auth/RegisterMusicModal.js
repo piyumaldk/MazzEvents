@@ -137,10 +137,10 @@ class SignUpMusic extends Component {
 
   render() {
     return (
-        <div>
-            <Button onClick={this.toggle} href="#">
-               Music+
-            </Button>
+      <div>
+        <Button onClick={this.toggle} href="#">
+            Music+
+        </Button>
 
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>Register a Musician</ModalHeader>

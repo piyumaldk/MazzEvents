@@ -108,10 +108,10 @@ class SignUp3 extends Component {
 
   render() {
     return (
-        <div>
-            <Button onClick={this.toggle} href="#">
-                Staff+
-            </Button>
+      <div>
+        <Button onClick={this.toggle} href="#">
+            Staff+
+        </Button>
 
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>Register a Staff Member</ModalHeader>

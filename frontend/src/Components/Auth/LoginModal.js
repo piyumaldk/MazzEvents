@@ -82,10 +82,10 @@ class LogIn extends Component {
 
   render() {
     return (
-        <div>
-            <NavLink onClick={this.toggle} href="#">
-                Log In
-            </NavLink>
+      <div>
+        <NavLink onClick={this.toggle} href="#">
+            Log In
+        </NavLink>
 
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>Log In</ModalHeader>
@@ -96,29 +96,27 @@ class LogIn extends Component {
                 <Label for='email'>Email Address</Label>
 
                 <div className="container">
-                    <div className="row">
-                        <div className="col-md-1">
-                        <EmailIcon style={{ fontSize: 30 }} />
-                  </div>
-                        <div className="col-md-11">
-                        <Input type="email" className="fontAwesome" name="signup_email" id="signup_email" placeholder="Email Address" className="mb-3" onChange={this.onChange}/>
-                  </div>
+                  <div className="row">
+                    <div className="col-md-1">
+                      <EmailIcon style={{ fontSize: 30 }} />
                     </div>
-
+                    <div className="col-md-11">
+                      <Input type="email" className="fontAwesome" name="signup_email" id="signup_email" placeholder="Email Address" className="mb-3" onChange={this.onChange}/>
+                    </div>
+                  </div>
                 </div>
 
                 <Label for='password'>Password</Label>
 
                 <div className="container">
-                    <div className="row">
-                        <div className="col-md-1">
-                        <LockIcon style={{ fontSize: 30 }} />
-                  </div>
-                        <div className="col-md-11">
-                        <Input type="password" name="signup_password" id="signup_password" placeholder="Password" className="mb-3" onChange={this.onChange}/>
-                  </div>
+                  <div className="row">
+                    <div className="col-md-1">
+                      <LockIcon style={{ fontSize: 30 }} />
                     </div>
-
+                    <div className="col-md-11">
+                      <Input type="password" name="signup_password" id="signup_password" placeholder="Password" className="mb-3" onChange={this.onChange}/>
+                    </div>
+                  </div>
                 </div>
 
                 { this.state.msg ? (<Alert color="danger">{ this.state.msg }</Alert>) : null }

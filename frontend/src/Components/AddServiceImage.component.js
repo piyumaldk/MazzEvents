@@ -52,14 +52,14 @@ class AddImage extends Component {
 
     render() {
         return (
-<div>
-<Button className="btn btn-dark" onClick={this.toggle} href="#">
+            <div>
+            <Button className="btn btn-dark" onClick={this.toggle} href="#">
                 Update the profile Picture
             </Button>
             <Modal isOpen={this.state.modal} toggle={this.toggle}>
-          <ModalHeader toggle={this.toggle}>Select a Picture</ModalHeader>
-          <ModalBody>
-          <div className="container">
+            <ModalHeader toggle={this.toggle}>Select a Picture</ModalHeader>
+            <ModalBody>
+            <div className="container">
                 <div className="row">
                     <form onSubmit={this.onSubmit}>
                         <div className="form-group">
@@ -75,8 +75,8 @@ class AddImage extends Component {
                     </form>
                 </div>
             </div>
-          </ModalBody>
-          </Modal>
+            </ModalBody>
+            </Modal>
           </div>          
         )
     }

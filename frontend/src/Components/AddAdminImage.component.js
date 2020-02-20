@@ -52,32 +52,32 @@ class AddImage extends Component {
 
     render() {
         return (
-<div>
-<Button className="btn btn-dark" onClick={this.toggle} href="#">
-                Update the profile Picture
-            </Button>
-            <Modal isOpen={this.state.modal} toggle={this.toggle}>
-          <ModalHeader toggle={this.toggle}>Select a Picture</ModalHeader>
-          <ModalBody>
-          <div className="container">
-                <div className="row">
-                    <form onSubmit={this.onSubmit}>
-                        <div className="form-group">
-                            <Label for="avatar">Choose a profile picture</Label>
-                            <Input className="btn btn-dark" type="file" id="avatar" onChange={this.onFileChange} />
-                        </div>
-                        <div className="form-group">
-                            <Button className="btn btn-dark" disabled={!this.state.profileImg || this.state.upload===1} type="submit">Upload</Button>
-                            <div className="float-right">
-                            <Button className="btn btn-dark" disabled={!this.state.profileImg || !this.state.upload} href="/admin/account">Save</Button>
+            <div>
+                <Button className="btn btn-dark" onClick={this.toggle} href="#">
+                    Update the profile Picture
+                </Button>
+                <Modal isOpen={this.state.modal} toggle={this.toggle}>
+                    <ModalHeader toggle={this.toggle}>Select a Picture</ModalHeader>
+                    <ModalBody>
+                    <div className="container">
+                            <div className="row">
+                                <form onSubmit={this.onSubmit}>
+                                    <div className="form-group">
+                                        <Label for="avatar">Choose a profile picture</Label>
+                                        <Input className="btn btn-dark" type="file" id="avatar" onChange={this.onFileChange} />
+                                    </div>
+                                    <div className="form-group">
+                                        <Button className="btn btn-dark" disabled={!this.state.profileImg || this.state.upload===1} type="submit">Upload</Button>
+                                        <div className="float-right">
+                                        <Button className="btn btn-dark" disabled={!this.state.profileImg || !this.state.upload} href="/admin/account">Save</Button>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
-                    </form>
-                </div>
-            </div>
-          </ModalBody>
-          </Modal>
-          </div>          
+                    </ModalBody>
+                </Modal>
+            </div>          
         )
     }
 }

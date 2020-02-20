@@ -136,10 +136,10 @@ class SignUpCatering extends Component {
 
   render() {
     return (
-        <div>
-            <Button onClick={this.toggle} href="#">
-                Dj+
-            </Button>
+      <div>
+        <Button onClick={this.toggle} href="#">
+            Dj+
+        </Button>
 
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>Register a Dj</ModalHeader>
@@ -173,43 +173,9 @@ class SignUpCatering extends Component {
 
                 <Label for='address'>Company</Label>
                 <Input type="text" name="signup_company" id="signup_company" placeholder="Company Name" className="mb-3" onChange={this.onChange}/>
-{/*
-                <Label for='address'>Package 1 Name</Label>
-                <Input type="text" name="signup_package1name" id="signup_package1name" placeholder="1st Package" className="mb-3" onChange={this.onChange}/>
 
-                <Label for='package1text'>Package 1 Text</Label>
-                <Input type="textarea" name="package1text" id="package1text" />
-                
-                <Label for='package1'>Package 1 Price</Label>
-                <Input type="number" name="signup_package1price" id="signup_package1price" placeholder="1st Package" className="mb-3" onChange={this.onChange}/>
-
-
-                <Label for='address'>Package 2 Name</Label>
-                <Input type="text" name="signup_package2name" id="signup_package2name" placeholder="2nd Package" className="mb-3" onChange={this.onChange}/>
-
-                <Label for='package1'>Package 2 Price</Label>
-                <Input type="number" name="signup_package1price" id="signup_package1price" placeholder="1st Package" className="mb-3" onChange={this.onChange}/>
-
-                <Label for='package2text'>Package 2 Text</Label>
-                <Input type="textarea" name="package2text" id="package2text" />
-
-                <Label for='address'>Package 3 Name</Label>
-                <Input type="text" name="signup_package3name" id="signup_package3name" placeholder="3rd Package" className="mb-3" onChange={this.onChange}/>
-
-                <Label for='package3text'>Package 3 Text</Label>
-                <Input type="textarea" name="package3text" id="package3text" />
-
-                <Label for='package3price'>Package 3 Price</Label>
-                <Input type="number" name="signup_package3price" id="signup_package3price" placeholder="3rd Package" className="mb-3" onChange={this.onChange}/>
-*/}
                 <Label for='text'>Text to display</Label>
                 <Input type="textarea" name="signup_text" id="signup_text" placeholder="text" className="mb-3" onChange={this.onChange}/>
-
-                {/* <Label for='address'>Maximum plates for Day</Label>
-                <Input type="text" name="signup_daymax" id="signup_daymax" placeholder="max day" className="mb-3" onChange={this.onChange}/>
-
-                <Label for='address'>Maximum plates for Night</Label>
-                <Input type="text" name="signup_nightmax" id="signup_nightmax" placeholder="max night" className="mb-3" onChange={this.onChange}/> */}
 
                 <Label for='address2'>Company address</Label>
                 <Input type="text" name="signup_address2" id="signup_address2" placeholder="Second Address" className="mb-3" onChange={this.onChange}/>
